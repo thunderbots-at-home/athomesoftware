@@ -1,3 +1,5 @@
+# Original MakeFile by Steven Erenst
+
 #Compiler
 CXX := g++
 
