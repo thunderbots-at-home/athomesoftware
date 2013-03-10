@@ -12,19 +12,16 @@ using namespace std;
 class SurfMatrixBuilder {
 	
 	private:
-
 		// detector and extractor pointers
 		Ptr<FeatureDetector> _detector;
 		Ptr<DescriptorExtractor> _extractor;
 		const int _width;
 
 	public:
-
 		SurfMatrixBuilder() : _width(128)
 		{
 			_detector = new SurfFeatureDetector(500);
 			_extractor = new SurfDescriptorExtractor();
-
 		}
 
 		~SurfMatrixBuilder()
@@ -59,7 +56,7 @@ class SurfMatrixBuilder {
 			{
 				_detector->detect(imgMats[i], keypoints);
 				_extractor->compute(imgMats[i], keypoints, descriptors);
-				cout << "Number of descriptors in image " << i << ":  " << descriptors.rows << endl;
+				cout << "Number of descriptors in image " << i << " :  " << descriptors.rows <<  endl;
 				Mat labels(descriptors.rows, 1, CV_32F);
 				for (int j = 0; j < descriptors.rows; j++)
 				{
@@ -70,7 +67,7 @@ class SurfMatrixBuilder {
 				trainingMatrix.push_back(descriptors);
 			}
 
-			cout << endl << "DONE!" << endl << "Total Descriptors: " << trainingMatrix.rows << endl << endl << endl;
+			cout << endl << "DONE!" << endl << "Total Descriptors : " << trainingMatrix.rows << endl << endl << endl;
 			return true;
 		}
 
@@ -82,7 +79,6 @@ class SurfMatrixBuilder {
 		bool loadImages( char* dir, int imageType, vector<Mat>& imgMats )
 		{
 			Mat image;
-
 			// directory accessing
 			DIR* dp;
 			struct dirent* dirp;
@@ -122,7 +118,24 @@ class SurfMatrixBuilder {
 			cout << "Loaded " << imgMats.size() << " pictures." << endl;
 			return true;
 		}
+		
+		bool createTest(char* file, int imageType, Mat& testMatrix)
+		{
+			Mat img = imread(file, imageType);
+			if (!img.data)
+			{
+				cout << "Error reading test image." << endl;
+				return false;
+			}
+			vector<KeyPoint> keypoints;
+			
+			_detector->detect(img, keypoints);
+			_extractor->compute(img, keypoints, testMatrix);
 
+			cout << "Number of descriptors in test image " << file << " : " << testMatrix.rows << endl;
+
+			return true;
+		}
 };
 
 		

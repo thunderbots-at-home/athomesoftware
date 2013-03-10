@@ -13,11 +13,10 @@
 *.a
 *.so
 *.gch
-*.d
 
 #libtool outputs
 *.la
 
 #Objects and binaries
-**/bin/
-**/obj/
+bin/
+obj/
