@@ -19,5 +19,5 @@
 *.la
 
 #Objects and binaries
-**/bin/
-**/obj/
+bin/*
+obj/*
