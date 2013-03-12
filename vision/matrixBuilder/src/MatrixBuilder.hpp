@@ -1,16 +1,12 @@
-#include <iostream>
-#include "opencv2/core/core.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/features2d/features2d.hpp"
-#include "opencv2/nonfree/nonfree.hpp"
-#include <string>
-#include <dirent.h>
+#include "libraries.hpp"
+#include "trainingObject.cpp"
 
 #ifndef _MATRIXBUILDER_HPP_
 #define _MATRIXBUILDER_HPP_
 
 using namespace std;
 using namespace cv;
+using namespace boost::filesystem;
 
 class MatrixBuilder {
 
@@ -18,6 +14,8 @@ class MatrixBuilder {
 		// detector and extractor pointers
 		Ptr<FeatureDetector> _detector;
 		Ptr<DescriptorExtractor> _extractor;
+
+		void getFiles(string dir, vector< vector<trainingObject> >& classes);
 
 	public: 
 		// constructors

@@ -10,10 +10,13 @@ EXECUTABLE := surfSVM
 CFLAGS := -std=c++0x -g -Wall
 
 #Linker Flags
-LDFLAGS := -g
+LDFLAGS := -g 
 
 #Opencv pkg-config
 CONFIG := `pkg-config --libs --cflags opencv`
+
+#BOOST Libraries
+BOOST := -L/usr/local/boost/stage/lib -lboost_filesystem
 
 #Source files
 SRC := $(wildcard src/*.cpp)
@@ -28,7 +31,7 @@ OBJ := $(subst src/, obj/, $(SRC:.cpp=.o))
 $(addprefix bin/, $(EXECUTABLE)) : $(OBJ)
 	echo "	LD	$@"
 	mkdir -p bin/
-	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(CONFIG)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(CONFIG) $(BOOST)
 	echo "Build Succeeded"
 
 #Rule to generate .d and .o files from .cpp files

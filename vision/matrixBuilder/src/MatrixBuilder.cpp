@@ -1,8 +1,10 @@
 #include <iostream>
 #include "MatrixBuilder.hpp"
+#include <boost/filesystem.hpp>
 
 using namespace std;
 using namespace cv;
+using namespace boost::filesystem;
 
 MatrixBuilder::MatrixBuilder() {
 	_detector = new SurfFeatureDetector(500);
@@ -29,7 +31,14 @@ void MatrixBuilder::setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor 
 }
 
 bool MatrixBuilder::loadImages(char* dir, int imageType, vector<Mat>& imgMats){
-        Mat image;
+	
+	string dirp = dir;
+	vector< vector<trainingObject> > files;
+	getFiles(dirp, files);
+
+	cout << files.size() << endl;
+	Mat image;
+	/*
 	// directory accessing
 	DIR* dp;
 	struct dirent* dirp;
@@ -67,7 +76,9 @@ bool MatrixBuilder::loadImages(char* dir, int imageType, vector<Mat>& imgMats){
 	}
 	closedir(dp);
 	cout << "Loaded " << imgMats.size() << " pictures." << endl;
+	*/
 	return true;
+
 }
 
 bool MatrixBuilder::createMatrix(float label, vector<Mat>& imgMats, Mat& mClassData, Mat& mClassLabel, vector<Mat>& mClassVector)
@@ -115,6 +126,44 @@ bool MatrixBuilder::createTest( string file, int imageType, Mat& mTestData)
 	return true;
 }
 
+void MatrixBuilder::getFiles(string dir, vector< vector<trainingObject> >& classes) {
+	path p (dir);
+	static int label = 1;
+	vector<path>::iterator it, it_end;
+	static vector<trainingObject> objs;
+	if (exists(p)) {
+		if (is_directory(p)) {
+			cout << "Entering Directory " << p << endl;
+			vector<path> vec;
+			objs.clear();
+			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
+		
+			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
+				getFiles((*it).string(), classes);
+						
+			}
+			// TODO Make this better. 
+			it = vec.begin(); it_end = vec.end();
+			while (it != it_end) {
+				if (is_regular_file(*it)) {
+					label++;
+					classes.push_back(objs);
+					break;
+				}
+				++it;
+			}
+
+		}
+		else if (is_regular_file(p)) {
+			trainingObject obj(imread(p.string(), CV_LOAD_IMAGE_GRAYSCALE), label, p.parent_path().filename().string());
+//			cout << obj.getName() << " - Num of descriptors: " << obj.getMat().rows << " Label : " << obj.getLabel() << endl;
+			objs.push_back(obj);
+		}
+		else {
+			cout << p << " not in dir." << endl;
+		}
+	}
+}
 
 
 

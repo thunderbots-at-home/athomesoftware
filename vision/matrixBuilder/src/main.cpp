@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 	Mat class2Label(0, 0, CV_32F);
 
 	// Build matrices
-	MatrixBuilder builder(argv[3]);
+	MatrixBuilder builder("SURF");
 	success = builder.loadImages(argv[1], CV_LOAD_IMAGE_GRAYSCALE, dir1Mats);
 	if (!success) {
 		cout << "Error loading images" << endl;
@@ -59,6 +59,18 @@ int main(int argc, char** argv) {
 
 	labelMatrix.push_back(class1Label);
 	labelMatrix.push_back(class2Label);
+
+	// BOW
+	/*
+	BOWKMeansTrainer trainer(1000);
+	trainer.add(trainingMatrix);
+	Mat vocab = trainer.cluster();
+
+	Ptr<DescriptorMatcher > matcher(new FlannBasedMatcher());
+	Ptr<DescriptorExtractor > extractor(new OpponentColorDescriptorExtractor(Ptr<DescriptorExtractor>(new SurfDescriptorExtractor())));
+	Ptr<BOWImgDescriptorExtractor> bowide(new BOWImgDescriptorExtractor(extractor,matcher));
+	bowide->setVocabulary(vocab);
+	*/
 	cout << "Beginning training..." << endl;
 
 	// svm
