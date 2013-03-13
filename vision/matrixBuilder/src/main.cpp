@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 	// Build matrices
 	MatrixBuilder builder("SURF");
 
-	builder.getFiles(argv[1], classes);
+	builder.loadClasses(argv[1], classes);
 	cout << "Total number of classes: " << classes.size() << endl;
 
 	/*

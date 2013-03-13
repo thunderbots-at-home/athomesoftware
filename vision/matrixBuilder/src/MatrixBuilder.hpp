@@ -15,12 +15,18 @@ class MatrixBuilder {
 		Ptr<FeatureDetector> _detector;
 		Ptr<DescriptorExtractor> _extractor;
 
+		// extract keypoints and descriptors from one image
+		void extract(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints);
+
+		// Load an image from file
+		void loadImage(string filename, int imageType, Mat& image);
 
 	public: 
 		// constructors
 		MatrixBuilder();
 		MatrixBuilder(const string& detectorType);
-
+		
+		// Destructor
 		~MatrixBuilder();
 
 		// set descriptor
@@ -28,11 +34,9 @@ class MatrixBuilder {
 
 		// Set extractor
 		void setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor);
-
-		void getFiles(string dir, vector<TrainingObject>& classes);
-		// Create matrix of descriptors for one image
-		void create(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints);
-		void loadImage(string filename, int imageType, Mat& image);
+		
+		// Creates all trainingObjects 
+		void loadClasses(string dir, vector<TrainingObject>& classes);
 };
 
 #endif

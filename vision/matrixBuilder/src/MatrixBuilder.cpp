@@ -31,7 +31,7 @@ void MatrixBuilder::setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor 
 }
 
 
-void MatrixBuilder::create(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints)
+void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints)
 {
 
 	_detector->detect(image, keypoints);
@@ -39,7 +39,7 @@ void MatrixBuilder::create(const Mat& image, Mat& descriptors, vector<KeyPoint>&
 
 }
 
-void MatrixBuilder::getFiles(string dir, vector<TrainingObject>& classes) {
+void MatrixBuilder::loadClasses(string dir, vector<TrainingObject>& classes) {
 	path p (dir);
 	static int label = 1;
 	vector<path>::iterator it, it_end;
@@ -54,7 +54,7 @@ void MatrixBuilder::getFiles(string dir, vector<TrainingObject>& classes) {
 			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
 		
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
-				getFiles((*it).string(), classes);
+				loadClasses((*it).string(), classes);
 						
 			}
 			// TODO Make this better. 
@@ -79,9 +79,9 @@ void MatrixBuilder::getFiles(string dir, vector<TrainingObject>& classes) {
 			loadImage(p.string(), CV_LOAD_IMAGE_GRAYSCALE, image);
 			Mat descriptors;
 			vector<KeyPoint> keypoints;
-			create(image, descriptors, keypoints);
+			extract(image, descriptors, keypoints);
 			cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
-			<< descriptors.rows << "\tLabel: " << label << "\tClass Name: " << 
+			<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
 			obj.getName() << endl; 
 			obj.push_back(image, keypoints, descriptors);
 		}
