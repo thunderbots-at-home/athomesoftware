@@ -32,7 +32,7 @@ class MatrixBuilder {
 		void getFiles(string dir, vector<TrainingObject>& classes);
 		// Create matrix of descriptors for one image
 		void create(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints);
-		Mat loadImage(string filename, int imageType);
+		void loadImage(string filename, int imageType, Mat& image);
 };
 
 #endif

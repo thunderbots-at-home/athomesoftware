@@ -7,7 +7,7 @@ using namespace cv;
 using namespace boost::filesystem;
 
 MatrixBuilder::MatrixBuilder() {
-	_detector = new SurfFeatureDetector(100);
+	_detector = new SurfFeatureDetector(600);
 	_extractor = new SurfDescriptorExtractor();
 }
 
@@ -75,7 +75,8 @@ void MatrixBuilder::getFiles(string dir, vector<TrainingObject>& classes) {
 			
 			//trainingObject obj(imread(p.string(), CV_LOAD_IMAGE_GRAYSCALE), label, p.parent_path().filename().string());
 //			cout << obj.getName() << " - Num of descriptors: " << obj.getMat().rows << " Label : " << obj.getLabel() << endl;
-			Mat image = loadImage(p.string(), CV_LOAD_IMAGE_GRAYSCALE);
+			Mat image;
+			loadImage(p.string(), CV_LOAD_IMAGE_GRAYSCALE, image);
 			Mat descriptors;
 			vector<KeyPoint> keypoints;
 			create(image, descriptors, keypoints);
@@ -90,10 +91,9 @@ void MatrixBuilder::getFiles(string dir, vector<TrainingObject>& classes) {
 	}
 }
 
-Mat MatrixBuilder::loadImage(string filename, int imageType) {
-	Mat image = imread(filename, imageType);
+void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
+	image = imread(filename, imageType);
 	// TODO -> preprocessing
-	return image;
 }
 
 
