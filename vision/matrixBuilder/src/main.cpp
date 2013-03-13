@@ -3,57 +3,31 @@
 #include "opencv2/imgproc/imgproc_c.h"
 #include "opencv2/legacy/legacy.hpp"
 #include "opencv2/legacy/compat.hpp"
+
 using namespace std;
 using namespace cv;
 
 int main(int argc, char** argv) {
-	bool success;
-	clock_t t;
+//	clock_t t;
 
-	if (argc != 4) {
-		cout << "Not enough arguements: include two directories" << endl;
+	if (argc != 2) {
+		cout << "Not enough arguements: Please Enter in the database Directory" << endl;
 		return -1;
 	}
 
-	vector<Mat> dir1Mats;
-	vector<Mat> dir2Mats;
+	vector<TrainingObject> classes;
 
 	Mat trainingMatrix(0, 0, CV_32F);
 	Mat labelMatrix(0, 0, CV_32F);
 
-	Mat class1Matrix(0, 0, CV_32F);
-	vector<Mat> class1Vector;
-	Mat class1Label(0, 0, CV_32F);
-
-	Mat class2Matrix(0 ,0 ,CV_32F);
-	vector<Mat> class2Vector;
-	Mat class2Label(0, 0, CV_32F);
 
 	// Build matrices
-	MatrixBuilder builder("SURF");
-	success = builder.loadImages(argv[1], CV_LOAD_IMAGE_GRAYSCALE, dir1Mats);
-	if (!success) {
-		cout << "Error loading images" << endl;
-		return -1;
-	}
-	success = builder.createMatrix(1.0f, dir1Mats, class1Matrix, class1Label, class1Vector);
-	if (!success) {
-		cout << "Error creating matrix." << endl;
-		return -1;
-	}
+	MatrixBuilder builder;
 
-	success = builder.loadImages(argv[2], CV_LOAD_IMAGE_GRAYSCALE, dir2Mats);
-	if (!success) {
-		cout << "Error loading images" << endl;
-		return -1;
-	}
-	success = builder.createMatrix(-1.0f, dir2Mats, class2Matrix, class2Label, class2Vector);
-	if (!success) {
-		cout << "Error creating matrix." << endl;
-		return -1;
-	}
+	builder.getFiles(argv[1], classes);
+	cout << "Total number of classes: " << classes.size() << endl;
 
-
+	/*
 	trainingMatrix.push_back(class1Matrix);
 	trainingMatrix.push_back(class2Matrix);
 
@@ -61,7 +35,6 @@ int main(int argc, char** argv) {
 	labelMatrix.push_back(class2Label);
 
 	// BOW
-	/*
 	BOWKMeansTrainer trainer(1000);
 	trainer.add(trainingMatrix);
 	Mat vocab = trainer.cluster();
@@ -70,7 +43,6 @@ int main(int argc, char** argv) {
 	Ptr<DescriptorExtractor > extractor(new OpponentColorDescriptorExtractor(Ptr<DescriptorExtractor>(new SurfDescriptorExtractor())));
 	Ptr<BOWImgDescriptorExtractor> bowide(new BOWImgDescriptorExtractor(extractor,matcher));
 	bowide->setVocabulary(vocab);
-	*/
 	cout << "Beginning training..." << endl;
 
 	// svm
@@ -88,6 +60,7 @@ int main(int argc, char** argv) {
 	t = clock() - t;
 	cout << "Time to train: " << t / ((float)CLOCKS_PER_SEC) << " seconds." <<  endl; 
 
+	*/
 	return 0;
 }
 

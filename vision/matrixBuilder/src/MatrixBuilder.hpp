@@ -1,5 +1,5 @@
 #include "libraries.hpp"
-#include "trainingObject.cpp"
+#include "TrainingObject.cpp"
 
 #ifndef _MATRIXBUILDER_HPP_
 #define _MATRIXBUILDER_HPP_
@@ -15,7 +15,6 @@ class MatrixBuilder {
 		Ptr<FeatureDetector> _detector;
 		Ptr<DescriptorExtractor> _extractor;
 
-		void getFiles(string dir, vector< vector<trainingObject> >& classes);
 
 	public: 
 		// constructors
@@ -30,27 +29,10 @@ class MatrixBuilder {
 		// Set extractor
 		void setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor);
 
-		// Loads all imgs in a directory into a vector of matrices.
-		// Each element in the vector is one image matrix
-		bool loadImages(
-		/*INPUT*/  char* dir, // string to directory
-		/*INPUT*/  int imageType, // format of image (eg CV_LOAD_IMAGE_GRAYSCALE)
-		/*OUTPUT*/ vector<Mat>& imgMats); // output vector of matrices for each image
-
-		// Calculates all descriptors for each image
-		bool createMatrix(
-		/*INPUT*/  float label, // class label
-		/*INPUT*/  vector<Mat>& imgMats, // vector of image matricies
-		/*OUTPUT*/ Mat& mClassData, // matrix of all descriptors 
-		/*OUTPUT*/ Mat& mClassLabel, // label matrix for descriptors
-		/*OUTPUT*/ vector<Mat>& mClassVector); // vector of descriptors per image
-			
+		void getFiles(string dir, vector<TrainingObject>& classes);
 		// Create matrix of descriptors for one image
-		bool createTest(
-		/*INPUT*/  string file, // file to be loaded
-		/*INPUT*/  int imageType, // opencv matrix type
-		/*OUTPUT*/ Mat& mTestData); // matrix of descriptors
-
+		void create(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints);
+		Mat loadImage(string filename, int imageType);
 };
 
 #endif
