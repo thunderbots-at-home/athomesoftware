@@ -47,6 +47,7 @@ void MatrixBuilder::loadClasses(string dir, vector<TrainingObject>& classes) {
 	if (exists(p)) {
 		if (is_directory(p)) {
 			cout << "Entering Directory " << p << endl;
+			t = clock();
 			vector<path> vec;
 			obj.clear();
 			obj.setName(p.leaf().string());
@@ -63,8 +64,9 @@ void MatrixBuilder::loadClasses(string dir, vector<TrainingObject>& classes) {
 				if (is_regular_file(*it)) {
 					label++;
 					classes.push_back(obj);
+					t = clock() - t;
 					cout << endl << "Finished Processing " << obj.getSize()
-					<< " images of type: " << obj.getName() << " Class." << endl << endl;
+					<< " images of " << obj.getName() << " in " << ((float)t/CLOCKS_PER_SEC) << " seconds" << endl << endl;
 					break;
 				}
 				++it;
@@ -72,9 +74,6 @@ void MatrixBuilder::loadClasses(string dir, vector<TrainingObject>& classes) {
 
 		}
 		else if (is_regular_file(p)) {
-			
-			//trainingObject obj(imread(p.string(), CV_LOAD_IMAGE_GRAYSCALE), label, p.parent_path().filename().string());
-//			cout << obj.getName() << " - Num of descriptors: " << obj.getMat().rows << " Label : " << obj.getLabel() << endl;
 			Mat image;
 			loadImage(p.string(), CV_LOAD_IMAGE_GRAYSCALE, image);
 			Mat descriptors;

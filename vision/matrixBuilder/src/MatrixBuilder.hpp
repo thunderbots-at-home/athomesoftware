@@ -15,6 +15,9 @@ class MatrixBuilder {
 		Ptr<FeatureDetector> _detector;
 		Ptr<DescriptorExtractor> _extractor;
 
+		// Clock
+		clock_t t;
+
 		// extract keypoints and descriptors from one image
 		void extract(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints);
 

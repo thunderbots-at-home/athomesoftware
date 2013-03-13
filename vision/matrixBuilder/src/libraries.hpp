@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iterator>
+#include <ctime>
 #include <boost/filesystem.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
