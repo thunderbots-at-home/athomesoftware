@@ -7,7 +7,7 @@ using namespace cv;
 using namespace boost::filesystem;
 
 MatrixBuilder::MatrixBuilder() {
-	_detector = new SurfFeatureDetector(400);
+	_detector = new SurfFeatureDetector(100);
 	_extractor = new SurfDescriptorExtractor();
 }
 
