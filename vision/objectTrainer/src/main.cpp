@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
 	vector<ClassContainer> classes;
 	Mat vocab;
 	Mat trainingMatrix;
+	Mat labelMatrix;
 
 	MatrixBuilder builder;
 	t = clock();
@@ -32,10 +33,10 @@ int main(int argc, char** argv) {
 	cout <<endl<<"It tool "<<t/(float)CLOCKS_PER_SEC<<" seconds to load the vocabulary."<<endl;
 	cout <<endl<<"The vocab has "<<vocab.rows<<" rows"<<endl;
 	t = clock();
-	builder.getTrainingMatrix(classes, vocab, trainingMatrix);
+	builder.getTrainingMatrix(classes, vocab, trainingMatrix, labelMatrix);
 	t = clock() - t;
 	cout <<endl<<"It took "<<t/(float)CLOCKS_PER_SEC<<" seconds to create the training matrix."<<endl;
-	cout <<endl<<"The training matrix contains "<<trainingMatrix.rows<< " rows"<<endl;
+	cout <<endl<<"The training matrix contains "<<trainingMatrix.rows<< " rows and the label matrix contains "<< labelMatrix.rows<<" rows" <<endl;
 	return 0;
 }
 

@@ -52,7 +52,7 @@ class MatrixBuilder {
 
 		void getVocab(Mat& vocab);
 
-		void getTrainingMatrix(vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix);
+		void getTrainingMatrix(vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix, Mat& labelMatrix);
 };
 
 #endif

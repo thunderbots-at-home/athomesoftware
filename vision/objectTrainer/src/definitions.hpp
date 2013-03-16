@@ -14,8 +14,8 @@
 #ifndef DEFINITIONS_HPP_
 #define DEFINITIONS_HPP_
 
-static const int NORMALIZED_HEIGHT = 300;
-static const int NORMALIZED_WIDTH = 300;
+static const int NORMALIZED_HEIGHT = 640;
+static const int NORMALIZED_WIDTH = 480;
 
 #endif
 

@@ -124,7 +124,7 @@ void MatrixBuilder::getVocab(Mat& vocab) {
 	vocab = _bowTrainer.cluster();
 }
 
-void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix ) {
+void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix, Mat& labelMatrix ) {
 	// TODO implement labels
 	_bowide->setVocabulary(vocab);
 	for (unsigned int i = 0; i < classes.size(); i++) {
@@ -133,6 +133,12 @@ void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& voc
 			vector<KeyPoint> keys = classes.at(i).getKeypoint(j);
 			_bowide->compute(classes.at(i).getImage(j), keys, histResponce);
 			trainingMatrix.push_back(histResponce);
+		}
+	}
+	labelMatrix.create(trainingMatrix.rows, 1, CV_32F);
+	for (unsigned int i = 0; i < classes.size(); i++) {
+		for(unsigned int j = 0; j < unsigned(classes.at(i).getSize()); j++) {
+			labelMatrix.at<float>(j,0) = classes.at(i).getLabel();
 		}
 	}
 }
