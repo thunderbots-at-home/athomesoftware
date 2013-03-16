@@ -98,10 +98,12 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 			Mat descriptors;
 			vector<KeyPoint> keypoints;
 			extract(image, descriptors, keypoints);
-			cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
-			<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
-			obj.getName() << endl; 
-			obj.push_back(image, keypoints, descriptors);
+			if (descriptors.rows > 0) {
+				cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
+				<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
+				obj.getName() << endl; 
+				obj.push_back(image, keypoints, descriptors);
+			}
 		}
 		else {
 			cout << p << " not in dir." << endl;
@@ -110,7 +112,11 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 }
 
 void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
-	image = imread(filename, imageType);
+	Mat src = imread(filename, imageType);
+	assert(src.data);
+
+	equalizeHist(src, image);
+	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
 	// TODO -> preprocessing
 }
 
@@ -124,8 +130,8 @@ void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& voc
 	for (unsigned int i = 0; i < classes.size(); i++) {
 		for(unsigned int j = 0; j < unsigned(classes.at(i).getSize()); j++) {
 			Mat histResponce;
-			vector<KeyPoint> keys;
-			_bowide->compute(classes.at(i).getImage(j), keys , histResponce);
+			vector<KeyPoint> keys = classes.at(i).getKeypoint(j);
+			_bowide->compute(classes.at(i).getImage(j), keys, histResponce);
 			trainingMatrix.push_back(histResponce);
 		}
 	}
