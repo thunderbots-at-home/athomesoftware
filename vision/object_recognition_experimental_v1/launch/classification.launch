@@ -1,0 +1,14 @@
+<launch>
+
+
+<!-- Start matcher nodes -->
+<node pkg="classification" type="face_matcher" name="face_matcher_node" />
+<node pkg="classification" type="object_matcher" name="object_matcher_node" />
+<node pkg="classification" type="obstacle_matcher" name="obstacle_matcher_node" />
+
+<!-- Start learner nodes -->
+<node pkg="classification" type="face_trainer" name="face_trainer_node" />
+<node pkg="classification" type="obstacle_trainer" name="obstacle_trainer_node" />
+<node pkg="classification" type="object_trainer" name="object_trainer_node" />
+
+</launch>

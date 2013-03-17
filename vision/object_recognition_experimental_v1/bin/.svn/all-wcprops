@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin
+END
+obstacle_matcher
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin/obstacle_matcher
+END
+obstacle_trainer
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin/obstacle_trainer
+END
+face_matcher
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin/face_matcher
+END
+face_trainer
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin/face_trainer
+END
+object_matcher
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin/object_matcher
+END
+object_trainer
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/thunderbotsathome/!svn/ver/201/trunk/Software/tbots_vision_pkg/classification/bin/object_trainer
+END
