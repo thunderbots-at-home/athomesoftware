@@ -3,6 +3,10 @@
 	The image matrices, keypoints, and descriptors of every spoon image
 	are stored in this one class as vectors.
 */
+
+#ifndef CLASSCONTAINER_CPP_
+#define CLASSCONTAINER_CPP_
+
 #include "definitions.hpp"
 using namespace std;
 using namespace cv;
@@ -97,3 +101,4 @@ public:
 
 };
 
+#endif

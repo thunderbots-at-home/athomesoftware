@@ -29,8 +29,7 @@ class MatrixBuilder {
 
 	public: 
 		// constructors
-		MatrixBuilder();
-		MatrixBuilder(const string& detectorType);
+		MatrixBuilder(int algType);
 		
 		// Destructor
 		~MatrixBuilder();

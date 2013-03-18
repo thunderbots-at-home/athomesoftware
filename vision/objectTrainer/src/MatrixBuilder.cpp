@@ -1,13 +1,15 @@
 #include <iostream>
 #include "MatrixBuilder.hpp"
 #include <boost/filesystem.hpp>
+#include "MatrixFactory.hpp"
 
 using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
 
-MatrixBuilder::MatrixBuilder() : _bowTrainer(1000) {
-	_detector = new SurfFeatureDetector(500);
+MatrixBuilder::MatrixBuilder(int algName) : _bowTrainer(1000) {
+	MatrixFactory matFactory;
+	matFactory.initFeatureDetector(algName, _detector);
 	_extractor = new SurfDescriptorExtractor();
 	_matcher = new FlannBasedMatcher();//new BruteForceMatcher<L2 <float> >();
 	_bowide = new BOWImgDescriptorExtractor(_extractor, _matcher);
@@ -71,10 +73,9 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 			obj.setName(p.leaf().string());
 			obj.setLabel(label);
 			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
-		
+
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
 				loadClasses((*it).string(), classes);
-						
 			}
 			// TODO Make this better. 
 			it = vec.begin(); it_end = vec.end();
