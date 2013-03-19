@@ -11,6 +11,9 @@
 #include <opencv2/legacy/legacy.hpp>
 #include <opencv2/legacy/compat.hpp>
 #include "SURFParams_t.cpp"
+#include "STARParams_t.cpp"
+#include "FASTParams_t.cpp"
+#include "FeatureDetectorParams.cpp"
 
 #ifndef DEFINITIONS_HPP_
 #define DEFINITIONS_HPP_
@@ -25,6 +28,15 @@ enum algType { mFAST = 1, mSTAR = 2, mSIFT = 3, mSURF = 4, mORB = 5, mBRISK = 6,
 
 // SURF Parameters
 static const SURFParams_t surfParams(500);
+
+// STAR parameters
+static const STARParams_t starParams;
+
+// FAST parameters
+static const FASTParams_t fastParams(4, true);
+
+// ORB parameters
+static const ORBParams_t orbParams;
 
 #endif
 

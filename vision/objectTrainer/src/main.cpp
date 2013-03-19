@@ -22,7 +22,7 @@ int main(int argc, char** argv) {
 	Mat trainingMatrix;
 	Mat labelMatrix;
 
-	MatrixBuilder builder(4);
+	MatrixBuilder builder(5);
 	t = clock();
 	builder.loadClasses(argv[1], classes);
 	t = clock() - t;

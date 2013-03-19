@@ -6,11 +6,19 @@ using namespace std;
 void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& detector) {
 	switch(algName) {
 		case mFAST: {
-			detector = new cv::FastFeatureDetector();
+			detector = new cv::FastFeatureDetector(
+				fastParams.threshold,
+				fastParams.nonmaxSuppression);
 			break;
 		}
 		case mSTAR: {
-			detector = new cv::StarFeatureDetector();
+			
+			detector = new cv::StarFeatureDetector(
+				starParams.maxSize,
+				starParams.responseThreshold,
+				starParams.lineThresholdProjected,
+				starParams.lineThresholdBinarized,
+				starParams.suppressNonmaxSize);
 			break;
 		}
 		case mSIFT: {
@@ -27,7 +35,15 @@ void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& d
 			break;
 		}
 		case mORB: {
-			detector = new cv::OrbFeatureDetector();
+			detector = new cv::OrbFeatureDetector(
+				orbParams.nFeatures,
+				orbParams.scaleFactor,
+				orbParams.nLevels,
+				orbParams.edgeThreshold,
+				orbParams.firstLevel,
+				orbParams.WTA_K,
+				orbParams.scoreType,
+				orbParams.patchSize);
 			break;
 		}
 		case mBRISK: {
