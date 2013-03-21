@@ -1,5 +1,5 @@
-#include "libraries.hpp"
-#include "TrainingObject.cpp"
+#include "definitions.hpp"
+#include "ClassContainer.cpp"
 
 #ifndef _MATRIXBUILDER_HPP_
 #define _MATRIXBUILDER_HPP_
@@ -14,6 +14,9 @@ class MatrixBuilder {
 		// detector and extractor pointers
 		Ptr<FeatureDetector> _detector;
 		Ptr<DescriptorExtractor> _extractor;
+		Ptr<DescriptorMatcher> _matcher;
+		BOWKMeansTrainer _bowTrainer;
+		Ptr<BOWImgDescriptorExtractor> _bowide;
 
 		// Clock
 		clock_t t;
@@ -26,8 +29,7 @@ class MatrixBuilder {
 
 	public: 
 		// constructors
-		MatrixBuilder();
-		MatrixBuilder(const string& detectorType);
+		MatrixBuilder(int featureAlg, int descriptorAlg);
 		
 		// Destructor
 		~MatrixBuilder();
@@ -37,9 +39,19 @@ class MatrixBuilder {
 
 		// Set extractor
 		void setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor);
+		// set Matcher
+		void setDescriptorMatcher( Ptr<DescriptorMatcher>& matcher ); 
+
+		void setBOWImgDescriptorExtractor( Ptr<BOWImgDescriptorExtractor>& extractor );
+
+		void setBOWKMeansTrainer( BOWKMeansTrainer bowTrainer);
 		
 		// Creates all trainingObjects 
-		void loadClasses(string dir, vector<TrainingObject>& classes);
+		void loadClasses(string dir, vector<ClassContainer>& classes);
+
+		void getVocab(Mat& vocab);
+
+		void getTrainingMatrix(vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix, Mat& labelMatrix);
 };
 
 #endif

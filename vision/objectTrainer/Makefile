@@ -7,7 +7,7 @@ CXX := g++
 EXECUTABLE := surfSVM 
 
 #Compiler Flags
-CFLAGS := -std=c++0x -g -Wall
+CFLAGS := -std=c++0x -fopenmp -g -Wall
 
 #Linker Flags
 LDFLAGS := -g 
