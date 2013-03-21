@@ -1,11 +1,13 @@
 #include <iostream>
 #include "MatrixBuilder.hpp"
+#include <boost/filesystem.hpp>
 
 using namespace std;
 using namespace cv;
+using namespace boost::filesystem;
 
 MatrixBuilder::MatrixBuilder() {
-	_detector = new SurfFeatureDetector(500);
+	_detector = new SurfFeatureDetector(600);
 	_extractor = new SurfDescriptorExtractor();
 }
 
@@ -28,93 +30,70 @@ void MatrixBuilder::setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor 
 	_extractor = extractor;
 }
 
-bool MatrixBuilder::loadImages(char* dir, int imageType, vector<Mat>& imgMats){
-        Mat image;
-	// directory accessing
-	DIR* dp;
-	struct dirent* dirp;
-	char* tok;
-	string path = dir;
-	string fileName;
 
-	if ( (dp = opendir(dir)) == NULL)
-	{
-		cout << "Error opening Directory" << endl;
-		return false;
-	}
+void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints)
+{
 
-	while ( (dirp = readdir(dp)) != NULL)
-	{
-		if (strcmp(dirp->d_name, ".") == 0 || strcmp(dirp->d_name, "..") == 0)
-			continue;
-		fileName = dirp->d_name;
-		path = dir;
-		// parse string using "." as delimeter
-		tok = strtok(dirp->d_name, ".");
-		tok = strtok(NULL, ".");
-		if (strcmp(tok, "jpg") == 0 || strcmp(tok, "JPG") == 0)
-		{
-			image = imread(path + fileName, imageType);
-			if (!image.data){
-				cout << "Error Reading image " << fileName << endl;
-				continue;
+	_detector->detect(image, keypoints);
+	_extractor->compute(image, keypoints, descriptors);
+
+}
+
+void MatrixBuilder::loadClasses(string dir, vector<TrainingObject>& classes) {
+	path p (dir);
+	static int label = 1;
+	vector<path>::iterator it, it_end;
+	static TrainingObject obj;
+	if (exists(p)) {
+		if (is_directory(p)) {
+			cout << "Entering Directory " << p << endl;
+			t = clock();
+			vector<path> vec;
+			obj.clear();
+			obj.setName(p.leaf().string());
+			obj.setLabel(label);
+			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
+		
+			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
+				loadClasses((*it).string(), classes);
+						
 			}
-			else
-			{
-				imgMats.push_back(image);
+			// TODO Make this better. 
+			it = vec.begin(); it_end = vec.end();
+			while (it != it_end) {
+				if (is_regular_file(*it)) {
+					label++;
+					classes.push_back(obj);
+					t = clock() - t;
+					cout << endl << "Finished Processing " << obj.getSize()
+					<< " images of " << obj.getName() << " in " << ((float)t/CLOCKS_PER_SEC) << " seconds" << endl << endl;
+					break;
+				}
+				++it;
 			}
+
+		}
+		else if (is_regular_file(p)) {
+			Mat image;
+			loadImage(p.string(), CV_LOAD_IMAGE_GRAYSCALE, image);
+			Mat descriptors;
+			vector<KeyPoint> keypoints;
+			extract(image, descriptors, keypoints);
+			cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
+			<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
+			obj.getName() << endl; 
+			obj.push_back(image, keypoints, descriptors);
+		}
+		else {
+			cout << p << " not in dir." << endl;
 		}
 	}
-	closedir(dp);
-	cout << "Loaded " << imgMats.size() << " pictures." << endl;
-	return true;
 }
 
-bool MatrixBuilder::createMatrix(float label, vector<Mat>& imgMats, Mat& mClassData, Mat& mClassLabel, vector<Mat>& mClassVector)
-{
-	cout << "*** Computing Descriptors ***" << endl;
-	int numImgs = imgMats.size();
-	vector<KeyPoint> keypoints;
-	Mat descriptors;
-
-	for (int i = 0; i < numImgs; i++)
-	{
-		_detector->detect(imgMats[i], keypoints);
-		_extractor->compute(imgMats[i], keypoints, descriptors);
-		cout << "Number of descriptors in image " << i << " :  " << descriptors.rows <<  endl;
-		Mat labels(descriptors.rows, 1, CV_32F);
-		for (int j = 0; j < descriptors.rows; j++)
-		{
-			labels.at<float>(j,0) = label;
-		}
-		// load matrices
-		mClassLabel.push_back(labels);
-		mClassData.push_back(descriptors);
-		mClassVector.push_back(descriptors);
-	}
-
-	cout << endl << "DONE!" << endl << "Total Descriptors : " << mClassData.rows << endl << endl << endl;
-	return true;
+void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
+	image = imread(filename, imageType);
+	// TODO -> preprocessing
 }
-
-bool MatrixBuilder::createTest( string file, int imageType, Mat& mTestData)
-{
-	Mat img = imread(file, imageType);
-	if (!img.data)
-	{
-		cout << "Error reading test image." << endl;
-		return false;
-	}
-	vector<KeyPoint> keypoints;
-
-	_detector->detect(img, keypoints);
-	_extractor->compute(img, keypoints, mTestData);
-
-	cout << "Number of descriptors in test image " << file << " : " << mTestData.rows << endl;
-
-	return true;
-}
-
 
 
 
