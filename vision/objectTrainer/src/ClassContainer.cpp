@@ -23,7 +23,7 @@ private:
 
 public:
 	// constructors
-	ClassContainer(float label, string name) {
+	ClassContainer(float label, string name) : _descriptors(0, 0, CV_32F) {
 		_label = label;
 		_name = name;
 		_size = 0;

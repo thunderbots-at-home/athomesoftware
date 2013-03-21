@@ -7,27 +7,21 @@ using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
 
-MatrixBuilder::MatrixBuilder(int algName) : _bowTrainer(1000) {
-	MatrixFactory matFactory;
-	matFactory.initFeatureDetector(algName, _detector);
+MatrixBuilder::MatrixBuilder(int featureAlg, int descriptorAlg) : _bowTrainer(1000) {
+	MatrixFactory factory;
+	factory.initFeatureDetector(featureAlg, _detector);
 	_extractor = new SurfDescriptorExtractor();
 	_matcher = new FlannBasedMatcher();//new BruteForceMatcher<L2 <float> >();
 	_bowide = new BOWImgDescriptorExtractor(_extractor, _matcher);
 }
 
-// TODO Make Factory
-/*
-MatrixBuilder::MatrixBuilder(const string& detectorType) {
-	_detector = FeatureDetector::create(detectorType);
-	_extractor = DescriptorExtractor::create(detectorType);
-}
-*/
 
 MatrixBuilder::~MatrixBuilder() {
 	_detector.~Ptr<FeatureDetector>();
 	_extractor.~Ptr<DescriptorExtractor>();
 	_matcher.~Ptr<DescriptorMatcher>();
 }
+
 // set descriptor
 void MatrixBuilder::setFeatureDetector( Ptr<FeatureDetector>& detector ) {
 	_detector = detector;
@@ -61,7 +55,7 @@ void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>
 
 void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 	path p (dir);
-	static int label = 1;
+	static float label = 1.0f;
 	vector<path>::iterator it, it_end;
 	static ClassContainer obj;
 	if (exists(p)) {
@@ -127,25 +121,23 @@ void MatrixBuilder::getVocab(Mat& vocab) {
 
 void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix, Mat& labelMatrix ) {
 	// TODO implement labels
+	static int ind=0;
 	_bowide->setVocabulary(vocab);
 	for (unsigned int i = 0; i < classes.size(); i++) {
 		for(unsigned int j = 0; j < unsigned(classes.at(i).getSize()); j++) {
 			Mat histResponce;
 			vector<KeyPoint> keys = classes.at(i).getKeypoint(j);
 			_bowide->compute(classes.at(i).getImage(j), keys, histResponce);
+			assert(histResponce.type() == CV_32F);
 			trainingMatrix.push_back(histResponce);
 		}
 	}
 	labelMatrix.create(trainingMatrix.rows, 1, CV_32F);
 	for (unsigned int i = 0; i < classes.size(); i++) {
 		for(unsigned int j = 0; j < unsigned(classes.at(i).getSize()); j++) {
-			labelMatrix.at<float>(j,0) = classes.at(i).getLabel();
+			labelMatrix.at<float>(ind,0) = classes.at(i).getLabel();
+			ind++;
 		}
 	}
 }
-
-
-
-
-
 

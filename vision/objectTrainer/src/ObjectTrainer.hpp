@@ -15,17 +15,22 @@ class ObjectTrainer {
 
 	ObjectTrainer();
 
-	void train(string dir);
+	void initialize(string dir, int featureAlg, int descriptorAlg);
+	
+	void train();
+
+	void save(int featureAlg, int descriptorAlg);
 	
 
 	private:
 
 	vector<ClassContainer> _classes;
-	Mat trainingMatrix;
-	Mat labelMatrix;
-	MatrixBuilder _matrixBuilder;
+	Mat _trainingMatrix;
+	Mat _labelMatrix;
+	Mat _vocab;
 	CvSVM _svm;
 	clock_t _t;
+
 	// TODO add factory class
 
 };

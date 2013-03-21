@@ -38,5 +38,8 @@ static const FASTParams_t fastParams(4, true);
 // ORB parameters
 static const ORBParams_t orbParams;
 
+// SVM PARAMS
+static CvSVMParams SVM_Params;
+
 #endif
 

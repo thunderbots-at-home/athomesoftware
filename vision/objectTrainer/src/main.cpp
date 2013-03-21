@@ -1,6 +1,7 @@
 #include "definitions.hpp"
 #include <iostream>
-#include "MatrixBuilder.hpp"
+#include "ObjectTrainer.hpp"
+
 
 using namespace std;
 using namespace cv;
@@ -16,6 +17,28 @@ int main(int argc, char** argv) {
 		return -1;
 	}
 
+
+	int featureAlg = 0;
+	int descriptorAlg = 0;
+
+	cout<<"Please select a Feature Detection Algorithm"<<endl;
+	cout<<"\t\t1) FAST\t\t2) STAR\t\t3) SIFT\t\t4) SURF\n\t\t5) ORB\t\t6) BRISK\t7) MSER\t\t8) BLOB"<<endl;
+	
+	while(featureAlg < mFAST || featureAlg > mBLOB) {
+		while(!(cin>>featureAlg)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+	}
+
+	// TODO descriptor selection
+
+	ObjectTrainer trainer;
+	trainer.initialize(argv[1], featureAlg, 1);
+	trainer.train();
+	trainer.save(featureAlg, 1);
+
+/*
 	clock_t t;
 	vector<ClassContainer> classes;
 	Mat vocab;
@@ -37,6 +60,7 @@ int main(int argc, char** argv) {
 	t = clock() - t;
 	cout <<endl<<"It took "<<t/(float)CLOCKS_PER_SEC<<" seconds to create the training matrix."<<endl;
 	cout <<endl<<"The training matrix contains "<<trainingMatrix.rows<< " rows and the label matrix contains "<< labelMatrix.rows<<" rows" <<endl;
+	*/
 	return 0;
 }
 
