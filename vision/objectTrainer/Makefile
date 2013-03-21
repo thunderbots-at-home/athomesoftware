@@ -4,7 +4,7 @@
 CXX := g++
 
 #Executable to compile
-EXECUTABLE := surfSVM 
+EXECUTABLE := objectTrainer 
 
 #Compiler Flags
 CFLAGS := -std=c++0x -fopenmp -g -Wall
@@ -46,4 +46,4 @@ obj/%.o : src/%.cpp
 #Rule to clean generated files
 .PHONY : clean
 clean  :
-	$(RM) $(addprefix bin/, $(EXECUTABLE)) $(OBJ)
+	$(RM) -r bin/ obj/
