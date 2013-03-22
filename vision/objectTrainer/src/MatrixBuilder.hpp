@@ -29,7 +29,7 @@ class MatrixBuilder {
 
 	public: 
 		// constructors
-		MatrixBuilder(int featureAlg, int descriptorAlg);
+		MatrixBuilder(int featureAlg, string descriptorAlg);
 		
 		// Destructor
 		~MatrixBuilder();

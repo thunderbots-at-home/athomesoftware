@@ -31,6 +31,8 @@ class ObjectTrainer {
 	CvSVM _svm;
 	clock_t _t;
 
+	string descriptorString(int descriptorAlg);
+
 	// TODO add factory class
 
 };

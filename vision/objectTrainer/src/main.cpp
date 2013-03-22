@@ -24,19 +24,33 @@ int main(int argc, char** argv) {
 	cout<<"Please select a Feature Detection Algorithm"<<endl;
 	cout<<"\t\t1) FAST\t\t2) STAR\t\t3) SIFT\t\t4) SURF\n\t\t5) ORB\t\t6) BRISK\t7) MSER\t\t8) BLOB"<<endl;
 	
-	while(featureAlg < mFAST || featureAlg > mBLOB) {
+	while(featureAlg < f_FAST || featureAlg > f_BLOB) {
 		while(!(cin>>featureAlg)) {
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
 	}
 
+	cout<<"Please select a Descriptor Extractor Algorithm"<<endl;
+	cout<<"\t\t1) SIFT\t\t2) SURF\t\t3) ORB\t\t4) BRISK\t\t5) BRIEF"<<endl;
+	cout<<"\t\t6) OpponentSIFT\t7) OpponentSURF\t8) OpponentORB\t9) OpponentBRISK\t10) OpponentBRIEF\t"<<endl;
+
+	while(descriptorAlg < f_FAST || descriptorAlg > f_BLOB) {
+		while(!(cin>>descriptorAlg)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+	}
+	
+
+
+
 	// TODO descriptor selection
 
 	ObjectTrainer trainer;
-	trainer.initialize(argv[1], featureAlg, 1);
+	trainer.initialize(argv[1], featureAlg, descriptorAlg);
 	trainer.train();
-	trainer.save(featureAlg, 1);
+	trainer.save(featureAlg, descriptorAlg);
 
 /*
 	clock_t t;

@@ -10,7 +10,7 @@ class MatrixFactory {
 
 	public:
 
-	void initFeatureDetector(int algIndex, Ptr<FeatureDetector>& detector);
+	void initFeatureDetector(int featureAlg, Ptr<FeatureDetector>& detector);
 
 	private:
 

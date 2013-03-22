@@ -10,9 +10,6 @@
 #include <opencv2/nonfree/nonfree.hpp>
 #include <opencv2/legacy/legacy.hpp>
 #include <opencv2/legacy/compat.hpp>
-#include "SURFParams_t.cpp"
-#include "STARParams_t.cpp"
-#include "FASTParams_t.cpp"
 #include "FeatureDetectorParams.cpp"
 
 #ifndef DEFINITIONS_HPP_
@@ -22,9 +19,13 @@
 static const int NORMALIZED_HEIGHT = 640;
 static const int NORMALIZED_WIDTH = 480;
 
-// Algorithm Enums
+// Feature Descriptor algorithm Enums
 
-enum algType { mFAST = 1, mSTAR = 2, mSIFT = 3, mSURF = 4, mORB = 5, mBRISK = 6, mMSER = 7, mBLOB = 8 }; 
+enum featureType { f_FAST = 1, f_STAR = 2, f_SIFT = 3, f_SURF = 4, f_ORB = 5, f_BRISK = 6, f_MSER = 7, f_BLOB = 8 }; 
+
+// Descriptor Extractor algorithm Enums
+
+enum extractorType { e_SIFT = 1, e_SURF = 2, e_BRIEF = 3, o_SIFT = 4, o_SURF = 5, o_BRIEF = 6 };
 
 // SURF Parameters
 static const SURFParams_t surfParams(500);

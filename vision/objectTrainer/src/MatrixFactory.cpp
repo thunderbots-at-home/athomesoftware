@@ -3,15 +3,15 @@
 
 using namespace std;
 
-void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& detector) {
-	switch(algName) {
-		case mFAST: {
+void MatrixFactory::initFeatureDetector(int featureAlg, cv::Ptr<FeatureDetector>& detector) {
+	switch(featureAlg) {
+		case f_FAST: {
 			detector = new cv::FastFeatureDetector(
 				fastParams.threshold,
 				fastParams.nonmaxSuppression);
 			break;
 		}
-		case mSTAR: {
+		case f_STAR: {
 			
 			detector = new cv::StarFeatureDetector(
 				starParams.maxSize,
@@ -21,11 +21,11 @@ void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& d
 				starParams.suppressNonmaxSize);
 			break;
 		}
-		case mSIFT: {
+		case f_SIFT: {
 			detector = new cv::SiftFeatureDetector();
 			break;
 		}
-		case mSURF: {
+		case f_SURF: {
 			detector = new cv::SurfFeatureDetector(
 				surfParams.hessianThreshold,
 				surfParams.nOctaves,
@@ -34,7 +34,7 @@ void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& d
 				surfParams.upright);
 			break;
 		}
-		case mORB: {
+		case f_ORB: {
 			detector = new cv::OrbFeatureDetector(
 				orbParams.nFeatures,
 				orbParams.scaleFactor,
@@ -46,15 +46,15 @@ void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& d
 				orbParams.patchSize);
 			break;
 		}
-		case mBRISK: {
+		case f_BRISK: {
 			//detector = new cv::BriskFeatureDetector(30,3 1);
 			break;
 		}
-		case mMSER: {
+		case f_MSER: {
 			detector = new cv::MserFeatureDetector();
 			break;
 		}
-		case mBLOB: {
+		case f_BLOB: {
 			detector = new cv::SimpleBlobDetector();
 			break;
 		}
@@ -62,3 +62,5 @@ void MatrixFactory::initFeatureDetector(int algName, cv::Ptr<FeatureDetector>& d
 			cout<<"Error getting detector algorithm"<<endl;
 	}
 }
+
+

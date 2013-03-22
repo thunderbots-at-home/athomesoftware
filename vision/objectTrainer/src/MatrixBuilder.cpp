@@ -7,10 +7,10 @@ using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
 
-MatrixBuilder::MatrixBuilder(int featureAlg, int descriptorAlg) : _bowTrainer(1000) {
+MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg) : _bowTrainer(1000) {
 	MatrixFactory factory;
 	factory.initFeatureDetector(featureAlg, _detector);
-	_extractor = new SurfDescriptorExtractor();
+	_extractor = DescriptorExtractor::create(descriptorAlg);
 	_matcher = new FlannBasedMatcher();//new BruteForceMatcher<L2 <float> >();
 	_bowide = new BOWImgDescriptorExtractor(_extractor, _matcher);
 }
@@ -104,6 +104,7 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 			cout << p << " not in dir." << endl;
 		}
 	}
+
 }
 
 void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
