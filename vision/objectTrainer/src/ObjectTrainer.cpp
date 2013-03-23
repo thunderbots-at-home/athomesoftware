@@ -15,7 +15,7 @@ void ObjectTrainer::initialize(string dir, int featureAlg, int descriptorAlg) {
 	_t = clock() - _t;
 	int desTotal = 0;
 	int picsTotal = 0;
-	for (int i = 0; i < _classes.size(); i++){
+	for (unsigned int i = 0; i < _classes.size(); i++){
 		desTotal += _classes.at(i).getDescriptors().rows;
 		picsTotal += _classes.at(i).getSize();
 	}
@@ -33,8 +33,6 @@ void ObjectTrainer::initialize(string dir, int featureAlg, int descriptorAlg) {
 	builder.getTrainingMatrix(_classes, _vocab, _trainingMatrix, _labelMatrix);
 	_t = clock() - _t;
 	cout<<endl<<"Training Matrix created *** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
-
-	cout<<_trainingMatrix.rows<<"\t"<<_trainingMatrix.cols<<endl;
 }
 
 void ObjectTrainer::train() {
@@ -48,54 +46,30 @@ void ObjectTrainer::train() {
 
 
 void ObjectTrainer::save(int featureAlg, int descriptorAlg) {
-	string filename;
+	string svmFileName;
+	string labelFileName;
 	time_t timer = time(0);
 	struct tm* now = localtime(&timer);
 	char buffer[80];
-	strftime (buffer, 80, "%F--%X", now);
-	filename = "trainedSVM_";
-	switch (featureAlg) {
-		case f_FAST: {
-			filename += "FAST";
-			break;
-		}
-		case f_STAR: {
-			filename += "STAR";
-			break;
-		}
-		case f_SIFT: {
-			filename += "SIFT";
-			break;
-		}
-		case f_SURF: {
-			filename += "SURF";
-			break;
-		}
-		case f_ORB: {
-			filename += "ORB";
-			break;
-		}
-		case f_BRISK: {
-			filename += "BRISK";
-			break;
-		}
-		case f_MSER: {
-			filename += "MSER";
-			break;
-		}
-		case f_BLOB: {
-			filename += "BLOB";
-			break;
-		}
-		default:
-			filename += "N/A";
-	}
 
-	filename += "_" + descriptorString(descriptorAlg) + "_";
-	filename += buffer;
-	filename += ".yaml";
-	cout<<filename<<endl;
-	_svm.save(filename.c_str(), 0);
+
+	strftime (buffer, 80, "%F--%X", now);
+	svmFileName = "output/trainedSVM_";
+	svmFileName += featureString(featureAlg) + "_" + descriptorString(descriptorAlg) + "_";
+	svmFileName += buffer;
+	svmFileName += ".yaml";
+	_svm.save(svmFileName.c_str(), 0);
+
+	labelFileName = "output/svm_labels_";
+	labelFileName += buffer;
+	labelFileName += ".txt";
+	ofstream labelFile;
+	labelFile.open(labelFileName);
+	for (unsigned int i = 0; i < _classes.size(); i++)
+	{
+		labelFile<<_classes.at(i).getLabel()<<"\t"<<_classes.at(i).getName()<<endl;
+	}
+	labelFile.close();
 
 }
 
@@ -148,4 +122,45 @@ string ObjectTrainer::descriptorString( int descriptorAlg) {
 	return descriptorName;
 }
 			
+string ObjectTrainer::featureString(int featureAlg){
+	string featureName;
+	switch (featureAlg) {
+		case f_FAST: {
+			featureName += "FAST";
+			break;
+		}
+		case f_STAR: {
+			featureName += "STAR";
+			break;
+		}
+		case f_SIFT: {
+			featureName += "SIFT";
+			break;
+		}
+		case f_SURF: {
+			featureName += "SURF";
+			break;
+		}
+		case f_ORB: {
+			featureName += "ORB";
+			break;
+		}
+		case f_BRISK: {
+			featureName += "BRISK";
+			break;
+		}
+		case f_MSER: {
+			featureName += "MSER";
+			break;
+		}
+		case f_BLOB: {
+			featureName += "BLOB";
+			break;
+		}
+		default:
+			cout<<"Invalid algorithm";
+	}
+
+	return featureName;
+}
 

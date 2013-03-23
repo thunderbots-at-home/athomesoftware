@@ -30,7 +30,7 @@ OBJ := $(subst src/, obj/, $(SRC:.cpp=.o))
 #Rule to link executable
 $(addprefix bin/, $(EXECUTABLE)) : $(OBJ)
 	echo "	LD	$@"
-	mkdir -p bin/
+	mkdir -p bin/ output/
 	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(CONFIG) $(BOOST)
 	echo "Build Succeeded"
 

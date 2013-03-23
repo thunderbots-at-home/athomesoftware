@@ -32,6 +32,7 @@ class ObjectTrainer {
 	clock_t _t;
 
 	string descriptorString(int descriptorAlg);
+	string featureString(int featureAlg);
 
 	// TODO add factory class
 
