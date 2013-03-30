@@ -48,6 +48,7 @@ void ObjectTrainer::train() {
 void ObjectTrainer::save(int featureAlg, int descriptorAlg) {
 	string svmFileName;
 	string labelFileName;
+	string vocabFileName;
 	time_t timer = time(0);
 	struct tm* now = localtime(&timer);
 	char buffer[80];
@@ -59,6 +60,13 @@ void ObjectTrainer::save(int featureAlg, int descriptorAlg) {
 	svmFileName += buffer;
 	svmFileName += ".yaml";
 	_svm.save(svmFileName.c_str(), 0);
+
+	vocabFileName = "output/vocab_";
+	vocabFileName += buffer;
+	vocabFileName += ".yaml";
+	FileStorage fs(vocabFileName, FileStorage::WRITE);
+	fs<< "Vocab Mat" << _vocab;
+	fs.release();
 
 	labelFileName = "output/svm_labels_";
 	labelFileName += buffer;
