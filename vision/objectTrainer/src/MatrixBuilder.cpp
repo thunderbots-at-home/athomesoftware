@@ -2,12 +2,13 @@
 #include "MatrixBuilder.hpp"
 #include <boost/filesystem.hpp>
 #include "MatrixFactory.hpp"
+#include "definitions.hpp"
 
 using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
 
-MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg) : _bowTrainer(1000) {
+MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg) : _bowTrainer(100) {
 	MatrixFactory factory;
 	factory.initFeatureDetector(featureAlg, _detector);
 	_extractor = DescriptorExtractor::create(descriptorAlg);
@@ -110,6 +111,7 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
 	Mat src = imread(filename, imageType);
 	assert(src.data);
+	image = src;
 
 	equalizeHist(src, image);
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
@@ -141,4 +143,19 @@ void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& voc
 		}
 	}
 }
+
+void MatrixBuilder::predict( vector<ClassContainer>& classes, CvSVM svm)
+{
+	for(int i = 0; i < classes.size(); i++) {
+		for(int j = 0; j < classes.at(i).getSize(); j++) {
+			vector<KeyPoint> keys = classes.at(i).getKeypoint(j);
+			Mat histResponce;
+			cout<<classes.at(i).getLabel()<<" ";
+			_bowide->compute(classes.at(i).getImage(j), keys, histResponce);
+			float result = svm.predict(histResponce, false);
+			cout<<classes.at(i).getName()<<" is labeled "<<result<<endl;
+		}
+	}
+}
+
 

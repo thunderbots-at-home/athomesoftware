@@ -33,11 +33,20 @@ void ObjectTrainer::initialize(string dir, int featureAlg, int descriptorAlg) {
 	builder.getTrainingMatrix(_classes, _vocab, _trainingMatrix, _labelMatrix);
 	_t = clock() - _t;
 	cout<<endl<<"Training Matrix created *** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
+	/*
+/////////////////////////////////////////////////////////////////
+	cout<<"SVM training beginning..."<<endl;
+	_t = clock();
+	_svm.train(_trainingMatrix, _labelMatrix, Mat(), Mat(), SVM_Params);
+	_t = clock() - _t;
+	cout<<"SVM training completed *** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
+	builder.predict(_classes, _svm);
+	*/
+	
 }
 
 void ObjectTrainer::train() {
 	cout<<"SVM training beginning..."<<endl;
-	_trainingMatrix.convertTo(_trainingMatrix, CV_32F);
 	_t = clock();
 	_svm.train(_trainingMatrix, _labelMatrix, Mat(), Mat(), SVM_Params);
 	_t = clock() - _t;

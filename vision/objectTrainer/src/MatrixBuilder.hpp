@@ -52,6 +52,8 @@ class MatrixBuilder {
 		void getVocab(Mat& vocab);
 
 		void getTrainingMatrix(vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix, Mat& labelMatrix);
+
+		void predict(vector<ClassContainer>& classes, CvSVM svm);
 };
 
 #endif
