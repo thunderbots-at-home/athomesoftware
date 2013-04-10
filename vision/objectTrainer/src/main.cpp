@@ -12,7 +12,7 @@ void help() {
 
 int main(int argc, char** argv) {
 
-	if (argc != 2) {
+	if (argc != 2 && argc != 3) {
 		cout << "Expecting one parameter: The database directory" << endl;
 		return -1;
 	}
@@ -46,11 +46,18 @@ int main(int argc, char** argv) {
 
 
 	// TODO descriptor selection
-
+	
 	ObjectTrainer trainer;
-	trainer.initialize(argv[1], featureAlg, descriptorAlg);
-	trainer.train();
-	trainer.save(featureAlg, descriptorAlg);
+	if (argc == 2) {
+		
+		trainer.initialize(argv[1], featureAlg, descriptorAlg);
+		trainer.train();
+		trainer.save(featureAlg, descriptorAlg, false);
+	}
+	else if (argc == 3) {
+		trainer.train(argv[1], argv[2]);
+		trainer.save(featureAlg, descriptorAlg, true);
+	}
 
 /*
 	clock_t t;

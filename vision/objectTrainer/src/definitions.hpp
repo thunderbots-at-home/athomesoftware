@@ -29,7 +29,7 @@ enum featureType { f_FAST = 1, f_STAR = 2, f_SIFT = 3, f_SURF = 4, f_ORB = 5, f_
 enum extractorType { e_SIFT = 1, e_SURF = 2, e_BRIEF = 3, o_SIFT = 4, o_SURF = 5, o_BRIEF = 6 };
 
 // SURF Parameters
-static const SURFParams_t surfParams(500);
+static const SURFParams_t surfParams(600);
 
 // STAR parameters
 static const STARParams_t starParams;
@@ -41,7 +41,7 @@ static const FASTParams_t fastParams(4, true);
 static const ORBParams_t orbParams;
 
 // SVM PARAMS
-static CvSVMParams SVM_Params(CvSVM::C_SVC, CvSVM::POLY,10,1,1,5,0,0,0,cvTermCriteria(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 1000, 1e-6));
+static CvSVMParams SVM_Params(CvSVM::C_SVC, CvSVM::POLY,100,1,1,15,0,0.1,0,cvTermCriteria(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 10000, 1e-6));
 
 #endif
 

@@ -19,7 +19,9 @@ class ObjectTrainer {
 	
 	void train();
 
-	void save(int featureAlg, int descriptorAlg);
+	void train(string trainingMatName, string labelMatName);
+
+	void save(int featureAlg, int descriptorAlg, bool isLoadOnly);
 	
 
 	private:

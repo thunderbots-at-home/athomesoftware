@@ -53,8 +53,23 @@ void ObjectTrainer::train() {
 	cout<<"SVM training completed *** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
 }
 
+void ObjectTrainer::train(string trainingMatName, string labelMatName) {
+	FileStorage fs(trainingMatName, FileStorage::READ);
+	fs["Training Mat"]>>_trainingMatrix;
 
-void ObjectTrainer::save(int featureAlg, int descriptorAlg) {
+	FileStorage ff(labelMatName, FileStorage::READ);
+	ff["Label Mat"]>>_labelMatrix;
+	cout<<"SVM training beginning..."<<endl;
+	_t = clock();
+	_svm.train(_trainingMatrix, _labelMatrix, Mat(), Mat(), SVM_Params);
+	_t = clock() - _t;
+	cout<<"SVM training completed *** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
+}
+
+
+
+
+void ObjectTrainer::save(int featureAlg, int descriptorAlg, bool isLoadOnly) {
 	string svmFileName;
 	string labelFileName;
 	string vocabFileName;
@@ -64,20 +79,32 @@ void ObjectTrainer::save(int featureAlg, int descriptorAlg) {
 
 
 	strftime (buffer, 80, "%F--%X", now);
-	svmFileName = "output/trainedSVM_";
+	svmFileName = "output/svm_";
 	svmFileName += featureString(featureAlg) + "_" + descriptorString(descriptorAlg) + "_";
-	svmFileName += buffer;
+//	svmFileName += buffer;
 	svmFileName += ".yaml";
 	_svm.save(svmFileName.c_str(), 0);
 
-	vocabFileName = "output/vocab_";
-	vocabFileName += buffer;
-	vocabFileName += ".yaml";
-	FileStorage fs(vocabFileName, FileStorage::WRITE);
-	fs<< "Vocab Mat" << _vocab;
-	fs.release();
+	string trainingMatName = "output/trainingMat.yaml";
+	FileStorage ff(trainingMatName, FileStorage::WRITE);
+	ff<<"Training Mat"<<_trainingMatrix;
+	ff.release();
 
-	labelFileName = "output/svm_labels_";
+	string labelMatName = "output/labelMat.yaml";
+	FileStorage fl(labelMatName, FileStorage::WRITE);
+	fl<<"Label Mat"<<_labelMatrix;
+	fl.release();
+
+	if (!isLoadOnly){
+		vocabFileName = "output/vocab_";
+	//	vocabFileName += buffer;
+		vocabFileName += ".yaml";
+		FileStorage fs(vocabFileName, FileStorage::WRITE);
+		fs<< "Vocab Mat" << _vocab;
+		fs.release();
+	}
+
+	labelFileName = "output/labels_";
 	labelFileName += buffer;
 	labelFileName += ".txt";
 	ofstream labelFile;

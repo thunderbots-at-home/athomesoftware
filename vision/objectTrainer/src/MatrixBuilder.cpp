@@ -115,6 +115,9 @@ void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
 
 	equalizeHist(src, image);
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
+//	namedWindow("Display Window", CV_WINDOW_AUTOSIZE);
+//	imshow("Display Winwdow", image);
+//	waitKey(0);
 	// TODO -> preprocessing
 }
 
@@ -146,7 +149,7 @@ void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& voc
 
 void MatrixBuilder::predict( vector<ClassContainer>& classes, CvSVM svm)
 {
-	for(int i = 0; i < classes.size(); i++) {
+	for(unsigned int i = 0; i < (unsigned int)classes.size(); i++) {
 		for(int j = 0; j < classes.at(i).getSize(); j++) {
 			vector<KeyPoint> keys = classes.at(i).getKeypoint(j);
 			Mat histResponce;
