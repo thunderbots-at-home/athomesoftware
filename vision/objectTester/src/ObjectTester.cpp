@@ -1,13 +1,17 @@
 #include "ObjectTester.hpp"
 #include "definitions.hpp"
 #include "MatrixTester.hpp"
+#include <ctime>
 
 using namespace std;
 using namespace cv;
 
 void ObjectTester::predict(string dir, int featureAlg, int descriptorAlg) {
 	MatrixTester tester(featureAlg, descriptorString(descriptorAlg), _vocab);
+	clock_t t = clock();
 	tester.predict(dir, _svm);
+	t = clock() - t;
+	cout<<"Total time to predict: "<<t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
 }
 
 void ObjectTester::load(string svmPath, string vocabPath) {
