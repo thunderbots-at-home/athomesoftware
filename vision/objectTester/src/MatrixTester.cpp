@@ -37,7 +37,10 @@ void MatrixTester::predict(string dir, CvSVM& svm) {
 			vector<path> vec;
 			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
 
+			
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
+				if ( is_regular_file( (*it) ))
+					cout<<"File found"<<endl;
 				predict((*it).string(), svm);
 			}
 			it = vec.begin(); it_end = vec.end();
