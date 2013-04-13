@@ -8,7 +8,7 @@ using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
 
-MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg) : _bowTrainer(100) {
+MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg) : _bowTrainer(186) {
 	MatrixFactory factory;
 	factory.initFeatureDetector(featureAlg, _detector);
 	_extractor = DescriptorExtractor::create(descriptorAlg);
@@ -77,7 +77,7 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 			while (it != it_end) {
 				if (is_regular_file(*it)) {
 					label++;
-					_bowTrainer.add(obj.getDescriptors());
+					//_bowTrainer.add(obj.getDescriptors());
 					classes.push_back(obj);
 					t = clock() - t;
 					cout << endl << "Finished Processing " << obj.getSize()
@@ -98,7 +98,8 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 				cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
 				<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
 				obj.getName() << endl; 
-				obj.push_back(image, keypoints, descriptors);
+				_bowTrainer.add(descriptors);
+				obj.push_back(image, keypoints);
 			}
 		}
 		else {
@@ -113,7 +114,12 @@ void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
 	assert(src.data);
 	image = src;
 
-	equalizeHist(src, image);
+//	Mat dog1, dog2;
+//	GaussianBlur(image, dog1, Size(11,11),0);
+//	GaussianBlur(image, dog2, Size(51,51),0);
+//	image = dog1 - dog2;
+
+//	equalizeHist(src, image);
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
 //	namedWindow("Display Window", CV_WINDOW_AUTOSIZE);
 //	imshow("Display Winwdow", image);

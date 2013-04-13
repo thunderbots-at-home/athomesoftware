@@ -77,14 +77,20 @@ public:
 	}
 
 	// push back all data obtained from one image into this object
-	void push_back(Mat image, vector<KeyPoint> keypoints, Mat descriptors) {
+	void push_back(Mat& image, vector<KeyPoint>& keypoints, Mat& descriptors) {
 		v_images.push_back(image);
 		v_keypoints.push_back(keypoints);
 		_descriptors.push_back(descriptors);
 		_size++;
 	}
 
-	void push_back(Mat descriptors) {
+	void push_back(Mat& image, vector<KeyPoint>& keypoints) {
+		v_images.push_back(image);
+		v_keypoints.push_back(keypoints);
+		_size++;
+	}
+
+	void push_back(Mat& descriptors) {
 		_descriptors.push_back(descriptors);
 		_size++;
 	}

@@ -48,7 +48,7 @@ void ObjectTrainer::initialize(string dir, int featureAlg, int descriptorAlg) {
 void ObjectTrainer::train() {
 	cout<<"SVM training beginning..."<<endl;
 	_t = clock();
-	_svm.train(_trainingMatrix, _labelMatrix, Mat(), Mat(), SVM_Params);
+	_svm.train_auto(_trainingMatrix, _labelMatrix, Mat(), Mat(), SVM_Params);
 	_t = clock() - _t;
 	cout<<"SVM training completed *** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
 }
