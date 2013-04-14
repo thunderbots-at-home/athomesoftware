@@ -12,9 +12,27 @@ void help() {
 
 int main(int argc, char** argv) {
 
-	if (argc != 2 && argc != 3) {
+	if (argc < 2) {
 		cout << "Expecting one parameter: The database directory" << endl;
 		return -1;
+	}
+	
+	bool verbose = false;
+	bool isLoadOnly = false;
+	bool timeStamp = false;
+
+	if (argc > 2) {
+		for(int i = 2; i < argc; i++) {
+			if (strcmp(argv[i], "-v") == 0){
+				verbose = true;
+			}
+			if (strcmp(argv[i], "-l") == 0){
+				isLoadOnly = true;
+			}
+			if (strcmp(argv[i], "-t") == 0){
+				timeStamp = true;
+			}
+		}
 	}
 
 
@@ -42,46 +60,18 @@ int main(int argc, char** argv) {
 		}
 	}
 	
-
-
-
-	// TODO descriptor selection
 	
 	ObjectTrainer trainer;
-	if (argc == 2) {
-		
-		trainer.initialize(argv[1], featureAlg, descriptorAlg);
+	if (!isLoadOnly) {
+		trainer.initialize(argv[1], featureAlg, descriptorAlg, verbose);
 		trainer.train();
-		trainer.save(featureAlg, descriptorAlg, false);
-	}
-	else if (argc == 3) {
-		trainer.train(argv[1], argv[2]);
-		trainer.save(featureAlg, descriptorAlg, true);
+		trainer.save(featureAlg, descriptorAlg, isLoadOnly, timeStamp);
+	} else {
+		trainer.train(argv[2]);
+		trainer.save(featureAlg, descriptorAlg, isLoadOnly, timeStamp);
 	}
 
-/*
-	clock_t t;
-	vector<ClassContainer> classes;
-	Mat vocab;
-	Mat trainingMatrix;
-	Mat labelMatrix;
 
-	MatrixBuilder builder(5);
-	t = clock();
-	builder.loadClasses(argv[1], classes);
-	t = clock() - t;
-	cout <<endl<<"It took "<<t/(float)CLOCKS_PER_SEC<<" seconds to finish describing all classes."<<endl;
-	t = clock();
-	builder.getVocab(vocab);
-	t = clock() - t;
-	cout <<endl<<"It tool "<<t/(float)CLOCKS_PER_SEC<<" seconds to load the vocabulary."<<endl;
-	cout <<endl<<"The vocab has "<<vocab.rows<<" rows"<<endl;
-	t = clock();
-	builder.getTrainingMatrix(classes, vocab, trainingMatrix, labelMatrix);
-	t = clock() - t;
-	cout <<endl<<"It took "<<t/(float)CLOCKS_PER_SEC<<" seconds to create the training matrix."<<endl;
-	cout <<endl<<"The training matrix contains "<<trainingMatrix.rows<< " rows and the label matrix contains "<< labelMatrix.rows<<" rows" <<endl;
-	*/
 	return 0;
 }
 

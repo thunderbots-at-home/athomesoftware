@@ -70,33 +70,6 @@ void MatrixTester::predict(string dir, CvSVM& svm) {
 			}
 
 		}
-		/*
-		else if (is_regular_file(p)) {
-			
-			Mat image;
-			cout<<"Processing "<<p.string()<<endl;
-			loadImage(p.string(), image);
-			Mat histResponce;
-			extract(image, histResponce);
-			if (histResponce.data){
-				float label = svm.predict(histResponce, false);
-				count++;
-				totalCount++;
-				if (label == _label){
-					correct++;
-					totalCorrect++;
-				}
-				cout<<label<<"\t"<<correct/(float)count * 100<<"\% accurate\t"<<totalCorrect/(float)totalCount * 100<<"\% total Accurate"<<endl;
-	
-			}
-			
-			cout<<"test"<<endl;
-			
-		}
-		else {
-			cout << p << " not in dir." << endl;
-		}
-		*/
 	}
 
 
@@ -106,8 +79,8 @@ void MatrixTester::loadImage(string fileName, Mat& image) {
 	Mat src = imread(fileName, CV_LOAD_IMAGE_GRAYSCALE);
 	assert(src.data);
 	image = src;
-	equalizeHist(src, image);
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
+	equalizeHist(src, image);
 	// TODO -> preprocessing
 
 }

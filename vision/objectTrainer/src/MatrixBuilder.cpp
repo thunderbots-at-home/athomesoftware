@@ -8,11 +8,12 @@ using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
 
-MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg) : _bowTrainer(186) {
+MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg, bool verbose) : _bowTrainer(100), _verbose(verbose)  {
+
 	MatrixFactory factory;
 	factory.initFeatureDetector(featureAlg, _detector);
 	_extractor = DescriptorExtractor::create(descriptorAlg);
-	_matcher = new FlannBasedMatcher();//new BruteForceMatcher<L2 <float> >();
+	_matcher = new FlannBasedMatcher();
 	_bowide = new BOWImgDescriptorExtractor(_extractor, _matcher);
 }
 
@@ -23,29 +24,6 @@ MatrixBuilder::~MatrixBuilder() {
 	_matcher.~Ptr<DescriptorMatcher>();
 }
 
-// set descriptor
-void MatrixBuilder::setFeatureDetector( Ptr<FeatureDetector>& detector ) {
-	_detector = detector;
-}
-
-// Set extractor
-void MatrixBuilder::setDescriptorExtractor( Ptr<DescriptorExtractor>& extractor ){
-	_extractor = extractor;
-}
-
-void MatrixBuilder::setDescriptorMatcher( Ptr<DescriptorMatcher>& matcher ) {
-	_matcher = matcher;
-}
-
-void MatrixBuilder::setBOWImgDescriptorExtractor( Ptr<BOWImgDescriptorExtractor>& bowide ) {
-	_bowide = bowide;
-}
-
-void MatrixBuilder::setBOWKMeansTrainer( BOWKMeansTrainer bowTrainer) {
-	_bowTrainer = bowTrainer;
-}
-
-
 void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints)
 {
 
@@ -54,7 +32,7 @@ void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>
 
 }
 
-void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
+void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int& totalImgs, int& totalDesc) {
 	path p (dir);
 	static float label = 1.0f;
 	vector<path>::iterator it, it_end;
@@ -70,14 +48,33 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
 
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
-				loadClasses((*it).string(), classes);
+				if ( is_regular_file( (*it) )) {
+					totalImgs++;
+					Mat image;
+					loadImage((*it).string(), CV_LOAD_IMAGE_GRAYSCALE, image);
+					Mat descriptors;
+					vector<KeyPoint> keypoints;
+					extract(image, descriptors, keypoints);
+					totalDesc+=descriptors.rows;
+					if (descriptors.rows > 0) {
+						if (_verbose) {
+						cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
+						<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
+						obj.getName() << endl; 
+						}
+						_bowTrainer.add(descriptors);
+						obj.push_back(image, keypoints);
+					}	
+				}
+				else {
+					loadClasses((*it).string(), classes, totalImgs, totalDesc);
+				}
+
 			}
-			// TODO Make this better. 
 			it = vec.begin(); it_end = vec.end();
 			while (it != it_end) {
 				if (is_regular_file(*it)) {
 					label++;
-					//_bowTrainer.add(obj.getDescriptors());
 					classes.push_back(obj);
 					t = clock() - t;
 					cout << endl << "Finished Processing " << obj.getSize()
@@ -88,23 +85,6 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes) {
 			}
 
 		}
-		else if (is_regular_file(p)) {
-			Mat image;
-			loadImage(p.string(), CV_LOAD_IMAGE_GRAYSCALE, image);
-			Mat descriptors;
-			vector<KeyPoint> keypoints;
-			extract(image, descriptors, keypoints);
-			if (descriptors.rows > 0) {
-				cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
-				<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
-				obj.getName() << endl; 
-				_bowTrainer.add(descriptors);
-				obj.push_back(image, keypoints);
-			}
-		}
-		else {
-			cout << p << " not in dir." << endl;
-		}
 	}
 
 }
@@ -113,18 +93,16 @@ void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
 	Mat src = imread(filename, imageType);
 	assert(src.data);
 	image = src;
-
+	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
 //	Mat dog1, dog2;
 //	GaussianBlur(image, dog1, Size(11,11),0);
 //	GaussianBlur(image, dog2, Size(51,51),0);
 //	image = dog1 - dog2;
 
-//	equalizeHist(src, image);
-	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
+	equalizeHist(src, image);
 //	namedWindow("Display Window", CV_WINDOW_AUTOSIZE);
 //	imshow("Display Winwdow", image);
 //	waitKey(0);
-	// TODO -> preprocessing
 }
 
 void MatrixBuilder::getVocab(Mat& vocab) {
@@ -132,7 +110,6 @@ void MatrixBuilder::getVocab(Mat& vocab) {
 }
 
 void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& vocab, Mat& trainingMatrix, Mat& labelMatrix ) {
-	// TODO implement labels
 	static int ind=0;
 	_bowide->setVocabulary(vocab);
 	for (unsigned int i = 0; i < classes.size(); i++) {
@@ -152,19 +129,3 @@ void MatrixBuilder::getTrainingMatrix( vector<ClassContainer>& classes, Mat& voc
 		}
 	}
 }
-
-void MatrixBuilder::predict( vector<ClassContainer>& classes, CvSVM svm)
-{
-	for(unsigned int i = 0; i < (unsigned int)classes.size(); i++) {
-		for(int j = 0; j < classes.at(i).getSize(); j++) {
-			vector<KeyPoint> keys = classes.at(i).getKeypoint(j);
-			Mat histResponce;
-			cout<<classes.at(i).getLabel()<<" ";
-			_bowide->compute(classes.at(i).getImage(j), keys, histResponce);
-			float result = svm.predict(histResponce, false);
-			cout<<classes.at(i).getName()<<" is labeled "<<result<<endl;
-		}
-	}
-}
-
-

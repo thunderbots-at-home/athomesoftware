@@ -41,7 +41,7 @@ static const FASTParams_t fastParams(4, true);
 static const ORBParams_t orbParams;
 
 // SVM PARAMS
-static CvSVMParams SVM_Params(CvSVM::C_SVC, CvSVM::POLY,100,20,1,25,0,0,0,cvTermCriteria(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 10000, 1e-6));
+static CvSVMParams SVM_Params(CvSVM::C_SVC, CvSVM::POLY,100,1,1,15,0,0,0,cvTermCriteria(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 10000, 1e-6));
 
 #endif
 

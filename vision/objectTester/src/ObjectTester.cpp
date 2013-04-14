@@ -14,10 +14,10 @@ void ObjectTester::predict(string dir, int featureAlg, int descriptorAlg) {
 	cout<<"Total time to predict: "<<t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;
 }
 
-void ObjectTester::load(string svmPath, string vocabPath) {
-	_svm.load(svmPath.c_str(), 0);
-	FileStorage fs(vocabPath, FileStorage::READ);
-	fs["Vocab Mat"]>>_vocab;
+void ObjectTester::load(string svmFileName, string dataFileName) {
+	_svm.load(svmFileName.c_str(), 0);
+	FileStorage fs(dataFileName, FileStorage::READ);
+	fs["Vocab Matrix"]>>_vocab;
 	cout<<_vocab.rows<<endl;
 
 }
