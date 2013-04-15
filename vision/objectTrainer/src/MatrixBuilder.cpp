@@ -35,18 +35,17 @@ void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>
 
 void MatrixBuilder::GpuExtract(Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints) {
 	GpuMat img(image);
-	cout<<"hi"<<endl;
 	GpuMat GpuDescriptors;
 	GpuMat GpuKeyPoints;
 	_surf(img, GpuMat(), GpuKeyPoints, GpuDescriptors);
-/*
+
 	SURF_GPU::downloadKeypoints(GpuKeyPoints, keypoints);
 	vector<float> fDescriptors;
 	SURF_GPU::downloadDescriptors(GpuDescriptors, fDescriptors);
 	Mat d(fDescriptors.size()/128, 128, CV_32F, &fDescriptors);
 	descriptors = d;
 	cout<<d.rows<<endl;
-	*/
+	
 }
 
 
@@ -114,14 +113,14 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int
 void MatrixBuilder::loadImage(string filename, int imageType, Mat& image) {
 	Mat src = imread(filename, imageType);
 	assert(src.data);
-	image = src;
+//	image = src;
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
 //	Mat dog1, dog2;
 //	GaussianBlur(image, dog1, Size(11,11),0);
 //	GaussianBlur(image, dog2, Size(51,51),0);
 //	image = dog1 - dog2;
 
-	equalizeHist(src, image);
+	equalizeHist(image, image);
 //	namedWindow("Display Window", CV_WINDOW_AUTOSIZE);
 //	imshow("Display Winwdow", image);
 //	waitKey(0);
