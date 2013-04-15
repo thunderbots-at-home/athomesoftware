@@ -12,6 +12,7 @@
 #include <opencv2/legacy/legacy.hpp>
 #include <opencv2/legacy/compat.hpp>
 #include "FeatureDetectorParams.cpp"
+#include <opencv2/gpu/gpu.hpp>
 
 #ifndef DEFINITIONS_HPP_
 #define DEFINITIONS_HPP_

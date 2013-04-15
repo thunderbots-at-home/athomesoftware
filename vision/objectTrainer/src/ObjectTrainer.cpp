@@ -7,13 +7,13 @@ using namespace cv;
 ObjectTrainer::ObjectTrainer() : _trainingMatrix(0, 0, CV_32F), _labelMatrix(0, 0, CV_32F) {
 	}
 
-void ObjectTrainer::initialize(string dir, int featureAlg, int descriptorAlg, bool verbose) {
+void ObjectTrainer::initialize(string dir, int featureAlg, int descriptorAlg, bool verbose, bool gpu) {
 	cout<<"Beginning class loading..."<<endl;
 	MatrixBuilder builder(featureAlg, descriptorString(descriptorAlg), verbose);
 	_t = clock();
 	int totalImgs = 0;
 	int totalDesc = 0;
-	builder.loadClasses(dir, _classes, totalImgs, totalDesc);
+	builder.loadClasses(dir, _classes, totalImgs, totalDesc, gpu);
 	_t = clock() - _t;
 	cout<<"Class loading Complete! "<<totalImgs<<" Pictures were processed and "<<totalDesc<<" descriptors were extracted"<<endl;
 	cout<<"*** Time elapsed : "<<_t/(float)CLOCKS_PER_SEC<<" seconds"<<endl;

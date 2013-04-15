@@ -15,7 +15,7 @@ class ObjectTrainer {
 
 	ObjectTrainer();
 
-	void initialize(string dir, int featureAlg, int descriptorAlg, bool verbose);
+	void initialize(string dir, int featureAlg, int descriptorAlg, bool verbose, bool gpu);
 	
 	void train();
 

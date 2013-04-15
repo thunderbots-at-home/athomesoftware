@@ -7,6 +7,7 @@
 using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
+using namespace cv::gpu;
 
 class MatrixBuilder {
 
@@ -18,6 +19,8 @@ class MatrixBuilder {
 		BOWKMeansTrainer _bowTrainer;
 		Ptr<BOWImgDescriptorExtractor> _bowide;
 
+		SURF_GPU _surf;
+
 		// Clock
 		clock_t t;
 
@@ -25,6 +28,8 @@ class MatrixBuilder {
 
 		// extract keypoints and descriptors from one image
 		void extract(const Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints);
+
+		void GpuExtract(Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints); 
 
 		// Load an image from file
 		void loadImage(string filename, int imageType, Mat& image);
@@ -37,7 +42,7 @@ class MatrixBuilder {
 		~MatrixBuilder();
 
 		// Creates all trainingObjects 
-		void loadClasses(string dir, vector<ClassContainer>& classes, int& totalImgs, int& totalDesc);
+		void loadClasses(string dir, vector<ClassContainer>& classes, int& totalImgs, int& totalDesc, bool gpu);
 
 		void getVocab(Mat& vocab);
 

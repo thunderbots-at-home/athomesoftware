@@ -7,6 +7,7 @@
 using namespace std;
 using namespace cv;
 using namespace boost::filesystem;
+using namespace cv::gpu;
 
 MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg, bool verbose) : _bowTrainer(100), _verbose(verbose)  {
 
@@ -32,7 +33,24 @@ void MatrixBuilder::extract(const Mat& image, Mat& descriptors, vector<KeyPoint>
 
 }
 
-void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int& totalImgs, int& totalDesc) {
+void MatrixBuilder::GpuExtract(Mat& image, Mat& descriptors, vector<KeyPoint>& keypoints) {
+	GpuMat img(image);
+	cout<<"hi"<<endl;
+	GpuMat GpuDescriptors;
+	GpuMat GpuKeyPoints;
+	_surf(img, GpuMat(), GpuKeyPoints, GpuDescriptors);
+/*
+	SURF_GPU::downloadKeypoints(GpuKeyPoints, keypoints);
+	vector<float> fDescriptors;
+	SURF_GPU::downloadDescriptors(GpuDescriptors, fDescriptors);
+	Mat d(fDescriptors.size()/128, 128, CV_32F, &fDescriptors);
+	descriptors = d;
+	cout<<d.rows<<endl;
+	*/
+}
+
+
+void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int& totalImgs, int& totalDesc, bool gpu) {
 	path p (dir);
 	static float label = 1.0f;
 	vector<path>::iterator it, it_end;
@@ -50,11 +68,15 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
 				if ( is_regular_file( (*it) )) {
 					totalImgs++;
-					Mat image;
-					loadImage((*it).string(), CV_LOAD_IMAGE_GRAYSCALE, image);
 					Mat descriptors;
 					vector<KeyPoint> keypoints;
-					extract(image, descriptors, keypoints);
+					Mat image;
+					loadImage((*it).string(), CV_LOAD_IMAGE_GRAYSCALE, image);
+					if (!gpu){
+						extract(image, descriptors, keypoints);
+					} else {
+						GpuExtract(image, descriptors, keypoints);
+					}
 					totalDesc+=descriptors.rows;
 					if (descriptors.rows > 0) {
 						if (_verbose) {
@@ -67,7 +89,7 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int
 					}	
 				}
 				else {
-					loadClasses((*it).string(), classes, totalImgs, totalDesc);
+					loadClasses((*it).string(), classes, totalImgs, totalDesc, gpu);
 				}
 
 			}
