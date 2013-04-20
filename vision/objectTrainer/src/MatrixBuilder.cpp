@@ -9,7 +9,7 @@ using namespace cv;
 using namespace boost::filesystem;
 using namespace cv::gpu;
 
-MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg, bool verbose) : _bowTrainer(100), _verbose(verbose)  {
+MatrixBuilder::MatrixBuilder(int featureAlg, string descriptorAlg, bool verbose) : _bowTrainer(200), _verbose(verbose)  {
 
 	MatrixFactory factory;
 	factory.initFeatureDetector(featureAlg, _detector);
@@ -39,12 +39,11 @@ void MatrixBuilder::GpuExtract(Mat& image, Mat& descriptors, vector<KeyPoint>& k
 	GpuMat GpuKeyPoints;
 	_surf(img, GpuMat(), GpuKeyPoints, GpuDescriptors);
 
-	SURF_GPU::downloadKeypoints(GpuKeyPoints, keypoints);
+	_surf.downloadKeypoints(GpuKeyPoints, keypoints);
 	vector<float> fDescriptors;
-	SURF_GPU::downloadDescriptors(GpuDescriptors, fDescriptors);
+	_surf.downloadDescriptors(GpuDescriptors, fDescriptors);
 	Mat d(fDescriptors.size()/128, 128, CV_32F, &fDescriptors);
 	descriptors = d;
-	cout<<d.rows<<endl;
 	
 }
 
@@ -65,7 +64,7 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int
 			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
 
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
-				if ( is_regular_file( (*it) )) {
+				if ( is_regular_file( (*it) )) {	
 					totalImgs++;
 					Mat descriptors;
 					vector<KeyPoint> keypoints;
@@ -79,9 +78,9 @@ void MatrixBuilder::loadClasses(string dir, vector<ClassContainer>& classes, int
 					totalDesc+=descriptors.rows;
 					if (descriptors.rows > 0) {
 						if (_verbose) {
-						cout << "\tProcessing " << p.leaf() << "\tNum of Descriptors :"
-						<< descriptors.rows << "  \tLabel: " << label << "\tClass Name: " << 
-						obj.getName() << endl; 
+							cout << "\tProcessing " << (*it).leaf() << "\tNum of Descriptors :"
+							<< descriptors.rows <<" x "<<descriptors.cols<< "  \tLabel: " << label << "\tClass Name: " << 
+							obj.getName() << endl; 
 						}
 						_bowTrainer.add(descriptors);
 						obj.push_back(image, keypoints);

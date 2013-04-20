@@ -78,9 +78,8 @@ void MatrixTester::predict(string dir, CvSVM& svm) {
 void MatrixTester::loadImage(string fileName, Mat& image) {
 	Mat src = imread(fileName, CV_LOAD_IMAGE_GRAYSCALE);
 	assert(src.data);
-	image = src;
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
-	equalizeHist(src, image);
+	equalizeHist(image, image);
 	// TODO -> preprocessing
 
 }

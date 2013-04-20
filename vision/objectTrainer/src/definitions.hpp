@@ -13,13 +13,14 @@
 #include <opencv2/legacy/compat.hpp>
 #include "FeatureDetectorParams.cpp"
 #include <opencv2/gpu/gpu.hpp>
+#include <opencv2/nonfree/gpu.hpp>
 
 #ifndef DEFINITIONS_HPP_
 #define DEFINITIONS_HPP_
 
 // Picture sizes
-static const int NORMALIZED_HEIGHT = 640;
-static const int NORMALIZED_WIDTH = 480;
+static const int NORMALIZED_HEIGHT = 300;
+static const int NORMALIZED_WIDTH = 300;
 
 // Feature Descriptor algorithm Enums
 
