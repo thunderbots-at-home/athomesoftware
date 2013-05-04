@@ -7,7 +7,7 @@ CXX := g++
 EXECUTABLE := objectTrainer 
 
 #Compiler Flags
-CFLAGS := -std=c++0x -fopenmp -g -Wall
+CFLAGS := -std=c++0x -fopenmp -g -Wall -I/usr/local/boost_1_53_0/
 
 #Linker Flags
 LDFLAGS := -g 
