@@ -1,44 +1,47 @@
 #include "definitions.hpp"
-#include <iostream>
 #include "ClassContainer.cpp"
-#include "MatrixBuilder.hpp"
 
-#ifndef _OBJECTTRAINER_HPP_
-#define _OBJECTTRAINER_HPP_
+#ifndef OBJECTTRAINER_HPP
+#define OBJECTTRAINER_HPP
 
 using namespace std;
 using namespace cv;
+using namespace boost::filesystem;
 
 class ObjectTrainer {
 
 	public:
 
 	ObjectTrainer();
+	ObjectTrainer(options_t args);
+	~ObjectTrainer();
 
-	void initialize(string dir, int featureAlg, int descriptorAlg, bool verbose, bool gpu);
-	
+	void getData(string dir);
 	void train();
-
-	void train(string dataFileName);
-
-	void save(int featureAlg, int descriptorAlg, bool isLoadOnly, bool timeStamp);
-
-	
+	void save();
 
 	private:
-
+	options_t _args;
 	vector<ClassContainer> _classes;
-	Mat _trainingMatrix;
-	Mat _labelMatrix;
-	Mat _vocab;
-	CvSVM _svm;
-	clock_t _t;
+	 Mat _trainingMatrix;
+	 Mat _labelMatrix;
+	 Mat _vocabMatrix;
+	 Mat _flannMatrix;
+	 CvSVM _svm;
+	 Ptr<BOWImgDescriptorExtractor> _bowide;
+	 BOWKMeansTrainer _bowTrainer;
+	 boost::interprocess::interprocess_semaphore _semaphore;
+	 
 
-	string descriptorString(int descriptorAlg);
-	string featureString(int featureAlg);
-
-	// TODO add factory class
+	 void traverseDirectories(string dir);
+	 void flannMatching();
+	 void getVocab();
+	 void getTrainingData();
 
 };
+
+
+
+
 
 #endif

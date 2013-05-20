@@ -16,7 +16,7 @@ LDFLAGS := -g
 CONFIG := `pkg-config --libs --cflags opencv`
 
 #BOOST Libraries
-BOOST := -L/usr/local/boost/stage/lib -lboost_filesystem -lboost_system
+BOOST := -L/usr/local/boost/stage/lib -lboost_filesystem -lboost_system -lboost_date_time -lboost_thread -lboost_chrono
 
 #Source files
 SRC := $(wildcard src/*.cpp)
