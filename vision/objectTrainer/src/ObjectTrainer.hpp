@@ -15,13 +15,14 @@ class ObjectTrainer {
 
 	ObjectTrainer();
 
-	void initialize(string dir, int featureAlg, int descriptorAlg);
+	void initialize(string dir, int featureAlg, int descriptorAlg, bool verbose, bool gpu);
 	
 	void train();
 
-	void train(string trainingMatName, string labelMatName);
+	void train(string dataFileName);
 
-	void save(int featureAlg, int descriptorAlg, bool isLoadOnly);
+	void save(int featureAlg, int descriptorAlg, bool isLoadOnly, bool timeStamp);
+
 	
 
 	private:

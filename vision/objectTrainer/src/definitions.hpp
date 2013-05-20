@@ -12,13 +12,15 @@
 #include <opencv2/legacy/legacy.hpp>
 #include <opencv2/legacy/compat.hpp>
 #include "FeatureDetectorParams.cpp"
+#include <opencv2/gpu/gpu.hpp>
+#include <opencv2/nonfree/gpu.hpp>
 
 #ifndef DEFINITIONS_HPP_
 #define DEFINITIONS_HPP_
 
 // Picture sizes
-static const int NORMALIZED_HEIGHT = 640;
-static const int NORMALIZED_WIDTH = 480;
+static const int NORMALIZED_HEIGHT = 300;
+static const int NORMALIZED_WIDTH = 300;
 
 // Feature Descriptor algorithm Enums
 
@@ -29,7 +31,7 @@ enum featureType { f_FAST = 1, f_STAR = 2, f_SIFT = 3, f_SURF = 4, f_ORB = 5, f_
 enum extractorType { e_SIFT = 1, e_SURF = 2, e_BRIEF = 3, o_SIFT = 4, o_SURF = 5, o_BRIEF = 6 };
 
 // SURF Parameters
-static const SURFParams_t surfParams(600);
+static const SURFParams_t surfParams(500);
 
 // STAR parameters
 static const STARParams_t starParams;
@@ -41,7 +43,7 @@ static const FASTParams_t fastParams(4, true);
 static const ORBParams_t orbParams;
 
 // SVM PARAMS
-static CvSVMParams SVM_Params(CvSVM::C_SVC, CvSVM::POLY,100,1,1,15,0,0.1,0,cvTermCriteria(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 10000, 1e-6));
+static CvSVMParams SVM_Params(CvSVM::C_SVC, CvSVM::POLY,100,1,1,15,0,0,0,cvTermCriteria(CV_TERMCRIT_ITER+CV_TERMCRIT_EPS, 10000, 1e-6));
 
 #endif
 

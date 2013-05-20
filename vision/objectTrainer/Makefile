@@ -7,7 +7,7 @@ CXX := g++
 EXECUTABLE := objectTrainer 
 
 #Compiler Flags
-CFLAGS := -std=c++0x -fopenmp -g -Wall
+CFLAGS := -std=c++0x -fopenmp -g -Wall -I/usr/local/boost_1_53_0/
 
 #Linker Flags
 LDFLAGS := -g 
@@ -16,7 +16,7 @@ LDFLAGS := -g
 CONFIG := `pkg-config --libs --cflags opencv`
 
 #BOOST Libraries
-BOOST := -L/usr/local/boost/stage/lib -lboost_filesystem
+BOOST := -L/usr/local/boost/stage/lib -lboost_filesystem -lboost_system
 
 #Source files
 SRC := $(wildcard src/*.cpp)

@@ -37,7 +37,25 @@ void MatrixTester::predict(string dir, CvSVM& svm) {
 			vector<path> vec;
 			copy(directory_iterator(p), directory_iterator(), back_inserter(vec));
 
+			
 			for(it = vec.begin(), it_end = vec.end(); it != it_end; ++it){
+				if ( is_regular_file( (*it) )){
+					Mat image;
+					cout<<"Processing "<<(*it).string()<<endl;
+					loadImage((*it).string(), image);
+					Mat histResponce;
+					extract(image, histResponce);
+					if (histResponce.data){
+						float label = svm.predict(histResponce, false);
+						count++;
+						totalCount++;
+						if (label == _label){
+							correct++;
+							totalCorrect++;
+						}
+						cout<<label<<"\t"<<correct/(float)count * 100<<"\% accurate\t"<<totalCorrect/(float)totalCount * 100<<"\% total Accurate"<<endl;
+					}		
+				}
 				predict((*it).string(), svm);
 			}
 			it = vec.begin(); it_end = vec.end();
@@ -52,27 +70,6 @@ void MatrixTester::predict(string dir, CvSVM& svm) {
 			}
 
 		}
-		else if (is_regular_file(p)) {
-			Mat image;
-			cout<<"Processing "<<p.string()<<endl;
-			loadImage(p.string(), image);
-			Mat histResponce;
-			extract(image, histResponce);
-			if (histResponce.data){
-				float label = svm.predict(histResponce, false);
-				count++;
-				totalCount++;
-				if (label == _label){
-					correct++;
-					totalCorrect++;
-				}
-				cout<<label<<"\t"<<correct/(float)count * 100<<"\% accurate\t"<<totalCorrect/(float)totalCount * 100<<"\% total Accurate"<<endl;
-	
-			}
-		}
-		else {
-			cout << p << " not in dir." << endl;
-		}
 	}
 
 
@@ -81,9 +78,8 @@ void MatrixTester::predict(string dir, CvSVM& svm) {
 void MatrixTester::loadImage(string fileName, Mat& image) {
 	Mat src = imread(fileName, CV_LOAD_IMAGE_GRAYSCALE);
 	assert(src.data);
-	image = src;
-	equalizeHist(src, image);
 	resize(src, image, Size(NORMALIZED_HEIGHT, NORMALIZED_WIDTH));
+	equalizeHist(image, image);
 	// TODO -> preprocessing
 
 }

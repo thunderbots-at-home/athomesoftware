@@ -17,8 +17,8 @@
 #define DEFINITIONS_HPP_
 
 // Picture sizes
-static const int NORMALIZED_HEIGHT = 640;
-static const int NORMALIZED_WIDTH = 480;
+static const int NORMALIZED_HEIGHT = 300;
+static const int NORMALIZED_WIDTH = 300;
 
 // Feature Descriptor algorithm Enums
 
