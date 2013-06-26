@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1
+CMAKE_SOURCE_DIR = /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build
+CMAKE_BINARY_DIR = /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build
 
 # Utility rule file for rosbuild_precompile.
 
@@ -57,6 +57,6 @@ CMakeFiles/rosbuild_precompile.dir/clean:
 .PHONY : CMakeFiles/rosbuild_precompile.dir/clean
 
 CMakeFiles/rosbuild_precompile.dir/depend:
-	cd /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1 /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1 /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build/CMakeFiles/rosbuild_precompile.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1 /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1 /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build/CMakeFiles/rosbuild_precompile.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rosbuild_precompile.dir/depend
 

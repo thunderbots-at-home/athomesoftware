@@ -62,8 +62,10 @@ omp.h
 opencv2/gpu/gpu.hpp
 -
 
-/home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/src/ObjectTrainer.cpp
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectTrainer.cpp
 object_recognition_experimental_v1/ObjectTrainer.hpp
+-
+unistd.h
 -
 
 /opt/ros/fuerte/include/XmlRpcDecl.h

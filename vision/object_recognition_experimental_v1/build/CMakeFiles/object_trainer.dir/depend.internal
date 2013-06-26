@@ -4,7 +4,7 @@
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.o
  ../include/object_recognition_experimental_v1/ObjectTrainer.hpp
  ../include/object_recognition_experimental_v1/thunderbots_vision.hpp
- /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/src/ObjectTrainer.cpp
+ /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectTrainer.cpp
  /opt/ros/fuerte/include/XmlRpcDecl.h
  /opt/ros/fuerte/include/XmlRpcValue.h
  /opt/ros/fuerte/include/opencv2/calib3d/calib3d.hpp

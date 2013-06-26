@@ -5,9 +5,10 @@
 
 
 #include <object_recognition_experimental_v1/ObjectTrainer.hpp>
+#include <unistd.h>
 
 struct TrainingRow;
-
+string CURRENT_DIRECTORY;
 string ObjectTrainer::getClassName(string& directory)
 {
 
@@ -39,11 +40,11 @@ void ObjectTrainer::trainSVM(Mat& trainingMatrix, Mat& trainingLabels)
 	CvSVMParams param = CvSVMParams();
 
 	param.svm_type = CvSVM::C_SVC;
-	param.kernel_type = CvSVM::LINEAR;
+	param.kernel_type = CvSVM::POLY;
 
-	param.degree = 0; // For poly
+	param.degree = 18; // For poly
 	param.gamma = 20; // For poly/rgbf/sigmoid
-	param.coef0 = 0;  // For poly/sigmoid
+	param.coef0 = 4;  // For poly/sigmoid
 
 	param.C = 10; // Optimization constant
 	param.nu = 0.0;
@@ -167,12 +168,12 @@ void ObjectTrainer::computeVocabulary(Mat& output_vocabulary)
 	ROS_INFO("Computing vocabulary");	
 	char ** argv = directories;
 
-	int CLASSLABEL = 0;
+	int CLASSLABEL = 1;
 	std::string current;
 	TermCriteria TC( CV_TERMCRIT_ITER + CV_TERMCRIT_EPS, 1000, 0.001 );
 	BOWKMeansTrainer bow ( KMEANS_CLUSTERS, TC, KMEANS_ATTEMPTS, KMEANS_PP_CENTERS);
 
-	ROS_INFO("Number of classes detected: %d", NUM_CLASSES);
+	ROS_INFO("Number of classes detected: %d", NUM_CLASSES-1);
 	
 	while (CLASSLABEL < (NUM_CLASSES))
 	{
@@ -244,7 +245,6 @@ void ObjectTrainer::computeVocabulary(Mat& output_vocabulary)
 	ROS_INFO("No images computed. Please check that you have entered valid directory names and that images are of type .jpg"); 
 	}
 	output_vocabulary = bow.cluster();
-	ROS_INFO("HERE");
 	FileStorage fs("vocabulary.yml", FileStorage::WRITE);
 	fs << "vocabulary" << output_vocabulary;
 
@@ -309,12 +309,17 @@ ObjectTrainer::ObjectTrainer()
 ObjectTrainer::ObjectTrainer(int argc, char** argv, Ptr<FeatureDetector>& fdetector, Ptr<DescriptorExtractor>& dextractor, 			Ptr<DescriptorMatcher>& dmatcher, int clusters, int attempts) 
 : KMEANS_ATTEMPTS(3), KMEANS_CLUSTERS(186), NUM_IMAGES(0), SVM_SAVE_NAME("TrainedSVM"), VOCABULARY_SAVE_NAME("vocabulary")
 {
+	SVM_SAVE_NAME = CURRENT_DIRECTORY + "/config/TrainedSVM";
+	VOCABULARY_SAVE_NAME = CURRENT_DIRECTORY + "/config/vocabulary.yml";
+	ROS_INFO("Saving SVM to %s", SVM_SAVE_NAME.c_str());
+	ROS_INFO("Saving Vocabulary to %s", VOCABULARY_SAVE_NAME.c_str());
+
 	KMEANS_CLUSTERS = clusters;	
 	KMEANS_ATTEMPTS = attempts;
 	this->extractor = dextractor;
 	this->matcher = dmatcher;
 	this->detector = fdetector;
-	NUM_CLASSES = argc-1;
+	NUM_CLASSES = argc;
 
 	directories = argv;
 
@@ -334,13 +339,19 @@ int main(int argc, char** argv)
 	ros::init(argc, argv, "object_trainer");
 	ros::NodeHandle n;
 
+	//Finding the current directory
+	char buf[PATH_MAX];
+	string dir(getwd(buf));
+	CURRENT_DIRECTORY = dir;
+	ROS_INFO("Current dir %s", CURRENT_DIRECTORY.c_str());
+
 	ROS_INFO("Creating vocabulary.yml and TrainedSVM.txt!");
 
 	Ptr<FeatureDetector> detector(new SurfFeatureDetector( 400 ));
 	Ptr<DescriptorExtractor> extractor(new SurfDescriptorExtractor);
 	Ptr<DescriptorMatcher> matcher(new BruteForceMatcher<L2<float> >());
 
-	ObjectTrainer trainer(argc, (argv = argv+=1), detector, extractor, matcher, 186, 3);
+	ObjectTrainer trainer(argc, argv, detector, extractor, matcher, 186, 3);
 	ROS_INFO("Successfully created vocabulary.yml and TrainedSVM.txt!");
 
 	return 0;

@@ -4,12 +4,16 @@
 //=======================================================
 
 #include <object_recognition_experimental_v1/ObjectRecognizer.hpp>
+#include "MultiObjectRecognition.cpp"
+#include "RealWorldObject.cpp"
+#include "Scene.cpp"
+#include "ObjectLocalizer.cpp"
 
 using namespace std;
 using namespace cv;
 
 ObjectRecognizer * recognizer;
-
+string CURRENT_DIRECTORY;
 string ObjectRecognizer::getClassName(string& directory)
 {
 
@@ -66,16 +70,15 @@ ObjectRecognizer::ObjectRecognizer(int argc, char** argv, Ptr<FeatureDetector>& 
 	this->extractor = dextractor;
 	this->matcher = dmatcher;
 	this->detector = fdetector;
+	SVM_SAVE_NAME = CURRENT_DIRECTORY + "/config/TrainedSVM";
+	VOCABULARY_SAVE_NAME = CURRENT_DIRECTORY + "/config/vocabulary";
 	
-	SVM_SAVE_NAME = "TrainedSVM";
-	VOCABULARY_SAVE_NAME = "vocabulary";
 	this->generateClassLabels(argc, argv);
 }
 
 
 void ObjectRecognizer::startStream()
 {
-
 	// Load SVM
 	// Load vocabulary
 	// Begin normalizing images.
@@ -92,12 +95,14 @@ void ObjectRecognizer::startStream()
 	BOWImgDescriptorExtractor bowide(this->extractor, this->matcher);
 	bowide.setVocabulary(vocabulary);
 	ROS_INFO("Vocabulary set");
+	ROS_INFO("Vocab type %d", bowide.descriptorType());
 
 	// Load the mapped classes
 	
 	VideoCapture capture(0);
 	if(!capture.isOpened()) return;
 	cv::Mat mImage;
+	int framecount = 0;
 
 	while(1)
 	{
@@ -111,33 +116,77 @@ void ObjectRecognizer::startStream()
 		Mat response;
 		bowide.compute(normalized, keypoints, response);
 		
-
-
 		if (!response.data) { ROS_INFO("Invalid response %d", keypoints.size()); } 
 		else 
 		{
 			float resp = svm.predict(response);
-			ROS_INFO("response %f", resp);		
-			
-			if (response) 
-			{
-				// draw box around object.				
-			}
-		  	
-			ROS_INFO("Detected object of class %s in stream", this->class_labels.at((int)resp).c_str());
-		}
 
-		imshow("Img", normalized);
+			if (resp != 0) 
+			{
+				framecount++;
+				string class_name = this->class_labels.at((int)resp).c_str();
+				// Add objects to the scene if they weren't already there.
+				RealWorldObject object(mImage, class_name);
+				
+				if (!Scene::isInScene(object))
+				{
+					ROS_INFO("Detected object of class %s in stream", class_name.c_str());
+					Scene::objects_in_scene.push_back(object);
+				}	
+
+				for (int i = 0; i < Scene::objects_of_interest.size(); i++)
+				{
+					RealWorldObject object = Scene::objects_of_interest[i]; 
+					// An Inner loop. (n^2) algorithm, assuming number of objects in scene
+					// and number of interesting objects are relatively small.
+					// If it is the case that the object counts are becoming too large,
+					// then we can switch the scenery to hash maps.
+
+					if (Scene::isInScene(object))
+					{
+						Mat object_pic = object.getPicture();
+						
+						imshow("object_pic", object_pic);
+						waitKey(30);
+
+						if (object_pic.data)
+						{
+							ObjectLocalizer localizer(mImage, object_pic, mImage);
+							ROS_INFO("Localizing %s", object.getName().c_str());
+						} else { ROS_INFO("Object pic null"); }
+					}
+				}
+	
+				if (framecount % 30 == 0)
+				{
+					ROS_INFO("Renewed objects in scene");
+					Scene::objects_in_scene.clear();
+				}	
+			} 
+			else 
+			{ 
+				ROS_INFO("Nothing in stream"); 
+			}
+		}
+		imshow("Img",mImage);
          	waitKey(30);
 	}
-
 }
-
 
 int main(int argc, char** argv)
 {
+
+	// Add images to the objects_of_interest thing.
+	// Iterate the data folder.
+	Scene::loadObjectsOfInterest();
+
 	ros::init(argc, argv, "object_recognizer");
 	ros::NodeHandle n;
+
+	char buf[PATH_MAX];
+
+	string dir(getwd(buf));
+	CURRENT_DIRECTORY = dir;
 
 	Ptr<FeatureDetector> detector(new SurfFeatureDetector(400) );
 	Ptr<DescriptorExtractor> extractor(new SurfDescriptorExtractor);

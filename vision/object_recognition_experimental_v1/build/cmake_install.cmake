@@ -1,4 +1,4 @@
-# Install script for directory: /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1
+# Install script for directory: /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

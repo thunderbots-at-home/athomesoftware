@@ -9,4 +9,17 @@
 
 #include "thunderbots_vision.hpp"
 
+
+using namespace std;
+using namespace cv;
+
+class ObjectLocalizer
+{
+	private:
+	public:
+		~ObjectLocalizer();
+		ObjectLocalizer();
+		ObjectLocalizer(Mat&, Mat&, Mat&);
+};
+
 #endif

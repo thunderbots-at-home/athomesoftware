@@ -6,7 +6,23 @@
 
 #IncludeRegexTransform: 
 
+../include/object_recognition_experimental_v1/MultiObjectRecognition.hpp
+thunderbots_vision.hpp
+../include/object_recognition_experimental_v1/thunderbots_vision.hpp
+
+../include/object_recognition_experimental_v1/ObjectLocalizer.hpp
+thunderbots_vision.hpp
+../include/object_recognition_experimental_v1/thunderbots_vision.hpp
+
 ../include/object_recognition_experimental_v1/ObjectRecognizer.hpp
+thunderbots_vision.hpp
+../include/object_recognition_experimental_v1/thunderbots_vision.hpp
+
+../include/object_recognition_experimental_v1/RealWorldObject.hpp
+thunderbots_vision.hpp
+../include/object_recognition_experimental_v1/thunderbots_vision.hpp
+
+../include/object_recognition_experimental_v1/Scene.hpp
 thunderbots_vision.hpp
 ../include/object_recognition_experimental_v1/thunderbots_vision.hpp
 
@@ -62,8 +78,36 @@ omp.h
 opencv2/gpu/gpu.hpp
 -
 
-/home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/src/ObjectRecognizer.cpp
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/MultiObjectRecognition.cpp
+object_recognition_experimental_v1/MultiObjectRecognition.hpp
+-
+
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectLocalizer.cpp
+object_recognition_experimental_v1/ObjectLocalizer.hpp
+-
+
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectRecognizer.cpp
 object_recognition_experimental_v1/ObjectRecognizer.hpp
+-
+MultiObjectRecognition.cpp
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/MultiObjectRecognition.cpp
+RealWorldObject.cpp
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/RealWorldObject.cpp
+Scene.cpp
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/Scene.cpp
+ObjectLocalizer.cpp
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectLocalizer.cpp
+
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/RealWorldObject.cpp
+object_recognition_experimental_v1/RealWorldObject.hpp
+-
+
+/home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/Scene.cpp
+object_recognition_experimental_v1/Scene.hpp
+-
+object_recognition_experimental_v1/RealWorldObject.hpp
+-
+vector
 -
 
 /opt/ros/fuerte/include/XmlRpcDecl.h

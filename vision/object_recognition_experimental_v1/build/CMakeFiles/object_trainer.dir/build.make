@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1
+CMAKE_SOURCE_DIR = /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build
+CMAKE_BINARY_DIR = /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/object_trainer.dir/depend.make
@@ -67,17 +67,17 @@ CMakeFiles/object_trainer.dir/src/ObjectTrainer.o: /home/marco/fuerte_workspace/
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.o: /home/marco/fuerte_workspace/tbots_vision_pkg/feature_extraction/msg_gen/generated
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.o: /home/marco/fuerte_workspace/tbots_vision_pkg/feature_extraction/srv_gen/generated
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.o: /home/marco/fuerte_workspace/tbots_vision_pkg/image_processing/srv_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/object_trainer.dir/src/ObjectTrainer.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/object_trainer.dir/src/ObjectTrainer.o -c /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/src/ObjectTrainer.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/object_trainer.dir/src/ObjectTrainer.o -c /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectTrainer.cpp
 
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/object_trainer.dir/src/ObjectTrainer.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/src/ObjectTrainer.cpp > CMakeFiles/object_trainer.dir/src/ObjectTrainer.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectTrainer.cpp > CMakeFiles/object_trainer.dir/src/ObjectTrainer.i
 
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/object_trainer.dir/src/ObjectTrainer.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/src/ObjectTrainer.cpp -o CMakeFiles/object_trainer.dir/src/ObjectTrainer.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/src/ObjectTrainer.cpp -o CMakeFiles/object_trainer.dir/src/ObjectTrainer.s
 
 CMakeFiles/object_trainer.dir/src/ObjectTrainer.o.requires:
 .PHONY : CMakeFiles/object_trainer.dir/src/ObjectTrainer.o.requires
@@ -113,6 +113,6 @@ CMakeFiles/object_trainer.dir/clean:
 .PHONY : CMakeFiles/object_trainer.dir/clean
 
 CMakeFiles/object_trainer.dir/depend:
-	cd /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1 /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1 /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/tbots_vision_pkg/object_recognition_experimental_v1/build/CMakeFiles/object_trainer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1 /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1 /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build /home/marco/fuerte_workspace/athomesoftware/vision/object_recognition_experimental_v1/build/CMakeFiles/object_trainer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/object_trainer.dir/depend
 

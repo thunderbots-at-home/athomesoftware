@@ -24,7 +24,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #Learning objects
 rosbuild_add_executable(object_trainer src/ObjectTrainer.cpp)
 rosbuild_add_executable(object_recognizer src/ObjectRecognizer.cpp)
-
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)

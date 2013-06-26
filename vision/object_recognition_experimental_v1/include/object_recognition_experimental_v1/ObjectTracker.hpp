@@ -8,4 +8,17 @@
 
 #include "thunderbots_vision.hpp"
 
+using namespace std;
+using namespace cv;
+
+class ObjectTracker
+{
+
+	private:
+	public:
+	~ObjectTracker();
+	ObjectTracker();
+	ObjectTracker(Mat&);
+	static bool robotShouldTrack();
+};
 #endif
