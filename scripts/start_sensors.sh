@@ -3,3 +3,5 @@
 # Created: 21/09/13
 # Initializes sensor topics for the robot
 
+
+## Contact the launch file that starts the sensors
