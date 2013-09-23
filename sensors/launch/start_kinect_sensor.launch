@@ -1,6 +1,0 @@
-<launch> 
-
-<include file="$(find openni_launch)/launch/openni.launch"/>
-
-
-</launch>
