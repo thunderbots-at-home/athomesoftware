@@ -1,0 +1,4 @@
+## Dependencies that this package must have ##
+
+Hokuyo Node package from ROS
+Openni_launch from kinect
