@@ -9,7 +9,7 @@
 SENSORS_LAUNCH_PATH="../sensors/launch/start_sensors.launch"
 
 ## Configure the GSCAM variables for using integrated webcam
-export GSCAM_CONFIG="v4l2src device=/dev/video0 ! video/x-raw-rgb ! ffmpegcolorspace" $ rosrun gscam gscam
+export GSCAM_CONFIG="v4l2src device=/dev/video0 ! video/x-raw-rgb ! ffmpegcolorspace" 
 
 ## Launch integrated cam
 ## Launch USB cam
@@ -17,6 +17,8 @@ export GSCAM_CONFIG="v4l2src device=/dev/video0 ! video/x-raw-rgb ! ffmpegcolors
 ## Launch Speakers
 ## Launch Kinect
 ## Launch Lidar
-echo "Starting sensors for robot..."
-roslaunch $SENSORS_LAUNCH_PATH
+
+## Debugging things, so commented these out
+## echo "Starting sensors for robot..."
+## roslaunch $SENSORS_LAUNCH_PATH
 
