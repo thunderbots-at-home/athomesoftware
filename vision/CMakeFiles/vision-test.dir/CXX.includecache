@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marco/catkin_ws/src/vision/test/test_vision.cpp
+vision/ObjectClassification.h
+-
+gtest/gtest.h
+-
+
+include/vision/ObjectClassification.h
+vector
+-
+opencv2/core/core.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+iostream
+-
+string
+-
+geometry_msgs/Point
+-
+

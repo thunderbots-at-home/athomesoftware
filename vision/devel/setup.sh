@@ -8,7 +8,7 @@
 
 # since this file is sourced either use the provided CATKIN_SETUP_DIR
 # or fall back to the destination set at configure time
-: ${CATKIN_SETUP_DIR:=/home/marco/catkin_ws/athomesoftware/athomesoftware/vision/devel}
+: ${CATKIN_SETUP_DIR:=/home/marco/catkin_ws/src/vision/devel}
 _SETUP_UTIL="$CATKIN_SETUP_DIR/_setup_util.py"
 
 if [ ! -f "$_SETUP_UTIL" ]; then

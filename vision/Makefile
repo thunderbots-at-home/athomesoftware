@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/athomesoftware/athomesoftware/vision
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/vision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/athomesoftware/athomesoftware/vision
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/vision
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -117,9 +117,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/athomesoftware/athomesoftware/vision/CMakeFiles /home/marco/catkin_ws/athomesoftware/athomesoftware/vision/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/vision/CMakeFiles /home/marco/catkin_ws/src/vision/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/athomesoftware/athomesoftware/vision/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/vision/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -158,6 +158,45 @@ _catkin_empty_exported_target: cmake_check_build_system
 _catkin_empty_exported_target/fast:
 	$(MAKE) -f CMakeFiles/_catkin_empty_exported_target.dir/build.make CMakeFiles/_catkin_empty_exported_target.dir/build
 .PHONY : _catkin_empty_exported_target/fast
+
+#=============================================================================
+# Target rules for targets named _run_tests_vision
+
+# Build rule for target.
+_run_tests_vision: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_vision
+.PHONY : _run_tests_vision
+
+# fast build rule for target.
+_run_tests_vision/fast:
+	$(MAKE) -f CMakeFiles/_run_tests_vision.dir/build.make CMakeFiles/_run_tests_vision.dir/build
+.PHONY : _run_tests_vision/fast
+
+#=============================================================================
+# Target rules for targets named _run_tests_vision_gtest
+
+# Build rule for target.
+_run_tests_vision_gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_vision_gtest
+.PHONY : _run_tests_vision_gtest
+
+# fast build rule for target.
+_run_tests_vision_gtest/fast:
+	$(MAKE) -f CMakeFiles/_run_tests_vision_gtest.dir/build.make CMakeFiles/_run_tests_vision_gtest.dir/build
+.PHONY : _run_tests_vision_gtest/fast
+
+#=============================================================================
+# Target rules for targets named _run_tests_vision_gtest_vision-test
+
+# Build rule for target.
+_run_tests_vision_gtest_vision-test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _run_tests_vision_gtest_vision-test
+.PHONY : _run_tests_vision_gtest_vision-test
+
+# fast build rule for target.
+_run_tests_vision_gtest_vision-test/fast:
+	$(MAKE) -f CMakeFiles/_run_tests_vision_gtest_vision-test.dir/build.make CMakeFiles/_run_tests_vision_gtest_vision-test.dir/build
+.PHONY : _run_tests_vision_gtest_vision-test/fast
 
 #=============================================================================
 # Target rules for targets named clean_test_results
@@ -199,6 +238,45 @@ run_tests/fast:
 .PHONY : run_tests/fast
 
 #=============================================================================
+# Target rules for targets named run_tests_vision
+
+# Build rule for target.
+run_tests_vision: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_vision
+.PHONY : run_tests_vision
+
+# fast build rule for target.
+run_tests_vision/fast:
+	$(MAKE) -f CMakeFiles/run_tests_vision.dir/build.make CMakeFiles/run_tests_vision.dir/build
+.PHONY : run_tests_vision/fast
+
+#=============================================================================
+# Target rules for targets named run_tests_vision_gtest
+
+# Build rule for target.
+run_tests_vision_gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_vision_gtest
+.PHONY : run_tests_vision_gtest
+
+# fast build rule for target.
+run_tests_vision_gtest/fast:
+	$(MAKE) -f CMakeFiles/run_tests_vision_gtest.dir/build.make CMakeFiles/run_tests_vision_gtest.dir/build
+.PHONY : run_tests_vision_gtest/fast
+
+#=============================================================================
+# Target rules for targets named run_tests_vision_gtest_vision-test
+
+# Build rule for target.
+run_tests_vision_gtest_vision-test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests_vision_gtest_vision-test
+.PHONY : run_tests_vision_gtest_vision-test
+
+# fast build rule for target.
+run_tests_vision_gtest_vision-test/fast:
+	$(MAKE) -f CMakeFiles/run_tests_vision_gtest_vision-test.dir/build.make CMakeFiles/run_tests_vision_gtest_vision-test.dir/build
+.PHONY : run_tests_vision_gtest_vision-test/fast
+
+#=============================================================================
 # Target rules for targets named tests
 
 # Build rule for target.
@@ -210,6 +288,19 @@ tests: cmake_check_build_system
 tests/fast:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 .PHONY : tests/fast
+
+#=============================================================================
+# Target rules for targets named vision-test
+
+# Build rule for target.
+vision-test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision-test
+.PHONY : vision-test
+
+# fast build rule for target.
+vision-test/fast:
+	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/build
+.PHONY : vision-test/fast
 
 #=============================================================================
 # Target rules for targets named gtest
@@ -237,6 +328,30 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+test/test_vision.o: test/test_vision.cpp.o
+.PHONY : test/test_vision.o
+
+# target to build an object file
+test/test_vision.cpp.o:
+	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/test/test_vision.cpp.o
+.PHONY : test/test_vision.cpp.o
+
+test/test_vision.i: test/test_vision.cpp.i
+.PHONY : test/test_vision.i
+
+# target to preprocess a source file
+test/test_vision.cpp.i:
+	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/test/test_vision.cpp.i
+.PHONY : test/test_vision.cpp.i
+
+test/test_vision.s: test/test_vision.cpp.s
+.PHONY : test/test_vision.s
+
+# target to generate assembly for a file
+test/test_vision.cpp.s:
+	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/test/test_vision.cpp.s
+.PHONY : test/test_vision.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -244,6 +359,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... _catkin_empty_exported_target"
+	@echo "... _run_tests_vision"
+	@echo "... _run_tests_vision_gtest"
+	@echo "... _run_tests_vision_gtest_vision-test"
 	@echo "... clean_test_results"
 	@echo "... doxygen"
 	@echo "... edit_cache"
@@ -253,10 +371,17 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... run_tests"
+	@echo "... run_tests_vision"
+	@echo "... run_tests_vision_gtest"
+	@echo "... run_tests_vision_gtest_vision-test"
 	@echo "... test"
 	@echo "... tests"
+	@echo "... vision-test"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... test/test_vision.o"
+	@echo "... test/test_vision.i"
+	@echo "... test/test_vision.s"
 .PHONY : help
 
 

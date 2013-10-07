@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/marco/catkin_ws/athomesoftware/athomesoftware/vision/devel/setup.sh
+    local-name: /home/marco/catkin_ws/src/vision/devel/setup.sh

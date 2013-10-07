@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/athomesoftware/athomesoftware/vision
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/vision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/athomesoftware/athomesoftware/vision
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/vision
 
 # Utility rule file for doxygen.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /home/marco/catkin_ws/athomesoftware/athomesoftware/vision
 include CMakeFiles/doxygen.dir/progress.make
 
 CMakeFiles/doxygen:
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/athomesoftware/athomesoftware/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "doxygen found"
 
 doxygen: CMakeFiles/doxygen
@@ -59,6 +59,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/marco/catkin_ws/athomesoftware/athomesoftware/vision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/athomesoftware/athomesoftware/vision /home/marco/catkin_ws/athomesoftware/athomesoftware/vision /home/marco/catkin_ws/athomesoftware/athomesoftware/vision /home/marco/catkin_ws/athomesoftware/athomesoftware/vision /home/marco/catkin_ws/athomesoftware/athomesoftware/vision/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

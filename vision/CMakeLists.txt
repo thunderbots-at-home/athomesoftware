@@ -49,10 +49,11 @@ find_package(catkin REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-INCLUDE_DIRS include
+INCLUDE_DIRS include/${PROJECT_NAME}
 #  LIBRARIES vision
 #  CATKIN_DEPENDS other_catkin_pkg
-DEPENDS geometry_msgs sensor_msgs
+#  DEPENDS
+CATKIN_DEPENDS sensor_msgs geometry_msgs
 )
 
 ###########
@@ -62,7 +63,7 @@ DEPENDS geometry_msgs sensor_msgs
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-
+include_directories(include/${PROJET_NAME})
 ## Declare a cpp library
 # add_library(vision
 #   src/${PROJECT_NAME}/vision.cpp
@@ -121,6 +122,8 @@ DEPENDS geometry_msgs sensor_msgs
 
 ## Add gtest based cpp test target and link libraries
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_vision.cpp)
+catkin_add_gtest(${PROJECT_NAME}-test test/test_vision.cpp)
+
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

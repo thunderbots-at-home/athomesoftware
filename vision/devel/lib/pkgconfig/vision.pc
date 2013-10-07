@@ -1,8 +1,8 @@
-prefix=/home/marco/catkin_ws/athomesoftware/athomesoftware/vision/devel
+prefix=/home/marco/catkin_ws/src/vision/devel
 
 Name: vision
 Description: Description of vision
 Version: 0.0.0
-Cflags: -I/home/marco/catkin_ws/athomesoftware/athomesoftware/vision/include
-Libs: -L/home/marco/catkin_ws/athomesoftware/athomesoftware/vision/devel/lib 
-Requires: 
+Cflags: -I/home/marco/catkin_ws/src/vision/include/vision
+Libs: -L/home/marco/catkin_ws/src/vision/devel/lib 
+Requires: sensor_msgs geometry_msgs
