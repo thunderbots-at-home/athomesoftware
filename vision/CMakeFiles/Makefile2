@@ -146,9 +146,9 @@ clean: CMakeFiles/_run_tests_vision_gtest.dir/clean
 # Target rules for target CMakeFiles/_run_tests_vision_gtest_vision-test.dir
 
 # All Build rule for target.
+CMakeFiles/_run_tests_vision_gtest_vision-test.dir/all: CMakeFiles/vision-test.dir/all
 CMakeFiles/_run_tests_vision_gtest_vision-test.dir/all: CMakeFiles/tests.dir/all
 CMakeFiles/_run_tests_vision_gtest_vision-test.dir/all: CMakeFiles/clean_test_results.dir/all
-CMakeFiles/_run_tests_vision_gtest_vision-test.dir/all: CMakeFiles/vision-test.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_vision_gtest_vision-test.dir/build.make CMakeFiles/_run_tests_vision_gtest_vision-test.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_vision_gtest_vision-test.dir/build.make CMakeFiles/_run_tests_vision_gtest_vision-test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles 
@@ -431,8 +431,8 @@ clean: CMakeFiles/tests.dir/clean
 # Target rules for target CMakeFiles/vision-test.dir
 
 # All Build rule for target.
-CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest.dir/all
 CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/depend
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles  5

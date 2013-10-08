@@ -14,6 +14,8 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "catkin/catkin_generated/version/package.cmake"
   "catkin_generated/package.cmake"
   "package.xml"
+  "/opt/ros/hydro/share/OpenCV/OpenCVConfig-version.cmake"
+  "/opt/ros/hydro/share/OpenCV/OpenCVConfig.cmake"
   "/opt/ros/hydro/share/catkin/cmake/../package.xml"
   "/opt/ros/hydro/share/catkin/cmake/all.cmake"
   "/opt/ros/hydro/share/catkin/cmake/assert.cmake"

@@ -1,5 +1,6 @@
 #include "ObjectClassification.h"
 
+namespace enc = sensor_msgs::image_encodings;
 		
 ObjectClassification::ObjectClassification()
 {
@@ -11,22 +12,6 @@ ObjectClassification::~ObjectClassification()
 
 }
 
-// The topic is the topic to be listened to, for example
-// if we want to create a recognizer for the hand camera
-// or the integrated camera, we just have to change
-// what topic it is listening on. 
-ObjectClassification::ObjectClassification(std::string topic)
-{
-	this->camera_topic = topic;
-	// Read the images from the camera topic.
-	// /camera/image_raw for integrated cam
-	this->image_subscriber = image_transport.subscribe(this->camera_topic, 1, &ObjectClassification::save_image, this);
-	
-	
-}
-	
-
-
 void ObjectClassification::save_image(const sensor_msgs::ImageConstPtr& image)
 {
 	// do stuff
@@ -36,59 +21,78 @@ void ObjectClassification::save_image(const sensor_msgs::ImageConstPtr& image)
 	{
 		cv_ptr = cv_bridge::toCvCopy(image, enc::BGR8);
 	}	
-	catch (cv_brdige::Exception& e)
+	catch (cv_bridge::Exception& e)
 	{
 		ROS_ERROR("cv_brdige exception: %s", e.what());
 		return;
 	}
 
-	this->recent_images.push_back(cv_ptr->image));
-	cout << "Saved image " << endl;
+	this->recent_images.push_back(cv_ptr->image);
+	std::cout << "Saved image " << std::endl;
 	if (this->recent_images.size() > 10)
 	{
 		this->recent_images.clear();
 	}
 }
 
-vector<RealObject> ObjectClassification::getObjectsInScene()
+// Topic: topic to subscribe to for images
+ObjectClassification::ObjectClassification(std::string topic)
+{
+	this->camera_topic = topic;
+	// Read the images from the camera topic.
+	// /camera/image_raw for integrated cam
+	
+}
+
+// The getObjectsInScene service callback
+std::vector<RealObject> ObjectClassification::getObjectsInScene()
 {
 	// Pass it into classification algorithm
 	// Create real objects once classification algorithm determines what it is
 	
 	// Put into vector and return
-	vector<RealObject> vec;
+	std::vector<RealObject> vec;
 		
 	return vec;
 }
 
+
+// The containsObject service callback
 bool ObjectClassification::containsObject(std::string name)
 {
 	return true;
 }
 	
+// The findobject service callback
 RealObject& ObjectClassification::findObject(std::string object)
 {
-	struct RealObject object;
+	struct RealObject obj;
 	cv::Mat pic;
-	object.picture = pic;
+	obj.picture = pic;
 
-	return object;
+	return obj;
 }
 	
+
+// The classify service callback
 RealObject& ObjectClassification::classify(cv::Mat& pic)
 {
 	struct RealObject object;
-	cv::Mat pic;
-	object.picture = pic;
+	cv::Mat pics;
+	object.picture = pics;
 
 	return object;
 }
 
 int main(int argc, char** argv)
 {
-	ros::init(argc, argv, "object_classification");
-	ImageConverter ic;
-	ros::spin();
 
+	ros::init(argc, argv, "object_classification");
+	ros::NodeHandle nh;
+
+	std::string topic("/camera/image_raw");
+	ObjectClassification oc(topic);
+
+	ros::spin();
 }
 

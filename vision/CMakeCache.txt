@@ -196,6 +196,23 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests
 
+//Path where debug 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=/opt/ros/hydro/share/OpenCV/3rdparty/lib
+
+//Path where release 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=/opt/ros/hydro/share/OpenCV/3rdparty/lib
+
+OpenCV_CONFIG_PATH:FILEPATH=/opt/ros/hydro/share/OpenCV
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/opt/ros/hydro/share/OpenCV
+
+//Path where debug OpenCV libraries are located
+OpenCV_LIB_DIR_DBG:PATH=/opt/ros/hydro/lib
+
+//Path where release OpenCV libraries are located
+OpenCV_LIB_DIR_OPT:PATH=/opt/ros/hydro/lib
+
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
 
@@ -406,6 +423,16 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
+OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
+OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_CONFIG_PATH
+OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_DBG
+OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_OPT
+OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.

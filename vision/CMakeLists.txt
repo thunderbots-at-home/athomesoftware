@@ -4,7 +4,8 @@ project(vision)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS roscpp std_msgs cv_bridge)
+find_package(OpenCV)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -53,7 +54,7 @@ INCLUDE_DIRS include/${PROJECT_NAME}
 #  LIBRARIES vision
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS
-CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet
+CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2
 )
 
 ###########
@@ -64,6 +65,7 @@ CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(include/${PROJECT_NAME})
+include_directories(${OpenCV_INCLUDE_DIRS})
 ## Declare a cpp library
 # add_library(vision
 #   src/${PROJECT_NAME}/vision.cpp
@@ -78,9 +80,8 @@ add_executable(object_classification src/ObjectClassification.cpp)
 # add_dependencies(vision_node vision_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(vision_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(object_classification ${catkin_LIBRARIES})
+ target_link_libraries(object_classification ${OpenCV_LIBRARIES})
 
 #############
 ## Install ##

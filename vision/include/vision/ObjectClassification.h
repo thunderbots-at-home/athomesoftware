@@ -30,16 +30,12 @@ class ObjectClassification
 	std::vector<RealObject> lastObjectsInScene;
 	std::string camera_topic;
 
-	ros::NodeHandle nh;
-	image_transport::Subscriber image_subscriber;
-	image_transport::ImageTransport image_transport;
-
 	ObjectClassification();
 	~ObjectClassification();
 	ObjectClassification(std::string topic);
 
 	// Callback from listening to topic
-	void save_image(sensor_msgs::ImageConstPtr& image);
+	void save_image(const sensor_msgs::ImageConstPtr& image);
 
 	// Service
 	std::vector<RealObject> getObjectsInScene();
