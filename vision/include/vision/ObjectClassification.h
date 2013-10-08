@@ -1,5 +1,6 @@
 // ObjectClassification.h
-
+// Author: Devon Ash
+// contact: noobaca2@gmail.com
 #ifndef ObjectClassification_H
 #define ObjectClassification_H
 

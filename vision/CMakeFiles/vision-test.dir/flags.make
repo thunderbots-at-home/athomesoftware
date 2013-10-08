@@ -4,5 +4,5 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -I/home/marco/catkin_ws/src/vision/include/vision -I/opt/ros/hydro/include/opencv -I/opt/ros/hydro/include   
 
-CXX_DEFINES = 
+CXX_DEFINES = -DROS_PACKAGE_NAME=\"vision\"
 

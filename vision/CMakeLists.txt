@@ -1,3 +1,6 @@
+##Author: Devon Ash
+##contact: noobaca2@gmail.com
+
 cmake_minimum_required(VERSION 2.8.3)
 project(vision)
 

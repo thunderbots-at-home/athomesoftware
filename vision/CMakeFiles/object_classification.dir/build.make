@@ -77,6 +77,39 @@ object_classification_OBJECTS = \
 object_classification_EXTERNAL_OBJECTS =
 
 devel/lib/vision/object_classification: CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.o
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libroscpp.so
+devel/lib/vision/object_classification: /usr/lib/x86_64-linux-gnu/libpthread.so
+devel/lib/vision/object_classification: /usr/lib/libboost_signals-mt.so
+devel/lib/vision/object_classification: /usr/lib/libboost_filesystem-mt.so
+devel/lib/vision/object_classification: /usr/lib/libboost_system-mt.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libcpp_common.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libroscpp_serialization.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/librostime.so
+devel/lib/vision/object_classification: /usr/lib/libboost_date_time-mt.so
+devel/lib/vision/object_classification: /usr/lib/libboost_thread-mt.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/librosconsole.so
+devel/lib/vision/object_classification: /usr/lib/libboost_regex-mt.so
+devel/lib/vision/object_classification: /usr/lib/liblog4cxx.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libxmlrpcpp.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libcv_bridge.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_calib3d.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_contrib.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_core.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_features2d.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_flann.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_gpu.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_highgui.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_imgproc.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_legacy.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_ml.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_nonfree.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_objdetect.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_photo.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_stitching.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_superres.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_ts.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_video.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_videostab.so
 devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_calib3d.so
 devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_contrib.so
 devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_core.so
@@ -94,6 +127,7 @@ devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_stitching.s
 devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_superres.so
 devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_video.so
 devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_videostab.so
+devel/lib/vision/object_classification: /opt/ros/hydro/lib/libopencv_ts.so
 devel/lib/vision/object_classification: CMakeFiles/object_classification.dir/build.make
 devel/lib/vision/object_classification: CMakeFiles/object_classification.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable devel/lib/vision/object_classification"

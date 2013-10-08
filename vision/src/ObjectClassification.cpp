@@ -1,3 +1,6 @@
+// Author: Devon Ash
+// contact: noobaca2@gmail.com
+
 #include "ObjectClassification.h"
 
 namespace enc = sensor_msgs::image_encodings;
@@ -16,6 +19,10 @@ void ObjectClassification::save_image(const sensor_msgs::ImageConstPtr& image)
 {
 	// do stuff
 	// Convert the image to a openCV image and save it in the vector.
+	if (image)
+	{
+
+	} else { std::cout << "Nothing " << std::endl; }
 	cv_bridge::CvImagePtr cv_ptr;
 	try
 	{
@@ -86,12 +93,16 @@ RealObject& ObjectClassification::classify(cv::Mat& pic)
 
 int main(int argc, char** argv)
 {
-
 	ros::init(argc, argv, "object_classification");
 	ros::NodeHandle nh;
 
 	std::string topic("/camera/image_raw");
 	ObjectClassification oc(topic);
+
+	// Get the node to subscribe to the image topic
+	ros::Subscriber subscriber = nh.subscribe(oc.camera_topic, 1, &ObjectClassification::save_image, &oc);
+
+	// Set up the services for the node. 
 
 	ros::spin();
 }
