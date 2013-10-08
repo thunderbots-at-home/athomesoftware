@@ -225,6 +225,19 @@ doxygen/fast:
 .PHONY : doxygen/fast
 
 #=============================================================================
+# Target rules for targets named object_classification
+
+# Build rule for target.
+object_classification: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 object_classification
+.PHONY : object_classification
+
+# fast build rule for target.
+object_classification/fast:
+	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/build
+.PHONY : object_classification/fast
+
+#=============================================================================
 # Target rules for targets named run_tests
 
 # Build rule for target.
@@ -328,6 +341,30 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+src/ObjectClassification.o: src/ObjectClassification.cpp.o
+.PHONY : src/ObjectClassification.o
+
+# target to build an object file
+src/ObjectClassification.cpp.o:
+	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.o
+.PHONY : src/ObjectClassification.cpp.o
+
+src/ObjectClassification.i: src/ObjectClassification.cpp.i
+.PHONY : src/ObjectClassification.i
+
+# target to preprocess a source file
+src/ObjectClassification.cpp.i:
+	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.i
+.PHONY : src/ObjectClassification.cpp.i
+
+src/ObjectClassification.s: src/ObjectClassification.cpp.s
+.PHONY : src/ObjectClassification.s
+
+# target to generate assembly for a file
+src/ObjectClassification.cpp.s:
+	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.s
+.PHONY : src/ObjectClassification.cpp.s
+
 test/test_vision.o: test/test_vision.cpp.o
 .PHONY : test/test_vision.o
 
@@ -369,6 +406,7 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... object_classification"
 	@echo "... rebuild_cache"
 	@echo "... run_tests"
 	@echo "... run_tests_vision"
@@ -379,6 +417,9 @@ help:
 	@echo "... vision-test"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... src/ObjectClassification.o"
+	@echo "... src/ObjectClassification.i"
+	@echo "... src/ObjectClassification.s"
 	@echo "... test/test_vision.o"
 	@echo "... test/test_vision.i"
 	@echo "... test/test_vision.s"

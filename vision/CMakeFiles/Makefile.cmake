@@ -107,6 +107,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/_run_tests_vision_gtest_vision-test.dir/DependInfo.cmake"
   "CMakeFiles/clean_test_results.dir/DependInfo.cmake"
   "CMakeFiles/doxygen.dir/DependInfo.cmake"
+  "CMakeFiles/object_classification.dir/DependInfo.cmake"
   "CMakeFiles/run_tests.dir/DependInfo.cmake"
   "CMakeFiles/run_tests_vision.dir/DependInfo.cmake"
   "CMakeFiles/run_tests_vision_gtest.dir/DependInfo.cmake"

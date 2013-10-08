@@ -36,13 +36,22 @@ class ObjectClassification
 
 	ObjectClassification();
 	~ObjectClassification();
-
 	ObjectClassification(std::string topic);
+
+	// Callback from listening to topic
 	void save_image(sensor_msgs::ImageConstPtr& image);
-	std::vector<RealObject>& getObjectsInScene();
+
+	// Service
+	std::vector<RealObject> getObjectsInScene();
+
+	// Service
 	bool containsObject(std::string name);
+
+	// Service	
 	RealObject& findObject(std::string object);
-	RealObject& classify(cv::Mat& img);
+	
+	// Service
+	RealObject& classify(cv::Mat& pic);
 
 };
 

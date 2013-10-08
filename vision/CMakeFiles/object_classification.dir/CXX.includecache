@@ -6,17 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/marco/catkin_ws/src/vision/test/test_vision.cpp
-vision/ObjectClassification.h
-/home/marco/catkin_ws/src/vision/test/vision/ObjectClassification.h
-gtest/gtest.h
--
-image_transport/image_transport.h
--
-string
--
-roscpp
--
+/home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp
+ObjectClassification.h
+/home/marco/catkin_ws/src/vision/src/ObjectClassification.h
 
 include/vision/ObjectClassification.h
 vector
@@ -28,8 +20,6 @@ opencv2/highgui/highgui.hpp
 iostream
 -
 string
--
-geometry_msgs/Point.h
 -
 ros/ros.h
 -

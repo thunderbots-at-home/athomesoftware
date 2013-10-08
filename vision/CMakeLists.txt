@@ -53,7 +53,7 @@ INCLUDE_DIRS include/${PROJECT_NAME}
 #  LIBRARIES vision
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS
-CATKIN_DEPENDS sensor_msgs geometry_msgs
+CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet
 )
 
 ###########
@@ -63,7 +63,7 @@ CATKIN_DEPENDS sensor_msgs geometry_msgs
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-include_directories(include/${PROJET_NAME})
+include_directories(include/${PROJECT_NAME})
 ## Declare a cpp library
 # add_library(vision
 #   src/${PROJECT_NAME}/vision.cpp
@@ -71,6 +71,7 @@ include_directories(include/${PROJET_NAME})
 
 ## Declare a cpp executable
 # add_executable(vision_node src/vision_node.cpp)
+add_executable(object_classification src/ObjectClassification.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes

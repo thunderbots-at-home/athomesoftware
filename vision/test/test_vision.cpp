@@ -1,5 +1,27 @@
-#include <vision/ObjectClassification.h>
+#include "vision/ObjectClassification.h"
 #include <gtest/gtest.h>
+#include <image_transport/image_transport.h>
+#include <string>
+
+using namespace std;
+
+TEST(Creation, True) 
+{
+	string topic("/camera/image_raw");
+	ObjectClassification oc(topic);
+	
+	// Is the object created?	
+	EXPECT_TRUE(oc.camera_topic.compare("/camera/image_raw") == 0);
+}
+
+TEST(Subscribes, True)
+{
+	string topic("/camera/image_raw");
+	ObjectClassification oc(topic);
+	
+	// Check that the subscriber properly subscribes.
+	EXPECT_TRUE(&oc.image_subscriber != NULL);
+}
 
 int main(int argc, char** argv)
 {
