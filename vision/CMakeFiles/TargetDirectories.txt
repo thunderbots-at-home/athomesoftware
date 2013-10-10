@@ -26,4 +26,12 @@
 /home/marco/catkin_ws/src/vision/CMakeFiles/std_msgs_generate_messages_lisp.dir
 /home/marco/catkin_ws/src/vision/CMakeFiles/std_msgs_generate_messages_py.dir
 /home/marco/catkin_ws/src/vision/CMakeFiles/tests.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision.dir
 /home/marco/catkin_ws/src/vision/CMakeFiles/vision-test.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_gencpp.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_generate_messages.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_generate_messages_cpp.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_generate_messages_lisp.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_generate_messages_py.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_genlisp.dir
+/home/marco/catkin_ws/src/vision/CMakeFiles/vision_genpy.dir

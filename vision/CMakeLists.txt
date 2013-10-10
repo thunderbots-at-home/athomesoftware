@@ -7,7 +7,7 @@ project(vision)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp std_msgs cv_bridge)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs cv_bridge message_generation)
 find_package(OpenCV)
 
 ## System dependencies are found with CMake's conventions
@@ -31,17 +31,16 @@ find_package(OpenCV)
 # )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+ add_service_files(
+   FILES
+   Contains.srv
+ )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   std_msgs # Or other packages containing msgs
+ )
 
 ###################################
 ## catkin specific configuration ##
@@ -53,11 +52,11 @@ find_package(OpenCV)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-INCLUDE_DIRS include/${PROJECT_NAME}
+INCLUDE_DIRS include/${PROJECT_NAME} 
 #  LIBRARIES vision
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS
-CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2
+CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2 message_runtime
 )
 
 ###########
@@ -73,6 +72,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 # add_library(vision
 #   src/${PROJECT_NAME}/vision.cpp
 # )
+add_library(vision src/ObjectClassification.cpp)
 
 ## Declare a cpp executable
 # add_executable(vision_node src/vision_node.cpp)
@@ -127,11 +127,14 @@ add_executable(object_classification src/ObjectClassification.cpp)
 
 ## Add gtest based cpp test target and link libraries
 # catkin_add_gtest(${PROJECT_NAME}-test test/test_vision.cpp)
-catkin_add_gtest(${PROJECT_NAME}-test test/test_vision.cpp)
+catkin_add_gtest(vision-test test/test_vision.cpp)
 
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+ if(TARGET ${PROJECT_NAME}-test)
+   target_link_libraries(${PROJECT_NAME}-test vision)
+ endif()
+
+target_link_libraries(vision-test ${catkin_LIBRARIES})
+ target_link_libraries(vision-test ${OpenCV_LIBRARIES})
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)

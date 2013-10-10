@@ -65,7 +65,7 @@ std::vector<RealObject> ObjectClassification::getObjectsInScene()
 
 
 // The containsObject service callback
-bool ObjectClassification::containsObject(std::string name)
+bool ObjectClassification::containsObject(vision::Contains::Request &req, vision::Contains::Response &res)
 {
 	return true;
 }
@@ -96,14 +96,16 @@ int main(int argc, char** argv)
 	ros::init(argc, argv, "object_classification");
 	ros::NodeHandle nh;
 
-	std::string topic("/camera/image_raw");
+	std::string topic;
+	nh.getParam("camera_topic", topic);
+
 	ObjectClassification oc(topic);
 
 	// Get the node to subscribe to the image topic
 	ros::Subscriber subscriber = nh.subscribe(oc.camera_topic, 1, &ObjectClassification::save_image, &oc);
 
 	// Set up the services for the node. 
-
+	
 	ros::spin();
 }
 

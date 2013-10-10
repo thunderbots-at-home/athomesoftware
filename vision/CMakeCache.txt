@@ -237,14 +237,35 @@ _CATKIN_GTEST_INCLUDE:FILEPATH=_CATKIN_GTEST_INCLUDE-NOTFOUND
 //Path to a file.
 _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/hydro/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/hydro/share/bondcpp/cmake
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/hydro/share/catkin/cmake
+
+//The directory containing a CMake configuration file for class_loader.
+class_loader_DIR:PATH=/opt/ros/hydro/share/class_loader/cmake
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/hydro/share/cpp_common/cmake
 
 //The directory containing a CMake configuration file for cv_bridge.
 cv_bridge_DIR:PATH=/opt/ros/hydro/share/cv_bridge/cmake
+
+//The directory containing a CMake configuration file for gencpp.
+gencpp_DIR:PATH=/opt/ros/hydro/share/gencpp/cmake
+
+//The directory containing a CMake configuration file for genlisp.
+genlisp_DIR:PATH=/opt/ros/hydro/share/genlisp/cmake
+
+//The directory containing a CMake configuration file for genmsg.
+genmsg_DIR:PATH=/opt/ros/hydro/share/genmsg/cmake
+
+//The directory containing a CMake configuration file for genpy.
+genpy_DIR:PATH=/opt/ros/hydro/share/genpy/cmake
 
 //The directory containing a CMake configuration file for geometry_msgs.
 geometry_msgs_DIR:PATH=/opt/ros/hydro/share/geometry_msgs/cmake
@@ -274,11 +295,29 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//The directory containing a CMake configuration file for image_transport.
+image_transport_DIR:PATH=/opt/ros/hydro/share/image_transport/cmake
+
 //Path to a library.
 lib:FILEPATH=/opt/ros/hydro/lib/libcv_bridge.so
 
+//The directory containing a CMake configuration file for message_filters.
+message_filters_DIR:PATH=/opt/ros/hydro/share/message_filters/cmake
+
+//The directory containing a CMake configuration file for message_generation.
+message_generation_DIR:PATH=/opt/ros/hydro/share/message_generation/cmake
+
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/hydro/share/message_runtime/cmake
+
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/hydro/share/nodelet/cmake
+
+//The directory containing a CMake configuration file for opencv2.
+opencv2_DIR:PATH=opencv2_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for pluginlib.
+pluginlib_DIR:PATH=/opt/ros/hydro/share/pluginlib/cmake
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/hydro/share/rosconsole/cmake
@@ -295,17 +334,34 @@ roscpp_traits_DIR:PATH=/opt/ros/hydro/share/roscpp_traits/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/hydro/share/rosgraph_msgs/cmake
 
+//The directory containing a CMake configuration file for roslib.
+roslib_DIR:PATH=/opt/ros/hydro/share/roslib/cmake
+
+//The directory containing a CMake configuration file for rospy.
+rospy_DIR:PATH=/opt/ros/hydro/share/rospy/cmake
+
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/hydro/share/rostime/cmake
 
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/hydro/share/sensor_msgs/cmake
 
+//The directory containing a CMake configuration file for service_generation.
+service_generation_DIR:PATH=service_generation_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/hydro/share/smclib/cmake
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/hydro/share/std_msgs/cmake
 
 //Value Computed by CMake
 vision_BINARY_DIR:STATIC=/home/marco/catkin_ws/src/vision
+
+vision_DIR:PATH=
+
+//Dependencies for target
+vision_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 vision_SOURCE_DIR:STATIC=/home/marco/catkin_ws/src/vision

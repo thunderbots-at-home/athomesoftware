@@ -1,5 +1,6 @@
 // ObjectClassification.h
-
+// Author: Devon Ash
+// contact: noobaca2@gmail.com
 #ifndef ObjectClassification_H
 #define ObjectClassification_H
 
@@ -8,24 +9,47 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 #include <string>
-#include <geometry_msgs/Point>
+#include <geometry_msgs/Point.h>
+#include <ros/ros.h>
+#include <sensor_msgs/image_encodings.h>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <image_transport/image_transport.h>
 
 struct RealObject
 {
-	Point point;
-	Mat picture;
+	geometry_msgs::Point point;
+	cv::Mat picture;
 	std::string name;
 };
 
 class ObjectClassification
 {
-	std::vector<RealObject> lastObjectsInScene;
-
 	public:
 
-	std::vector<RealObject>& getObjectsInScene();
-	bool containsObject(string name);
-	RealObject& findObject(string object);
-	RealObject& classify(Mat& img);
+	std::vector<cv::Mat> recent_images;
+	std::vector<RealObject> lastObjectsInScene;
+	std::string camera_topic;
+
+	ObjectClassification();
+	~ObjectClassification();
+	ObjectClassification(std::string topic);
+
+	// Callback from listening to topic
+	void save_image(const sensor_msgs::ImageConstPtr& image);
+
+	// Service
+	std::vector<RealObject> getObjectsInScene();
+
+	// Service
+	bool containsObject(std::string name);
+
+	// Service	
+	RealObject& findObject(std::string object);
+	
+	// Service
+	RealObject& classify(cv::Mat& pic);
 
 };
+
+#endif

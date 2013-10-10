@@ -3,6 +3,6 @@ prefix=/home/marco/catkin_ws/src/vision/devel
 Name: vision
 Description: Description of vision
 Version: 0.0.0
-Cflags: -I/home/marco/catkin_ws/src/vision/include/vision
+Cflags: -I/home/marco/catkin_ws/src/vision/devel/include -I/home/marco/catkin_ws/src/vision/include/vision
 Libs: -L/home/marco/catkin_ws/src/vision/devel/lib 
-Requires: sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2
+Requires: sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2 message_runtime

@@ -83,9 +83,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(vision_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/marco/catkin_ws/src/vision/include/vision" STREQUAL "")
+if(NOT "/home/marco/catkin_ws/src/vision/devel/include;/home/marco/catkin_ws/src/vision/include/vision" STREQUAL "")
   set(vision_INCLUDE_DIRS "")
-  set(absolute_include_dirs "/home/marco/catkin_ws/src/vision/include/vision")
+  set(absolute_include_dirs "/home/marco/catkin_ws/src/vision/devel/include;/home/marco/catkin_ws/src/vision/include/vision")
   foreach(idir ${absolute_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -134,7 +134,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(vision_EXPORTED_TARGETS "")
+set(vision_EXPORTED_TARGETS "vision_generate_messages_cpp;vision_generate_messages_lisp;vision_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${vision_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -142,7 +142,7 @@ foreach(t ${vision_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "sensor_msgs;geometry_msgs;roscpp;nodelet;image_transport;opencv2")
+set(depends "sensor_msgs;geometry_msgs;roscpp;nodelet;image_transport;opencv2;message_runtime")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls
@@ -168,7 +168,7 @@ if(vision_LIBRARIES)
   _remove_duplicate_libraries(vision_LIBRARIES vision_LIBRARIES)
 endif()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "vision-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${vision_DIR}/${extra})

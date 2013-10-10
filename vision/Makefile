@@ -485,6 +485,19 @@ tests/fast:
 .PHONY : tests/fast
 
 #=============================================================================
+# Target rules for targets named vision
+
+# Build rule for target.
+vision: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision
+.PHONY : vision
+
+# fast build rule for target.
+vision/fast:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/build
+.PHONY : vision/fast
+
+#=============================================================================
 # Target rules for targets named vision-test
 
 # Build rule for target.
@@ -496,6 +509,97 @@ vision-test: cmake_check_build_system
 vision-test/fast:
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/build
 .PHONY : vision-test/fast
+
+#=============================================================================
+# Target rules for targets named vision_gencpp
+
+# Build rule for target.
+vision_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_gencpp
+.PHONY : vision_gencpp
+
+# fast build rule for target.
+vision_gencpp/fast:
+	$(MAKE) -f CMakeFiles/vision_gencpp.dir/build.make CMakeFiles/vision_gencpp.dir/build
+.PHONY : vision_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named vision_generate_messages
+
+# Build rule for target.
+vision_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_generate_messages
+.PHONY : vision_generate_messages
+
+# fast build rule for target.
+vision_generate_messages/fast:
+	$(MAKE) -f CMakeFiles/vision_generate_messages.dir/build.make CMakeFiles/vision_generate_messages.dir/build
+.PHONY : vision_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named vision_generate_messages_cpp
+
+# Build rule for target.
+vision_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_generate_messages_cpp
+.PHONY : vision_generate_messages_cpp
+
+# fast build rule for target.
+vision_generate_messages_cpp/fast:
+	$(MAKE) -f CMakeFiles/vision_generate_messages_cpp.dir/build.make CMakeFiles/vision_generate_messages_cpp.dir/build
+.PHONY : vision_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named vision_generate_messages_lisp
+
+# Build rule for target.
+vision_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_generate_messages_lisp
+.PHONY : vision_generate_messages_lisp
+
+# fast build rule for target.
+vision_generate_messages_lisp/fast:
+	$(MAKE) -f CMakeFiles/vision_generate_messages_lisp.dir/build.make CMakeFiles/vision_generate_messages_lisp.dir/build
+.PHONY : vision_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named vision_generate_messages_py
+
+# Build rule for target.
+vision_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_generate_messages_py
+.PHONY : vision_generate_messages_py
+
+# fast build rule for target.
+vision_generate_messages_py/fast:
+	$(MAKE) -f CMakeFiles/vision_generate_messages_py.dir/build.make CMakeFiles/vision_generate_messages_py.dir/build
+.PHONY : vision_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named vision_genlisp
+
+# Build rule for target.
+vision_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_genlisp
+.PHONY : vision_genlisp
+
+# fast build rule for target.
+vision_genlisp/fast:
+	$(MAKE) -f CMakeFiles/vision_genlisp.dir/build.make CMakeFiles/vision_genlisp.dir/build
+.PHONY : vision_genlisp/fast
+
+#=============================================================================
+# Target rules for targets named vision_genpy
+
+# Build rule for target.
+vision_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vision_genpy
+.PHONY : vision_genpy
+
+# fast build rule for target.
+vision_genpy/fast:
+	$(MAKE) -f CMakeFiles/vision_genpy.dir/build.make CMakeFiles/vision_genpy.dir/build
+.PHONY : vision_genpy/fast
 
 #=============================================================================
 # Target rules for targets named gtest
@@ -529,6 +633,7 @@ src/ObjectClassification.o: src/ObjectClassification.cpp.o
 # target to build an object file
 src/ObjectClassification.cpp.o:
 	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.o
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
 .PHONY : src/ObjectClassification.cpp.o
 
 src/ObjectClassification.i: src/ObjectClassification.cpp.i
@@ -537,6 +642,7 @@ src/ObjectClassification.i: src/ObjectClassification.cpp.i
 # target to preprocess a source file
 src/ObjectClassification.cpp.i:
 	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.i
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/ObjectClassification.cpp.i
 .PHONY : src/ObjectClassification.cpp.i
 
 src/ObjectClassification.s: src/ObjectClassification.cpp.s
@@ -545,6 +651,7 @@ src/ObjectClassification.s: src/ObjectClassification.cpp.s
 # target to generate assembly for a file
 src/ObjectClassification.cpp.s:
 	$(MAKE) -f CMakeFiles/object_classification.dir/build.make CMakeFiles/object_classification.dir/src/ObjectClassification.cpp.s
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/ObjectClassification.cpp.s
 .PHONY : src/ObjectClassification.cpp.s
 
 test/test_vision.o: test/test_vision.cpp.o
@@ -610,7 +717,15 @@ help:
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
 	@echo "... tests"
+	@echo "... vision"
 	@echo "... vision-test"
+	@echo "... vision_gencpp"
+	@echo "... vision_generate_messages"
+	@echo "... vision_generate_messages_cpp"
+	@echo "... vision_generate_messages_lisp"
+	@echo "... vision_generate_messages_py"
+	@echo "... vision_genlisp"
+	@echo "... vision_genpy"
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... src/ObjectClassification.o"

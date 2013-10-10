@@ -15,6 +15,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
+#include "vision/Contains.h"
 
 struct RealObject
 {
@@ -42,7 +43,7 @@ class ObjectClassification
 	std::vector<RealObject> getObjectsInScene();
 
 	// Service
-	bool containsObject(std::string name);
+	bool containsObject(vision::Contains::Request &req, vision::Contains::Response &res);
 
 	// Service	
 	RealObject& findObject(std::string object);

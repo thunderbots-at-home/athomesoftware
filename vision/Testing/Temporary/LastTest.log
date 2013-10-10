@@ -1,24 +1,23 @@
-Start testing: Oct 07 15:29 PDT
+Start testing: Oct 09 15:06 PDT
 ----------------------------------------------------------
 1/1 Testing: _ctest_vision_gtest_vision-test
 1/1 Test: _ctest_vision_gtest_vision-test
 Command: "/home/marco/catkin_ws/src/vision/catkin_generated/env_cached.sh" "/usr/bin/python" "/opt/ros/hydro/share/catkin/cmake/test/run_tests.py" "/home/marco/catkin_ws/src/vision/test_results/vision/gtest-vision-test.xml" "--return-code" "/home/marco/catkin_ws/src/vision/devel/lib/vision/vision-test --gtest_output=xml:/home/marco/catkin_ws/src/vision/test_results/vision/gtest-vision-test.xml"
 Directory: /home/marco/catkin_ws/src/vision
-"_ctest_vision_gtest_vision-test" start time: Oct 07 15:29 PDT
+"_ctest_vision_gtest_vision-test" start time: Oct 09 15:06 PDT
 Output:
 ----------------------------------------------------------
-[==========] Running 0 tests from 0 test cases.
-[==========] 0 tests from 0 test cases ran. (0 ms total)
-[  PASSED  ] 0 tests.
+/bin/sh: 1: /home/marco/catkin_ws/src/vision/devel/lib/vision/vision-test: not found
+Cannot find results, writing failure results to "/home/marco/catkin_ws/src/vision/test_results/vision/MISSING-gtest-vision-test.xml"
 -- run_tests.py: execute commands
   /home/marco/catkin_ws/src/vision/devel/lib/vision/vision-test --gtest_output=xml:/home/marco/catkin_ws/src/vision/test_results/vision/gtest-vision-test.xml
 -- run_tests.py: verify result "/home/marco/catkin_ws/src/vision/test_results/vision/gtest-vision-test.xml"
 <end of output>
-Test time =   0.09 sec
+Test time =   0.06 sec
 ----------------------------------------------------------
-Test Passed.
-"_ctest_vision_gtest_vision-test" end time: Oct 07 15:29 PDT
+Test Failed.
+"_ctest_vision_gtest_vision-test" end time: Oct 09 15:06 PDT
 "_ctest_vision_gtest_vision-test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Oct 07 15:29 PDT
+End testing: Oct 09 15:06 PDT

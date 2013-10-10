@@ -1,7 +1,7 @@
-#include "vision/ObjectClassification.h"
 #include <gtest/gtest.h>
 #include <image_transport/image_transport.h>
 #include <string>
+#include "ObjectClassification.h"
 
 using namespace std;
 
@@ -20,7 +20,6 @@ TEST(Subscribes, True)
 	ObjectClassification oc(topic);
 	
 	// Check that the subscriber properly subscribes.
-	EXPECT_TRUE(&oc.image_subscriber != NULL);
 }
 
 int main(int argc, char** argv)

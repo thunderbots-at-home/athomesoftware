@@ -16,4 +16,5 @@ SET(CMAKE_TARGET_DEFINITIONS
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/marco/catkin_ws/src/vision/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/marco/catkin_ws/src/vision/CMakeFiles/vision.dir/DependInfo.cmake"
   )
