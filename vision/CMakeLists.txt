@@ -24,22 +24,26 @@ find_package(OpenCV)
 #######################################
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+ add_message_files(
+   FILES
+   RealObject.msg
+ )
 
 ## Generate services in the 'srv' folder
  add_service_files(
    FILES
    Contains.srv
+   FindObject.srv
+   Classify.srv
+   GetObjectsInScene.srv
  )
 
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
    DEPENDENCIES
    std_msgs # Or other packages containing msgs
+   geometry_msgs
+   sensor_msgs
  )
 
 ###################################

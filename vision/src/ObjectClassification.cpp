@@ -52,7 +52,7 @@ ObjectClassification::ObjectClassification(std::string topic)
 }
 
 // The getObjectsInScene service callback
-std::vector<RealObject> ObjectClassification::getObjectsInScene()
+std::vector<RealObject> ObjectClassification::getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res)
 {
 	// Pass it into classification algorithm
 	// Create real objects once classification algorithm determines what it is
@@ -71,7 +71,7 @@ bool ObjectClassification::containsObject(vision::Contains::Request &req, vision
 }
 	
 // The findobject service callback
-RealObject& ObjectClassification::findObject(std::string object)
+RealObject& ObjectClassification::findObject(vision::FindObject::Request &req, vision::FindObject::Response &res)
 {
 	struct RealObject obj;
 	cv::Mat pic;
@@ -82,7 +82,7 @@ RealObject& ObjectClassification::findObject(std::string object)
 	
 
 // The classify service callback
-RealObject& ObjectClassification::classify(cv::Mat& pic)
+RealObject& ObjectClassification::classify(vision::Classify::Request &req, vision::Classify::Response &res)
 {
 	struct RealObject object;
 	cv::Mat pics;

@@ -16,6 +16,10 @@
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
 #include "vision/Contains.h"
+#include "vision/FindObject.h"
+#include "vision/RealObject.h"
+#include "vision/Classify.h"
+#include "vision/GetObjectsInScene.h"
 
 struct RealObject
 {
@@ -40,16 +44,16 @@ class ObjectClassification
 	void save_image(const sensor_msgs::ImageConstPtr& image);
 
 	// Service
-	std::vector<RealObject> getObjectsInScene();
+	std::vector<RealObject> getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res);
 
 	// Service
 	bool containsObject(vision::Contains::Request &req, vision::Contains::Response &res);
 
 	// Service	
-	RealObject& findObject(std::string object);
+	RealObject& findObject(vision::FindObject::Request &req, vision::FindObject::Response &res);
 	
 	// Service
-	RealObject& classify(cv::Mat& pic);
+	RealObject& classify(vision::Classify::Request &req, vision::Classify::Response &res);
 
 };
 
