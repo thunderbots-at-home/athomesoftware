@@ -44,16 +44,16 @@ class ObjectClassification
 	void save_image(const sensor_msgs::ImageConstPtr& image);
 
 	// Service
-	std::vector<RealObject> getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res);
+	bool getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res);
 
 	// Service
 	bool containsObject(vision::Contains::Request &req, vision::Contains::Response &res);
 
 	// Service	
-	RealObject& findObject(vision::FindObject::Request &req, vision::FindObject::Response &res);
+	bool findObject(vision::FindObject::Request &req, vision::FindObject::Response &res);
 	
 	// Service
-	RealObject& classify(vision::Classify::Request &req, vision::Classify::Response &res);
+	bool classify(vision::Classify::Request &req, vision::Classify::Response &res);
 
 };
 

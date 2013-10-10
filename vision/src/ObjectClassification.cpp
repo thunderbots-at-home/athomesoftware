@@ -52,7 +52,7 @@ ObjectClassification::ObjectClassification(std::string topic)
 }
 
 // The getObjectsInScene service callback
-std::vector<RealObject> ObjectClassification::getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res)
+bool ObjectClassification::getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res)
 {
 	// Pass it into classification algorithm
 	// Create real objects once classification algorithm determines what it is
@@ -60,7 +60,7 @@ std::vector<RealObject> ObjectClassification::getObjectsInScene(vision::GetObjec
 	// Put into vector and return
 	std::vector<RealObject> vec;
 		
-	return vec;
+	return true;
 }
 
 
@@ -71,24 +71,24 @@ bool ObjectClassification::containsObject(vision::Contains::Request &req, vision
 }
 	
 // The findobject service callback
-RealObject& ObjectClassification::findObject(vision::FindObject::Request &req, vision::FindObject::Response &res)
+bool ObjectClassification::findObject(vision::FindObject::Request &req, vision::FindObject::Response &res)
 {
 	struct RealObject obj;
 	cv::Mat pic;
 	obj.picture = pic;
 
-	return obj;
+	return true;
 }
 	
 
 // The classify service callback
-RealObject& ObjectClassification::classify(vision::Classify::Request &req, vision::Classify::Response &res)
+bool ObjectClassification::classify(vision::Classify::Request &req, vision::Classify::Response &res)
 {
 	struct RealObject object;
 	cv::Mat pics;
 	object.picture = pics;
 
-	return object;
+	return true;
 }
 
 int main(int argc, char** argv)
@@ -103,9 +103,21 @@ int main(int argc, char** argv)
 
 	// Get the node to subscribe to the image topic
 	ros::Subscriber subscriber = nh.subscribe(oc.camera_topic, 1, &ObjectClassification::save_image, &oc);
+	ROS_INFO("Subscribed to camera_topic");
 
 	// Set up the services for the node. 
-	
+	ros::ServiceServer classify_service = nh.advertiseService("classify", &ObjectClassification::classify, &oc);
+	ROS_INFO("VISION: classify_service operational.");
+
+	ros::ServiceServer find_object_service = nh.advertiseService("find_object", &ObjectClassification::findObject, &oc);
+	ROS_INFO("VISION: find_object_service operational.");
+
+	ros::ServiceServer contains_object = nh.advertiseService("contains_object", &ObjectClassification::containsObject, &oc);
+	ROS_INFO("VISION: contains_object_service operational.");
+
+	ros::ServiceServer get_objects_in_scene_service = nh.advertiseService("get_objects_in_scene", &ObjectClassification::getObjectsInScene, &oc);
+	ROS_INFO("VISION: get_objects_in_scene_service operational.");
+
 	ros::spin();
 }
 
