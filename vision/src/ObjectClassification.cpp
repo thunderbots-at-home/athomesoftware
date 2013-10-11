@@ -52,6 +52,8 @@ ObjectClassification::ObjectClassification(std::string topic)
 }
 
 // The getObjectsInScene service callback
+// Bruteforce searches for all of the objects in the scene,
+// Matches against every set of images in the dataset
 bool ObjectClassification::getObjectsInScene(vision::GetObjectsInScene::Request &req, vision::GetObjectsInScene::Response &res)
 {
 	// Pass it into classification algorithm
@@ -81,14 +83,87 @@ bool ObjectClassification::findObject(vision::FindObject::Request &req, vision::
 }
 	
 
-// The classify service callback
-bool ObjectClassification::classify(vision::Classify::Request &req, vision::Classify::Response &res)
+// Description: Matches objects in the real world scene to suggested images.
+// Careful as this is an expensive matching. 
+//
+// Knowledge: We are given what objects we have to find and their locations. 
+//
+// Requirements:
+// A database of all the image descriptors
+// The subset of requested objects (so we will already know what to grab)
+// 
+// Output:
+// The classify will match the image given from the current scene to the image in
+// the database and then localize it. 
+//
+bool ObjectClassification::match(vision::Match::Request &req, vision::Match::Response &res)
 {
+	// For the competition it really depends how much we'll use
+	// Instance recognition, and how much we'll use
+	// General recognition. 	
+
+	// We're going to be using instance recognition since only the required
+	// parts of the competition tasks use instance recognition
+	// and other tasks will use general recognition. 
+
+	// Then we can just research matching of keypoints. 
+
+	// Load relevant images
+	cv::Mat* scene = convertToCvImage(req.image);
+	if (scene->data) { ROS_INFO("VISION: Scene image loaded."); }
+
+	std::vector<std::string> req_objs = req.objects_to_check;
+
+	// Get the images from the map.
+	
 	struct RealObject object;
 	cv::Mat pics;
 	object.picture = pics;
 
 	return true;
+}
+
+cv::Mat* ObjectClassification::convertToCvImage(const sensor_msgs::Image& image)
+{
+	cv_bridge::CvImagePtr cv_ptr;
+	cv_ptr = cv_bridge::toCvCopy(image, enc::BGR8);
+	
+	return &cv_ptr->image;
+}
+
+char* getFileType(char* filename)
+{
+	// Returns the file type of a given filename.
+	char* stf = strtok(filename, ".");
+	return strtok(NULL, ".");
+}
+
+// Gets the images and their names and stores them into a map by object name. 
+void ObjectClassification::loadDataset(std::string dataset_directory)
+{
+	struct dirent *entry;
+	DIR *pDIR;	
+	pDIR = opendir(dataset_directory.c_str());
+
+	if (pDIR)
+	{
+		while ((pDIR != NULL) && (entry == readdir(pDIR)))
+		{
+			if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0)
+			{
+				char* filetype = getFileType(entry->d_name);
+				if ((filetype != NULL) && strcmp(filetype, "jpg"))
+				{
+					// Load the file into an cv::Mat
+					cv::Mat image = cv::imread(entry->d_name);
+					this->dataset.insert(std::pair<std::string, cv::Mat>(entry->d_name, image));
+					ROS_INFO("Loaded %s to visual memory", entry->d_name);
+				}
+			}
+
+
+		}		
+	}
 }
 
 int main(int argc, char** argv)
@@ -97,16 +172,20 @@ int main(int argc, char** argv)
 	ros::NodeHandle nh;
 
 	std::string topic;
+	std::string dataset_directory;
+	
 	nh.getParam("camera_topic", topic);
+	nh.getParam("dataset_directory", dataset_directory);
 
 	ObjectClassification oc(topic);
+	oc.loadDataset(dataset_directory);
 
 	// Get the node to subscribe to the image topic
 	ros::Subscriber subscriber = nh.subscribe(oc.camera_topic, 1, &ObjectClassification::save_image, &oc);
 	ROS_INFO("Subscribed to camera_topic");
 
 	// Set up the services for the node. 
-	ros::ServiceServer classify_service = nh.advertiseService("classify", &ObjectClassification::classify, &oc);
+	ros::ServiceServer classify_service = nh.advertiseService("classify", &ObjectClassification::match, &oc);
 	ROS_INFO("VISION: classify_service operational.");
 
 	ros::ServiceServer find_object_service = nh.advertiseService("find_object", &ObjectClassification::findObject, &oc);

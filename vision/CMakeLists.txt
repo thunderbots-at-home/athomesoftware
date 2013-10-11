@@ -34,7 +34,7 @@ find_package(OpenCV)
    FILES
    Contains.srv
    FindObject.srv
-   Classify.srv
+   Match.srv
    GetObjectsInScene.srv
  )
 
