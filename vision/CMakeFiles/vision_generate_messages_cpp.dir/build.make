@@ -42,17 +42,71 @@ CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/vision
 # Include the progress variables for this target.
 include CMakeFiles/vision_generate_messages_cpp.dir/progress.make
 
+CMakeFiles/vision_generate_messages_cpp: devel/include/vision/RealObject.h
+CMakeFiles/vision_generate_messages_cpp: devel/include/vision/Match.h
+CMakeFiles/vision_generate_messages_cpp: devel/include/vision/GetObjectsInScene.h
+CMakeFiles/vision_generate_messages_cpp: devel/include/vision/FindObject.h
 CMakeFiles/vision_generate_messages_cpp: devel/include/vision/Contains.h
+
+devel/include/vision/RealObject.h: /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+devel/include/vision/RealObject.h: msg/RealObject.msg
+devel/include/vision/RealObject.h: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/include/vision/RealObject.h: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/include/vision/RealObject.h: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+devel/include/vision/RealObject.h: /opt/ros/hydro/share/gencpp/cmake/../msg.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from vision/RealObject.msg"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/marco/catkin_ws/src/vision/msg/RealObject.msg -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/include/vision -e /opt/ros/hydro/share/gencpp/cmake/..
+
+devel/include/vision/Match.h: /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+devel/include/vision/Match.h: srv/Match.srv
+devel/include/vision/Match.h: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/include/vision/Match.h: msg/RealObject.msg
+devel/include/vision/Match.h: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/include/vision/Match.h: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+devel/include/vision/Match.h: /opt/ros/hydro/share/gencpp/cmake/../msg.h.template
+devel/include/vision/Match.h: /opt/ros/hydro/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from vision/Match.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/marco/catkin_ws/src/vision/srv/Match.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/include/vision -e /opt/ros/hydro/share/gencpp/cmake/..
+
+devel/include/vision/GetObjectsInScene.h: /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+devel/include/vision/GetObjectsInScene.h: srv/GetObjectsInScene.srv
+devel/include/vision/GetObjectsInScene.h: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/include/vision/GetObjectsInScene.h: msg/RealObject.msg
+devel/include/vision/GetObjectsInScene.h: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/include/vision/GetObjectsInScene.h: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+devel/include/vision/GetObjectsInScene.h: /opt/ros/hydro/share/gencpp/cmake/../msg.h.template
+devel/include/vision/GetObjectsInScene.h: /opt/ros/hydro/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from vision/GetObjectsInScene.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/marco/catkin_ws/src/vision/srv/GetObjectsInScene.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/include/vision -e /opt/ros/hydro/share/gencpp/cmake/..
+
+devel/include/vision/FindObject.h: /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
+devel/include/vision/FindObject.h: srv/FindObject.srv
+devel/include/vision/FindObject.h: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/include/vision/FindObject.h: msg/RealObject.msg
+devel/include/vision/FindObject.h: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/include/vision/FindObject.h: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+devel/include/vision/FindObject.h: /opt/ros/hydro/share/gencpp/cmake/../msg.h.template
+devel/include/vision/FindObject.h: /opt/ros/hydro/share/gencpp/cmake/../srv.h.template
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from vision/FindObject.srv"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/marco/catkin_ws/src/vision/srv/FindObject.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/include/vision -e /opt/ros/hydro/share/gencpp/cmake/..
 
 devel/include/vision/Contains.h: /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py
 devel/include/vision/Contains.h: srv/Contains.srv
 devel/include/vision/Contains.h: /opt/ros/hydro/share/gencpp/cmake/../msg.h.template
 devel/include/vision/Contains.h: /opt/ros/hydro/share/gencpp/cmake/../srv.h.template
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating C++ code from vision/Contains.srv"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/marco/catkin_ws/src/vision/srv/Contains.srv -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/include/vision -e /opt/ros/hydro/share/gencpp/cmake/..
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/marco/catkin_ws/src/vision/srv/Contains.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/include/vision -e /opt/ros/hydro/share/gencpp/cmake/..
 
 vision_generate_messages_cpp: CMakeFiles/vision_generate_messages_cpp
+vision_generate_messages_cpp: devel/include/vision/RealObject.h
+vision_generate_messages_cpp: devel/include/vision/Match.h
+vision_generate_messages_cpp: devel/include/vision/GetObjectsInScene.h
+vision_generate_messages_cpp: devel/include/vision/FindObject.h
 vision_generate_messages_cpp: devel/include/vision/Contains.h
 vision_generate_messages_cpp: CMakeFiles/vision_generate_messages_cpp.dir/build.make
 .PHONY : vision_generate_messages_cpp

@@ -42,23 +42,86 @@ CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/vision
 # Include the progress variables for this target.
 include CMakeFiles/vision_generate_messages_py.dir/progress.make
 
+CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py
+CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_Match.py
+CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py
+CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py
 CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_Contains.py
+CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/msg/__init__.py
 CMakeFiles/vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/__init__.py
+
+devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py: msg/RealObject.msg
+devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python from MSG vision/RealObject"
+	catkin_generated/env_cached.sh /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/marco/catkin_ws/src/vision/msg/RealObject.msg -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/msg
+
+devel/lib/python2.7/dist-packages/vision/srv/_Match.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+devel/lib/python2.7/dist-packages/vision/srv/_Match.py: srv/Match.srv
+devel/lib/python2.7/dist-packages/vision/srv/_Match.py: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/lib/python2.7/dist-packages/vision/srv/_Match.py: msg/RealObject.msg
+devel/lib/python2.7/dist-packages/vision/srv/_Match.py: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/lib/python2.7/dist-packages/vision/srv/_Match.py: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV vision/Match"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/marco/catkin_ws/src/vision/srv/Match.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/srv
+
+devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py: srv/GetObjectsInScene.srv
+devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py: msg/RealObject.msg
+devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV vision/GetObjectsInScene"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/marco/catkin_ws/src/vision/srv/GetObjectsInScene.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/srv
+
+devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
+devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py: srv/FindObject.srv
+devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py: /opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg
+devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py: msg/RealObject.msg
+devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py: /opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg
+devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py: /opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_4)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV vision/FindObject"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/marco/catkin_ws/src/vision/srv/FindObject.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/srv
 
 devel/lib/python2.7/dist-packages/vision/srv/_Contains.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py
 devel/lib/python2.7/dist-packages/vision/srv/_Contains.py: srv/Contains.srv
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python code from SRV vision/Contains"
-	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/marco/catkin_ws/src/vision/srv/Contains.srv -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/srv
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/marco/catkin_ws/src/vision/srv/Contains.srv -Ivision:/home/marco/catkin_ws/src/vision/msg -Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg -Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg -p vision -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/srv
+
+devel/lib/python2.7/dist-packages/vision/msg/__init__.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+devel/lib/python2.7/dist-packages/vision/msg/__init__.py: devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py
+devel/lib/python2.7/dist-packages/vision/msg/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_Match.py
+devel/lib/python2.7/dist-packages/vision/msg/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py
+devel/lib/python2.7/dist-packages/vision/msg/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py
+devel/lib/python2.7/dist-packages/vision/msg/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_Contains.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python msg __init__.py for vision"
+	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/msg --initpy
 
 devel/lib/python2.7/dist-packages/vision/srv/__init__.py: /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/genmsg_py.py
+devel/lib/python2.7/dist-packages/vision/srv/__init__.py: devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py
+devel/lib/python2.7/dist-packages/vision/srv/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_Match.py
+devel/lib/python2.7/dist-packages/vision/srv/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py
+devel/lib/python2.7/dist-packages/vision/srv/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py
 devel/lib/python2.7/dist-packages/vision/srv/__init__.py: devel/lib/python2.7/dist-packages/vision/srv/_Contains.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating Python srv __init__.py for vision"
 	catkin_generated/env_cached.sh /usr/bin/python /opt/ros/hydro/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/marco/catkin_ws/src/vision/devel/lib/python2.7/dist-packages/vision/srv --initpy
 
 vision_generate_messages_py: CMakeFiles/vision_generate_messages_py
+vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py
+vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_Match.py
+vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py
+vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py
 vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/_Contains.py
+vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/msg/__init__.py
 vision_generate_messages_py: devel/lib/python2.7/dist-packages/vision/srv/__init__.py
 vision_generate_messages_py: CMakeFiles/vision_generate_messages_py.dir/build.make
 .PHONY : vision_generate_messages_py

@@ -1,6 +1,11 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/vision_generate_messages_py"
+  "devel/lib/python2.7/dist-packages/vision/msg/_RealObject.py"
+  "devel/lib/python2.7/dist-packages/vision/srv/_Match.py"
+  "devel/lib/python2.7/dist-packages/vision/srv/_GetObjectsInScene.py"
+  "devel/lib/python2.7/dist-packages/vision/srv/_FindObject.py"
   "devel/lib/python2.7/dist-packages/vision/srv/_Contains.py"
+  "devel/lib/python2.7/dist-packages/vision/msg/__init__.py"
   "devel/lib/python2.7/dist-packages/vision/srv/__init__.py"
 )
 

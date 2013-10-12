@@ -147,29 +147,33 @@ void ObjectClassification::loadDataset(std::string dataset_directory)
 
 	if (pDIR)
 	{
-		while ((pDIR != NULL) && (entry == readdir(pDIR)))
+		while ((pDIR != NULL) && (entry = readdir(pDIR)))
 		{
 			if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0)
 			{
 				char* filetype = getFileType(entry->d_name);
-				if ((filetype != NULL) && strcmp(filetype, "jpg"))
+				if (strcmp(filetype, "jpg") == 0)
 				{
 					// Load the file into an cv::Mat
 					cv::Mat image = cv::imread(entry->d_name);
 					this->dataset.insert(std::pair<std::string, cv::Mat>(entry->d_name, image));
-					ROS_INFO("Loaded %s to visual memory", entry->d_name);
+					ROS_INFO("Loaded %s.%s to visual memory", entry->d_name, filetype);
 				}
 			}
 
 
 		}		
 	}
+	 else
+	{
+		ROS_INFO("Invalid directory: %s", dataset_directory.c_str());
+	}
 }
 
 int main(int argc, char** argv)
 {
 	ros::init(argc, argv, "object_classification");
-	ros::NodeHandle nh;
+	ros::NodeHandle nh("~");
 
 	std::string topic;
 	std::string dataset_directory;
@@ -177,8 +181,21 @@ int main(int argc, char** argv)
 	nh.getParam("camera_topic", topic);
 	nh.getParam("dataset_directory", dataset_directory);
 
+	if (topic.empty())
+	{
+		ROS_INFO("Please set a topic to subscribe to. [camera_topic:=topic_name]");
+		return 0;
+	}
+	
+	if (dataset_directory.empty())
+	{
+		ROS_INFO("Please set the path for the image matching. [dataset_directory:=dataset_path]");
+		return 0;
+	}
+
 	ObjectClassification oc(topic);
 	oc.loadDataset(dataset_directory);
+	ROS_INFO("Loaded dataset: %s", dataset_directory.c_str());
 
 	// Get the node to subscribe to the image topic
 	ros::Subscriber subscriber = nh.subscribe(oc.camera_topic, 1, &ObjectClassification::save_image, &oc);

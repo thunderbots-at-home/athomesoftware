@@ -16,12 +16,17 @@ CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
  /opt/ros/hydro/include/image_transport/single_subscriber_publisher.h
  /opt/ros/hydro/include/image_transport/subscriber.h
  /opt/ros/hydro/include/image_transport/transport_hints.h
+ /opt/ros/hydro/include/opencv2/calib3d/calib3d.hpp
  /opt/ros/hydro/include/opencv2/core/core.hpp
  /opt/ros/hydro/include/opencv2/core/core_c.h
  /opt/ros/hydro/include/opencv2/core/mat.hpp
  /opt/ros/hydro/include/opencv2/core/operations.hpp
  /opt/ros/hydro/include/opencv2/core/types_c.h
  /opt/ros/hydro/include/opencv2/core/version.hpp
+ /opt/ros/hydro/include/opencv2/features2d/features2d.hpp
+ /opt/ros/hydro/include/opencv2/flann/config.h
+ /opt/ros/hydro/include/opencv2/flann/defines.h
+ /opt/ros/hydro/include/opencv2/flann/miniflann.hpp
  /opt/ros/hydro/include/opencv2/highgui/highgui.hpp
  /opt/ros/hydro/include/opencv2/highgui/highgui_c.h
  /opt/ros/hydro/include/opencv2/imgproc/imgproc.hpp
@@ -83,4 +88,17 @@ CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
  /opt/ros/hydro/include/sensor_msgs/RegionOfInterest.h
  /opt/ros/hydro/include/sensor_msgs/image_encodings.h
  /opt/ros/hydro/include/std_msgs/Header.h
+ devel/include/vision/Contains.h
+ devel/include/vision/ContainsRequest.h
+ devel/include/vision/ContainsResponse.h
+ devel/include/vision/FindObject.h
+ devel/include/vision/FindObjectRequest.h
+ devel/include/vision/FindObjectResponse.h
+ devel/include/vision/GetObjectsInScene.h
+ devel/include/vision/GetObjectsInSceneRequest.h
+ devel/include/vision/GetObjectsInSceneResponse.h
+ devel/include/vision/Match.h
+ devel/include/vision/MatchRequest.h
+ devel/include/vision/MatchResponse.h
+ devel/include/vision/RealObject.h
  include/vision/ObjectClassification.h
