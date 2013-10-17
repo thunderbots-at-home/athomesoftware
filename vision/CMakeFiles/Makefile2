@@ -900,9 +900,9 @@ clean: CMakeFiles/vision.dir/clean
 # Target rules for target CMakeFiles/vision-test.dir
 
 # All Build rule for target.
-CMakeFiles/vision-test.dir/all: CMakeFiles/vision.dir/all
 CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest_main.dir/all
 CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest.dir/all
+CMakeFiles/vision-test.dir/all: CMakeFiles/vision.dir/all
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/depend
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles  6
@@ -1067,8 +1067,8 @@ clean: CMakeFiles/vision_generate_messages_lisp.dir/clean
 # Target rules for target CMakeFiles/vision_generate_messages_py.dir
 
 # All Build rule for target.
-CMakeFiles/vision_generate_messages_py.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
 CMakeFiles/vision_generate_messages_py.dir/all: CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+CMakeFiles/vision_generate_messages_py.dir/all: CMakeFiles/std_msgs_generate_messages_py.dir/all
 CMakeFiles/vision_generate_messages_py.dir/all: CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 	$(MAKE) -f CMakeFiles/vision_generate_messages_py.dir/build.make CMakeFiles/vision_generate_messages_py.dir/depend
 	$(MAKE) -f CMakeFiles/vision_generate_messages_py.dir/build.make CMakeFiles/vision_generate_messages_py.dir/build
