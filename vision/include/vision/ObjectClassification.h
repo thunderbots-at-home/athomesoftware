@@ -39,14 +39,27 @@ class ObjectClassification
 {
 	public:
 
+	static const std::map<std::string, std::string> object_class_locations;
 	std::map<std::string, cv::Mat> dataset;
 	std::vector<cv::Mat> recent_images;
 	std::vector<RealObject> lastObjectsInScene;
+
 	std::string camera_topic;
+	std::string dataset_directory;
 
 	ObjectClassification();
 	~ObjectClassification();
 	ObjectClassification(std::string topic);
+
+
+	// ATTENTION:
+	// These values are given during the setup time for competition. 
+	static const std::map<std::string, std::string> init_object_class_locations()
+	{
+		  std::map<std::string, std::string> m;
+		  m[std::string("beverage")] = std::string("kitchen");
+		  return m;
+	}
 
 	// Callback from listening to topic
 	void save_image(const sensor_msgs::ImageConstPtr& image);

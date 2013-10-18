@@ -5,6 +5,11 @@
 
 namespace enc = sensor_msgs::image_encodings;
 		
+
+// ATTENTION:
+// These values are given during the setup time for competition. 
+const std::map<std::string, std::string> ObjectClassification::object_class_locations = ObjectClassification::init_object_class_locations();
+
 ObjectClassification::ObjectClassification()
 {
 		
@@ -14,6 +19,7 @@ ObjectClassification::~ObjectClassification()
 {
 
 }
+
 
 void ObjectClassification::save_image(const sensor_msgs::ImageConstPtr& image)
 {
@@ -114,6 +120,18 @@ bool ObjectClassification::match(vision::Match::Request &req, vision::Match::Res
 
 	std::vector<std::string> req_objs = req.objects_to_check;
 
+	// Each Object will be assigned to an object class.
+	// Each Object class will be asisgned to an object location.
+	// Need a mapping from locations to objects and vice versa. We can
+	// Statically define them in a pre-competition file. 
+	
+	// Ok, so match will attempt all of the images. 
+	std::map<std::string, cv::Mat>::iterator map_iterator;
+
+	for (map_iterator = (this->dataset.begin()); map_iterator != (this->dataset.end()); map_iterator++)
+	{
+		// Matching function 
+	}
 	// Get the images from the map.
 	
 	struct RealObject object;
@@ -141,6 +159,7 @@ char* getFileType(char* filename)
 // Gets the images and their names and stores them into a map by object name. 
 void ObjectClassification::loadDataset(std::string dataset_directory)
 {
+	this->dataset_directory = dataset_directory;	
 	struct dirent *entry;
 	DIR *pDIR;	
 	pDIR = opendir(dataset_directory.c_str());
