@@ -4,8 +4,8 @@ project(navigation)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
-
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs)
+find_package(OpenCV)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -49,10 +49,12 @@ find_package(catkin REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+INCLUDE_DIRS include/${PROJECT_NAME}
 #  INCLUDE_DIRS include
 #  LIBRARIES navigation
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
+CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet opencv2 message_runtime
 )
 
 ###########
@@ -62,15 +64,17 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-
+include_directories(include/${PROJECT_NAME})
+include_directories(${OpenCV_INCLUDE_DIRS})
 ## Declare a cpp library
 # add_library(navigation
 #   src/${PROJECT_NAME}/navigation.cpp
 # )
+add_library(navigation src/AshianMap.cpp)
 
 ## Declare a cpp executable
 # add_executable(navigation_node src/navigation_node.cpp)
-
+add_executable(ashian_map src/AshianMap.cpp)
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(navigation_node navigation_generate_messages_cpp)
@@ -79,7 +83,8 @@ catkin_package(
 # target_link_libraries(navigation_node
 #   ${catkin_LIBRARIES}
 # )
-
+target_link_libraries(ashian_map ${catkin_LIBRARIES})
+target_link_libraries(ashian_map ${OpenCV_Libraries})
 #############
 ## Install ##
 #############

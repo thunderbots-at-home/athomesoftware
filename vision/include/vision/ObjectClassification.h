@@ -13,20 +13,26 @@
 #include <string>
 #include <geometry_msgs/Point.h>
 #include <ros/ros.h>
+
+// Images
 #include <sensor_msgs/image_encodings.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <image_transport/image_transport.h>
 #include <map>
+
+// File navigation
+#include <unistd.h>
+#include <dirent.h>
+#include <fstream>
+#include <iostream>
+
+// Messages + Services
 #include "vision/Contains.h"
 #include "vision/FindObject.h"
 #include "vision/RealObject.h"
 #include "vision/Match.h"
 #include "vision/GetObjectsInScene.h"
-#include <unistd.h>
-#include <dirent.h>
-#include <fstream>
-#include <iostream>
 
 struct RealObject
 {

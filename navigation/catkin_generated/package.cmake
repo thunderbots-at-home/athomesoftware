@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "navigation")
+set(navigation_MAINTAINER "Devon Ash <noobaca2@gmail.com>")
+set(navigation_DEPRECATED "")
+set(navigation_VERSION "0.0.0")
+set(navigation_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "geometry_msgs" "sensor_msgs" "nodelet" "image_transport" "opencv2" "gtest" "message_generation")
+set(navigation_RUN_DEPENDS "roscpp" "rospy" "std_msgs" "geometry_msgs" "sensor_msgs" "nodelet" "image_transport" "opencv2" "gtest" "message_runtime")
+set(navigation_BUILDTOOL_DEPENDS "catkin")

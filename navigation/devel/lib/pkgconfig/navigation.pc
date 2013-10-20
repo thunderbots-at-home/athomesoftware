@@ -1,0 +1,8 @@
+prefix=/home/marco/catkin_ws/src/navigation/devel
+
+Name: navigation
+Description: Description of navigation
+Version: 0.0.0
+Cflags: -I/home/marco/catkin_ws/src/navigation/include/navigation
+Libs: -L/home/marco/catkin_ws/src/navigation/devel/lib 
+Requires: sensor_msgs geometry_msgs roscpp nodelet opencv2 message_runtime

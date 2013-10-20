@@ -130,7 +130,7 @@ bool ObjectClassification::match(vision::Match::Request &req, vision::Match::Res
 
 	for (map_iterator = (this->dataset.begin()); map_iterator != (this->dataset.end()); map_iterator++)
 	{
-		// Matching function 
+		// Matching function for scene to the image. 
 	}
 	// Get the images from the map.
 	
