@@ -1,8 +1,8 @@
-prefix=/usr/local
+prefix=/home/marco/catkin_ws/install
 
 Name: sensors
 Description: Description of sensors
 Version: 0.0.0
 Cflags: 
-Libs: -L/usr/local/lib 
+Libs: -L/home/marco/catkin_ws/install/lib 
 Requires: 

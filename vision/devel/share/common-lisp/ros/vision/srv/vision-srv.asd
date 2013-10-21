@@ -8,6 +8,8 @@
     (:file "_package_FindObject" :depends-on ("_package"))
     (:file "Match" :depends-on ("_package_Match"))
     (:file "_package_Match" :depends-on ("_package"))
+    (:file "Classify" :depends-on ("_package_Classify"))
+    (:file "_package_Classify" :depends-on ("_package"))
     (:file "GetObjectsInScene" :depends-on ("_package_GetObjectsInScene"))
     (:file "_package_GetObjectsInScene" :depends-on ("_package"))
     (:file "Contains" :depends-on ("_package_Contains"))
