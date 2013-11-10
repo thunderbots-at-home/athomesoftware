@@ -77,7 +77,10 @@ const int        INB2 = 45;
   double twistXLow = 125;
   double twistXCentre = 480;
   double test = 0;
-  
+
+  // serial msg variables:
+  double _interLeftMotorRPMSet;
+  double _interRightMotorRPMSet;
   
   //Initialize encoder inputs
   Encoder LeftEncoder(2, 3);
@@ -128,19 +131,17 @@ void loop()
       rightPID.SetTunings(Kp, Ki, Kd);
       leftPID.SetTunings(Kp, Ki, Kd);
       
-      // TODO stays in loop
      _LeftMotorKillValue = digitalRead(leftKillPin);
      _RightMotorKillValue = digitalRead(rightKillPin);      //print analog pin 3 input value
      
-     //TODO killMotor must run each loop
      KillMotor(_LeftMotorKillValue, ENA1, ENB1);      //enable or disable H-bridge 2 based on input from analog input. HIGH = OFF, LOW = ON
      KillMotor(_RightMotorKillValue, ENA2, ENB2);           //Kill Right motor when kill cable is pulled
      
      //calculates setRPM based on analog joystick signals
      //TODO can be can only when new information available.
   
-     _leftMotorRPMset = getLeftTwistRPM() + getLinearRPM(); // TODO I think this is where to put twist messages
-     _rightMotorRPMset = getRightTwistRPM() + getLinearRPM();
+     _leftMotorRPMset = _interLeftMotorRPMSet; // TODO I think this is where to put twist messagesbnb
+     _rightMotorRPMset = _interRightMotorRPMSet; 
      
      setMotorDirection(_leftMotorRPMset, INA1, INB1);  //Sets Pin outs for Pololu 705 
      setMotorDirection(_rightMotorRPMset, INA2, INB2);
@@ -403,11 +404,13 @@ void PrintDouble( double val, unsigned int precision){
 }
 
 void ProcessTwist(double * twistvals) {
+ _interLeftMotorRPMSet = CalcRPS(twistvals, 'L');
  Serial.print("Left Wheel: ");
- Serial.println(CalcRPS(twistvals, 'L'));
+ Serial.println(_interLeftMotorRPMSet);
  
+ _interRightMotorRPMSet = CalcRPS(twistvals, 'R');
  Serial.print("Right Wheel: ");
- Serial.println(CalcRPS(twistvals, 'R'));
+ Serial.println(_interRightMotorRPMSet);
  
 }
 
