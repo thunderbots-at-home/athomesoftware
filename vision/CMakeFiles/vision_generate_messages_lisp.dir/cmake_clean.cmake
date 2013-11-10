@@ -1,10 +1,10 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/vision_generate_messages_lisp"
-  "devel/share/common-lisp/ros/vision/msg/RealObject.lisp"
-  "devel/share/common-lisp/ros/vision/srv/Match.lisp"
-  "devel/share/common-lisp/ros/vision/srv/GetObjectsInScene.lisp"
-  "devel/share/common-lisp/ros/vision/srv/FindObject.lisp"
-  "devel/share/common-lisp/ros/vision/srv/Contains.lisp"
+  "/home/marco/catkin_ws/devel/share/common-lisp/ros/vision/msg/RealObject.lisp"
+  "/home/marco/catkin_ws/devel/share/common-lisp/ros/vision/srv/Match.lisp"
+  "/home/marco/catkin_ws/devel/share/common-lisp/ros/vision/srv/GetObjectsInScene.lisp"
+  "/home/marco/catkin_ws/devel/share/common-lisp/ros/vision/srv/FindObject.lisp"
+  "/home/marco/catkin_ws/devel/share/common-lisp/ros/vision/srv/Contains.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

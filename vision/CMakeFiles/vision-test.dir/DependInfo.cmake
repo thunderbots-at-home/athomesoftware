@@ -10,11 +10,12 @@ SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
+  "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"vision\""
   )
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/marco/catkin_ws/src/vision/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/marco/catkin_ws/src/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "/home/marco/catkin_ws/src/vision/CMakeFiles/vision.dir/DependInfo.cmake"
   )

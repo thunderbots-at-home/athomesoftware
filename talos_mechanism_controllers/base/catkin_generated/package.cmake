@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "base_controller")
+set(base_controller_MAINTAINER "michael moritsugu <mmoritsugu@gmail.com>")
+set(base_controller_DEPRECATED "")
+set(base_controller_VERSION "0.0.1")
+set(base_controller_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(base_controller_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(base_controller_BUILDTOOL_DEPENDS "catkin")
