@@ -1,8 +1,0 @@
-prefix=/home/marco/catkin_ws/install
-
-Name: base_controller
-Description: Description of base_controller
-Version: 0.0.1
-Cflags: 
-Libs: -L/home/marco/catkin_ws/install/lib 
-Requires: 

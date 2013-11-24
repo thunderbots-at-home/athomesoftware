@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "ai_framework")
-set(ai_framework_MAINTAINER "marco <marco@todo.todo>")
-set(ai_framework_DEPRECATED "")
-set(ai_framework_VERSION "0.0.0")
-set(ai_framework_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
-set(ai_framework_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
-set(ai_framework_BUILDTOOL_DEPENDS "catkin")

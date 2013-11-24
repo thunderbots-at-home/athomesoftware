@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "remote_control")
-set(remote_control_MAINTAINER "marco <marco@todo.todo>")
-set(remote_control_DEPRECATED "")
-set(remote_control_VERSION "0.0.0")
-set(remote_control_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
-set(remote_control_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
-set(remote_control_BUILDTOOL_DEPENDS "catkin")

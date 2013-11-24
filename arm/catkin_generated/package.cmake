@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "arm")
-set(arm_MAINTAINER "marco <marco@todo.todo>")
-set(arm_DEPRECATED "")
-set(arm_VERSION "0.0.0")
-set(arm_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
-set(arm_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
-set(arm_BUILDTOOL_DEPENDS "catkin")

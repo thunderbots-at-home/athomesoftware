@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/vision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/vision
 
 # Include any dependencies generated for this target.
-include vision/CMakeFiles/vision-test.dir/depend.make
+include CMakeFiles/vision-test.dir/depend.make
 
 # Include the progress variables for this target.
-include vision/CMakeFiles/vision-test.dir/progress.make
+include CMakeFiles/vision-test.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include vision/CMakeFiles/vision-test.dir/flags.make
+include CMakeFiles/vision-test.dir/flags.make
 
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o: vision/CMakeFiles/vision-test.dir/flags.make
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o: vision/test/test_vision.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o"
-	cd /home/marco/catkin_ws/src/vision && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision-test.dir/test/test_vision.cpp.o -c /home/marco/catkin_ws/src/vision/test/test_vision.cpp
+CMakeFiles/vision-test.dir/test/test_vision.cpp.o: CMakeFiles/vision-test.dir/flags.make
+CMakeFiles/vision-test.dir/test/test_vision.cpp.o: test/test_vision.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/vision-test.dir/test/test_vision.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision-test.dir/test/test_vision.cpp.o -c /home/marco/catkin_ws/src/vision/test/test_vision.cpp
 
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.i: cmake_force
+CMakeFiles/vision-test.dir/test/test_vision.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vision-test.dir/test/test_vision.cpp.i"
-	cd /home/marco/catkin_ws/src/vision && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/vision/test/test_vision.cpp > CMakeFiles/vision-test.dir/test/test_vision.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/vision/test/test_vision.cpp > CMakeFiles/vision-test.dir/test/test_vision.cpp.i
 
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.s: cmake_force
+CMakeFiles/vision-test.dir/test/test_vision.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vision-test.dir/test/test_vision.cpp.s"
-	cd /home/marco/catkin_ws/src/vision && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/vision/test/test_vision.cpp -o CMakeFiles/vision-test.dir/test/test_vision.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/vision/test/test_vision.cpp -o CMakeFiles/vision-test.dir/test/test_vision.cpp.s
 
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires:
-.PHONY : vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires
+CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires:
+.PHONY : CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires
 
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides: vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires
-	$(MAKE) -f vision/CMakeFiles/vision-test.dir/build.make vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides.build
-.PHONY : vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides
+CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides: CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires
+	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides.build
+.PHONY : CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides
 
-vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides.build: vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o
+CMakeFiles/vision-test.dir/test/test_vision.cpp.o.provides.build: CMakeFiles/vision-test.dir/test/test_vision.cpp.o
 
 # Object files for target vision-test
 vision__test_OBJECTS = \
@@ -76,77 +76,77 @@ vision__test_OBJECTS = \
 # External object files for target vision-test
 vision__test_EXTERNAL_OBJECTS =
 
-/home/marco/catkin_ws/devel/lib/vision/vision-test: vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o
-/home/marco/catkin_ws/devel/lib/vision/vision-test: gtest/libgtest.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /home/marco/catkin_ws/devel/lib/libvision.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libroscpp.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/x86_64-linux-gnu/libpthread.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/libboost_signals-mt.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/libboost_filesystem-mt.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/libboost_system-mt.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libcpp_common.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libroscpp_serialization.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/librostime.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/libboost_date_time-mt.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/libboost_thread-mt.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/librosconsole.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/libboost_regex-mt.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /usr/lib/liblog4cxx.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libxmlrpcpp.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libcv_bridge.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_calib3d.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_contrib.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_core.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_features2d.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_flann.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_gpu.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_highgui.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_imgproc.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_legacy.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ml.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_nonfree.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_objdetect.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_photo.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_stitching.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_superres.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ts.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_video.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_videostab.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_calib3d.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_contrib.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_core.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_features2d.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_flann.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_gpu.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_highgui.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_imgproc.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_legacy.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ml.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_nonfree.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_objdetect.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_photo.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_stitching.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_superres.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_video.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_videostab.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ts.so
-/home/marco/catkin_ws/devel/lib/vision/vision-test: vision/CMakeFiles/vision-test.dir/build.make
-/home/marco/catkin_ws/devel/lib/vision/vision-test: vision/CMakeFiles/vision-test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/marco/catkin_ws/devel/lib/vision/vision-test"
-	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vision-test.dir/link.txt --verbose=$(VERBOSE)
+devel/lib/vision/vision-test: CMakeFiles/vision-test.dir/test/test_vision.cpp.o
+devel/lib/vision/vision-test: gtest/libgtest.so
+devel/lib/vision/vision-test: devel/lib/libvision.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libroscpp.so
+devel/lib/vision/vision-test: /usr/lib/x86_64-linux-gnu/libpthread.so
+devel/lib/vision/vision-test: /usr/lib/libboost_signals-mt.so
+devel/lib/vision/vision-test: /usr/lib/libboost_filesystem-mt.so
+devel/lib/vision/vision-test: /usr/lib/libboost_system-mt.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libcpp_common.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libroscpp_serialization.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/librostime.so
+devel/lib/vision/vision-test: /usr/lib/libboost_date_time-mt.so
+devel/lib/vision/vision-test: /usr/lib/libboost_thread-mt.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/librosconsole.so
+devel/lib/vision/vision-test: /usr/lib/libboost_regex-mt.so
+devel/lib/vision/vision-test: /usr/lib/liblog4cxx.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libxmlrpcpp.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libcv_bridge.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_calib3d.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_contrib.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_core.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_features2d.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_flann.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_gpu.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_highgui.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_imgproc.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_legacy.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ml.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_nonfree.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_objdetect.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_photo.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_stitching.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_superres.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ts.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_video.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_videostab.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_calib3d.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_contrib.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_core.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_features2d.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_flann.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_gpu.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_highgui.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_imgproc.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_legacy.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ml.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_nonfree.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_objdetect.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_photo.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_stitching.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_superres.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_video.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_videostab.so
+devel/lib/vision/vision-test: /opt/ros/hydro/lib/libopencv_ts.so
+devel/lib/vision/vision-test: CMakeFiles/vision-test.dir/build.make
+devel/lib/vision/vision-test: CMakeFiles/vision-test.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable devel/lib/vision/vision-test"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vision-test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-vision/CMakeFiles/vision-test.dir/build: /home/marco/catkin_ws/devel/lib/vision/vision-test
-.PHONY : vision/CMakeFiles/vision-test.dir/build
+CMakeFiles/vision-test.dir/build: devel/lib/vision/vision-test
+.PHONY : CMakeFiles/vision-test.dir/build
 
-vision/CMakeFiles/vision-test.dir/requires: vision/CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires
-.PHONY : vision/CMakeFiles/vision-test.dir/requires
+CMakeFiles/vision-test.dir/requires: CMakeFiles/vision-test.dir/test/test_vision.cpp.o.requires
+.PHONY : CMakeFiles/vision-test.dir/requires
 
-vision/CMakeFiles/vision-test.dir/clean:
-	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -P CMakeFiles/vision-test.dir/cmake_clean.cmake
-.PHONY : vision/CMakeFiles/vision-test.dir/clean
+CMakeFiles/vision-test.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/vision-test.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/vision-test.dir/clean
 
-vision/CMakeFiles/vision-test.dir/depend:
-	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision/CMakeFiles/vision-test.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : vision/CMakeFiles/vision-test.dir/depend
+CMakeFiles/vision-test.dir/depend:
+	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision/CMakeFiles/vision-test.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/vision-test.dir/depend
 

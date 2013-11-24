@@ -900,8 +900,8 @@ clean: CMakeFiles/vision.dir/clean
 # Target rules for target CMakeFiles/vision-test.dir
 
 # All Build rule for target.
-CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest.dir/all
 CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest_main.dir/all
+CMakeFiles/vision-test.dir/all: gtest/CMakeFiles/gtest.dir/all
 CMakeFiles/vision-test.dir/all: CMakeFiles/vision.dir/all
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/depend
 	$(MAKE) -f CMakeFiles/vision-test.dir/build.make CMakeFiles/vision-test.dir/build
@@ -964,9 +964,9 @@ clean: CMakeFiles/vision_gencpp.dir/clean
 # Target rules for target CMakeFiles/vision_generate_messages.dir
 
 # All Build rule for target.
+CMakeFiles/vision_generate_messages.dir/all: CMakeFiles/vision_generate_messages_lisp.dir/all
 CMakeFiles/vision_generate_messages.dir/all: CMakeFiles/vision_generate_messages_cpp.dir/all
 CMakeFiles/vision_generate_messages.dir/all: CMakeFiles/vision_generate_messages_py.dir/all
-CMakeFiles/vision_generate_messages.dir/all: CMakeFiles/vision_generate_messages_lisp.dir/all
 	$(MAKE) -f CMakeFiles/vision_generate_messages.dir/build.make CMakeFiles/vision_generate_messages.dir/depend
 	$(MAKE) -f CMakeFiles/vision_generate_messages.dir/build.make CMakeFiles/vision_generate_messages.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles 
@@ -1001,9 +1001,9 @@ clean: CMakeFiles/vision_generate_messages.dir/clean
 # Target rules for target CMakeFiles/vision_generate_messages_cpp.dir
 
 # All Build rule for target.
-CMakeFiles/vision_generate_messages_cpp.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-CMakeFiles/vision_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 CMakeFiles/vision_generate_messages_cpp.dir/all: CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+CMakeFiles/vision_generate_messages_cpp.dir/all: CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+CMakeFiles/vision_generate_messages_cpp.dir/all: CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 	$(MAKE) -f CMakeFiles/vision_generate_messages_cpp.dir/build.make CMakeFiles/vision_generate_messages_cpp.dir/depend
 	$(MAKE) -f CMakeFiles/vision_generate_messages_cpp.dir/build.make CMakeFiles/vision_generate_messages_cpp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles  7 8 9 10 11
@@ -1034,8 +1034,8 @@ clean: CMakeFiles/vision_generate_messages_cpp.dir/clean
 # Target rules for target CMakeFiles/vision_generate_messages_lisp.dir
 
 # All Build rule for target.
-CMakeFiles/vision_generate_messages_lisp.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 CMakeFiles/vision_generate_messages_lisp.dir/all: CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+CMakeFiles/vision_generate_messages_lisp.dir/all: CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 CMakeFiles/vision_generate_messages_lisp.dir/all: CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 	$(MAKE) -f CMakeFiles/vision_generate_messages_lisp.dir/build.make CMakeFiles/vision_generate_messages_lisp.dir/depend
 	$(MAKE) -f CMakeFiles/vision_generate_messages_lisp.dir/build.make CMakeFiles/vision_generate_messages_lisp.dir/build

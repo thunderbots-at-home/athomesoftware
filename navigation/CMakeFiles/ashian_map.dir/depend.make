@@ -70,9 +70,4 @@ CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: /opt/ros/hydro/include/ros/wall_t
 CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: /opt/ros/hydro/include/rosconsole/macros_generated.h
 CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/AshianMap.h
 CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/Building.h
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/Human.h
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/ObjectLocation.h
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/RealObject.h
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/Robot.h
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: include/navigation/Room.h
 

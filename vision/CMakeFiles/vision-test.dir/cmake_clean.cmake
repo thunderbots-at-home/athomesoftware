@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/vision-test.dir/test/test_vision.cpp.o"
-  "/home/marco/catkin_ws/devel/lib/vision/vision-test.pdb"
-  "/home/marco/catkin_ws/devel/lib/vision/vision-test"
+  "devel/lib/vision/vision-test.pdb"
+  "devel/lib/vision/vision-test"
 )
 
 # Per-language clean rules from dependency scanning.

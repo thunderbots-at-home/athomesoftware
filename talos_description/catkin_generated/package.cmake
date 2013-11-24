@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "talos_description")
-set(talos_description_MAINTAINER "Michael Moritsugu <mmoritsugu@gmail.com>")
-set(talos_description_DEPRECATED "")
-set(talos_description_VERSION "0.0.0")
-set(talos_description_BUILD_DEPENDS )
-set(talos_description_RUN_DEPENDS )
-set(talos_description_BUILDTOOL_DEPENDS "catkin")

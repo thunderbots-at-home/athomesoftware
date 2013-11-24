@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/vision
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/vision
 
 # Include any dependencies generated for this target.
-include vision/CMakeFiles/vision.dir/depend.make
+include CMakeFiles/vision.dir/depend.make
 
 # Include the progress variables for this target.
-include vision/CMakeFiles/vision.dir/progress.make
+include CMakeFiles/vision.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include vision/CMakeFiles/vision.dir/flags.make
+include CMakeFiles/vision.dir/flags.make
 
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o: vision/CMakeFiles/vision.dir/flags.make
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o: vision/src/ObjectClassification.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o"
-	cd /home/marco/catkin_ws/src/vision && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision.dir/src/ObjectClassification.cpp.o -c /home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.o: CMakeFiles/vision.dir/flags.make
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.o: src/ObjectClassification.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/vision/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/vision.dir/src/ObjectClassification.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/vision.dir/src/ObjectClassification.cpp.o -c /home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp
 
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.i: cmake_force
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vision.dir/src/ObjectClassification.cpp.i"
-	cd /home/marco/catkin_ws/src/vision && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp > CMakeFiles/vision.dir/src/ObjectClassification.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp > CMakeFiles/vision.dir/src/ObjectClassification.cpp.i
 
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.s: cmake_force
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vision.dir/src/ObjectClassification.cpp.s"
-	cd /home/marco/catkin_ws/src/vision && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp -o CMakeFiles/vision.dir/src/ObjectClassification.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/vision/src/ObjectClassification.cpp -o CMakeFiles/vision.dir/src/ObjectClassification.cpp.s
 
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires:
-.PHONY : vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires:
+.PHONY : CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires
 
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides: vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires
-	$(MAKE) -f vision/CMakeFiles/vision.dir/build.make vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides.build
-.PHONY : vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides: CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides.build
+.PHONY : CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides
 
-vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides.build: vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
+CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.provides.build: CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
 
 # Object files for target vision
 vision_OBJECTS = \
@@ -76,24 +76,24 @@ vision_OBJECTS = \
 # External object files for target vision
 vision_EXTERNAL_OBJECTS =
 
-/home/marco/catkin_ws/devel/lib/libvision.so: vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
-/home/marco/catkin_ws/devel/lib/libvision.so: vision/CMakeFiles/vision.dir/build.make
-/home/marco/catkin_ws/devel/lib/libvision.so: vision/CMakeFiles/vision.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libvision.so"
-	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vision.dir/link.txt --verbose=$(VERBOSE)
+devel/lib/libvision.so: CMakeFiles/vision.dir/src/ObjectClassification.cpp.o
+devel/lib/libvision.so: CMakeFiles/vision.dir/build.make
+devel/lib/libvision.so: CMakeFiles/vision.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libvision.so"
+	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vision.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-vision/CMakeFiles/vision.dir/build: /home/marco/catkin_ws/devel/lib/libvision.so
-.PHONY : vision/CMakeFiles/vision.dir/build
+CMakeFiles/vision.dir/build: devel/lib/libvision.so
+.PHONY : CMakeFiles/vision.dir/build
 
-vision/CMakeFiles/vision.dir/requires: vision/CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires
-.PHONY : vision/CMakeFiles/vision.dir/requires
+CMakeFiles/vision.dir/requires: CMakeFiles/vision.dir/src/ObjectClassification.cpp.o.requires
+.PHONY : CMakeFiles/vision.dir/requires
 
-vision/CMakeFiles/vision.dir/clean:
-	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -P CMakeFiles/vision.dir/cmake_clean.cmake
-.PHONY : vision/CMakeFiles/vision.dir/clean
+CMakeFiles/vision.dir/clean:
+	$(CMAKE_COMMAND) -P CMakeFiles/vision.dir/cmake_clean.cmake
+.PHONY : CMakeFiles/vision.dir/clean
 
-vision/CMakeFiles/vision.dir/depend:
-	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision/CMakeFiles/vision.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : vision/CMakeFiles/vision.dir/depend
+CMakeFiles/vision.dir/depend:
+	cd /home/marco/catkin_ws/src/vision && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision /home/marco/catkin_ws/src/vision/CMakeFiles/vision.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : CMakeFiles/vision.dir/depend
 
