@@ -94,7 +94,7 @@ message ("nothing to see here")
  target_link_libraries(base_controller_node
    ${Boost_LIBRARIES} 
    ${catkin_LIBRARIES}
-   TimeoutSerial
+   BufferedAsyncSerial
  )
 
 #############
