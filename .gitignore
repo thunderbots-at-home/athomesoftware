@@ -24,3 +24,7 @@
 bin/
 obj/
 output/
+
+# log files
+*.log
+*.csv
