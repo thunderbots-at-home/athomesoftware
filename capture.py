@@ -3,21 +3,37 @@ import serial
 import signal
 import atexit
 import os
+import optparse
 
-LOG_FILE='./messages.log'
-USB_FILE='/dev/ttyUSB0'
-BAUD=9600
+# parse input
+parser = optparse.OptionParser()
+
+parser.add_option('-o', '--output',
+    action='store', dest='output',
+    help='output file', default='./messages.log')
+
+parser.add_option('-i', '--input',
+    action='store', dest='input',
+    help='usb file to read',
+    default='/dev/ttyUSB0')
+
+parser.add_option('-b', '--baud',
+    action='store', dest='baud',
+    help='baud rate for reading device file',
+    default='9600')
+
+options, args = parser.parse_args()
 
 print "reading serial device"
-ser = serial.Serial(USB_FILE, BAUD)
+ser = serial.Serial(options.input, options.baud)
 
 print "opening output file"
 try:
-  os.remove(LOG_FILE)
+  os.remove(options.output)
 except OSError:
   pass
 
-output = open(LOG_FILE, 'w')
+output = open(options.output, 'w')
 
 def cleanup():
   # close serial connection
