@@ -22,6 +22,11 @@ parser.add_option('-b', '--baud',
     help='baud rate for reading device file',
     default='9600')
 
+parser.add_option('-s', '--init',
+    action='store', dest='init',
+    help='initialization line to send to arduino',
+    default='default')
+
 options, args = parser.parse_args()
 
 print "reading serial device"
@@ -45,6 +50,10 @@ if __name__ == "__main__":
   atexit.register(cleanup)
   signal.signal(signal.SIGTERM, lambda signum, stack_frame: exit(1))
   print "ctrl+c to quit"
+
+  #send initialization command
+  print "sending " + options.init
+  ser.write(options.init + '\n')
 
   # throw this away
   data = ser.readline()
