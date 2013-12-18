@@ -116,10 +116,10 @@
     PID leftPID( &_leftFeedback,  &_leftOutput,  &_leftMotorRPMset,  Kp, Ki, Kd, DIRECT);
 
     // Max speed limit
-    double MaxRPM = 1.45*2;
+    double MaxRPM = 1.45;
 
     // Control loop interval time
-    const float SampleTime = 25;    // in milliseconds
+    const float SampleTime = 50;    // in milliseconds
 
 
 
