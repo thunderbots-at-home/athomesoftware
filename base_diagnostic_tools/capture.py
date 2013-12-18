@@ -5,17 +5,42 @@ import atexit
 import os
 import optparse
 
+###################################################
+##                   USB PORTS                   ##
+## To use this script, the PORT variable needs to
+## be set to the name of your desired port.  To
+## make it easier, template names have been
+## provided for Windows, Mac, and Linux.
+## Uncomment the one you want and change it.
+##
+## Your Arduino's port name can be found in the
+## Arduino IDE under Tools > Serial Port.
+##
+## Please do not unecessarily commit
+## your port name changes!
+#
+# Windows
+# PORT = 'COM10'
+#
+# Mac
+PORT = '/dev/tty.usbmodemfa131'
+#
+# Linux
+# PORT = 'dev/ttyUSB0'
+#
+###################################################
+
 # parse input
 parser = optparse.OptionParser()
 
 parser.add_option('-o', '--output',
     action='store', dest='output',
-    help='output file', default='./messages.log')
+    help='output file', default='./messages.csv')
 
 parser.add_option('-i', '--input',
     action='store', dest='input',
     help='usb file to read',
-    default='/dev/ttyUSB0')
+    default=PORT)
 
 parser.add_option('-b', '--baud',
     action='store', dest='baud',
@@ -56,7 +81,10 @@ if __name__ == "__main__":
   ser.write(options.init + '\n')
 
   # throw this away
-  data = ser.readline()
+  while True:
+    data = ser.readline()
+    if data == "start_flag\r\n":
+      break;
 
   while True:
     data = ser.readline()

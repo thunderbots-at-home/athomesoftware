@@ -116,10 +116,10 @@
     PID leftPID( &_leftFeedback,  &_leftOutput,  &_leftMotorRPMset,  Kp, Ki, Kd, DIRECT);
 
     // Max speed limit
-    double MaxRPM = 1.45;
+    double MaxRPM = 1.45*2;
 
     // Control loop interval time
-    const float SampleTime = 50;    // in milliseconds
+    const float SampleTime = 25;    // in milliseconds
 
 
 
@@ -169,6 +169,8 @@ void setup()
          rightPID.SetTunings(Kp, Ki, Kd);
          leftPID.SetTunings( Kp, Ki, Kd);
      }
+     
+     logSetup();
      
 //     // Enable motor H-bridges
 //     KillMotor(false, ENA1, ENB1);
@@ -252,6 +254,13 @@ void loop()
     // push new velocity to motor driver 
     analogWrite(PWMpin1, _leftOutput); 
     analogWrite(PWMpin2, _rightOutput); 
+    
+//    Serial.print(_leftOutput);
+//    Serial.print(",");
+//    Serial.print(_rightOutput);
+//    Serial.print("\n");
+    
+    logLoop();
     
     // pause until next control interval
     delay(SampleTime);
@@ -511,11 +520,11 @@ void PrintDouble( double val, unsigned int precision){
 }
 
 void ProcessTwist(double * twistvals) {
-// _interLeftMotorRPMSet = CalcRPS(twistvals, 'L');                                  // Had to comment out.  Why?
+ _interLeftMotorRPMSet = CalcRPS(twistvals, 'L');
  Serial.print("Left Wheel: ");
  Serial.println(_interLeftMotorRPMSet);
  
-// _interRightMotorRPMSet = CalcRPS(twistvals, 'R');                                 // Had to comment out.  Why?
+ _interRightMotorRPMSet = CalcRPS(twistvals, 'R');
  Serial.print("Right Wheel: ");
  Serial.println(_interRightMotorRPMSet);
  
@@ -535,9 +544,77 @@ void OnReceived(String s) {
       double parsedvals[3];
       
       //parse character array into results container
-//      ParseTwist((const char*) carr, parsedvals);                                  // Had to comment out.  Why?
+      parse_twist((const char*) carr, parsedvals);
       
       //handle results
       ProcessTwist(parsedvals);
   }
+}
+
+void logSetup()
+{
+  Serial.print("\n");
+  Serial.println("start_flag");
+  Serial.print("\n");
+  Serial.print("\n\n\n");
+  
+  Serial.println("-----,ARDUINO RESET,-----");
+  
+  Serial.print("\n");
+  Serial.print("Joystick Mode,");
+  Serial.println(JOYSTICK);
+  
+  Serial.print("PID Tuning Mode,");
+  Serial.println(PID_TUNE);
+  Serial.print("Kp,");
+  Serial.println(Kp);
+  Serial.print("Ki,");
+  Serial.println(Ki);
+  Serial.print("Kd,");
+  Serial.println(Kd);
+  
+  Serial.print("\n");
+  
+  Serial.print("Max RPM,");
+  Serial.println(MaxRPM);
+  Serial.print("Interval Delay (ms),");
+  Serial.println(SampleTime);
+  Serial.print("\n");
+  
+  Serial.println("-----,DATA START,-----");
+  
+  if( PID_TUNE )
+  {
+    Serial.print("Kp,Ki,Kd,");
+  }
+ 
+  Serial.println("Elapsed Time (ms),Left Command (RPM),Right Command (RPM),Left Output (?),Right Output (?),Left Feedback (RPM),Right Feedback (RPM)");
+  Serial.print("\n");
+}
+
+void logLoop()
+{
+  if( PID_TUNE )
+  {
+    Serial.print(Kp);
+    Serial.print(',');
+    Serial.print(Ki);
+    Serial.print(',');
+    Serial.print(Kd);
+  }
+  
+  Serial.print(millis());
+  Serial.print(',');
+  Serial.print(_leftMotorRPMset);
+  Serial.print(',');
+  Serial.print(_rightMotorRPMset);
+  Serial.print(',');
+  Serial.print(_leftOutput);
+  Serial.print(',');
+  Serial.print(_rightOutput);
+  Serial.print(',');
+  Serial.print(_leftFeedback);
+  Serial.print(',');
+  Serial.print(_rightFeedback);
+  Serial.print("\n");
 }
