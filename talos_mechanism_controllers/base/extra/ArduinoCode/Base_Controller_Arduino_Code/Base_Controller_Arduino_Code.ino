@@ -15,7 +15,7 @@
 // -------------- //
 
     const boolean JOYSTICK = true;      // if joystick is disabled, it will accept commands via serial communication (USB), and vice versa
-    const boolean PID_TUNE = false;
+    const boolean PID_TUNE = true;
     const boolean PUSH_TO_RUN = true;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
 
 // -------------------------- //  
@@ -597,13 +597,15 @@ void logSetup()
   
   Serial.println("-----,DATA START,-----");
   
+  Serial.println();
+  Serial.print("Elapsed Time (ms),E-Stop Active,Left Command (RPM),Right Command (RPM),Left Output (?),Right Output (?),Left Feedback (RPM),Right Feedback (RPM)");
+  
   if( PID_TUNE )
   {
-    Serial.print("Kp,Ki,Kd,");
+    Serial.print(",Kp,Ki,Kd");
   }
   
   Serial.println();
-  Serial.println("Elapsed Time (ms),E-Stop Active,Left Command (RPM),Right Command (RPM),Left Output (?),Right Output (?),Left Feedback (RPM),Right Feedback (RPM)");
 }
 
 
@@ -614,17 +616,7 @@ void logSetup()
 // ************************************ //
 
 void logLoop()
-{
-  if( PID_TUNE )          // Prints PID gains in real-time if it is in manual tuning mode
-  {
-    Serial.print(Kp);
-    Serial.print(',');
-    Serial.print(Ki);
-    Serial.print(',');
-    Serial.print(Kd);
-  }
-  
-  
+{  
   Serial.print(millis());            // Total elapsed time
   Serial.print(',');
   Serial.print(eStopActive);         // 1 if E-stop is active (robot stopped), 0 is off (robot is active)
@@ -640,6 +632,17 @@ void logLoop()
   Serial.print(_leftFeedback);       // Encoder feedback from left motor
   Serial.print(',');
   Serial.print(_rightFeedback);      // Encoder feedback from right motor
+  
+  if( PID_TUNE )          // Prints PID gains in real-time if it is in manual tuning mode
+  {
+    Serial.print(',');
+    Serial.print(Kp);
+    Serial.print(',');
+    Serial.print(Ki);
+    Serial.print(',');
+    Serial.print(Kd);
+  }
+  
   Serial.println();
 }
 
