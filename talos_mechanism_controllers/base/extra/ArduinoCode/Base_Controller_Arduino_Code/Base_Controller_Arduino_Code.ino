@@ -16,7 +16,7 @@
 
     const boolean JOYSTICK = true;      // if joystick is disabled, it will accept commands via serial communication (USB), and vice versa
     const boolean PID_TUNE = false;
-    const boolean PUSH_TO_RUN = false;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
+    const boolean PUSH_TO_RUN = true;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
 
 // -------------------------- //  
 //    SERIAL COMMUNICATION    //
@@ -279,13 +279,13 @@ void loop()
 //                                                                   FUNCTIONS                                                                    //  
 // ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- //
 
-//
+// ************************************ //
 // FUNCTION: SetPIDValues
 // This function is used to set the PID values of the MCU 
 // using three potentiometers. Each potentiometer is power between 5V and GND. 
 // The gains Kp, Kd, and Ki, are changed through the analog signals is input into 
 // the Arduino Mega pins: 5, 6, and 7 respectively.
-//
+// ************************************ //
 
 void SetPIDValues()
 {
@@ -312,10 +312,10 @@ void SetPIDValues()
 }
 
 
-//
+// ************************************ //
 // FUNCTION: getCount
 // This function is used to determine the count of the encoders after rotation of one loop
-//
+// ************************************ //
 
 double getCount( long _oldEncoderPosition, long _newEncoderPosition)
 {
@@ -326,10 +326,10 @@ double getCount( long _oldEncoderPosition, long _newEncoderPosition)
 }
 
 
-//
+// ************************************ //
 // FUNCTION: getRPM
 // returns ABSOLUTE Value of the shaft velocity
-//
+// ************************************ //
 
 float getRPM(double _Count,  double SampleTime, int CountsPerRotation, int MultiplicationFactor)
 {
@@ -344,11 +344,11 @@ float getRPM(double _Count,  double SampleTime, int CountsPerRotation, int Multi
 }
 
 
-//
+// ************************************ //
 // FUNCTION: KillMotor
 // enables specified H-bridge pins if analogPinValue is low
 // otherwise, disables specified H-bridge pins
-//
+// ************************************ //
 
 int KillMotor(int analogPinValue, int ENA, int ENB )
 {
@@ -558,16 +558,23 @@ void OnReceived(String s) {
   }
 }
 
+
+// ************************************ //
+// FUNCTION: logSetup()
+// Sends a set of the configuration parameters and programmer-selected options to the serial port.  Function is intended to be called at the end of the startup sequence.
+// Prints one parameter per line, formatted as "<name>,<value>"
+// ************************************ //
+
 void logSetup()
 {
-  Serial.print("\n");
+  Serial.println();
   Serial.println("start_flag");
-  Serial.print("\n");
-  Serial.print("\n\n\n");
+  Serial.println();
+  Serial.println();
   
   Serial.println("-----,ARDUINO RESET,-----");
   
-  Serial.print("\n");
+  Serial.println();
   Serial.print("Joystick Mode,");
   Serial.println(JOYSTICK);
   
@@ -586,7 +593,7 @@ void logSetup()
   Serial.println(MaxRPM);
   Serial.print("Interval Delay (ms),");
   Serial.println(SampleTime);
-  Serial.print("\n");
+  Serial.println();
   
   Serial.println("-----,DATA START,-----");
   
@@ -594,14 +601,21 @@ void logSetup()
   {
     Serial.print("Kp,Ki,Kd,");
   }
- 
-  Serial.println("Elapsed Time (ms),Left Command (RPM),Right Command (RPM),Left Output (?),Right Output (?),Left Feedback (RPM),Right Feedback (RPM)");
-  Serial.print("\n");
+  
+  Serial.println();
+  Serial.println("Elapsed Time (ms),E-Stop Active,Left Command (RPM),Right Command (RPM),Left Output (?),Right Output (?),Left Feedback (RPM),Right Feedback (RPM)");
 }
+
+
+// ************************************ //
+// FUNCTION: logLoop()
+// Sends a set of runtime-related variables to the serial port.  Function is intended to be called at the end of each loop iteration.
+// Values are on a single line, comma-separated.
+// ************************************ //
 
 void logLoop()
 {
-  if( PID_TUNE )
+  if( PID_TUNE )          // Prints PID gains in real-time if it is in manual tuning mode
   {
     Serial.print(Kp);
     Serial.print(',');
@@ -610,19 +624,22 @@ void logLoop()
     Serial.print(Kd);
   }
   
-  Serial.print(millis());
+  
+  Serial.print(millis());            // Total elapsed time
   Serial.print(',');
-  Serial.print(_leftMotorRPMset);
+  Serial.print(eStopActive);         // 1 if E-stop is active (robot stopped), 0 is off (robot is active)
   Serial.print(',');
-  Serial.print(_rightMotorRPMset);
+  Serial.print(_leftMotorRPMset);    // Speed setpoint of left motor
   Serial.print(',');
-  Serial.print(_leftOutput);
+  Serial.print(_rightMotorRPMset);   // Speed setpoint of right motor
   Serial.print(',');
-  Serial.print(_rightOutput);
+  Serial.print(_leftOutput);         // PID output sent to left motor
   Serial.print(',');
-  Serial.print(_leftFeedback);
+  Serial.print(_rightOutput);        // PID output sent to right motor
   Serial.print(',');
-  Serial.print(_rightFeedback);
-  Serial.print("\n");
+  Serial.print(_leftFeedback);       // Encoder feedback from left motor
+  Serial.print(',');
+  Serial.print(_rightFeedback);      // Encoder feedback from right motor
+  Serial.println();
 }
 

@@ -4,6 +4,7 @@ import signal
 import atexit
 import os
 import optparse
+import time
 
 ###################################################
 ##                   USB PORTS                   ##
@@ -23,19 +24,32 @@ import optparse
 # PORT = 'COM10'
 #
 # Mac
-PORT = '/dev/tty.usbmodemfa131'
+PORT = '/dev/tty.usbmodemfd121'
 #
 # Linux
 # PORT = 'dev/ttyUSB0'
 #
 ###################################################
 
+# Generate filename based on current time
+currentTime = time.localtime()
+formattedTime = time.ctime()
+
+g = []
+
+for i in range(0,len(currentTime)-1):
+  g.append(str(currentTime[i]).zfill(2))
+
+filename = ( "DRIVETRAIN_LOG_" + g[0] + g[1] + g[2] +
+"_" + g[3] + g[4] + g[5] + ".csv" )
+
+
 # parse input
 parser = optparse.OptionParser()
 
 parser.add_option('-o', '--output',
     action='store', dest='output',
-    help='output file', default='./messages.csv')
+    help='output file', default='Log Files/' + filename)
 
 parser.add_option('-i', '--input',
     action='store', dest='input',
@@ -65,14 +79,17 @@ except OSError:
 
 output = open(options.output, 'w')
 
+
 def cleanup():
   # close serial connection
   ser.close()
   # close outfile
   output.close()
 
+
 if __name__ == "__main__":
   atexit.register(cleanup)
+  output.write("Time:," + formattedTime)
   signal.signal(signal.SIGTERM, lambda signum, stack_frame: exit(1))
   print "ctrl+c to quit"
 
