@@ -43,6 +43,11 @@ for i in range(0,len(currentTime)-1):
 filename = ( "DRIVETRAIN_LOG_" + g[0] + g[1] + g[2] +
 "_" + g[3] + g[4] + g[5] + ".csv" )
 
+try:
+  os.makedirs('Log Files/')
+except OSError:
+  pass
+
 
 # parse input
 parser = optparse.OptionParser()
