@@ -1,7 +1,7 @@
 
 #include <parser.h>
 #include <Encoder.h>
-#include <PID_v1.h> // Include PID library for closed loop control
+#include <PID_v1_custom.h> // Include PID library for closed loop control
 #include <basemtrcontrol.h>
   
 #define INPUT_PULLUP 0x2
@@ -16,6 +16,7 @@
 
     const boolean JOYSTICK = true;      // if joystick is disabled, it will accept commands via serial communication (USB), and vice versa
     const boolean PID_TUNE = false;
+    const boolean PUSH_TO_RUN = false;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
 
 // -------------------------- //  
 //    SERIAL COMMUNICATION    //
@@ -33,9 +34,11 @@
 // --------------------- //  
 
     // Joystick pin declarations
-    const int        twistRemotePin = 3, linearRemotePin = 4;
-    const int        linearKillPin = 50, twistKillPin = 48, remotePowerPin = 46;      // Safeties (if pins disconnected, stops motor)
+    const int        twistRemotePin = 4, linearRemotePin = 3;
+    const int        linearKillPin = 48, twistKillPin = 50, remotePowerPin = 46;      // Safeties (if pins disconnected, stops motor)
     int              _LinearKillValue = 0, _TwistKillValue = 0, _PowerKillValue = 0;
+    boolean          eStopActive = true;                    // Flag to indicate if E-stop was active during the last execution loop.
+
   
     // Joystick potentiometer tuning parameters
     //   0 to 1024 for 0V to V_cc (5V).  Determined empirically. 
@@ -93,8 +96,8 @@
     const float      MultiplicationFactor = 6; //counts per encoder impulse
 
     // Initialize encoder objects with input pins (quadrature phase A and phase B)
-    Encoder LeftEncoder(18,19);
-    Encoder RightEncoder(2, 3);
+    Encoder LeftEncoder(2,3);
+    Encoder RightEncoder(18,19);
 
 // ---------- //
 //    PID     //
@@ -197,16 +200,20 @@ void loop()
         _PowerKillValue = digitalRead(remotePowerPin);
          
         // if any E-stops triggered, disable H-bridge "enable" pins for both motors
-        if( _LinearKillValue || _TwistKillValue || !_PowerKillValue )
+        if( (JOYSTICK && ((PUSH_TO_RUN && _LinearKillValue) || _TwistKillValue)) || !_PowerKillValue )
         {
             KillMotor(true, ENA1, ENB1);
             KillMotor(true, ENA2, ENB2);
+            eStopActive = true;
         }
         // else enable both motors
-        else
+        else if( eStopActive ) 
         {
             KillMotor(false, ENA1, ENB1);
             KillMotor(false, ENA2, ENB2);
+            leftPID.ResetError();
+            rightPID.ResetError();
+            eStopActive = false;
         }
     
     
@@ -618,3 +625,4 @@ void logLoop()
   Serial.print(_rightFeedback);
   Serial.print("\n");
 }
+
