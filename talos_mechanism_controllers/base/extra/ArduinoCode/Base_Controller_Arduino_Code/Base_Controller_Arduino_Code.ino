@@ -1,4 +1,3 @@
-
 #include <parser.h>
 #include <Encoder.h>
 #include <PID_v1_custom.h> // Include PID library for closed loop control
@@ -15,7 +14,7 @@
 // -------------- //
 
     const boolean JOYSTICK = true;      // if joystick is disabled, it will accept commands via serial communication (USB), and vice versa
-    const boolean PID_TUNE = true;
+    const boolean PID_TUNE = false;
     const boolean PUSH_TO_RUN = true;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
 
 // -------------------------- //  
