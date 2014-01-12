@@ -27,7 +27,7 @@ TeleopTalos::TeleopTalos():
   nh_.param("scale_linear", l_scale_, l_scale_);
   nh_.param("scale_angular", a_scale_, a_scale_);
 
-  vel_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 1);
+  vel_pub_ = nh_.advertise<geometry_msgs::Twist>("cmd_vel", 100);
   joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 10, &TeleopTalos::joyCallback, this);
 }
 
