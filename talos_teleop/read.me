@@ -1,0 +1,10 @@
+remove output="screen" to prevent ROS_INFO() published by teleop from being written to screen
+
+# test
+1. process 1: roslaunch talos_teleop talos_teleop_node
+2.1 connect ps3 controller via usb
+2.2 $: sudo hciconfig hci0 reset
+2.3 $: sudo sixpair
+2.4 unplug ps3 controller 
+2.5 $: sixad --start 
+2.6 process PS button when prompted
