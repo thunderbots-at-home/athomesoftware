@@ -1,6 +1,6 @@
 <launch>
     <arg name="_device_file" default="/dev/ttyACM0" />
     <param name="device_file" value="$(arg _device_file)" />
-    <node name="base_controller_node" pkg="base_controller" output="screen" type="base_controller_node" args="$(arg _device_file)"/>
+    <node name="base_controller_node" pkg="talos_base_controller" output="screen" type="base_controller_node" args="$(arg _device_file)"/>
 </launch>
     
