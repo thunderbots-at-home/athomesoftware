@@ -4,7 +4,7 @@ project(audio)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS message_generation rospy message_runtime)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -13,7 +13,7 @@ find_package(catkin REQUIRED)
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
+ catkin_python_setup()
 
 #######################################
 ## Declare ROS messages and services ##
@@ -25,6 +25,11 @@ find_package(catkin REQUIRED)
 #   Message1.msg
 #   Message2.msg
 # )
+add_message_files(
+ FILES
+ FRClientGoal.msg
+
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -33,6 +38,7 @@ find_package(catkin REQUIRED)
 #   Service2.srv
 # )
 
+generate_messages()
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
@@ -53,7 +59,10 @@ catkin_package(
 #  LIBRARIES audio
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
+CATKIN_DEPENDS message_runtime message_generation
+
 )
+
 
 ###########
 ## Build ##
@@ -70,7 +79,6 @@ catkin_package(
 
 ## Declare a cpp executable
 # add_executable(audio_node src/audio_node.cpp)
-
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(audio_node audio_generate_messages_cpp)
@@ -93,6 +101,7 @@ catkin_package(
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+install(PROGRAMS bin/follow_me_cmds.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS audio audio_node

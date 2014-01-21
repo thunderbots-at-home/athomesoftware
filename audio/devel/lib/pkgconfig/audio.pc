@@ -1,0 +1,8 @@
+prefix=/home/marco/catkin_ws/src/audio/devel
+
+Name: audio
+Description: Description of audio
+Version: 0.0.0
+Cflags: -I/home/marco/catkin_ws/src/audio/devel/include
+Libs: -L/home/marco/catkin_ws/src/audio/devel/lib 
+Requires: message_runtime message_generation

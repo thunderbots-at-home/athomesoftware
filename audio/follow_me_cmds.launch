@@ -1,0 +1,7 @@
+<launch>
+	<node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+		<param name="lm" value="$(find audio)/2150.lm"/>
+		<param name="dict" value="$(find audio)/2150.dic"/>
+	</node>
+	<node name="follow_me_cmds" pkg="audio" type="follow_me_cmds.py" output="screen"/>
+</launch>

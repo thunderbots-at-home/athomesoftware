@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "audio")
+set(audio_MAINTAINER "marco <marco@todo.todo>")
+set(audio_DEPRECATED "")
+set(audio_VERSION "0.0.0")
+set(audio_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "face_recognition" "message_generation" "message_runtime" "catkin")
+set(audio_RUN_DEPENDS "roscpp" "rospy" "std_msgs" "face_recognition" "message_generation" "message_runtime" "catkin")
+set(audio_BUILDTOOL_DEPENDS "catkin")
