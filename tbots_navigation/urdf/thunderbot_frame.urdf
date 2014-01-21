@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+<robot name="thunderbot_frame">
+									<!-- Base Plate and Spokes -->
+  <link name="horizontal_base_plate">
+  	<visual>
+		<geometry>
+			<box size="0.40 0.20 0.03"/>
+		</geometry>
+		<origin rpy="0 0 1.57" xyz="0 0 0"/>
+		<material name="white">
+			<color rgba="1 1 1 1"/>
+		</material>
+	</visual>
+  </link>
+
+  <joint name="base_plate_to_base_bar" type="fixed">
+  	<parent link="horizontal_base_plate"/>
+	<child link="horizontal_base_plate_bar"/>
+	<origin xyz="0.1 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="horizontal_base_plate_bar">
+    <visual>
+	<geometry>
+		<box size="0.03 0.61905 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+
+  <link name="lwheel_spoke">
+	<visual>
+		<geometry>
+			<cylinder length="0.07" radius="0.015"/>	
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="white">
+			<color rgba="1 1 1 1"/>
+		</material>
+	</visual>
+  </link>
+
+  <link name="rwheel_spoke">
+	<visual>
+		<geometry>
+			<cylinder length="0.07" radius="0.015"/>	
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="white">
+			<color rgba="1 1 1 1"/>
+		</material>
+	</visual>
+  </link>
+
+  <joint name="base_plate_to_lwheel_spoke" type="fixed">
+	<parent link="horizontal_base_plate"/>
+	<child link="lwheel_spoke"/>
+	<origin rpy="1.57 0 0" xyz="0 -0.235 0"/>
+  </joint>
+
+  <joint name="base_plate_to_rwheel_spoke" type="fixed">
+	<parent link="horizontal_base_plate"/>
+	<child link="rwheel_spoke"/>
+	<origin rpy="1.57 0 0" xyz="0 0.235 0"/>
+  </joint>
+
+
+										<!-- Wheels -->
+  <link name="lwheel">
+	<visual>
+		<geometry>
+			<cylinder length="0.01" radius="0.0761"/>
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="black">
+			<color rgba="0 0 0 1"/>
+		</material>
+	</visual>
+  </link>
+
+  <link name="rwheel">
+	<visual>
+		<geometry>
+			<cylinder length="0.01" radius="0.0761"/>
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="black">
+			<color rgba="0 0 0 1"/>
+		</material>
+	</visual>
+  </link>
+
+  <joint name="lwheel_spoke_to_lwheel" type="fixed">
+	<parent link="lwheel_spoke"/>
+	<child link="lwheel"/>
+	<origin rpy="0 0 0" xyz="0 0 0.04"/>
+  </joint>
+
+  <joint name="rwheel_spoke_to_rwheel" type="fixed">
+	<parent link="rwheel_spoke"/>
+	<child link="rwheel"/>
+	<origin rpy="0 0 0" xyz="0 0 -0.04"/>
+  </joint>
+
+
+									<!-- Aluminum Frame -->
+  <link name="lwheel_bottom_bar">
+	<visual>
+	<geometry>
+		<box size="0.03 0.61905 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+ <link name="rwheel_bottom_bar">
+	<visual>
+	<geometry>
+		<box size="0.03 0.61905 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+ <joint name="base_plate_bar_to_lwheel_bottom_bar" type="fixed">
+	<parent link="horizontal_base_plate_bar"/>
+	<child link="lwheel_bottom_bar"/>
+	<origin rpy="0 0 1.57" xyz="-0.295 -0.31 0"/>
+  </joint>
+
+ <joint name="base_plate_bar_to_rwheel_bottom_bar" type="fixed">
+	<parent link="horizontal_base_plate_bar"/>
+	<child link="rwheel_bottom_bar"/>
+	<origin rpy="0 0 1.57" xyz="-0.295 0.31 0"/>
+  </joint>
+
+  <link name="bottom_bar_opposite_from_wheels">
+	<visual>
+	<geometry>
+		<box size="0.03 0.61905 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="0 0 0 1"/>
+	</material>
+    </visual>
+  </link>
+ 
+  <joint name="rwheel_bottom_bar_to_opposite_bottom_bar" type="fixed">
+	<parent link="rwheel_bottom_bar"/>
+	<child link="bottom_bar_opposite_from_wheels"/>
+	<origin rpy="0 0 1.57" xyz="-0.295 0.295 0"/>
+  </joint>
+
+  <joint name="lwheel_bottom_bar_to_opposite_bottom_bar" type="fixed">
+  	<parent link="lwheel_bottom_bar"/>
+	<child link="bottom_bar_opposite_from_wheels"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <link name="opposite_vertical_rwheel_bar">
+	<visual>
+	<geometry>
+		<box size="0.03 0.32876 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+  <joint name="rwheel_bottom_bar_to_ov_rwheel_bar" type="fixed">
+  	<parent link="rwheel_bottom_bar"/>
+	<child link="opposite_vertical_rwheel_bar"/>
+	<origin rpy="1.57 0 0" xyz="0 0.295 0.16438"/>
+  </joint>
+  
+  <link name="opposite_vertical_lwheel_bar">
+	<visual>
+	<geometry>
+		<box size="0.03 0.32876 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+
+<joint name="lwheel_bottom_bar_to_ov_lwheel_bar" type="fixed">
+  	<parent link="lwheel_bottom_bar"/>
+	<child link="opposite_vertical_lwheel_bar"/>
+	<origin rpy="1.57 0 0" xyz="0 0.295 0.16438"/>
+  </joint>
+
+<link name="vertical_lwheel_bar">
+	<visual>
+	<geometry>
+		<box size="0.03 0.32876 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+
+<joint name="lwheel_bottom_bar_to_v_lwheel_bar" type="fixed">
+  	<parent link="lwheel_bottom_bar"/>
+	<child link="vertical_lwheel_bar"/>
+	<origin rpy="1.57 0 0" xyz="0 -0.295 0.16438"/>
+  </joint>
+
+
+<link name="vertical_rwheel_bar">
+	<visual>
+	<geometry>
+		<box size="0.03 0.32876 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+<joint name="lwheel_bottom_bar_to_v_rwheel_bar" type="fixed">
+  	<parent link="rwheel_bottom_bar"/>
+	<child link="vertical_rwheel_bar"/>
+	<origin rpy="1.57 0 0" xyz="0 -0.295 0.16438"/>
+  </joint>
+
+<link name="top_plate">
+	<visual>
+	<geometry>
+		<box size="0.64905 0.61905 0.03"/>
+	</geometry>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+    </visual>
+  </link>
+
+
+<joint name="v_rwheel_bar_to_top_plate" type="fixed">
+  	<parent link="vertical_rwheel_bar"/>
+	<child link="top_plate"/>
+	<origin rpy="1.57 0 0" xyz="-0.31 0.16438 -0.294525"/>
+  </joint>
+
+<joint name="v_lwheel_bar_to_top_plate" type="fixed">
+  	<parent link="vertical_lwheel_bar"/>
+	<child link="top_plate"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+
+<joint name="opposite__vertical_lwheel_bar_to_top_plate" type="fixed">
+  	<parent link="opposite_vertical_lwheel_bar"/>
+	<child link="top_plate"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+<joint name="opposite__vertical_rwheel_bar_to_top_plate" type="fixed">
+  	<parent link="opposite_vertical_rwheel_bar"/>
+	<child link="top_plate"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+
+<link name="right_castor_spoke">
+	<visual>
+		<geometry>
+			<cylinder length="0.07" radius="0.015"/>	
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="white">
+			<color rgba="1 1 1 1"/>
+		</material>
+	</visual>
+  </link>
+
+<link name="left_castor_spoke">
+	<visual>
+		<geometry>
+			<cylinder length="0.07" radius="0.015"/>	
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="white">
+			<color rgba="1 1 1 1"/>
+		</material>
+	</visual>
+  </link>
+
+<joint name="rwheel_bottom_bar_to_rwheel_castor_spoke" type="fixed">
+  	<parent link="rwheel_bottom_bar"/>
+	<child link="right_castor_spoke"/>
+	<origin rpy="0 1.57 0" xyz="-0.035 0.2 0"/>
+  </joint>
+
+<joint name="lwheel_bottom_bar_to_lwheel_castor_spoke" type="fixed">
+  	<parent link="lwheel_bottom_bar"/>
+	<child link="left_castor_spoke"/>
+	<origin rpy="0 1.57 0" xyz="0.035 0.2 0"/>
+  </joint>
+
+<link name="right_castor_wheel">
+	<visual>
+		<geometry>
+			<cylinder length="0.01" radius="0.0761"/>
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="black">
+			<color rgba="0 0 0 1"/>
+		</material>
+	</visual>
+  </link>
+
+<link name="left_castor_wheel">
+	<visual>
+		<geometry>
+			<cylinder length="0.01" radius="0.0761"/>
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="black">
+			<color rgba="0 0 0 1"/>
+		</material>
+	</visual>
+  </link>
+
+
+<joint name="right_castor_spoke_to_right_castor_wheel" type="fixed">
+  	<parent link="right_castor_spoke"/>
+	<child link="right_castor_wheel"/>
+	<origin rpy="0 0 0" xyz="0 0 -0.03805"/>
+  </joint>
+
+<joint name="left_castor_spoke_to_left_castor_wheel" type="fixed">
+  	<parent link="left_castor_spoke"/>
+	<child link="left_castor_wheel"/>
+	<origin rpy="0 0 0" xyz="0 0 0.03805"/>
+  </joint>
+
+
+</robot>
