@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o"
-  "devel/lib/libfeatureextractor.pdb"
-  "devel/lib/libfeatureextractor.so"
+  "/home/marco/catkin_ws/devel/lib/libfeatureextractor.pdb"
+  "/home/marco/catkin_ws/devel/lib/libfeatureextractor.so"
 )
 
 # Per-language clean rules from dependency scanning.

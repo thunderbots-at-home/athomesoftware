@@ -1,0 +1,8 @@
+prefix=/home/marco/catkin_ws/install
+
+Name: talos_vision
+Description: Description of talos_vision
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/marco/catkin_ws/install/lib 
+Requires: 

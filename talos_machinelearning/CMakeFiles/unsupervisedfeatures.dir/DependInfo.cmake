@@ -10,6 +10,7 @@ SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
+  "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"talos_machinelearning\""
   )
 

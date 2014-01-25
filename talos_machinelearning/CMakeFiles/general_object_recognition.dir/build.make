@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/general_object_recognition.dir/depend.make
+include athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/general_object_recognition.dir/progress.make
+include athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/general_object_recognition.dir/flags.make
+include athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/flags.make
 
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o: CMakeFiles/general_object_recognition.dir/flags.make
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o: src/GeneralObjectRecognitionModel.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/flags.make
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o: athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp
 
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp > CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp > CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i
 
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp -o CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/GeneralObjectRecognitionModel.cpp -o CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s
 
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires:
-.PHONY : CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires:
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires
 
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides: CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires
-	$(MAKE) -f CMakeFiles/general_object_recognition.dir/build.make CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides.build
-.PHONY : CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires
+	$(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides.build
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides
 
-CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides.build: CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.provides.build: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o
 
 # Object files for target general_object_recognition
 general_object_recognition_OBJECTS = \
@@ -76,112 +76,112 @@ general_object_recognition_OBJECTS = \
 # External object files for target general_object_recognition
 general_object_recognition_EXTERNAL_OBJECTS =
 
-devel/lib/talos_machinelearning/general_object_recognition: CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/x86_64-linux-gnu/libpthread.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_signals-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_filesystem-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_system-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcpp_common.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp_serialization.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librostime.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_date_time-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_thread-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librosconsole.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_regex-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/liblog4cxx.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libxmlrpcpp.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcv_bridge.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_calib3d.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_contrib.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_core.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_features2d.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_flann.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_gpu.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_highgui.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_imgproc.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_legacy.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_ml.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_nonfree.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_objdetect.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_photo.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_stitching.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_superres.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_video.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_videostab.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libexperiment.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libdataset.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libnormalization.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libunsupervisedfeatures.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libsupervisedfeatures.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_calib3d.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_contrib.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_core.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_features2d.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_flann.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_gpu.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_highgui.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_imgproc.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_legacy.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_ml.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_nonfree.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_objdetect.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_photo.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_stitching.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_superres.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_video.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_videostab.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libfeatureextractor.so
-devel/lib/talos_machinelearning/general_object_recognition: devel/lib/libconfusionmatrix.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/x86_64-linux-gnu/libpthread.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_signals-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_filesystem-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_system-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcpp_common.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp_serialization.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librostime.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_date_time-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_thread-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librosconsole.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_regex-mt.so
-devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/liblog4cxx.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libxmlrpcpp.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcv_bridge.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_calib3d.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_contrib.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_core.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_features2d.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_flann.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_gpu.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_highgui.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_imgproc.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_legacy.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_ml.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_nonfree.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_objdetect.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_photo.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_stitching.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_superres.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_video.so
-devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_videostab.so
-devel/lib/talos_machinelearning/general_object_recognition: CMakeFiles/general_object_recognition.dir/build.make
-devel/lib/talos_machinelearning/general_object_recognition: CMakeFiles/general_object_recognition.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable devel/lib/talos_machinelearning/general_object_recognition"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/general_object_recognition.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_signals-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_filesystem-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_system-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcpp_common.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp_serialization.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librostime.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_date_time-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_thread-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librosconsole.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_regex-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/liblog4cxx.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libxmlrpcpp.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcv_bridge.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_calib3d.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_contrib.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_core.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_features2d.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_flann.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_gpu.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_highgui.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_imgproc.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_legacy.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_ml.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_nonfree.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_objdetect.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_photo.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_stitching.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_superres.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_video.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_videostab.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libexperiment.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libdataset.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libnormalization.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libunsupervisedfeatures.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libsupervisedfeatures.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_calib3d.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_contrib.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_core.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_features2d.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_flann.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_gpu.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_highgui.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_imgproc.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_legacy.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_ml.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_nonfree.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_objdetect.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_photo.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_stitching.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_superres.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_video.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_videostab.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libfeatureextractor.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /home/marco/catkin_ws/devel/lib/libconfusionmatrix.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_signals-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_filesystem-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_system-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcpp_common.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libroscpp_serialization.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librostime.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_date_time-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_thread-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/librosconsole.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/libboost_regex-mt.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /usr/lib/liblog4cxx.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libxmlrpcpp.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libcv_bridge.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_calib3d.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_contrib.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_core.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_features2d.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_flann.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_gpu.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_highgui.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_imgproc.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_legacy.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_ml.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_nonfree.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_objdetect.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_photo.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_stitching.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_superres.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_video.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: /opt/ros/hydro/lib/libopencv_videostab.so
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build.make
+/home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/general_object_recognition.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/general_object_recognition.dir/build: devel/lib/talos_machinelearning/general_object_recognition
-.PHONY : CMakeFiles/general_object_recognition.dir/build
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build: /home/marco/catkin_ws/devel/lib/talos_machinelearning/general_object_recognition
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build
 
-CMakeFiles/general_object_recognition.dir/requires: CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires
-.PHONY : CMakeFiles/general_object_recognition.dir/requires
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/requires: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o.requires
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/requires
 
-CMakeFiles/general_object_recognition.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/general_object_recognition.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/general_object_recognition.dir/clean
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -P CMakeFiles/general_object_recognition.dir/cmake_clean.cmake
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/clean
 
-CMakeFiles/general_object_recognition.dir/depend:
-	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/general_object_recognition.dir/depend
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/depend
 

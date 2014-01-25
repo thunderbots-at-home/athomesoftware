@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/normalization.dir/src/Normalization.cpp.o"
-  "devel/lib/libnormalization.pdb"
-  "devel/lib/libnormalization.so"
+  "/home/marco/catkin_ws/devel/lib/libnormalization.pdb"
+  "/home/marco/catkin_ws/devel/lib/libnormalization.so"
 )
 
 # Per-language clean rules from dependency scanning.

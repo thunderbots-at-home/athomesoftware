@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/dataset.dir/src/Dataset.cpp.o"
-  "devel/lib/libdataset.pdb"
-  "devel/lib/libdataset.so"
+  "/home/marco/catkin_ws/devel/lib/libdataset.pdb"
+  "/home/marco/catkin_ws/devel/lib/libdataset.so"
 )
 
 # Per-language clean rules from dependency scanning.

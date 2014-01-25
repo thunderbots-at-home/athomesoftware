@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/normalization.dir/depend.make
+include athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/normalization.dir/progress.make
+include athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/normalization.dir/flags.make
+include athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/flags.make
 
-CMakeFiles/normalization.dir/src/Normalization.cpp.o: CMakeFiles/normalization.dir/flags.make
-CMakeFiles/normalization.dir/src/Normalization.cpp.o: src/Normalization.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/normalization.dir/src/Normalization.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/normalization.dir/src/Normalization.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Normalization.cpp
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/flags.make
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o: athomesoftware/talos_machinelearning/src/Normalization.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/normalization.dir/src/Normalization.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Normalization.cpp
 
-CMakeFiles/normalization.dir/src/Normalization.cpp.i: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/normalization.dir/src/Normalization.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Normalization.cpp > CMakeFiles/normalization.dir/src/Normalization.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Normalization.cpp > CMakeFiles/normalization.dir/src/Normalization.cpp.i
 
-CMakeFiles/normalization.dir/src/Normalization.cpp.s: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/normalization.dir/src/Normalization.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Normalization.cpp -o CMakeFiles/normalization.dir/src/Normalization.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Normalization.cpp -o CMakeFiles/normalization.dir/src/Normalization.cpp.s
 
-CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires:
-.PHONY : CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires:
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires
 
-CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides: CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires
-	$(MAKE) -f CMakeFiles/normalization.dir/build.make CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides.build
-.PHONY : CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires
+	$(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides.build
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides
 
-CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides.build: CMakeFiles/normalization.dir/src/Normalization.cpp.o
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.provides.build: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o
 
 # Object files for target normalization
 normalization_OBJECTS = \
@@ -76,56 +76,56 @@ normalization_OBJECTS = \
 # External object files for target normalization
 normalization_EXTERNAL_OBJECTS =
 
-devel/lib/libnormalization.so: CMakeFiles/normalization.dir/src/Normalization.cpp.o
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libroscpp.so
-devel/lib/libnormalization.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-devel/lib/libnormalization.so: /usr/lib/libboost_signals-mt.so
-devel/lib/libnormalization.so: /usr/lib/libboost_filesystem-mt.so
-devel/lib/libnormalization.so: /usr/lib/libboost_system-mt.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libcpp_common.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libroscpp_serialization.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/librostime.so
-devel/lib/libnormalization.so: /usr/lib/libboost_date_time-mt.so
-devel/lib/libnormalization.so: /usr/lib/libboost_thread-mt.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/librosconsole.so
-devel/lib/libnormalization.so: /usr/lib/libboost_regex-mt.so
-devel/lib/libnormalization.so: /usr/lib/liblog4cxx.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libxmlrpcpp.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libcv_bridge.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_calib3d.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_contrib.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_core.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_features2d.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_flann.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_gpu.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_highgui.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_imgproc.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_legacy.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_ml.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_nonfree.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_objdetect.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_photo.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_stitching.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_superres.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_video.so
-devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_videostab.so
-devel/lib/libnormalization.so: CMakeFiles/normalization.dir/build.make
-devel/lib/libnormalization.so: CMakeFiles/normalization.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libnormalization.so"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/normalization.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/libnormalization.so: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libroscpp.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/libboost_signals-mt.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/libboost_filesystem-mt.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/libboost_system-mt.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libcpp_common.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libroscpp_serialization.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/librostime.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/libboost_date_time-mt.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/libboost_thread-mt.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/librosconsole.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/libboost_regex-mt.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /usr/lib/liblog4cxx.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libxmlrpcpp.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libcv_bridge.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_calib3d.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_contrib.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_core.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_features2d.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_flann.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_gpu.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_highgui.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_imgproc.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_legacy.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_ml.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_nonfree.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_objdetect.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_photo.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_stitching.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_superres.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_video.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: /opt/ros/hydro/lib/libopencv_videostab.so
+/home/marco/catkin_ws/devel/lib/libnormalization.so: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build.make
+/home/marco/catkin_ws/devel/lib/libnormalization.so: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libnormalization.so"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/normalization.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/normalization.dir/build: devel/lib/libnormalization.so
-.PHONY : CMakeFiles/normalization.dir/build
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build: /home/marco/catkin_ws/devel/lib/libnormalization.so
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build
 
-CMakeFiles/normalization.dir/requires: CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires
-.PHONY : CMakeFiles/normalization.dir/requires
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/requires: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o.requires
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/requires
 
-CMakeFiles/normalization.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/normalization.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/normalization.dir/clean
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -P CMakeFiles/normalization.dir/cmake_clean.cmake
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/clean
 
-CMakeFiles/normalization.dir/depend:
-	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/normalization.dir/depend
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/depend
 

@@ -4,5 +4,5 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -fPIC -I/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/include/talos_machinelearning   
 
-CXX_DEFINES = -Dsupervisedfeatures_EXPORTS -DROS_PACKAGE_NAME=\"talos_machinelearning\"
+CXX_DEFINES = -Dsupervisedfeatures_EXPORTS -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"talos_machinelearning\"
 

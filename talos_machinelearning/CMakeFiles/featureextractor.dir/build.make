@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/featureextractor.dir/depend.make
+include athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/featureextractor.dir/progress.make
+include athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/featureextractor.dir/flags.make
+include athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/flags.make
 
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o: CMakeFiles/featureextractor.dir/flags.make
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o: src/FeatureExtractor.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/flags.make
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o: athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp
 
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp > CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp > CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i
 
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp -o CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/FeatureExtractor.cpp -o CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s
 
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires:
-.PHONY : CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires:
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires
 
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides: CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires
-	$(MAKE) -f CMakeFiles/featureextractor.dir/build.make CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides.build
-.PHONY : CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires
+	$(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides.build
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides
 
-CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides.build: CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.provides.build: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o
 
 # Object files for target featureextractor
 featureextractor_OBJECTS = \
@@ -76,41 +76,41 @@ featureextractor_OBJECTS = \
 # External object files for target featureextractor
 featureextractor_EXTERNAL_OBJECTS =
 
-devel/lib/libfeatureextractor.so: CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_calib3d.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_contrib.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_core.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_features2d.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_flann.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_gpu.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_highgui.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_imgproc.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_legacy.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_ml.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_nonfree.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_objdetect.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_photo.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_stitching.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_superres.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_video.so
-devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_videostab.so
-devel/lib/libfeatureextractor.so: CMakeFiles/featureextractor.dir/build.make
-devel/lib/libfeatureextractor.so: CMakeFiles/featureextractor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libfeatureextractor.so"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/featureextractor.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_calib3d.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_contrib.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_core.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_features2d.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_flann.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_gpu.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_highgui.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_imgproc.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_legacy.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_ml.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_nonfree.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_objdetect.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_photo.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_stitching.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_superres.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_video.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: /opt/ros/hydro/lib/libopencv_videostab.so
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build.make
+/home/marco/catkin_ws/devel/lib/libfeatureextractor.so: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libfeatureextractor.so"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/featureextractor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/featureextractor.dir/build: devel/lib/libfeatureextractor.so
-.PHONY : CMakeFiles/featureextractor.dir/build
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build: /home/marco/catkin_ws/devel/lib/libfeatureextractor.so
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build
 
-CMakeFiles/featureextractor.dir/requires: CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires
-.PHONY : CMakeFiles/featureextractor.dir/requires
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/requires: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o.requires
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/requires
 
-CMakeFiles/featureextractor.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/featureextractor.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/featureextractor.dir/clean
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -P CMakeFiles/featureextractor.dir/cmake_clean.cmake
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/clean
 
-CMakeFiles/featureextractor.dir/depend:
-	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/featureextractor.dir/depend
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/depend
 

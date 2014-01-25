@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.o"
-  "devel/lib/libconfusionmatrix.pdb"
-  "devel/lib/libconfusionmatrix.so"
+  "/home/marco/catkin_ws/devel/lib/libconfusionmatrix.pdb"
+  "/home/marco/catkin_ws/devel/lib/libconfusionmatrix.so"
 )
 
 # Per-language clean rules from dependency scanning.

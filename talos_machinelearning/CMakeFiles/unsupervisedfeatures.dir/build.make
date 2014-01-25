@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/unsupervisedfeatures.dir/depend.make
+include athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/unsupervisedfeatures.dir/progress.make
+include athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/unsupervisedfeatures.dir/flags.make
+include athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/flags.make
 
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o: CMakeFiles/unsupervisedfeatures.dir/flags.make
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o: src/UnsupervisedFeatures.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/flags.make
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o: athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp
 
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp > CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp > CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i
 
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp -o CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/UnsupervisedFeatures.cpp -o CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s
 
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires:
-.PHONY : CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires:
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires
 
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides: CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires
-	$(MAKE) -f CMakeFiles/unsupervisedfeatures.dir/build.make CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides.build
-.PHONY : CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires
+	$(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides.build
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides
 
-CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides.build: CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.provides.build: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o
 
 # Object files for target unsupervisedfeatures
 unsupervisedfeatures_OBJECTS = \
@@ -76,24 +76,24 @@ unsupervisedfeatures_OBJECTS = \
 # External object files for target unsupervisedfeatures
 unsupervisedfeatures_EXTERNAL_OBJECTS =
 
-devel/lib/libunsupervisedfeatures.so: CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o
-devel/lib/libunsupervisedfeatures.so: CMakeFiles/unsupervisedfeatures.dir/build.make
-devel/lib/libunsupervisedfeatures.so: CMakeFiles/unsupervisedfeatures.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libunsupervisedfeatures.so"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unsupervisedfeatures.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/libunsupervisedfeatures.so: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o
+/home/marco/catkin_ws/devel/lib/libunsupervisedfeatures.so: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build.make
+/home/marco/catkin_ws/devel/lib/libunsupervisedfeatures.so: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libunsupervisedfeatures.so"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unsupervisedfeatures.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/unsupervisedfeatures.dir/build: devel/lib/libunsupervisedfeatures.so
-.PHONY : CMakeFiles/unsupervisedfeatures.dir/build
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build: /home/marco/catkin_ws/devel/lib/libunsupervisedfeatures.so
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build
 
-CMakeFiles/unsupervisedfeatures.dir/requires: CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires
-.PHONY : CMakeFiles/unsupervisedfeatures.dir/requires
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/requires: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o.requires
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/requires
 
-CMakeFiles/unsupervisedfeatures.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/unsupervisedfeatures.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/unsupervisedfeatures.dir/clean
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -P CMakeFiles/unsupervisedfeatures.dir/cmake_clean.cmake
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/clean
 
-CMakeFiles/unsupervisedfeatures.dir/depend:
-	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/unsupervisedfeatures.dir/depend
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/depend
 

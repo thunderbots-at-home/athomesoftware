@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/ROC.dir/depend.make
+include athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/ROC.dir/progress.make
+include athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/ROC.dir/flags.make
+include athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/flags.make
 
-CMakeFiles/ROC.dir/src/ROC.cpp.o: CMakeFiles/ROC.dir/flags.make
-CMakeFiles/ROC.dir/src/ROC.cpp.o: src/ROC.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ROC.dir/src/ROC.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ROC.dir/src/ROC.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/ROC.cpp
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/flags.make
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o: athomesoftware/talos_machinelearning/src/ROC.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ROC.dir/src/ROC.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/ROC.cpp
 
-CMakeFiles/ROC.dir/src/ROC.cpp.i: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ROC.dir/src/ROC.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/ROC.cpp > CMakeFiles/ROC.dir/src/ROC.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/ROC.cpp > CMakeFiles/ROC.dir/src/ROC.cpp.i
 
-CMakeFiles/ROC.dir/src/ROC.cpp.s: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ROC.dir/src/ROC.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/ROC.cpp -o CMakeFiles/ROC.dir/src/ROC.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/ROC.cpp -o CMakeFiles/ROC.dir/src/ROC.cpp.s
 
-CMakeFiles/ROC.dir/src/ROC.cpp.o.requires:
-.PHONY : CMakeFiles/ROC.dir/src/ROC.cpp.o.requires
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.requires:
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.requires
 
-CMakeFiles/ROC.dir/src/ROC.cpp.o.provides: CMakeFiles/ROC.dir/src/ROC.cpp.o.requires
-	$(MAKE) -f CMakeFiles/ROC.dir/build.make CMakeFiles/ROC.dir/src/ROC.cpp.o.provides.build
-.PHONY : CMakeFiles/ROC.dir/src/ROC.cpp.o.provides
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.provides: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.requires
+	$(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.provides.build
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.provides
 
-CMakeFiles/ROC.dir/src/ROC.cpp.o.provides.build: CMakeFiles/ROC.dir/src/ROC.cpp.o
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.provides.build: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o
 
 # Object files for target ROC
 ROC_OBJECTS = \
@@ -76,24 +76,24 @@ ROC_OBJECTS = \
 # External object files for target ROC
 ROC_EXTERNAL_OBJECTS =
 
-devel/lib/libROC.so: CMakeFiles/ROC.dir/src/ROC.cpp.o
-devel/lib/libROC.so: CMakeFiles/ROC.dir/build.make
-devel/lib/libROC.so: CMakeFiles/ROC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libROC.so"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ROC.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/libROC.so: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o
+/home/marco/catkin_ws/devel/lib/libROC.so: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build.make
+/home/marco/catkin_ws/devel/lib/libROC.so: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libROC.so"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ROC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/ROC.dir/build: devel/lib/libROC.so
-.PHONY : CMakeFiles/ROC.dir/build
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build: /home/marco/catkin_ws/devel/lib/libROC.so
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build
 
-CMakeFiles/ROC.dir/requires: CMakeFiles/ROC.dir/src/ROC.cpp.o.requires
-.PHONY : CMakeFiles/ROC.dir/requires
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/requires: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o.requires
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/requires
 
-CMakeFiles/ROC.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/ROC.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/ROC.dir/clean
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -P CMakeFiles/ROC.dir/cmake_clean.cmake
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/clean
 
-CMakeFiles/ROC.dir/depend:
-	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/ROC.dir/depend
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/depend
 

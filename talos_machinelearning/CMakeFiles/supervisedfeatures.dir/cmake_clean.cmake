@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.o"
-  "devel/lib/libsupervisedfeatures.pdb"
-  "devel/lib/libsupervisedfeatures.so"
+  "/home/marco/catkin_ws/devel/lib/libsupervisedfeatures.pdb"
+  "/home/marco/catkin_ws/devel/lib/libsupervisedfeatures.so"
 )
 
 # Per-language clean rules from dependency scanning.

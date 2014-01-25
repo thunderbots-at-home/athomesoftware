@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -117,14 +117,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles 0
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/progress.marks
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/clean
 .PHONY : clean
 
 # The main clean target
@@ -133,415 +133,151 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ROC
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/rule
 
-# Build rule for target.
-ROC: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ROC
+# Convenience name for target.
+ROC: athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/rule
 .PHONY : ROC
 
 # fast build rule for target.
 ROC/fast:
-	$(MAKE) -f CMakeFiles/ROC.dir/build.make CMakeFiles/ROC.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build
 .PHONY : ROC/fast
 
-#=============================================================================
-# Target rules for targets named clean_test_results
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/rule
 
-# Build rule for target.
-clean_test_results: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
-.PHONY : clean_test_results
-
-# fast build rule for target.
-clean_test_results/fast:
-	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-.PHONY : clean_test_results/fast
-
-#=============================================================================
-# Target rules for targets named confusionmatrix
-
-# Build rule for target.
-confusionmatrix: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 confusionmatrix
+# Convenience name for target.
+confusionmatrix: athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/rule
 .PHONY : confusionmatrix
 
 # fast build rule for target.
 confusionmatrix/fast:
-	$(MAKE) -f CMakeFiles/confusionmatrix.dir/build.make CMakeFiles/confusionmatrix.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/build
 .PHONY : confusionmatrix/fast
 
-#=============================================================================
-# Target rules for targets named dataset
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/rule
 
-# Build rule for target.
-dataset: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dataset
+# Convenience name for target.
+dataset: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/rule
 .PHONY : dataset
 
 # fast build rule for target.
 dataset/fast:
-	$(MAKE) -f CMakeFiles/dataset.dir/build.make CMakeFiles/dataset.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build
 .PHONY : dataset/fast
 
-#=============================================================================
-# Target rules for targets named doxygen
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/rule
 
-# Build rule for target.
-doxygen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 doxygen
-.PHONY : doxygen
-
-# fast build rule for target.
-doxygen/fast:
-	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-.PHONY : doxygen/fast
-
-#=============================================================================
-# Target rules for targets named experiment
-
-# Build rule for target.
-experiment: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 experiment
+# Convenience name for target.
+experiment: athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/rule
 .PHONY : experiment
 
 # fast build rule for target.
 experiment/fast:
-	$(MAKE) -f CMakeFiles/experiment.dir/build.make CMakeFiles/experiment.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/build
 .PHONY : experiment/fast
 
-#=============================================================================
-# Target rules for targets named featureextractor
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/rule
 
-# Build rule for target.
-featureextractor: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 featureextractor
+# Convenience name for target.
+featureextractor: athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/rule
 .PHONY : featureextractor
 
 # fast build rule for target.
 featureextractor/fast:
-	$(MAKE) -f CMakeFiles/featureextractor.dir/build.make CMakeFiles/featureextractor.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build
 .PHONY : featureextractor/fast
 
-#=============================================================================
-# Target rules for targets named general_object_recognition
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/rule
 
-# Build rule for target.
-general_object_recognition: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 general_object_recognition
+# Convenience name for target.
+general_object_recognition: athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/rule
 .PHONY : general_object_recognition
 
 # fast build rule for target.
 general_object_recognition/fast:
-	$(MAKE) -f CMakeFiles/general_object_recognition.dir/build.make CMakeFiles/general_object_recognition.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build
 .PHONY : general_object_recognition/fast
 
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_cpp
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/rule
 
-# Build rule for target.
-geometry_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_lisp
-
-# Build rule for target.
-geometry_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_lisp
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_py
-
-# Build rule for target.
-geometry_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_py
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named normalization
-
-# Build rule for target.
-normalization: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 normalization
+# Convenience name for target.
+normalization: athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/rule
 .PHONY : normalization
 
 # fast build rule for target.
 normalization/fast:
-	$(MAKE) -f CMakeFiles/normalization.dir/build.make CMakeFiles/normalization.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build
 .PHONY : normalization/fast
 
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_cpp
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/rule
 
-# Build rule for target.
-roscpp_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_cpp.dir/build.make CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_lisp
-
-# Build rule for target.
-roscpp_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_lisp.dir/build.make CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_py
-
-# Build rule for target.
-roscpp_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
-.PHONY : roscpp_generate_messages_py
-
-# fast build rule for target.
-roscpp_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_py.dir/build.make CMakeFiles/roscpp_generate_messages_py.dir/build
-.PHONY : roscpp_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_cpp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
-.PHONY : rosgraph_msgs_generate_messages_cpp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_lisp
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_py
-
-# Build rule for target.
-rosgraph_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
-.PHONY : rosgraph_msgs_generate_messages_py
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named run_tests
-
-# Build rule for target.
-run_tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests
-.PHONY : run_tests
-
-# fast build rule for target.
-run_tests/fast:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-.PHONY : run_tests/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_cpp
-
-# Build rule for target.
-sensor_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_cpp
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-.PHONY : sensor_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_lisp
-
-# Build rule for target.
-sensor_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# fast build rule for target.
-sensor_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-.PHONY : sensor_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named sensor_msgs_generate_messages_py
-
-# Build rule for target.
-sensor_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
-.PHONY : sensor_msgs_generate_messages_py
-
-# fast build rule for target.
-sensor_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-.PHONY : sensor_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
-
-# Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
-
-# Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
-
-# Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named supervisedfeatures
-
-# Build rule for target.
-supervisedfeatures: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 supervisedfeatures
+# Convenience name for target.
+supervisedfeatures: athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/rule
 .PHONY : supervisedfeatures
 
 # fast build rule for target.
 supervisedfeatures/fast:
-	$(MAKE) -f CMakeFiles/supervisedfeatures.dir/build.make CMakeFiles/supervisedfeatures.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/build
 .PHONY : supervisedfeatures/fast
 
-#=============================================================================
-# Target rules for targets named tests
+# Convenience name for target.
+athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/rule
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/rule
 
-# Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tests
-.PHONY : tests
-
-# fast build rule for target.
-tests/fast:
-	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-.PHONY : tests/fast
-
-#=============================================================================
-# Target rules for targets named unsupervisedfeatures
-
-# Build rule for target.
-unsupervisedfeatures: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 unsupervisedfeatures
+# Convenience name for target.
+unsupervisedfeatures: athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/rule
 .PHONY : unsupervisedfeatures
 
 # fast build rule for target.
 unsupervisedfeatures/fast:
-	$(MAKE) -f CMakeFiles/unsupervisedfeatures.dir/build.make CMakeFiles/unsupervisedfeatures.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build
 .PHONY : unsupervisedfeatures/fast
-
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
 
 src/ConfusionMatrix.o: src/ConfusionMatrix.cpp.o
 .PHONY : src/ConfusionMatrix.o
 
 # target to build an object file
 src/ConfusionMatrix.cpp.o:
-	$(MAKE) -f CMakeFiles/confusionmatrix.dir/build.make CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.o
 .PHONY : src/ConfusionMatrix.cpp.o
 
 src/ConfusionMatrix.i: src/ConfusionMatrix.cpp.i
@@ -549,7 +285,7 @@ src/ConfusionMatrix.i: src/ConfusionMatrix.cpp.i
 
 # target to preprocess a source file
 src/ConfusionMatrix.cpp.i:
-	$(MAKE) -f CMakeFiles/confusionmatrix.dir/build.make CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.i
 .PHONY : src/ConfusionMatrix.cpp.i
 
 src/ConfusionMatrix.s: src/ConfusionMatrix.cpp.s
@@ -557,7 +293,7 @@ src/ConfusionMatrix.s: src/ConfusionMatrix.cpp.s
 
 # target to generate assembly for a file
 src/ConfusionMatrix.cpp.s:
-	$(MAKE) -f CMakeFiles/confusionmatrix.dir/build.make CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.s
 .PHONY : src/ConfusionMatrix.cpp.s
 
 src/Dataset.o: src/Dataset.cpp.o
@@ -565,7 +301,7 @@ src/Dataset.o: src/Dataset.cpp.o
 
 # target to build an object file
 src/Dataset.cpp.o:
-	$(MAKE) -f CMakeFiles/dataset.dir/build.make CMakeFiles/dataset.dir/src/Dataset.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o
 .PHONY : src/Dataset.cpp.o
 
 src/Dataset.i: src/Dataset.cpp.i
@@ -573,7 +309,7 @@ src/Dataset.i: src/Dataset.cpp.i
 
 # target to preprocess a source file
 src/Dataset.cpp.i:
-	$(MAKE) -f CMakeFiles/dataset.dir/build.make CMakeFiles/dataset.dir/src/Dataset.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.i
 .PHONY : src/Dataset.cpp.i
 
 src/Dataset.s: src/Dataset.cpp.s
@@ -581,7 +317,7 @@ src/Dataset.s: src/Dataset.cpp.s
 
 # target to generate assembly for a file
 src/Dataset.cpp.s:
-	$(MAKE) -f CMakeFiles/dataset.dir/build.make CMakeFiles/dataset.dir/src/Dataset.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.s
 .PHONY : src/Dataset.cpp.s
 
 src/Experiment.o: src/Experiment.cpp.o
@@ -589,7 +325,7 @@ src/Experiment.o: src/Experiment.cpp.o
 
 # target to build an object file
 src/Experiment.cpp.o:
-	$(MAKE) -f CMakeFiles/experiment.dir/build.make CMakeFiles/experiment.dir/src/Experiment.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/src/Experiment.cpp.o
 .PHONY : src/Experiment.cpp.o
 
 src/Experiment.i: src/Experiment.cpp.i
@@ -597,7 +333,7 @@ src/Experiment.i: src/Experiment.cpp.i
 
 # target to preprocess a source file
 src/Experiment.cpp.i:
-	$(MAKE) -f CMakeFiles/experiment.dir/build.make CMakeFiles/experiment.dir/src/Experiment.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/src/Experiment.cpp.i
 .PHONY : src/Experiment.cpp.i
 
 src/Experiment.s: src/Experiment.cpp.s
@@ -605,7 +341,7 @@ src/Experiment.s: src/Experiment.cpp.s
 
 # target to generate assembly for a file
 src/Experiment.cpp.s:
-	$(MAKE) -f CMakeFiles/experiment.dir/build.make CMakeFiles/experiment.dir/src/Experiment.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/experiment.dir/src/Experiment.cpp.s
 .PHONY : src/Experiment.cpp.s
 
 src/FeatureExtractor.o: src/FeatureExtractor.cpp.o
@@ -613,7 +349,7 @@ src/FeatureExtractor.o: src/FeatureExtractor.cpp.o
 
 # target to build an object file
 src/FeatureExtractor.cpp.o:
-	$(MAKE) -f CMakeFiles/featureextractor.dir/build.make CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.o
 .PHONY : src/FeatureExtractor.cpp.o
 
 src/FeatureExtractor.i: src/FeatureExtractor.cpp.i
@@ -621,7 +357,7 @@ src/FeatureExtractor.i: src/FeatureExtractor.cpp.i
 
 # target to preprocess a source file
 src/FeatureExtractor.cpp.i:
-	$(MAKE) -f CMakeFiles/featureextractor.dir/build.make CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.i
 .PHONY : src/FeatureExtractor.cpp.i
 
 src/FeatureExtractor.s: src/FeatureExtractor.cpp.s
@@ -629,7 +365,7 @@ src/FeatureExtractor.s: src/FeatureExtractor.cpp.s
 
 # target to generate assembly for a file
 src/FeatureExtractor.cpp.s:
-	$(MAKE) -f CMakeFiles/featureextractor.dir/build.make CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/featureextractor.dir/src/FeatureExtractor.cpp.s
 .PHONY : src/FeatureExtractor.cpp.s
 
 src/GeneralObjectRecognitionModel.o: src/GeneralObjectRecognitionModel.cpp.o
@@ -637,7 +373,7 @@ src/GeneralObjectRecognitionModel.o: src/GeneralObjectRecognitionModel.cpp.o
 
 # target to build an object file
 src/GeneralObjectRecognitionModel.cpp.o:
-	$(MAKE) -f CMakeFiles/general_object_recognition.dir/build.make CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.o
 .PHONY : src/GeneralObjectRecognitionModel.cpp.o
 
 src/GeneralObjectRecognitionModel.i: src/GeneralObjectRecognitionModel.cpp.i
@@ -645,7 +381,7 @@ src/GeneralObjectRecognitionModel.i: src/GeneralObjectRecognitionModel.cpp.i
 
 # target to preprocess a source file
 src/GeneralObjectRecognitionModel.cpp.i:
-	$(MAKE) -f CMakeFiles/general_object_recognition.dir/build.make CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.i
 .PHONY : src/GeneralObjectRecognitionModel.cpp.i
 
 src/GeneralObjectRecognitionModel.s: src/GeneralObjectRecognitionModel.cpp.s
@@ -653,7 +389,7 @@ src/GeneralObjectRecognitionModel.s: src/GeneralObjectRecognitionModel.cpp.s
 
 # target to generate assembly for a file
 src/GeneralObjectRecognitionModel.cpp.s:
-	$(MAKE) -f CMakeFiles/general_object_recognition.dir/build.make CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/general_object_recognition.dir/src/GeneralObjectRecognitionModel.cpp.s
 .PHONY : src/GeneralObjectRecognitionModel.cpp.s
 
 src/Normalization.o: src/Normalization.cpp.o
@@ -661,7 +397,7 @@ src/Normalization.o: src/Normalization.cpp.o
 
 # target to build an object file
 src/Normalization.cpp.o:
-	$(MAKE) -f CMakeFiles/normalization.dir/build.make CMakeFiles/normalization.dir/src/Normalization.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.o
 .PHONY : src/Normalization.cpp.o
 
 src/Normalization.i: src/Normalization.cpp.i
@@ -669,7 +405,7 @@ src/Normalization.i: src/Normalization.cpp.i
 
 # target to preprocess a source file
 src/Normalization.cpp.i:
-	$(MAKE) -f CMakeFiles/normalization.dir/build.make CMakeFiles/normalization.dir/src/Normalization.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.i
 .PHONY : src/Normalization.cpp.i
 
 src/Normalization.s: src/Normalization.cpp.s
@@ -677,7 +413,7 @@ src/Normalization.s: src/Normalization.cpp.s
 
 # target to generate assembly for a file
 src/Normalization.cpp.s:
-	$(MAKE) -f CMakeFiles/normalization.dir/build.make CMakeFiles/normalization.dir/src/Normalization.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/normalization.dir/src/Normalization.cpp.s
 .PHONY : src/Normalization.cpp.s
 
 src/ROC.o: src/ROC.cpp.o
@@ -685,7 +421,7 @@ src/ROC.o: src/ROC.cpp.o
 
 # target to build an object file
 src/ROC.cpp.o:
-	$(MAKE) -f CMakeFiles/ROC.dir/build.make CMakeFiles/ROC.dir/src/ROC.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.o
 .PHONY : src/ROC.cpp.o
 
 src/ROC.i: src/ROC.cpp.i
@@ -693,7 +429,7 @@ src/ROC.i: src/ROC.cpp.i
 
 # target to preprocess a source file
 src/ROC.cpp.i:
-	$(MAKE) -f CMakeFiles/ROC.dir/build.make CMakeFiles/ROC.dir/src/ROC.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.i
 .PHONY : src/ROC.cpp.i
 
 src/ROC.s: src/ROC.cpp.s
@@ -701,7 +437,7 @@ src/ROC.s: src/ROC.cpp.s
 
 # target to generate assembly for a file
 src/ROC.cpp.s:
-	$(MAKE) -f CMakeFiles/ROC.dir/build.make CMakeFiles/ROC.dir/src/ROC.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/ROC.dir/src/ROC.cpp.s
 .PHONY : src/ROC.cpp.s
 
 src/SupervisedFeatures.o: src/SupervisedFeatures.cpp.o
@@ -709,7 +445,7 @@ src/SupervisedFeatures.o: src/SupervisedFeatures.cpp.o
 
 # target to build an object file
 src/SupervisedFeatures.cpp.o:
-	$(MAKE) -f CMakeFiles/supervisedfeatures.dir/build.make CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.o
 .PHONY : src/SupervisedFeatures.cpp.o
 
 src/SupervisedFeatures.i: src/SupervisedFeatures.cpp.i
@@ -717,7 +453,7 @@ src/SupervisedFeatures.i: src/SupervisedFeatures.cpp.i
 
 # target to preprocess a source file
 src/SupervisedFeatures.cpp.i:
-	$(MAKE) -f CMakeFiles/supervisedfeatures.dir/build.make CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.i
 .PHONY : src/SupervisedFeatures.cpp.i
 
 src/SupervisedFeatures.s: src/SupervisedFeatures.cpp.s
@@ -725,7 +461,7 @@ src/SupervisedFeatures.s: src/SupervisedFeatures.cpp.s
 
 # target to generate assembly for a file
 src/SupervisedFeatures.cpp.s:
-	$(MAKE) -f CMakeFiles/supervisedfeatures.dir/build.make CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/supervisedfeatures.dir/src/SupervisedFeatures.cpp.s
 .PHONY : src/SupervisedFeatures.cpp.s
 
 src/UnsupervisedFeatures.o: src/UnsupervisedFeatures.cpp.o
@@ -733,7 +469,7 @@ src/UnsupervisedFeatures.o: src/UnsupervisedFeatures.cpp.o
 
 # target to build an object file
 src/UnsupervisedFeatures.cpp.o:
-	$(MAKE) -f CMakeFiles/unsupervisedfeatures.dir/build.make CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.o
 .PHONY : src/UnsupervisedFeatures.cpp.o
 
 src/UnsupervisedFeatures.i: src/UnsupervisedFeatures.cpp.i
@@ -741,7 +477,7 @@ src/UnsupervisedFeatures.i: src/UnsupervisedFeatures.cpp.i
 
 # target to preprocess a source file
 src/UnsupervisedFeatures.cpp.i:
-	$(MAKE) -f CMakeFiles/unsupervisedfeatures.dir/build.make CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.i
 .PHONY : src/UnsupervisedFeatures.cpp.i
 
 src/UnsupervisedFeatures.s: src/UnsupervisedFeatures.cpp.s
@@ -749,7 +485,7 @@ src/UnsupervisedFeatures.s: src/UnsupervisedFeatures.cpp.s
 
 # target to generate assembly for a file
 src/UnsupervisedFeatures.cpp.s:
-	$(MAKE) -f CMakeFiles/unsupervisedfeatures.dir/build.make CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/unsupervisedfeatures.dir/src/UnsupervisedFeatures.cpp.s
 .PHONY : src/UnsupervisedFeatures.cpp.s
 
 # Help Target
@@ -759,42 +495,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... ROC"
-	@echo "... clean_test_results"
 	@echo "... confusionmatrix"
 	@echo "... dataset"
-	@echo "... doxygen"
 	@echo "... edit_cache"
 	@echo "... experiment"
 	@echo "... featureextractor"
 	@echo "... general_object_recognition"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... normalization"
 	@echo "... rebuild_cache"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_py"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... run_tests"
-	@echo "... sensor_msgs_generate_messages_cpp"
-	@echo "... sensor_msgs_generate_messages_lisp"
-	@echo "... sensor_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... std_msgs_generate_messages_py"
 	@echo "... supervisedfeatures"
 	@echo "... test"
-	@echo "... tests"
 	@echo "... unsupervisedfeatures"
-	@echo "... gtest"
-	@echo "... gtest_main"
 	@echo "... src/ConfusionMatrix.o"
 	@echo "... src/ConfusionMatrix.i"
 	@echo "... src/ConfusionMatrix.s"
@@ -833,6 +548,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

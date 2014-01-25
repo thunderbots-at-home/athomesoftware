@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/dataset.dir/depend.make
+include athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/dataset.dir/progress.make
+include athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/dataset.dir/flags.make
+include athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/flags.make
 
-CMakeFiles/dataset.dir/src/Dataset.cpp.o: CMakeFiles/dataset.dir/flags.make
-CMakeFiles/dataset.dir/src/Dataset.cpp.o: src/Dataset.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/dataset.dir/src/Dataset.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dataset.dir/src/Dataset.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Dataset.cpp
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/flags.make
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o: athomesoftware/talos_machinelearning/src/Dataset.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/dataset.dir/src/Dataset.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Dataset.cpp
 
-CMakeFiles/dataset.dir/src/Dataset.cpp.i: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dataset.dir/src/Dataset.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Dataset.cpp > CMakeFiles/dataset.dir/src/Dataset.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Dataset.cpp > CMakeFiles/dataset.dir/src/Dataset.cpp.i
 
-CMakeFiles/dataset.dir/src/Dataset.cpp.s: cmake_force
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dataset.dir/src/Dataset.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Dataset.cpp -o CMakeFiles/dataset.dir/src/Dataset.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/src/Dataset.cpp -o CMakeFiles/dataset.dir/src/Dataset.cpp.s
 
-CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires:
-.PHONY : CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires:
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires
 
-CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides: CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires
-	$(MAKE) -f CMakeFiles/dataset.dir/build.make CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides.build
-.PHONY : CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires
+	$(MAKE) -f athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build.make athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides.build
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides
 
-CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides.build: CMakeFiles/dataset.dir/src/Dataset.cpp.o
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.provides.build: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o
 
 # Object files for target dataset
 dataset_OBJECTS = \
@@ -76,56 +76,56 @@ dataset_OBJECTS = \
 # External object files for target dataset
 dataset_EXTERNAL_OBJECTS =
 
-devel/lib/libdataset.so: CMakeFiles/dataset.dir/src/Dataset.cpp.o
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libroscpp.so
-devel/lib/libdataset.so: /usr/lib/x86_64-linux-gnu/libpthread.so
-devel/lib/libdataset.so: /usr/lib/libboost_signals-mt.so
-devel/lib/libdataset.so: /usr/lib/libboost_filesystem-mt.so
-devel/lib/libdataset.so: /usr/lib/libboost_system-mt.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libcpp_common.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libroscpp_serialization.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/librostime.so
-devel/lib/libdataset.so: /usr/lib/libboost_date_time-mt.so
-devel/lib/libdataset.so: /usr/lib/libboost_thread-mt.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/librosconsole.so
-devel/lib/libdataset.so: /usr/lib/libboost_regex-mt.so
-devel/lib/libdataset.so: /usr/lib/liblog4cxx.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libxmlrpcpp.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libcv_bridge.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_calib3d.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_contrib.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_core.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_features2d.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_flann.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_gpu.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_highgui.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_imgproc.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_legacy.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_ml.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_nonfree.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_objdetect.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_photo.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_stitching.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_superres.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_video.so
-devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_videostab.so
-devel/lib/libdataset.so: CMakeFiles/dataset.dir/build.make
-devel/lib/libdataset.so: CMakeFiles/dataset.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libdataset.so"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dataset.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/libdataset.so: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libroscpp.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/libboost_signals-mt.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/libboost_filesystem-mt.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/libboost_system-mt.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libcpp_common.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libroscpp_serialization.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/librostime.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/libboost_date_time-mt.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/libboost_thread-mt.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/librosconsole.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/libboost_regex-mt.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /usr/lib/liblog4cxx.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libxmlrpcpp.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libcv_bridge.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_calib3d.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_contrib.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_core.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_features2d.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_flann.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_gpu.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_highgui.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_imgproc.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_legacy.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_ml.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_nonfree.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_objdetect.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_photo.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_stitching.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_superres.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_video.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: /opt/ros/hydro/lib/libopencv_videostab.so
+/home/marco/catkin_ws/devel/lib/libdataset.so: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build.make
+/home/marco/catkin_ws/devel/lib/libdataset.so: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libdataset.so"
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dataset.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/dataset.dir/build: devel/lib/libdataset.so
-.PHONY : CMakeFiles/dataset.dir/build
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build: /home/marco/catkin_ws/devel/lib/libdataset.so
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/build
 
-CMakeFiles/dataset.dir/requires: CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires
-.PHONY : CMakeFiles/dataset.dir/requires
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/requires: athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/src/Dataset.cpp.o.requires
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/requires
 
-CMakeFiles/dataset.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/dataset.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/dataset.dir/clean
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -P CMakeFiles/dataset.dir/cmake_clean.cmake
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/clean
 
-CMakeFiles/dataset.dir/depend:
-	cd /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/dataset.dir/depend
+athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning /home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/talos_machinelearning/CMakeFiles/dataset.dir/depend
 
