@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/test_vision.dir/test/test_vision.cpp.o  -o devel/lib/vision/test_vision -rdynamic -L/home/marco/catkin_ws/src/vision/gtest gtest/libgtest.so -lpthread -Wl,-rpath,/home/marco/catkin_ws/src/vision/gtest 

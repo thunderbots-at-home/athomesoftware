@@ -1,3 +1,0 @@
-_ctest_vision_gtest_vision-test 1 0
----
-_ctest_vision_gtest_vision-test
