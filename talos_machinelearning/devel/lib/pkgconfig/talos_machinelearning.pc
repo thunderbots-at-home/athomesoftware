@@ -1,0 +1,8 @@
+prefix=/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/devel
+
+Name: talos_machinelearning
+Description: Description of talos_machinelearning
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/devel/lib 
+Requires: 

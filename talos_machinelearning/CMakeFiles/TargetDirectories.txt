@@ -1,0 +1,7 @@
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/_catkin_empty_exported_target.dir
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/clean_test_results.dir
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/doxygen.dir
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/gtest/CMakeFiles/gtest.dir
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/gtest/CMakeFiles/gtest_main.dir
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/run_tests.dir
+/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/CMakeFiles/tests.dir
