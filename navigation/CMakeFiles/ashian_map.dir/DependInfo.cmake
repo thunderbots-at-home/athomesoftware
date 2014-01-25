@@ -4,12 +4,13 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/marco/catkin_ws/src/navigation/src/AshianMap.cpp" "/home/marco/catkin_ws/src/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o"
+  "/home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp" "/home/marco/catkin_ws/src/athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
+  "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"navigation\""
   )
 

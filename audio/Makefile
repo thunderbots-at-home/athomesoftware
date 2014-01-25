@@ -117,14 +117,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles /home/marco/catkin_ws/src/audio/CMakeFiles/progress.marks
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/all
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles /home/marco/catkin_ws/src/athomesoftware/audio/CMakeFiles/progress.marks
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/clean
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/clean
 .PHONY : clean
 
 # The main clean target
@@ -133,12 +133,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -147,101 +147,101 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-audio/CMakeFiles/audio_gencpp.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_gencpp.dir/rule
-.PHONY : audio/CMakeFiles/audio_gencpp.dir/rule
+athomesoftware/audio/CMakeFiles/audio_gencpp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_gencpp.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_gencpp.dir/rule
 
 # Convenience name for target.
-audio_gencpp: audio/CMakeFiles/audio_gencpp.dir/rule
+audio_gencpp: athomesoftware/audio/CMakeFiles/audio_gencpp.dir/rule
 .PHONY : audio_gencpp
 
 # fast build rule for target.
 audio_gencpp/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_gencpp.dir/build.make audio/CMakeFiles/audio_gencpp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_gencpp.dir/build.make athomesoftware/audio/CMakeFiles/audio_gencpp.dir/build
 .PHONY : audio_gencpp/fast
 
 # Convenience name for target.
-audio/CMakeFiles/audio_generate_messages.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_generate_messages.dir/rule
-.PHONY : audio/CMakeFiles/audio_generate_messages.dir/rule
+athomesoftware/audio/CMakeFiles/audio_generate_messages.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_generate_messages.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_generate_messages.dir/rule
 
 # Convenience name for target.
-audio_generate_messages: audio/CMakeFiles/audio_generate_messages.dir/rule
+audio_generate_messages: athomesoftware/audio/CMakeFiles/audio_generate_messages.dir/rule
 .PHONY : audio_generate_messages
 
 # fast build rule for target.
 audio_generate_messages/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_generate_messages.dir/build.make audio/CMakeFiles/audio_generate_messages.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_generate_messages.dir/build.make athomesoftware/audio/CMakeFiles/audio_generate_messages.dir/build
 .PHONY : audio_generate_messages/fast
 
 # Convenience name for target.
-audio/CMakeFiles/audio_generate_messages_cpp.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_generate_messages_cpp.dir/rule
-.PHONY : audio/CMakeFiles/audio_generate_messages_cpp.dir/rule
+athomesoftware/audio/CMakeFiles/audio_generate_messages_cpp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_generate_messages_cpp.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-audio_generate_messages_cpp: audio/CMakeFiles/audio_generate_messages_cpp.dir/rule
+audio_generate_messages_cpp: athomesoftware/audio/CMakeFiles/audio_generate_messages_cpp.dir/rule
 .PHONY : audio_generate_messages_cpp
 
 # fast build rule for target.
 audio_generate_messages_cpp/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_generate_messages_cpp.dir/build.make audio/CMakeFiles/audio_generate_messages_cpp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_generate_messages_cpp.dir/build.make athomesoftware/audio/CMakeFiles/audio_generate_messages_cpp.dir/build
 .PHONY : audio_generate_messages_cpp/fast
 
 # Convenience name for target.
-audio/CMakeFiles/audio_generate_messages_lisp.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_generate_messages_lisp.dir/rule
-.PHONY : audio/CMakeFiles/audio_generate_messages_lisp.dir/rule
+athomesoftware/audio/CMakeFiles/audio_generate_messages_lisp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_generate_messages_lisp.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-audio_generate_messages_lisp: audio/CMakeFiles/audio_generate_messages_lisp.dir/rule
+audio_generate_messages_lisp: athomesoftware/audio/CMakeFiles/audio_generate_messages_lisp.dir/rule
 .PHONY : audio_generate_messages_lisp
 
 # fast build rule for target.
 audio_generate_messages_lisp/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_generate_messages_lisp.dir/build.make audio/CMakeFiles/audio_generate_messages_lisp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_generate_messages_lisp.dir/build.make athomesoftware/audio/CMakeFiles/audio_generate_messages_lisp.dir/build
 .PHONY : audio_generate_messages_lisp/fast
 
 # Convenience name for target.
-audio/CMakeFiles/audio_generate_messages_py.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_generate_messages_py.dir/rule
-.PHONY : audio/CMakeFiles/audio_generate_messages_py.dir/rule
+athomesoftware/audio/CMakeFiles/audio_generate_messages_py.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_generate_messages_py.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_generate_messages_py.dir/rule
 
 # Convenience name for target.
-audio_generate_messages_py: audio/CMakeFiles/audio_generate_messages_py.dir/rule
+audio_generate_messages_py: athomesoftware/audio/CMakeFiles/audio_generate_messages_py.dir/rule
 .PHONY : audio_generate_messages_py
 
 # fast build rule for target.
 audio_generate_messages_py/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_generate_messages_py.dir/build.make audio/CMakeFiles/audio_generate_messages_py.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_generate_messages_py.dir/build.make athomesoftware/audio/CMakeFiles/audio_generate_messages_py.dir/build
 .PHONY : audio_generate_messages_py/fast
 
 # Convenience name for target.
-audio/CMakeFiles/audio_genlisp.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_genlisp.dir/rule
-.PHONY : audio/CMakeFiles/audio_genlisp.dir/rule
+athomesoftware/audio/CMakeFiles/audio_genlisp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_genlisp.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_genlisp.dir/rule
 
 # Convenience name for target.
-audio_genlisp: audio/CMakeFiles/audio_genlisp.dir/rule
+audio_genlisp: athomesoftware/audio/CMakeFiles/audio_genlisp.dir/rule
 .PHONY : audio_genlisp
 
 # fast build rule for target.
 audio_genlisp/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_genlisp.dir/build.make audio/CMakeFiles/audio_genlisp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_genlisp.dir/build.make athomesoftware/audio/CMakeFiles/audio_genlisp.dir/build
 .PHONY : audio_genlisp/fast
 
 # Convenience name for target.
-audio/CMakeFiles/audio_genpy.dir/rule:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 audio/CMakeFiles/audio_genpy.dir/rule
-.PHONY : audio/CMakeFiles/audio_genpy.dir/rule
+athomesoftware/audio/CMakeFiles/audio_genpy.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/audio/CMakeFiles/audio_genpy.dir/rule
+.PHONY : athomesoftware/audio/CMakeFiles/audio_genpy.dir/rule
 
 # Convenience name for target.
-audio_genpy: audio/CMakeFiles/audio_genpy.dir/rule
+audio_genpy: athomesoftware/audio/CMakeFiles/audio_genpy.dir/rule
 .PHONY : audio_genpy
 
 # fast build rule for target.
 audio_genpy/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f audio/CMakeFiles/audio_genpy.dir/build.make audio/CMakeFiles/audio_genpy.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/audio/CMakeFiles/audio_genpy.dir/build.make athomesoftware/audio/CMakeFiles/audio_genpy.dir/build
 .PHONY : audio_genpy/fast
 
 # Help Target

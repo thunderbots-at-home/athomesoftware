@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/vision.dir/src/ObjectClassification.cpp.o"
-  "devel/lib/libvision.pdb"
-  "devel/lib/libvision.so"
+  "/home/marco/catkin_ws/devel/lib/libvision.pdb"
+  "/home/marco/catkin_ws/devel/lib/libvision.so"
 )
 
 # Per-language clean rules from dependency scanning.
