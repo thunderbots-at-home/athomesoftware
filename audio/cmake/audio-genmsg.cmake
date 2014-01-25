@@ -2,7 +2,7 @@
 
 message(STATUS "audio: 1 messages, 0 services")
 
-set(MSG_I_FLAGS "-Iaudio:/home/marco/catkin_ws/src/audio/msg")
+set(MSG_I_FLAGS "-Iaudio:/home/marco/catkin_ws/src/athomesoftware/audio/msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -18,7 +18,7 @@ add_custom_target(audio_generate_messages ALL)
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(audio
-  "/home/marco/catkin_ws/src/audio/msg/FRClientGoal.msg"
+  "/home/marco/catkin_ws/src/athomesoftware/audio/msg/FRClientGoal.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/audio
@@ -47,7 +47,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS audio_generate_messages_cpp)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(audio
-  "/home/marco/catkin_ws/src/audio/msg/FRClientGoal.msg"
+  "/home/marco/catkin_ws/src/athomesoftware/audio/msg/FRClientGoal.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/audio
@@ -76,7 +76,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS audio_generate_messages_lisp)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(audio
-  "/home/marco/catkin_ws/src/audio/msg/FRClientGoal.msg"
+  "/home/marco/catkin_ws/src/athomesoftware/audio/msg/FRClientGoal.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/audio

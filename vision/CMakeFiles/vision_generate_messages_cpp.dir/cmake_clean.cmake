@@ -1,10 +1,10 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/vision_generate_messages_cpp"
-  "devel/include/vision/RealObject.h"
-  "devel/include/vision/Match.h"
-  "devel/include/vision/GetObjectsInScene.h"
-  "devel/include/vision/FindObject.h"
-  "devel/include/vision/Contains.h"
+  "/home/marco/catkin_ws/devel/include/vision/RealObject.h"
+  "/home/marco/catkin_ws/devel/include/vision/GetObjectsInScene.h"
+  "/home/marco/catkin_ws/devel/include/vision/Contains.h"
+  "/home/marco/catkin_ws/devel/include/vision/FindObject.h"
+  "/home/marco/catkin_ws/devel/include/vision/Match.h"
 )
 
 # Per-language clean rules from dependency scanning.

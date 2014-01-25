@@ -59,8 +59,8 @@ set(turtlebot_follower_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(turtlebot_follower_SOURCE_PREFIX /home/marco/catkin_ws/src/turtlebot_follower)
-  set(turtlebot_follower_DEVEL_PREFIX /home/marco/catkin_ws/src/turtlebot_follower/devel)
+  set(turtlebot_follower_SOURCE_PREFIX /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower)
+  set(turtlebot_follower_DEVEL_PREFIX /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/devel)
   set(turtlebot_follower_INSTALL_PREFIX "")
   set(turtlebot_follower_PREFIX ${turtlebot_follower_DEVEL_PREFIX})
 else()
@@ -83,9 +83,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(turtlebot_follower_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/marco/catkin_ws/src/turtlebot_follower/devel/include;/usr/include;/usr/include/pcl-1.7;/usr/include/eigen3;/usr/include;/usr/include/ni;/usr/include/vtk-5.8;/usr/include/qhull" STREQUAL "")
+if(NOT "/home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/devel/include;/usr/include;/usr/include/pcl-1.7;/usr/include/eigen3;/usr/include;/usr/include/ni;/usr/include/vtk-5.8;/usr/include/qhull" STREQUAL "")
   set(turtlebot_follower_INCLUDE_DIRS "")
-  set(_include_dirs "/home/marco/catkin_ws/src/turtlebot_follower/devel/include;/usr/include;/usr/include/pcl-1.7;/usr/include/eigen3;/usr/include;/usr/include/ni;/usr/include/vtk-5.8;/usr/include/qhull")
+  set(_include_dirs "/home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/devel/include;/usr/include;/usr/include/pcl-1.7;/usr/include/eigen3;/usr/include;/usr/include/ni;/usr/include/vtk-5.8;/usr/include/qhull")
   foreach(idir ${_include_dirs})
     if(IS_ABSOLUTE ${idir} AND IS_DIRECTORY ${idir})
       set(include ${idir})
@@ -95,7 +95,7 @@ if(NOT "/home/marco/catkin_ws/src/turtlebot_follower/devel/include;/usr/include;
         message(FATAL_ERROR "Project 'turtlebot_follower' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'Daniel Stonier <stonier@rnd.yujinrobot.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'turtlebot_follower' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/marco/catkin_ws/src/turtlebot_follower/${idir}'.  Ask the maintainer 'Daniel Stonier <stonier@rnd.yujinrobot.com>' to fix it.")
+      message(FATAL_ERROR "Project 'turtlebot_follower' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/${idir}'.  Ask the maintainer 'Daniel Stonier <stonier@rnd.yujinrobot.com>' to fix it.")
     endif()
     _list_append_unique(turtlebot_follower_INCLUDE_DIRS ${include})
   endforeach()
@@ -111,7 +111,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/marco/catkin_ws/src/turtlebot_follower/devel/lib;/opt/ros/hydro/lib)
+    foreach(path /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/devel/lib;/opt/ros/hydro/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

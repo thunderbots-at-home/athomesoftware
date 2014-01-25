@@ -59,14 +59,14 @@ set(turtlebot_follower_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(turtlebot_follower_SOURCE_PREFIX /home/marco/catkin_ws/src/turtlebot_follower)
-  set(turtlebot_follower_DEVEL_PREFIX /home/marco/catkin_ws/src/turtlebot_follower/devel)
+  set(turtlebot_follower_SOURCE_PREFIX /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower)
+  set(turtlebot_follower_DEVEL_PREFIX /home/marco/catkin_ws/devel)
   set(turtlebot_follower_INSTALL_PREFIX "")
   set(turtlebot_follower_PREFIX ${turtlebot_follower_DEVEL_PREFIX})
 else()
   set(turtlebot_follower_SOURCE_PREFIX "")
   set(turtlebot_follower_DEVEL_PREFIX "")
-  set(turtlebot_follower_INSTALL_PREFIX /usr/local)
+  set(turtlebot_follower_INSTALL_PREFIX /home/marco/catkin_ws/install)
   set(turtlebot_follower_PREFIX ${turtlebot_follower_INSTALL_PREFIX})
 endif()
 
@@ -95,13 +95,13 @@ if(NOT "include;/usr/include;/usr/include/pcl-1.7;/usr/include/eigen3;/usr/inclu
         message(FATAL_ERROR "Project 'turtlebot_follower' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  Ask the maintainer 'Daniel Stonier <stonier@rnd.yujinrobot.com>' to fix it.")
       endif()
     else()
-      message(FATAL_ERROR "Project 'turtlebot_follower' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/usr/local/${idir}'.  Ask the maintainer 'Daniel Stonier <stonier@rnd.yujinrobot.com>' to fix it.")
+      message(FATAL_ERROR "Project 'turtlebot_follower' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/marco/catkin_ws/install/${idir}'.  Ask the maintainer 'Daniel Stonier <stonier@rnd.yujinrobot.com>' to fix it.")
     endif()
     _list_append_unique(turtlebot_follower_INCLUDE_DIRS ${include})
   endforeach()
 endif()
 
-set(libraries "turtlebot_follower;/usr/lib/libboost_system-mt.so;/usr/lib/libboost_filesystem-mt.so;/usr/lib/libboost_thread-mt.so;pthread;/usr/lib/libboost_date_time-mt.so;/usr/lib/libboost_iostreams-mt.so;/usr/lib/libboost_serialization-mt.so;/usr/lib/libboost_system-mt.so;/usr/lib/libboost_filesystem-mt.so;/usr/lib/libboost_thread-mt.so;pthread;/usr/lib/libboost_date_time-mt.so;/usr/lib/libboost_iostreams-mt.so;/usr/lib/libboost_serialization-mt.so;/usr/lib/libpcl_common.so;/usr/lib/libflann_cpp_s.a;/usr/lib/libpcl_kdtree.so;/usr/lib/libpcl_octree.so;/usr/lib/libpcl_search.so;/usr/lib/libOpenNI.so;/usr/lib/libpcl_io.so;/usr/lib/libpcl_sample_consensus.so;/usr/lib/libpcl_filters.so;/usr/lib/libpcl_visualization.so;/usr/lib/libpcl_outofcore.so;/usr/lib/libpcl_features.so;/usr/lib/libpcl_segmentation.so;/usr/lib/libpcl_people.so;/usr/lib/libpcl_registration.so;/usr/lib/libpcl_recognition.so;/usr/lib/libpcl_keypoints.so;/usr/lib/libqhull.so;/usr/lib/libpcl_surface.so;/usr/lib/libpcl_tracking.so;/usr/lib/libpcl_apps.so;/usr/lib/libboost_system-mt.so;/usr/lib/libboost_filesystem-mt.so;/usr/lib/libboost_thread-mt.so;pthread;/usr/lib/libboost_date_time-mt.so;/usr/lib/libboost_iostreams-mt.so;/usr/lib/libboost_serialization-mt.so;/usr/lib/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libflann_cpp_s.a")
+set(libraries "turtlebot_follower;/usr/lib/libboost_system-mt.so;/usr/lib/libboost_filesystem-mt.so;/usr/lib/libboost_thread-mt.so;/usr/lib/libboost_date_time-mt.so;/usr/lib/libboost_iostreams-mt.so;/usr/lib/libboost_serialization-mt.so;/usr/lib/libboost_system-mt.so;/usr/lib/libboost_filesystem-mt.so;/usr/lib/libboost_thread-mt.so;/usr/lib/libboost_date_time-mt.so;/usr/lib/libboost_iostreams-mt.so;/usr/lib/libboost_serialization-mt.so;/usr/lib/libpcl_common.so;/usr/lib/libflann_cpp_s.a;/usr/lib/libpcl_kdtree.so;/usr/lib/libpcl_octree.so;/usr/lib/libpcl_search.so;/usr/lib/libOpenNI.so;/usr/lib/libpcl_io.so;/usr/lib/libpcl_sample_consensus.so;/usr/lib/libpcl_filters.so;/usr/lib/libpcl_visualization.so;/usr/lib/libpcl_outofcore.so;/usr/lib/libpcl_features.so;/usr/lib/libpcl_segmentation.so;/usr/lib/libpcl_people.so;/usr/lib/libpcl_registration.so;/usr/lib/libpcl_recognition.so;/usr/lib/libpcl_keypoints.so;/usr/lib/libqhull.so;/usr/lib/libpcl_surface.so;/usr/lib/libpcl_tracking.so;/usr/lib/libpcl_apps.so;/usr/lib/libboost_system-mt.so;/usr/lib/libboost_filesystem-mt.so;/usr/lib/libboost_thread-mt.so;/usr/lib/libboost_date_time-mt.so;/usr/lib/libboost_iostreams-mt.so;/usr/lib/libboost_serialization-mt.so;/usr/lib/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libflann_cpp_s.a")
 foreach(library ${libraries})
   if(TARGET ${library})
     list(APPEND turtlebot_follower_LIBRARIES ${library})
@@ -111,7 +111,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /usr/local/lib;/opt/ros/hydro/lib)
+    foreach(path /home/marco/catkin_ws/install/lib;/opt/ros/hydro/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

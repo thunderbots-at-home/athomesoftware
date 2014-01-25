@@ -12,7 +12,7 @@ if [ -n "$DESTDIR" ] ; then
     DESTDIR_ARG="--root=$DESTDIR"
 fi
 
-cd "/home/marco/catkin_ws/src/audio"
+cd "/home/marco/catkin_ws/src/athomesoftware/audio"
 
 # todo --install-layout=deb per platform
 # Note that PYTHONPATH is pulled from the environment to support installing
@@ -22,8 +22,8 @@ cd "/home/marco/catkin_ws/src/audio"
     PYTHONPATH="/home/marco/catkin_ws/install/lib/python2.7/dist-packages:/home/marco/catkin_ws/src/lib/python2.7/dist-packages:$PYTHONPATH" \
     CATKIN_BINARY_DIR="/home/marco/catkin_ws/src" \
     "/usr/bin/python" \
-    "/home/marco/catkin_ws/src/audio/setup.py" \
-    build --build-base "/home/marco/catkin_ws/src/audio" \
+    "/home/marco/catkin_ws/src/athomesoftware/audio/setup.py" \
+    build --build-base "/home/marco/catkin_ws/src/athomesoftware/audio" \
     install \
     $DESTDIR_ARG \
     --install-layout=deb --prefix="/home/marco/catkin_ws/install" --install-scripts="/home/marco/catkin_ws/install/bin"

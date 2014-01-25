@@ -117,14 +117,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles /home/marco/catkin_ws/src/tbots_navigation/CMakeFiles/progress.marks
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 tbots_navigation/all
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles /home/marco/catkin_ws/src/athomesoftware/tbots_navigation/CMakeFiles/progress.marks
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/tbots_navigation/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 tbots_navigation/clean
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/tbots_navigation/clean
 .PHONY : clean
 
 # The main clean target
@@ -133,12 +133,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 tbots_navigation/preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/tbots_navigation/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 tbots_navigation/preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/tbots_navigation/preinstall
 .PHONY : preinstall/fast
 
 # clear depends

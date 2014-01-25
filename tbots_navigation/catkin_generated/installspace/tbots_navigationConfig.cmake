@@ -59,7 +59,7 @@ set(tbots_navigation_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(tbots_navigation_SOURCE_PREFIX /home/marco/catkin_ws/src/tbots_navigation)
+  set(tbots_navigation_SOURCE_PREFIX /home/marco/catkin_ws/src/athomesoftware/tbots_navigation)
   set(tbots_navigation_DEVEL_PREFIX /home/marco/catkin_ws/devel)
   set(tbots_navigation_INSTALL_PREFIX "")
   set(tbots_navigation_PREFIX ${tbots_navigation_DEVEL_PREFIX})

@@ -1,8 +1,8 @@
-prefix=/usr/local
+prefix=/home/marco/catkin_ws/install
 
 Name: vision
 Description: Description of vision
 Version: 0.0.0
-Cflags: -Iinclude
-Libs: -L/usr/local/lib 
+Cflags: -I/home/marco/catkin_ws/install/include
+Libs: -L/home/marco/catkin_ws/install/lib 
 Requires: sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2 message_runtime

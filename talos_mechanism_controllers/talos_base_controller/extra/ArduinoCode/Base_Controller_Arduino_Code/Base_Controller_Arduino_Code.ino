@@ -540,20 +540,31 @@ void OnReceived(String s) {
   if (s == "initializing\n") {
     Serial.print(s);
   } else {
-    Serial.print(s); // TODO debug
-      //copy String object's contents into char array
-      char carr[s.length()];
-      s.toCharArray(carr, s.length());
-      
-      //results container.
-      //double array contains parsed values.
-      double parsedvals[3];
-      
-      //parse character array into results container
-      parse_twist((const char*) carr, parsedvals);
-      
-      //handle results
-      ProcessTwist(parsedvals);
+       int cIdx1 = s.indexOf(",");
+    int cIdx2 = s.indexOf(",", cIdx1 + 1);
+    
+    String firstVal = s.substring(0, cIdx1);
+    String secondVal = s.substring(cIdx1 + 1, cIdx2);
+    String thirdVal = s.substring(cIdx2);
+    
+    char firstBuf[firstVal.length()];
+    char secondBuf[secondVal.length()];
+    char thirdBuf[thirdVal.length()];
+    
+    firstVal.toCharArray(firstBuf, firstVal.length());
+    secondVal.toCharArray(secondBuf, secondVal.length());
+    thirdVal.toCharArray(thirdBuf, thirdVal.length());
+    
+    float firstFl = atof(firstBuf);
+    float secondFl = atof(secondBuf);
+    float thirdFl = atof(thirdBuf);
+    
+    double vals[3];
+    vals[0] = firstFl;
+    vals[1] = secondFl;
+    vals[2] = thirdFl;
+    
+    ProcessTwist(vals);
   }
 }
 

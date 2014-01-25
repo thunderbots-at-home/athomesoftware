@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/turtlebot_follower.dir/src/follower.cpp.o"
-  "devel/lib/libturtlebot_follower.pdb"
-  "devel/lib/libturtlebot_follower.so"
+  "/home/marco/catkin_ws/devel/lib/libturtlebot_follower.pdb"
+  "/home/marco/catkin_ws/devel/lib/libturtlebot_follower.so"
 )
 
 # Per-language clean rules from dependency scanning.

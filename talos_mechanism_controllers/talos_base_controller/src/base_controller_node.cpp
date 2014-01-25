@@ -89,7 +89,7 @@ int main( int argc, char **argv ) {
 
         ROS_INFO( "initializing asynchronous serial communication" );
         std::string device_file;
-        n.param<std::string>("device_file", device_file, "/dev/arduino-mega256");
+        n.param<std::string>("device_file", device_file, "/dev/ttyACM0");
         ROS_INFO( "device_file: %s", device_file.c_str() );
 
         base_controller::async_serial = new BufferedAsyncSerial( device_file , 9600 );

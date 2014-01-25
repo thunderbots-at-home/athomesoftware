@@ -59,7 +59,7 @@ set(audio_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(audio_SOURCE_PREFIX /home/marco/catkin_ws/src/audio)
+  set(audio_SOURCE_PREFIX /home/marco/catkin_ws/src/athomesoftware/audio)
   set(audio_DEVEL_PREFIX /home/marco/catkin_ws/devel)
   set(audio_INSTALL_PREFIX "")
   set(audio_PREFIX ${audio_DEVEL_PREFIX})

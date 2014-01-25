@@ -4,5 +4,5 @@ DEVELSPACE = 'TRUE' == 'TRUE'
 INSTALLSPACE = 'FALSE' == 'TRUE'
 
 PROJECT_NAME = 'audio'
-PKG_MSG_INCLUDE_DIRS = '/home/marco/catkin_ws/src/audio/msg'
+PKG_MSG_INCLUDE_DIRS = '/home/marco/catkin_ws/src/athomesoftware/audio/msg'
 ARG_DEPENDENCIES = ''

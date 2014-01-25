@@ -1,4 +1,4 @@
-# Install script for directory: /home/marco/catkin_ws/src/tbots_navigation
+# Install script for directory: /home/marco/catkin_ws/src/athomesoftware/tbots_navigation
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,17 +33,17 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/marco/catkin_ws/src/tbots_navigation/catkin_generated/installspace/tbots_navigation.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/marco/catkin_ws/src/athomesoftware/tbots_navigation/catkin_generated/installspace/tbots_navigation.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tbots_navigation/cmake" TYPE FILE FILES
-    "/home/marco/catkin_ws/src/tbots_navigation/catkin_generated/installspace/tbots_navigationConfig.cmake"
-    "/home/marco/catkin_ws/src/tbots_navigation/catkin_generated/installspace/tbots_navigationConfig-version.cmake"
+    "/home/marco/catkin_ws/src/athomesoftware/tbots_navigation/catkin_generated/installspace/tbots_navigationConfig.cmake"
+    "/home/marco/catkin_ws/src/athomesoftware/tbots_navigation/catkin_generated/installspace/tbots_navigationConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tbots_navigation" TYPE FILE FILES "/home/marco/catkin_ws/src/tbots_navigation/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/tbots_navigation" TYPE FILE FILES "/home/marco/catkin_ws/src/athomesoftware/tbots_navigation/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/turtlebot_follower
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/turtlebot_follower
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower
 
 # Utility rule file for clean_test_results.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/turtlebot_follower
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/cmake -E remove_directory /home/marco/catkin_ws/src/turtlebot_follower/test_results
+	/usr/bin/cmake -E remove_directory /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -58,6 +58,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/marco/catkin_ws/src/turtlebot_follower && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/turtlebot_follower /home/marco/catkin_ws/src/turtlebot_follower /home/marco/catkin_ws/src/turtlebot_follower /home/marco/catkin_ws/src/turtlebot_follower /home/marco/catkin_ws/src/turtlebot_follower/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower /home/marco/catkin_ws/src/athomesoftware/turtlebot_follower/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

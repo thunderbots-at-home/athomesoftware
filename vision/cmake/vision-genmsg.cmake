@@ -2,7 +2,7 @@
 
 message(STATUS "vision: 1 messages, 4 services")
 
-set(MSG_I_FLAGS "-Ivision:/home/marco/catkin_ws/src/vision/msg;-Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Ivision:/home/marco/catkin_ws/src/athomesoftware/vision/msg;-Istd_msgs:/opt/ros/hydro/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/hydro/share/geometry_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/hydro/share/sensor_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -18,7 +18,7 @@ add_custom_target(vision_generate_messages ALL)
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(vision
-  "/home/marco/catkin_ws/src/vision/msg/RealObject.msg"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
@@ -26,27 +26,27 @@ _generate_msg_cpp(vision
 
 ### Generating Services
 _generate_srv_cpp(vision
-  "/home/marco/catkin_ws/src/vision/srv/Match.srv"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/GetObjectsInScene.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
 )
 _generate_srv_cpp(vision
-  "/home/marco/catkin_ws/src/vision/srv/GetObjectsInScene.srv"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
-)
-_generate_srv_cpp(vision
-  "/home/marco/catkin_ws/src/vision/srv/FindObject.srv"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
-)
-_generate_srv_cpp(vision
-  "/home/marco/catkin_ws/src/vision/srv/Contains.srv"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/Contains.srv"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
+)
+_generate_srv_cpp(vision
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/FindObject.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
+)
+_generate_srv_cpp(vision
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/Match.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/vision
 )
 
@@ -71,7 +71,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS vision_generate_messages_cpp)
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(vision
-  "/home/marco/catkin_ws/src/vision/msg/RealObject.msg"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
@@ -79,27 +79,27 @@ _generate_msg_lisp(vision
 
 ### Generating Services
 _generate_srv_lisp(vision
-  "/home/marco/catkin_ws/src/vision/srv/Match.srv"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/GetObjectsInScene.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
 )
 _generate_srv_lisp(vision
-  "/home/marco/catkin_ws/src/vision/srv/GetObjectsInScene.srv"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
-)
-_generate_srv_lisp(vision
-  "/home/marco/catkin_ws/src/vision/srv/FindObject.srv"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
-)
-_generate_srv_lisp(vision
-  "/home/marco/catkin_ws/src/vision/srv/Contains.srv"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/Contains.srv"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
+)
+_generate_srv_lisp(vision
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/FindObject.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
+)
+_generate_srv_lisp(vision
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/Match.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/vision
 )
 
@@ -124,7 +124,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS vision_generate_messages_lisp)
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(vision
-  "/home/marco/catkin_ws/src/vision/msg/RealObject.msg"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
@@ -132,27 +132,27 @@ _generate_msg_py(vision
 
 ### Generating Services
 _generate_srv_py(vision
-  "/home/marco/catkin_ws/src/vision/srv/Match.srv"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/GetObjectsInScene.srv"
   "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
 )
 _generate_srv_py(vision
-  "/home/marco/catkin_ws/src/vision/srv/GetObjectsInScene.srv"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
-)
-_generate_srv_py(vision
-  "/home/marco/catkin_ws/src/vision/srv/FindObject.srv"
-  "${MSG_I_FLAGS}"
-  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/home/marco/catkin_ws/src/vision/msg/RealObject.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
-)
-_generate_srv_py(vision
-  "/home/marco/catkin_ws/src/vision/srv/Contains.srv"
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/Contains.srv"
   "${MSG_I_FLAGS}"
   ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
+)
+_generate_srv_py(vision
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/FindObject.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
+)
+_generate_srv_py(vision
+  "/home/marco/catkin_ws/src/athomesoftware/vision/srv/Match.srv"
+  "${MSG_I_FLAGS}"
+  "/opt/ros/hydro/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/hydro/share/sensor_msgs/cmake/../msg/Image.msg;/home/marco/catkin_ws/src/athomesoftware/vision/msg/RealObject.msg;/opt/ros/hydro/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/vision
 )
 
