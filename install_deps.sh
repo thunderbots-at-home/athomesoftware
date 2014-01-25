@@ -11,6 +11,9 @@ sudo apt-get install ros-${ROS_DISTRO}-pcl-ros
 sudo apt-get install ros-${ROS_DISTRO}-opencv2
 sudo apt-get install ros-${ROS_DISTRO}-image-transport
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-apps
+sudo apt-get install cmake python-catkin_pkg python-empy python-nose python-setuptools libgtest-dev build-essential
+sudo apt-get install ros-${ROS_DISTRO}-catkin
+
 
 
 

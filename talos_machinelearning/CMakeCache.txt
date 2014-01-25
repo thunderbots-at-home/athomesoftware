@@ -196,11 +196,31 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests
 
+//Path where debug 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=/opt/ros/hydro/share/OpenCV/3rdparty/lib
+
+//Path where release 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=/opt/ros/hydro/share/OpenCV/3rdparty/lib
+
+OpenCV_CONFIG_PATH:FILEPATH=/opt/ros/hydro/share/OpenCV
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/opt/ros/hydro/share/OpenCV
+
+//Path where debug OpenCV libraries are located
+OpenCV_LIB_DIR_DBG:PATH=/opt/ros/hydro/lib
+
+//Path where release OpenCV libraries are located
+OpenCV_LIB_DIR_OPT:PATH=/opt/ros/hydro/lib
+
 //Path to a program.
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
 
 //Python version
 PYTHON_VERSION_XDOTY:STRING=2.7
+
+//Dependencies for target
+ROC_LIB_DEPENDS:STATIC=
 
 //Path to a library.
 RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
@@ -222,6 +242,45 @@ _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/hydro/share/catkin/cmake
+
+//Dependencies for target
+confusionmatrix_LIB_DEPENDS:STATIC=
+
+//The directory containing a CMake configuration file for cpp_common.
+cpp_common_DIR:PATH=/opt/ros/hydro/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for cv_bridge.
+cv_bridge_DIR:PATH=/opt/ros/hydro/share/cv_bridge/cmake
+
+//Value Computed by CMake
+daspr_machinelearning_BINARY_DIR:STATIC=/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+
+//Value Computed by CMake
+daspr_machinelearning_SOURCE_DIR:STATIC=/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+
+//Dependencies for the target
+dataset_LIB_DEPENDS:STATIC=general;/opt/ros/hydro/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/libboost_signals-mt.so;general;/usr/lib/libboost_filesystem-mt.so;general;/usr/lib/libboost_system-mt.so;general;/opt/ros/hydro/lib/libcpp_common.so;general;/opt/ros/hydro/lib/libroscpp_serialization.so;general;/opt/ros/hydro/lib/librostime.so;general;/usr/lib/libboost_date_time-mt.so;general;/usr/lib/libboost_thread-mt.so;general;/opt/ros/hydro/lib/librosconsole.so;general;/usr/lib/libboost_regex-mt.so;general;/usr/lib/liblog4cxx.so;general;/opt/ros/hydro/lib/libxmlrpcpp.so;general;/opt/ros/hydro/lib/libcv_bridge.so;general;/opt/ros/hydro/lib/libopencv_calib3d.so;general;/opt/ros/hydro/lib/libopencv_contrib.so;general;/opt/ros/hydro/lib/libopencv_core.so;general;/opt/ros/hydro/lib/libopencv_features2d.so;general;/opt/ros/hydro/lib/libopencv_flann.so;general;/opt/ros/hydro/lib/libopencv_gpu.so;general;/opt/ros/hydro/lib/libopencv_highgui.so;general;/opt/ros/hydro/lib/libopencv_imgproc.so;general;/opt/ros/hydro/lib/libopencv_legacy.so;general;/opt/ros/hydro/lib/libopencv_ml.so;general;/opt/ros/hydro/lib/libopencv_nonfree.so;general;/opt/ros/hydro/lib/libopencv_objdetect.so;general;/opt/ros/hydro/lib/libopencv_photo.so;general;/opt/ros/hydro/lib/libopencv_stitching.so;general;/opt/ros/hydro/lib/libopencv_superres.so;general;/opt/ros/hydro/lib/libopencv_video.so;general;/opt/ros/hydro/lib/libopencv_videostab.so;
+
+//Dependencies for target
+experiment_LIB_DEPENDS:STATIC=
+
+//Dependencies for the target
+featureextractor_LIB_DEPENDS:STATIC=debug;/opt/ros/hydro/lib/libopencv_calib3d.so;debug;/opt/ros/hydro/lib/libopencv_contrib.so;debug;/opt/ros/hydro/lib/libopencv_core.so;debug;/opt/ros/hydro/lib/libopencv_features2d.so;debug;/opt/ros/hydro/lib/libopencv_flann.so;debug;/opt/ros/hydro/lib/libopencv_gpu.so;debug;/opt/ros/hydro/lib/libopencv_highgui.so;debug;/opt/ros/hydro/lib/libopencv_imgproc.so;debug;/opt/ros/hydro/lib/libopencv_legacy.so;debug;/opt/ros/hydro/lib/libopencv_ml.so;debug;/opt/ros/hydro/lib/libopencv_nonfree.so;debug;/opt/ros/hydro/lib/libopencv_objdetect.so;debug;/opt/ros/hydro/lib/libopencv_photo.so;debug;/opt/ros/hydro/lib/libopencv_stitching.so;debug;/opt/ros/hydro/lib/libopencv_superres.so;debug;/opt/ros/hydro/lib/libopencv_video.so;debug;/opt/ros/hydro/lib/libopencv_videostab.so;optimized;/opt/ros/hydro/lib/libopencv_calib3d.so;optimized;/opt/ros/hydro/lib/libopencv_contrib.so;optimized;/opt/ros/hydro/lib/libopencv_core.so;optimized;/opt/ros/hydro/lib/libopencv_features2d.so;optimized;/opt/ros/hydro/lib/libopencv_flann.so;optimized;/opt/ros/hydro/lib/libopencv_gpu.so;optimized;/opt/ros/hydro/lib/libopencv_highgui.so;optimized;/opt/ros/hydro/lib/libopencv_imgproc.so;optimized;/opt/ros/hydro/lib/libopencv_legacy.so;optimized;/opt/ros/hydro/lib/libopencv_ml.so;optimized;/opt/ros/hydro/lib/libopencv_nonfree.so;optimized;/opt/ros/hydro/lib/libopencv_objdetect.so;optimized;/opt/ros/hydro/lib/libopencv_photo.so;optimized;/opt/ros/hydro/lib/libopencv_stitching.so;optimized;/opt/ros/hydro/lib/libopencv_superres.so;optimized;/opt/ros/hydro/lib/libopencv_video.so;optimized;/opt/ros/hydro/lib/libopencv_videostab.so;
+
+//The directory containing a CMake configuration file for gencpp.
+gencpp_DIR:PATH=/opt/ros/hydro/share/gencpp/cmake
+
+//The directory containing a CMake configuration file for genlisp.
+genlisp_DIR:PATH=/opt/ros/hydro/share/genlisp/cmake
+
+//The directory containing a CMake configuration file for genmsg.
+genmsg_DIR:PATH=/opt/ros/hydro/share/genmsg/cmake
+
+//The directory containing a CMake configuration file for genpy.
+genpy_DIR:PATH=/opt/ros/hydro/share/genpy/cmake
+
+//The directory containing a CMake configuration file for geometry_msgs.
+geometry_msgs_DIR:PATH=/opt/ros/hydro/share/geometry_msgs/cmake
 
 //Value Computed by CMake
 gtest_BINARY_DIR:STATIC=/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning/gtest
@@ -248,11 +307,59 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//Path to a library.
+lib:FILEPATH=/opt/ros/hydro/lib/libcv_bridge.so
+
+//The directory containing a CMake configuration file for message_generation.
+message_generation_DIR:PATH=/opt/ros/hydro/share/message_generation/cmake
+
+//The directory containing a CMake configuration file for message_runtime.
+message_runtime_DIR:PATH=/opt/ros/hydro/share/message_runtime/cmake
+
+//Dependencies for the target
+normalization_LIB_DEPENDS:STATIC=general;/opt/ros/hydro/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/libboost_signals-mt.so;general;/usr/lib/libboost_filesystem-mt.so;general;/usr/lib/libboost_system-mt.so;general;/opt/ros/hydro/lib/libcpp_common.so;general;/opt/ros/hydro/lib/libroscpp_serialization.so;general;/opt/ros/hydro/lib/librostime.so;general;/usr/lib/libboost_date_time-mt.so;general;/usr/lib/libboost_thread-mt.so;general;/opt/ros/hydro/lib/librosconsole.so;general;/usr/lib/libboost_regex-mt.so;general;/usr/lib/liblog4cxx.so;general;/opt/ros/hydro/lib/libxmlrpcpp.so;general;/opt/ros/hydro/lib/libcv_bridge.so;general;/opt/ros/hydro/lib/libopencv_calib3d.so;general;/opt/ros/hydro/lib/libopencv_contrib.so;general;/opt/ros/hydro/lib/libopencv_core.so;general;/opt/ros/hydro/lib/libopencv_features2d.so;general;/opt/ros/hydro/lib/libopencv_flann.so;general;/opt/ros/hydro/lib/libopencv_gpu.so;general;/opt/ros/hydro/lib/libopencv_highgui.so;general;/opt/ros/hydro/lib/libopencv_imgproc.so;general;/opt/ros/hydro/lib/libopencv_legacy.so;general;/opt/ros/hydro/lib/libopencv_ml.so;general;/opt/ros/hydro/lib/libopencv_nonfree.so;general;/opt/ros/hydro/lib/libopencv_objdetect.so;general;/opt/ros/hydro/lib/libopencv_photo.so;general;/opt/ros/hydro/lib/libopencv_stitching.so;general;/opt/ros/hydro/lib/libopencv_superres.so;general;/opt/ros/hydro/lib/libopencv_video.so;general;/opt/ros/hydro/lib/libopencv_videostab.so;
+
+//The directory containing a CMake configuration file for rosconsole.
+rosconsole_DIR:PATH=/opt/ros/hydro/share/rosconsole/cmake
+
+//The directory containing a CMake configuration file for roscpp.
+roscpp_DIR:PATH=/opt/ros/hydro/share/roscpp/cmake
+
+//The directory containing a CMake configuration file for roscpp_serialization.
+roscpp_serialization_DIR:PATH=/opt/ros/hydro/share/roscpp_serialization/cmake
+
+//The directory containing a CMake configuration file for roscpp_traits.
+roscpp_traits_DIR:PATH=/opt/ros/hydro/share/roscpp_traits/cmake
+
+//The directory containing a CMake configuration file for rosgraph_msgs.
+rosgraph_msgs_DIR:PATH=/opt/ros/hydro/share/rosgraph_msgs/cmake
+
+//The directory containing a CMake configuration file for rospy.
+rospy_DIR:PATH=/opt/ros/hydro/share/rospy/cmake
+
+//The directory containing a CMake configuration file for rostime.
+rostime_DIR:PATH=/opt/ros/hydro/share/rostime/cmake
+
+//The directory containing a CMake configuration file for sensor_msgs.
+sensor_msgs_DIR:PATH=/opt/ros/hydro/share/sensor_msgs/cmake
+
+//The directory containing a CMake configuration file for std_msgs.
+std_msgs_DIR:PATH=/opt/ros/hydro/share/std_msgs/cmake
+
+//Dependencies for the target
+supervisedfeatures_LIB_DEPENDS:STATIC=debug;/opt/ros/hydro/lib/libopencv_calib3d.so;debug;/opt/ros/hydro/lib/libopencv_contrib.so;debug;/opt/ros/hydro/lib/libopencv_core.so;debug;/opt/ros/hydro/lib/libopencv_features2d.so;debug;/opt/ros/hydro/lib/libopencv_flann.so;debug;/opt/ros/hydro/lib/libopencv_gpu.so;debug;/opt/ros/hydro/lib/libopencv_highgui.so;debug;/opt/ros/hydro/lib/libopencv_imgproc.so;debug;/opt/ros/hydro/lib/libopencv_legacy.so;debug;/opt/ros/hydro/lib/libopencv_ml.so;debug;/opt/ros/hydro/lib/libopencv_nonfree.so;debug;/opt/ros/hydro/lib/libopencv_objdetect.so;debug;/opt/ros/hydro/lib/libopencv_photo.so;debug;/opt/ros/hydro/lib/libopencv_stitching.so;debug;/opt/ros/hydro/lib/libopencv_superres.so;debug;/opt/ros/hydro/lib/libopencv_video.so;debug;/opt/ros/hydro/lib/libopencv_videostab.so;optimized;/opt/ros/hydro/lib/libopencv_calib3d.so;optimized;/opt/ros/hydro/lib/libopencv_contrib.so;optimized;/opt/ros/hydro/lib/libopencv_core.so;optimized;/opt/ros/hydro/lib/libopencv_features2d.so;optimized;/opt/ros/hydro/lib/libopencv_flann.so;optimized;/opt/ros/hydro/lib/libopencv_gpu.so;optimized;/opt/ros/hydro/lib/libopencv_highgui.so;optimized;/opt/ros/hydro/lib/libopencv_imgproc.so;optimized;/opt/ros/hydro/lib/libopencv_legacy.so;optimized;/opt/ros/hydro/lib/libopencv_ml.so;optimized;/opt/ros/hydro/lib/libopencv_nonfree.so;optimized;/opt/ros/hydro/lib/libopencv_objdetect.so;optimized;/opt/ros/hydro/lib/libopencv_photo.so;optimized;/opt/ros/hydro/lib/libopencv_stitching.so;optimized;/opt/ros/hydro/lib/libopencv_superres.so;optimized;/opt/ros/hydro/lib/libopencv_video.so;optimized;/opt/ros/hydro/lib/libopencv_videostab.so;
+
 //Value Computed by CMake
 talos_machinelearning_BINARY_DIR:STATIC=/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
 
 //Value Computed by CMake
 talos_machinelearning_SOURCE_DIR:STATIC=/home/marco/catkin_ws/src/athomesoftware/talos_machinelearning
+
+//Dependencies for target
+unsupervisedfeatures_LIB_DEPENDS:STATIC=
+
+//The directory containing a CMake configuration file for xmlrpcpp.
+xmlrpcpp_DIR:PATH=/opt/ros/hydro/share/xmlrpcpp/cmake
 
 
 ########################
@@ -406,6 +513,16 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
+OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
+OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_CONFIG_PATH
+OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_DBG
+OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_OPT
+OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //This needs to be in PYTHONPATH when 'setup.py install' is called.

@@ -4,7 +4,8 @@ project(talos_machinelearning)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs cv_bridge message_generation)
+find_package(OpenCV)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -15,29 +16,9 @@ find_package(catkin REQUIRED)
 ## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
 # catkin_python_setup()
 
-################################################
-## Declare ROS messages, services and actions ##
-################################################
-
-## To declare and build messages, services or actions from within this
-## package, follow these steps:
-## * Let MSG_DEP_SET be the set of packages whose message types you use in
-##   your messages/services/actions (e.g. std_msgs, actionlib_msgs, ...).
-## * In the file package.xml:
-##   * add a build_depend and a run_depend tag for each package in MSG_DEP_SET
-##   * If MSG_DEP_SET isn't empty the following dependencies might have been
-##     pulled in transitively but can be declared for certainty nonetheless:
-##     * add a build_depend tag for "message_generation"
-##     * add a run_depend tag for "message_runtime"
-## * In this file (CMakeLists.txt):
-##   * add "message_generation" and every package in MSG_DEP_SET to
-##     find_package(catkin REQUIRED COMPONENTS ...)
-##   * add "message_runtime" and every package in MSG_DEP_SET to
-##     catkin_package(CATKIN_DEPENDS ...)
-##   * uncomment the add_*_files sections below as needed
-##     and list every .msg/.srv/.action file to be processed
-##   * uncomment the generate_messages entry below
-##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
+#######################################
+## Declare ROS messages and services ##
+#######################################
 
 ## Generate messages in the 'msg' folder
 # add_message_files(
@@ -51,13 +32,6 @@ find_package(catkin REQUIRED)
 #   FILES
 #   Service1.srv
 #   Service2.srv
-# )
-
-## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
-#   Action2.action
 # )
 
 ## Generate added messages and services with any dependencies listed here
@@ -76,10 +50,12 @@ find_package(catkin REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
+INCLUDE_DIRS include/${PROJECT_NAME}
 #  INCLUDE_DIRS include
-#  LIBRARIES talos_machinelearning
+#  LIBRARIES daspr_machinelearning
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
+CATKIN_DEPENDS sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2 message_runtime
 )
 
 ###########
@@ -89,24 +65,44 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
-
+include_directories(include/${PROJECT_NAME})
 ## Declare a cpp library
-# add_library(talos_machinelearning
-#   src/${PROJECT_NAME}/talos_machinelearning.cpp
+# add_library(daspr_machinelearning
+#   src/${PROJECT_NAME}/daspr_machinelearning.cpp
 # )
-
+add_library(normalization src/Normalization.cpp)
+add_library(dataset src/Dataset.cpp)
+add_library(experiment src/Experiment.cpp)
+add_library(unsupervisedfeatures src/UnsupervisedFeatures.cpp)
+add_library(supervisedfeatures src/SupervisedFeatures.cpp)
+add_library(ROC src/ROC.cpp)
+add_library(confusionmatrix src/ConfusionMatrix.cpp)
+add_library(featureextractor src/FeatureExtractor.cpp)
 ## Declare a cpp executable
-# add_executable(talos_machinelearning_node src/talos_machinelearning_node.cpp)
+# add_executable(daspr_machinelearning_node src/daspr_machinelearning_node.cpp)
+add_executable(general_object_recognition src/GeneralObjectRecognitionModel.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-# add_dependencies(talos_machinelearning_node talos_machinelearning_generate_messages_cpp)
+# add_dependencies(daspr_machinelearning_node daspr_machinelearning_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(talos_machinelearning_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(general_object_recognition
+   ${catkin_LIBRARIES} 
+ )
 
+target_link_libraries(dataset ${catkin_LIBRARIES})
+target_link_libraries(normalization ${catkin_LIBRARIES})
+target_link_libraries(general_object_recognition experiment)
+target_link_libraries(general_object_recognition dataset)
+target_link_libraries(general_object_recognition normalization)
+target_link_libraries(general_object_recognition unsupervisedfeatures)
+target_link_libraries(general_object_recognition supervisedfeatures)
+target_link_libraries(supervisedfeatures ${OpenCV_LIBRARIES})
+target_link_libraries(general_object_recognition ${OpenCV_LIBRARIES})
+target_link_libraries(general_object_recognition featureextractor)
+target_link_libraries(featureextractor ${OpenCV_LIBRARIES})
+target_link_libraries(general_object_recognition confusionmatrix)
 #############
 ## Install ##
 #############
@@ -122,7 +118,7 @@ catkin_package(
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS talos_machinelearning talos_machinelearning_node
+# install(TARGETS daspr_machinelearning daspr_machinelearning_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -147,7 +143,7 @@ catkin_package(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_talos_machinelearning.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_daspr_machinelearning.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

@@ -1,0 +1,24 @@
+<launch>
+<master auto="start"/>
+
+ <include file="$(find tbots_navigation)/launch/thunderbots_drive.launch"/>
+ <include file="$(find sensors)/launch/start_kinect.launch"/>
+  <include file="$(find tbots_navigation)/amcl_diff.launch" />
+  <include file="$(find talos_base_controller)/base.launch" />
+
+  <node pkg="tf" type="static_transform_publisher" name="horizontal_base_plate" args="0 0 0.08 0 0 0 horizontal_base_plate camera_depth_frame 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_base_plate_tf args="0 0 0 0 0 0 horizontal_base_plate odom 100"/>
+
+
+
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find tbots_navigation)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find tbots_navigation)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find tbots_navigation)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tbots_navigation)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find tbots_navigation)/base_local_planner_params.yaml" command="load" />
+  </node>
+
+
+
+</launch>
