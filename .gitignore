@@ -29,6 +29,9 @@ output/
 *.log
 *.csv
 
+#ignore gtest
+gtest-1.7.0/
+
 #cmake generated files
 *.cmake
 *.make
