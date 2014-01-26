@@ -28,3 +28,13 @@ output/
 # log files
 *.log
 *.csv
+
+#cmake generated files
+*.cmake
+*.make
+
+Makefile
+
+CMakeFiles/
+catkin_generated/
+CMakeCache.txt
