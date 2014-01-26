@@ -33,8 +33,6 @@ output/
 *.cmake
 *.make
 
-Makefile
-
 CMakeFiles/
 catkin_generated/
 CMakeCache.txt
