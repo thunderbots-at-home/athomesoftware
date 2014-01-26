@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "talos_base_controller")
-set(talos_base_controller_MAINTAINER "michael moritsugu <mmoritsugu@gmail.com>")
-set(talos_base_controller_DEPRECATED "")
-set(talos_base_controller_VERSION "0.0.1")
-set(talos_base_controller_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "nav_msgs")
-set(talos_base_controller_RUN_DEPENDS "roscpp" "rospy" "std_msgs" "nav_msgs")
-set(talos_base_controller_BUILDTOOL_DEPENDS "catkin")

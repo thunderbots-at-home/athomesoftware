@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC    -shared -Wl,-soname,libconfusionmatrix.so -o devel/lib/libconfusionmatrix.so CMakeFiles/confusionmatrix.dir/src/ConfusionMatrix.cpp.o 

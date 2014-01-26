@@ -1,8 +1,0 @@
-prefix=/home/marco/catkin_ws/install
-
-Name: talos_description
-Description: Description of talos_description
-Version: 0.0.0
-Cflags: 
-Libs: -L/home/marco/catkin_ws/install/lib 
-Requires: 

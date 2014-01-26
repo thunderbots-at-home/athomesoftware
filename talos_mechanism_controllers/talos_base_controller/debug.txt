@@ -1,4 +1,0 @@
-initial message sent
-maybe the class is removed from memory after the try block?
-maybe issue with dereferencing in callback
-maybe issue with usb_msg string (I didn't try it out)
