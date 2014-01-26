@@ -10,4 +10,6 @@ catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
 
-source devel/setup.sh
+## ROS environment variables for workspace are available
+## when opening a new terminal
+echo "source ../devel/setup.sh" >> ~/.bashrc
