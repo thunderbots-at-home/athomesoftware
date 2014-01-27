@@ -29,8 +29,8 @@
     double _interRightMotorRPMSet;
     
     // Tuning parameters
-    int linear_x_constant = 1;
-    int angular_z_constant = 10;
+    int linear_x_constant = 100;
+    int angular_z_constant = 1000;
 
 // --------------------- //  
 //    MANUAL JOYSTICK    //
