@@ -1,8 +1,9 @@
 <package>
-  <name>turtlebot_follower</name>
+  <name>talos_follower</name>
   <version>2.2.4</version>
   <description>
-       Follower for the turtlebot. Follows humans and robots around by following the centroid of a box points in front of the turtlebot.
+       Follower for the talos. Follows humans and robots around by following the centroid of a box points in front of the talos.
+	Uses turtlebot_follower.
   </description>
 
   <maintainer email="stonier@rnd.yujinrobot.com">Daniel Stonier</maintainer>
