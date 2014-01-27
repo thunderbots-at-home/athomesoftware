@@ -6,11 +6,12 @@
 	note: don't go above 90% of max	motor is spec'd to run at max 3.6 
 	rotations per second
 */
-double CalcRPS( double* twist_msg, char wheel ) {
+double CalcRPS( double* twist_msg, char wheel, int linear_multiplier, int angular_multiplier ) {
 	if (wheel != 'L' && wheel != 'R') /* handle bad arguments */
 		return 0;
 
-	return CalcLinearRPS( twist_msg[0] ) + CalcAngularRPS( twist_msg[2], wheel );
+	return linear_multiplier * CalcLinearRPS( twist_msg[0] ) + 
+		angular_multiplier * CalcAngularRPS( twist_msg[2], wheel );
 }
 
 double CalcLinearRPS( double linear_velocity ) {

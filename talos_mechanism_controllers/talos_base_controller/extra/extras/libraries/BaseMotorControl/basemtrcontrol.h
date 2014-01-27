@@ -28,7 +28,7 @@
 	left_wheel_rps = CalcRPS(msg, 'L')
 
 */
-double CalcRPS( double* twist_msg , char wheel );
+double CalcRPS( double* twist_msg , char wheel, int linear_x_constant, int angular_z_constant );
 
 /* converts linear velocity into RPS */
 double CalcLinearRPS( double linear_velocity ); 

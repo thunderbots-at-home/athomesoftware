@@ -1,4 +1,3 @@
-#include <parser.h>
 #include <Encoder.h>
 #include <PID_v1_custom.h> // Include PID library for closed loop control
 #include <basemtrcontrol.h>
@@ -13,20 +12,25 @@
 //    MODE SET    //
 // -------------- //
 
-    const boolean JOYSTICK = true;      // if joystick is disabled, it will accept commands via serial communication (USB), and vice versa
+    const boolean JOYSTICK = false;      // if joystick is disabled, it will accept commands via serial communication (USB), and vice versa
     const boolean PID_TUNE = false;
-    const boolean PUSH_TO_RUN = true;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
+    const boolean PUSH_TO_RUN = false;                      // If true, requires pressing down on joystick for robot to move.  If false, pressing does nothing.
 
 // -------------------------- //  
 //    SERIAL COMMUNICATION    //
 // -------------------------- //  
 
+    // Variables to handle serial communication
     String inputString = "";         // a string to hold incoming data
     boolean stringComplete = false;  // whether the string is complete
 
-    // serial msg variables:
+    // intermediate variables for storing results for new RPM set points
     double _interLeftMotorRPMSet;
     double _interRightMotorRPMSet;
+    
+    // Tuning parameters
+    int linear_x_constant = 1;
+    int angular_z_constant = 10;
 
 // --------------------- //  
 //    MANUAL JOYSTICK    //
@@ -235,8 +239,8 @@ void loop()
         }
         
         // Set H-bridge pins to select motor direction based on wheel velocity setpoint
-        setMotorDirection(_leftMotorRPMset, INA1, INB1);  //Sets Pin outs for Pololu 705 
-        setMotorDirection(_rightMotorRPMset, INA2, INB2);
+        setMotorDirectionOrDie(_leftMotorRPMset, INA1, INB1, 'L');  //Sets Pin outs for Pololu 705 
+        setMotorDirectionOrDie(_rightMotorRPMset, INA2, INB2, 'R');
          
         // Set wheel velocity setpoints to magnitude only (direction already set above)
         _leftMotorRPMset = abs(_leftMotorRPMset);
@@ -260,11 +264,6 @@ void loop()
     // push new velocity to motor driver 
     analogWrite(PWMpin1, _leftOutput); 
     analogWrite(PWMpin2, _rightOutput); 
-    
-//    Serial.print(_leftOutput);
-//    Serial.print(",");
-//    Serial.print(_rightOutput);
-//    Serial.print("\n");
     
     logLoop();
     
@@ -435,22 +434,31 @@ double CalcRPMSet( double XHigh, double XLow, double XCentre, double AnalogInput
   return output;
 }
 
-int setMotorDirection(double Velocity, int INA, int INB)
+void setMotorDirectionOrDie(double velocity, int INA, int INB, char wheel)
 {
-  if(Velocity > 0){
+  if (wheel == 'L') {
+    setWheelDirection( (-1)*velocity, INA, INB );
+  } else if (wheel == 'R') {
+    setWheelDirection( velocity, INA, INB );
+  } else {
+    abort();
+  }
+}
+
+void setWheelDirection(double velocity, int INA, int INB)
+{
+  if(velocity > 0){
     digitalWrite(INA, HIGH);
     digitalWrite(INB, LOW);
   }
-  else if (Velocity < 0){
+  else if (velocity < 0){
     digitalWrite(INA, LOW);
     digitalWrite(INB, HIGH);
   }
   else{
     digitalWrite(INA, LOW);
     digitalWrite(INB, LOW);
-    Velocity = 0;
-  }
-  return 1;
+  }  
 }
 
 
@@ -500,7 +508,7 @@ void serialEvent() {
       stringComplete = true;
       
     if (stringComplete) {
-      OnReceived(inputString);
+      onReceived(inputString);
 
     // clear the string:
     inputString = "";
@@ -510,7 +518,7 @@ void serialEvent() {
   }
 }
 
-void PrintDouble( double val, unsigned int precision){
+void printDouble( double val, unsigned int precision){
 // prints val with number of decimal places determine by precision
 // NOTE: precision is 1 followed by the number of zeros for the desired number of decimial places
 // example: printDouble( 3.1415, 100); // prints 3.14 (two decimal places)
@@ -522,38 +530,42 @@ void PrintDouble( double val, unsigned int precision){
         frac = (val - int(val)) * precision;
     else
         frac = (int(val)- val ) * precision;
-    Serial.println(frac,DEC) ;
+    Serial.print(frac,DEC) ;
 }
 
-void ProcessTwist(double * twistvals) {
- _interLeftMotorRPMSet = CalcRPS(twistvals, 'L');
- Serial.print("Left Wheel: ");
- Serial.println(_interLeftMotorRPMSet);
- 
- _interRightMotorRPMSet = CalcRPS(twistvals, 'R');
- Serial.print("Right Wheel: ");
- Serial.println(_interRightMotorRPMSet);
- 
+void processTwist( double& linear_x, double& linear_y, double& angular_z ) {
+ double twistvals[] = {linear_x, linear_y, angular_z};
+ _interLeftMotorRPMSet = CalcRPS(twistvals, 'L', linear_x_constant, angular_z_constant);
+ _interRightMotorRPMSet = CalcRPS(twistvals, 'R', linear_x_constant, angular_z_constant);
 }
 
-void OnReceived(String s) {
+void onReceived(String s) {
   if (s == "initializing\n") {
     Serial.print(s);
   } else {
-    Serial.print(s); // TODO debug
-      //copy String object's contents into char array
-      char carr[s.length()];
-      s.toCharArray(carr, s.length());
+    
+    int first_comma_index = s.indexOf(',');
+    int second_comma_index = s.indexOf(',', first_comma_index+1);
+    int newline_index = s.indexOf('\n', second_comma_index+1);
+    
+    // String buffers
+    String arg_1 = s.substring( 0, first_comma_index );
+    String arg_2 = s.substring( first_comma_index+1, second_comma_index );
+    String arg_3 = s.substring( second_comma_index+1, newline_index );
+    
+    char arg_1_char[arg_1.length()+1];
+    char arg_2_char[arg_2.length()+1];
+    char arg_3_char[arg_3.length()+1];
+    
+    arg_1.toCharArray( arg_1_char, arg_1.length()+1 );
+    arg_2.toCharArray( arg_2_char, arg_2.length()+1 );
+    arg_3.toCharArray( arg_3_char, arg_3.length()+1 );
+    
+    double linear_x = atof( arg_1_char );
+    double linear_y = atof( arg_2_char );
+    double angular_z = atof( arg_3_char );
       
-      //results container.
-      //double array contains parsed values.
-      double parsedvals[3];
-      
-      //parse character array into results container
-      parse_twist((const char*) carr, parsedvals);
-      
-      //handle results
-      ProcessTwist(parsedvals);
+    processTwist( linear_x, linear_y, angular_z );
   }
 }
 
@@ -620,17 +632,17 @@ void logLoop()
   Serial.print(',');
   Serial.print(eStopActive);         // 1 if E-stop is active (robot stopped), 0 is off (robot is active)
   Serial.print(',');
-  Serial.print(_leftMotorRPMset);    // Speed setpoint of left motor
+  printDouble(_leftMotorRPMset, 10000);    // Speed setpoint of left motor
   Serial.print(',');
-  Serial.print(_rightMotorRPMset);   // Speed setpoint of right motor
+  printDouble(_rightMotorRPMset, 10000);   // Speed setpoint of right motor
   Serial.print(',');
-  Serial.print(_leftOutput);         // PID output sent to left motor
+  printDouble(_leftOutput, 10000);         // PID output sent to left motor
   Serial.print(',');
-  Serial.print(_rightOutput);        // PID output sent to right motor
+  printDouble(_rightOutput, 10000);        // PID output sent to right motor
   Serial.print(',');
-  Serial.print(_leftFeedback);       // Encoder feedback from left motor
+  printDouble(_leftFeedback, 10000);       // Encoder feedback from left motor
   Serial.print(',');
-  Serial.print(_rightFeedback);      // Encoder feedback from right motor
+  printDouble(_rightFeedback, 10000);      // Encoder feedback from right motor
   
   if( PID_TUNE )          // Prints PID gains in real-time if it is in manual tuning mode
   {

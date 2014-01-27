@@ -79,10 +79,10 @@ int main( int argc, char **argv ) {
 
     /* create publisher and subscriber */
     ROS_INFO( "subscribing to cmd_vel" );
-    ros::Subscriber sub = n.subscribe("cmd_vel", 1000, cmdCallBack );
+    ros::Subscriber sub = n.subscribe("camera/cmd_vel", 1, cmdCallBack );
 
     ROS_INFO( "publishing to odom" );
-    ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
+    ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
     ros::Rate loop_rate(10);
 
     try {
