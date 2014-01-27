@@ -14,6 +14,9 @@ sudo apt-get install ros-${ROS_DISTRO}-turtlebot-apps
 sudo apt-get install cmake python-catkin_pkg python-empy python-nose python-setuptools libgtest-dev build-essential
 sudo apt-get install ros-${ROS_DISTRO}-catkin
 
-
+## add sixad for using ps3 controller
+sudo apt-add-repository ppa:falk-t-j/qtsixa
+sudo apt-get update
+sudo apt-get install sixad
 
 
