@@ -1,5 +1,0 @@
-Header header
-sensor_msgs/Image image
-string[] objects_to_check
----
-vision/RealObject[] objects_matched
