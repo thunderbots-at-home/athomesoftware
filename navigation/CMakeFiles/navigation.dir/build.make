@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/navigation
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/navigation
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/navigation.dir/depend.make
+include athomesoftware/navigation/CMakeFiles/navigation.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/navigation.dir/progress.make
+include athomesoftware/navigation/CMakeFiles/navigation.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/navigation.dir/flags.make
+include athomesoftware/navigation/CMakeFiles/navigation.dir/flags.make
 
-CMakeFiles/navigation.dir/src/AshianMap.cpp.o: CMakeFiles/navigation.dir/flags.make
-CMakeFiles/navigation.dir/src/AshianMap.cpp.o: src/AshianMap.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/navigation/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/navigation.dir/src/AshianMap.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/navigation.dir/src/AshianMap.cpp.o -c /home/marco/catkin_ws/src/navigation/src/AshianMap.cpp
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o: athomesoftware/navigation/CMakeFiles/navigation.dir/flags.make
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o: athomesoftware/navigation/src/AshianMap.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/navigation.dir/src/AshianMap.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp
 
-CMakeFiles/navigation.dir/src/AshianMap.cpp.i: cmake_force
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/navigation.dir/src/AshianMap.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/navigation/src/AshianMap.cpp > CMakeFiles/navigation.dir/src/AshianMap.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp > CMakeFiles/navigation.dir/src/AshianMap.cpp.i
 
-CMakeFiles/navigation.dir/src/AshianMap.cpp.s: cmake_force
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/navigation.dir/src/AshianMap.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/navigation/src/AshianMap.cpp -o CMakeFiles/navigation.dir/src/AshianMap.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp -o CMakeFiles/navigation.dir/src/AshianMap.cpp.s
 
-CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires:
-.PHONY : CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires:
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires
 
-CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides: CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires
-	$(MAKE) -f CMakeFiles/navigation.dir/build.make CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides.build
-.PHONY : CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides: athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires
+	$(MAKE) -f athomesoftware/navigation/CMakeFiles/navigation.dir/build.make athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides.build
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides
 
-CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides.build: CMakeFiles/navigation.dir/src/AshianMap.cpp.o
+athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.provides.build: athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o
 
 # Object files for target navigation
 navigation_OBJECTS = \
@@ -76,24 +76,24 @@ navigation_OBJECTS = \
 # External object files for target navigation
 navigation_EXTERNAL_OBJECTS =
 
-devel/lib/libnavigation.so: CMakeFiles/navigation.dir/src/AshianMap.cpp.o
-devel/lib/libnavigation.so: CMakeFiles/navigation.dir/build.make
-devel/lib/libnavigation.so: CMakeFiles/navigation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library devel/lib/libnavigation.so"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/navigation.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/libnavigation.so: athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o
+/home/marco/catkin_ws/devel/lib/libnavigation.so: athomesoftware/navigation/CMakeFiles/navigation.dir/build.make
+/home/marco/catkin_ws/devel/lib/libnavigation.so: athomesoftware/navigation/CMakeFiles/navigation.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library /home/marco/catkin_ws/devel/lib/libnavigation.so"
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/navigation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/navigation.dir/build: devel/lib/libnavigation.so
-.PHONY : CMakeFiles/navigation.dir/build
+athomesoftware/navigation/CMakeFiles/navigation.dir/build: /home/marco/catkin_ws/devel/lib/libnavigation.so
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/build
 
-CMakeFiles/navigation.dir/requires: CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires
-.PHONY : CMakeFiles/navigation.dir/requires
+athomesoftware/navigation/CMakeFiles/navigation.dir/requires: athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o.requires
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/requires
 
-CMakeFiles/navigation.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/navigation.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/navigation.dir/clean
+athomesoftware/navigation/CMakeFiles/navigation.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && $(CMAKE_COMMAND) -P CMakeFiles/navigation.dir/cmake_clean.cmake
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/clean
 
-CMakeFiles/navigation.dir/depend:
-	cd /home/marco/catkin_ws/src/navigation && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation/CMakeFiles/navigation.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/navigation.dir/depend
+athomesoftware/navigation/CMakeFiles/navigation.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/navigation /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/navigation /home/marco/catkin_ws/src/athomesoftware/navigation/CMakeFiles/navigation.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/depend
 

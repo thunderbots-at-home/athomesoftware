@@ -1,0 +1,14 @@
+/home/marco/catkin_ws/src/audio/CMakeFiles/_catkin_empty_exported_target.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_gencpp.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_generate_messages.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_generate_messages_cpp.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_generate_messages_lisp.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_generate_messages_py.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_genlisp.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/audio_genpy.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/clean_test_results.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/doxygen.dir
+/home/marco/catkin_ws/src/audio/gtest/CMakeFiles/gtest.dir
+/home/marco/catkin_ws/src/audio/gtest/CMakeFiles/gtest_main.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/run_tests.dir
+/home/marco/catkin_ws/src/audio/CMakeFiles/tests.dir

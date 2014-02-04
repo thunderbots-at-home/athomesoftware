@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "talos_teleop")
+set(talos_teleop_MAINTAINER "michael moritsugu <mmoritsugu@gmail.com>")
+set(talos_teleop_DEPRECATED "")
+set(talos_teleop_VERSION "0.0.1")
+set(talos_teleop_BUILD_DEPENDS "joy" "roscpp")
+set(talos_teleop_RUN_DEPENDS "joy" "roscpp")
+set(talos_teleop_BUILDTOOL_DEPENDS "catkin")

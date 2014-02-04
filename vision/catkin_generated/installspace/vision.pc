@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: vision
-Description: Description of vision
-Version: 0.0.0
-Cflags: -Iinclude
-Libs: -L/usr/local/lib 
-Requires: sensor_msgs geometry_msgs roscpp nodelet image_transport opencv2 message_runtime

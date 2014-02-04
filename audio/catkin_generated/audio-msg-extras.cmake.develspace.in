@@ -1,0 +1,2 @@
+set(audio_MESSAGE_FILES "/home/marco/catkin_ws/src/athomesoftware/audio/msg/FRClientGoal.msg")
+set(audio_SERVICE_FILES "")

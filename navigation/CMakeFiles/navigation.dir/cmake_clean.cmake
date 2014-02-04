@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/navigation.dir/src/AshianMap.cpp.o"
-  "devel/lib/libnavigation.pdb"
-  "devel/lib/libnavigation.so"
+  "/home/marco/catkin_ws/devel/lib/libnavigation.pdb"
+  "/home/marco/catkin_ws/devel/lib/libnavigation.so"
 )
 
 # Per-language clean rules from dependency scanning.

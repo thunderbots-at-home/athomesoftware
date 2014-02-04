@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/object_classification_test.dir/test/object_classification_test.cpp.o  -o devel/lib/vision/object_classification_test -rdynamic -L/home/marco/catkin_ws/src/vision/gtest gtest/libgtest.so -lpthread -Wl,-rpath,/home/marco/catkin_ws/src/vision/gtest 

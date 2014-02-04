@@ -32,42 +32,42 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/navigation
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/navigation
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 # Include any dependencies generated for this target.
-include CMakeFiles/ashian_map.dir/depend.make
+include athomesoftware/navigation/CMakeFiles/ashian_map.dir/depend.make
 
 # Include the progress variables for this target.
-include CMakeFiles/ashian_map.dir/progress.make
+include athomesoftware/navigation/CMakeFiles/ashian_map.dir/progress.make
 
 # Include the compile flags for this target's objects.
-include CMakeFiles/ashian_map.dir/flags.make
+include athomesoftware/navigation/CMakeFiles/ashian_map.dir/flags.make
 
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: CMakeFiles/ashian_map.dir/flags.make
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: src/AshianMap.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/navigation/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o -c /home/marco/catkin_ws/src/navigation/src/AshianMap.cpp
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: athomesoftware/navigation/CMakeFiles/ashian_map.dir/flags.make
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o: athomesoftware/navigation/src/AshianMap.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/marco/catkin_ws/src/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o"
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o -c /home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp
 
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i: cmake_force
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/navigation/src/AshianMap.cpp > CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp > CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i
 
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s: cmake_force
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/navigation/src/AshianMap.cpp -o CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/marco/catkin_ws/src/athomesoftware/navigation/src/AshianMap.cpp -o CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s
 
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires:
-.PHONY : CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires:
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires
 
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides: CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires
-	$(MAKE) -f CMakeFiles/ashian_map.dir/build.make CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides.build
-.PHONY : CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides: athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires
+	$(MAKE) -f athomesoftware/navigation/CMakeFiles/ashian_map.dir/build.make athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides.build
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides
 
-CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides.build: CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.provides.build: athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o
 
 # Object files for target ashian_map
 ashian_map_OBJECTS = \
@@ -76,38 +76,38 @@ ashian_map_OBJECTS = \
 # External object files for target ashian_map
 ashian_map_EXTERNAL_OBJECTS =
 
-devel/lib/navigation/ashian_map: CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o
-devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libroscpp.so
-devel/lib/navigation/ashian_map: /usr/lib/x86_64-linux-gnu/libpthread.so
-devel/lib/navigation/ashian_map: /usr/lib/libboost_signals-mt.so
-devel/lib/navigation/ashian_map: /usr/lib/libboost_filesystem-mt.so
-devel/lib/navigation/ashian_map: /usr/lib/libboost_system-mt.so
-devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libcpp_common.so
-devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libroscpp_serialization.so
-devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/librostime.so
-devel/lib/navigation/ashian_map: /usr/lib/libboost_date_time-mt.so
-devel/lib/navigation/ashian_map: /usr/lib/libboost_thread-mt.so
-devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/librosconsole.so
-devel/lib/navigation/ashian_map: /usr/lib/libboost_regex-mt.so
-devel/lib/navigation/ashian_map: /usr/lib/liblog4cxx.so
-devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libxmlrpcpp.so
-devel/lib/navigation/ashian_map: CMakeFiles/ashian_map.dir/build.make
-devel/lib/navigation/ashian_map: CMakeFiles/ashian_map.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable devel/lib/navigation/ashian_map"
-	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ashian_map.dir/link.txt --verbose=$(VERBOSE)
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libroscpp.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/x86_64-linux-gnu/libpthread.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/libboost_signals-mt.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/libboost_filesystem-mt.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/libboost_system-mt.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libcpp_common.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libroscpp_serialization.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/librostime.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/libboost_date_time-mt.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/libboost_thread-mt.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/librosconsole.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/libboost_regex-mt.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /usr/lib/liblog4cxx.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: /opt/ros/hydro/lib/libxmlrpcpp.so
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: athomesoftware/navigation/CMakeFiles/ashian_map.dir/build.make
+/home/marco/catkin_ws/devel/lib/navigation/ashian_map: athomesoftware/navigation/CMakeFiles/ashian_map.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/marco/catkin_ws/devel/lib/navigation/ashian_map"
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ashian_map.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/ashian_map.dir/build: devel/lib/navigation/ashian_map
-.PHONY : CMakeFiles/ashian_map.dir/build
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/build: /home/marco/catkin_ws/devel/lib/navigation/ashian_map
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/build
 
-CMakeFiles/ashian_map.dir/requires: CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires
-.PHONY : CMakeFiles/ashian_map.dir/requires
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/requires: athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o.requires
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/requires
 
-CMakeFiles/ashian_map.dir/clean:
-	$(CMAKE_COMMAND) -P CMakeFiles/ashian_map.dir/cmake_clean.cmake
-.PHONY : CMakeFiles/ashian_map.dir/clean
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/clean:
+	cd /home/marco/catkin_ws/src/athomesoftware/navigation && $(CMAKE_COMMAND) -P CMakeFiles/ashian_map.dir/cmake_clean.cmake
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/clean
 
-CMakeFiles/ashian_map.dir/depend:
-	cd /home/marco/catkin_ws/src/navigation && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation /home/marco/catkin_ws/src/navigation/CMakeFiles/ashian_map.dir/DependInfo.cmake --color=$(COLOR)
-.PHONY : CMakeFiles/ashian_map.dir/depend
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/depend:
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/navigation /home/marco/catkin_ws/src /home/marco/catkin_ws/src/athomesoftware/navigation /home/marco/catkin_ws/src/athomesoftware/navigation/CMakeFiles/ashian_map.dir/DependInfo.cmake --color=$(COLOR)
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/depend
 

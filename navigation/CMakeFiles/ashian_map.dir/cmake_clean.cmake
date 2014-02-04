@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o"
-  "devel/lib/navigation/ashian_map.pdb"
-  "devel/lib/navigation/ashian_map"
+  "/home/marco/catkin_ws/devel/lib/navigation/ashian_map.pdb"
+  "/home/marco/catkin_ws/devel/lib/navigation/ashian_map"
 )
 
 # Per-language clean rules from dependency scanning.

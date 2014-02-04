@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src/navigation
+CMAKE_SOURCE_DIR = /home/marco/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/marco/catkin_ws/src/navigation
+CMAKE_BINARY_DIR = /home/marco/catkin_ws/src
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -117,14 +117,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/navigation/CMakeFiles /home/marco/catkin_ws/src/navigation/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/navigation/CMakeFiles 0
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles /home/marco/catkin_ws/src/athomesoftware/navigation/CMakeFiles/progress.marks
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marco/catkin_ws/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/clean
 .PHONY : clean
 
 # The main clean target
@@ -133,247 +133,180 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named ashian_map
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/ashian_map.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/ashian_map.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/ashian_map.dir/rule
 
-# Build rule for target.
-ashian_map: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ashian_map
+# Convenience name for target.
+ashian_map: athomesoftware/navigation/CMakeFiles/ashian_map.dir/rule
 .PHONY : ashian_map
 
 # fast build rule for target.
 ashian_map/fast:
-	$(MAKE) -f CMakeFiles/ashian_map.dir/build.make CMakeFiles/ashian_map.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/ashian_map.dir/build.make athomesoftware/navigation/CMakeFiles/ashian_map.dir/build
 .PHONY : ashian_map/fast
 
-#=============================================================================
-# Target rules for targets named clean_test_results
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/navigation.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/navigation.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/navigation.dir/rule
 
-# Build rule for target.
-clean_test_results: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
-.PHONY : clean_test_results
-
-# fast build rule for target.
-clean_test_results/fast:
-	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-.PHONY : clean_test_results/fast
-
-#=============================================================================
-# Target rules for targets named doxygen
-
-# Build rule for target.
-doxygen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 doxygen
-.PHONY : doxygen
-
-# fast build rule for target.
-doxygen/fast:
-	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-.PHONY : doxygen/fast
-
-#=============================================================================
-# Target rules for targets named navigation
-
-# Build rule for target.
-navigation: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 navigation
+# Convenience name for target.
+navigation: athomesoftware/navigation/CMakeFiles/navigation.dir/rule
 .PHONY : navigation
 
 # fast build rule for target.
 navigation/fast:
-	$(MAKE) -f CMakeFiles/navigation.dir/build.make CMakeFiles/navigation.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/navigation.dir/build.make athomesoftware/navigation/CMakeFiles/navigation.dir/build
 .PHONY : navigation/fast
 
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_cpp
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
-# Build rule for target.
-roscpp_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_cpp
+# Convenience name for target.
+roscpp_generate_messages_cpp: athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : roscpp_generate_messages_cpp
 
 # fast build rule for target.
 roscpp_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_cpp.dir/build.make CMakeFiles/roscpp_generate_messages_cpp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 .PHONY : roscpp_generate_messages_cpp/fast
 
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_lisp
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
-# Build rule for target.
-roscpp_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_lisp
+# Convenience name for target.
+roscpp_generate_messages_lisp: athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 .PHONY : roscpp_generate_messages_lisp
 
 # fast build rule for target.
 roscpp_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_lisp.dir/build.make CMakeFiles/roscpp_generate_messages_lisp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 .PHONY : roscpp_generate_messages_lisp/fast
 
-#=============================================================================
-# Target rules for targets named roscpp_generate_messages_py
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_py.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
-# Build rule for target.
-roscpp_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 roscpp_generate_messages_py
+# Convenience name for target.
+roscpp_generate_messages_py: athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_py.dir/rule
 .PHONY : roscpp_generate_messages_py
 
 # fast build rule for target.
 roscpp_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/roscpp_generate_messages_py.dir/build.make CMakeFiles/roscpp_generate_messages_py.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_py.dir/build.make athomesoftware/navigation/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_cpp
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
-# Build rule for target.
-rosgraph_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_cpp
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 .PHONY : rosgraph_msgs_generate_messages_cpp
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_lisp
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
-# Build rule for target.
-rosgraph_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_lisp
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 .PHONY : rosgraph_msgs_generate_messages_lisp
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 .PHONY : rosgraph_msgs_generate_messages_lisp/fast
 
-#=============================================================================
-# Target rules for targets named rosgraph_msgs_generate_messages_py
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
-# Build rule for target.
-rosgraph_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rosgraph_msgs_generate_messages_py
+# Convenience name for target.
+rosgraph_msgs_generate_messages_py: athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : rosgraph_msgs_generate_messages_py
 
 # fast build rule for target.
 rosgraph_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make athomesoftware/navigation/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
-#=============================================================================
-# Target rules for targets named run_tests
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
-# Build rule for target.
-run_tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests
-.PHONY : run_tests
-
-# fast build rule for target.
-run_tests/fast:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-.PHONY : run_tests/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
-
-# Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+# Convenience name for target.
+std_msgs_generate_messages_cpp: athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 .PHONY : std_msgs_generate_messages_cpp
 
 # fast build rule for target.
 std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 .PHONY : std_msgs_generate_messages_cpp/fast
 
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
-# Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+# Convenience name for target.
+std_msgs_generate_messages_lisp: athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 .PHONY : std_msgs_generate_messages_lisp
 
 # fast build rule for target.
 std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
 
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
+# Convenience name for target.
+athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
+	cd /home/marco/catkin_ws/src && $(MAKE) -f CMakeFiles/Makefile2 athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
-# Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+# Convenience name for target.
+std_msgs_generate_messages_py: athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 .PHONY : std_msgs_generate_messages_py
 
 # fast build rule for target.
 std_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_py.dir/build.make athomesoftware/navigation/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tests
-
-# Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tests
-.PHONY : tests
-
-# fast build rule for target.
-tests/fast:
-	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-.PHONY : tests/fast
-
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
 
 src/AshianMap.o: src/AshianMap.cpp.o
 .PHONY : src/AshianMap.o
 
 # target to build an object file
 src/AshianMap.cpp.o:
-	$(MAKE) -f CMakeFiles/ashian_map.dir/build.make CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o
-	$(MAKE) -f CMakeFiles/navigation.dir/build.make CMakeFiles/navigation.dir/src/AshianMap.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/ashian_map.dir/build.make athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.o
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/navigation.dir/build.make athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.o
 .PHONY : src/AshianMap.cpp.o
 
 src/AshianMap.i: src/AshianMap.cpp.i
@@ -381,8 +314,8 @@ src/AshianMap.i: src/AshianMap.cpp.i
 
 # target to preprocess a source file
 src/AshianMap.cpp.i:
-	$(MAKE) -f CMakeFiles/ashian_map.dir/build.make CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i
-	$(MAKE) -f CMakeFiles/navigation.dir/build.make CMakeFiles/navigation.dir/src/AshianMap.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/ashian_map.dir/build.make athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.i
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/navigation.dir/build.make athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.i
 .PHONY : src/AshianMap.cpp.i
 
 src/AshianMap.s: src/AshianMap.cpp.s
@@ -390,8 +323,8 @@ src/AshianMap.s: src/AshianMap.cpp.s
 
 # target to generate assembly for a file
 src/AshianMap.cpp.s:
-	$(MAKE) -f CMakeFiles/ashian_map.dir/build.make CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s
-	$(MAKE) -f CMakeFiles/navigation.dir/build.make CMakeFiles/navigation.dir/src/AshianMap.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/ashian_map.dir/build.make athomesoftware/navigation/CMakeFiles/ashian_map.dir/src/AshianMap.cpp.s
+	cd /home/marco/catkin_ws/src && $(MAKE) -f athomesoftware/navigation/CMakeFiles/navigation.dir/build.make athomesoftware/navigation/CMakeFiles/navigation.dir/src/AshianMap.cpp.s
 .PHONY : src/AshianMap.cpp.s
 
 # Help Target
@@ -401,8 +334,6 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... ashian_map"
-	@echo "... clean_test_results"
-	@echo "... doxygen"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
@@ -416,14 +347,10 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... run_tests"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... test"
-	@echo "... tests"
-	@echo "... gtest"
-	@echo "... gtest_main"
 	@echo "... src/AshianMap.o"
 	@echo "... src/AshianMap.i"
 	@echo "... src/AshianMap.s"
@@ -438,6 +365,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/marco/catkin_ws/src && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

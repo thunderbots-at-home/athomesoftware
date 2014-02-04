@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "talos_vision")
+set(talos_vision_MAINTAINER "marco <marco@todo.todo>")
+set(talos_vision_DEPRECATED "")
+set(talos_vision_VERSION "0.0.0")
+set(talos_vision_BUILD_DEPENDS )
+set(talos_vision_RUN_DEPENDS )
+set(talos_vision_BUILDTOOL_DEPENDS "catkin")
