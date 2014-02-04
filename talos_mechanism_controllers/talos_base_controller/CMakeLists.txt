@@ -8,6 +8,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  nav_msgs
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -79,9 +81,9 @@ add_subdirectory( libs )
 message ("nothing to see here")
 
 ## Declare a cpp library
-# add_library(base_controller
-#   src/${PROJECT_NAME}/base_controller.cpp
-# )
+ add_library( odometry_manager
+   libs/odometry_manager.cc
+ )
 
 ## Declare a cpp executable
  add_executable( base_controller_node src/base_controller_node.cpp )
@@ -91,11 +93,15 @@ message ("nothing to see here")
 # add_dependencies(base_controller_node base_controller_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(base_controller_node
-   ${Boost_LIBRARIES} 
-   ${catkin_LIBRARIES}
-   BufferedAsyncSerial
- )
+target_link_libraries(base_controller_node
+  ${Boost_LIBRARIES} 
+  ${catkin_LIBRARIES}
+  BufferedAsyncSerial
+)
+
+target_link_libraries( odometry_manager
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
@@ -135,12 +141,13 @@ message ("nothing to see here")
 #############
 ## Testing ##
 #############
+message ("building tests for ${PROJECT_NAME}")
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_base_controller.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+ catkin_add_gtest(odometry-manager-test test/odometry_manager_test.cc)
+ if(TARGET odometry-manager-test)
+   target_link_libraries(odometry-manager-test odometry_manager)
+ endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
