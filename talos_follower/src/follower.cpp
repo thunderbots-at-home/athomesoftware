@@ -57,10 +57,10 @@ public:
    * @brief The constructor for the follower.
    * Constructor for the follower.
    */
-  TurtlebotFollower() : min_y_(0.1), max_y_(0.5),
+  TurtlebotFollower() : min_y_(0.2), max_y_(0.5),
                         min_x_(-0.2), max_x_(0.2),
-                        max_z_(0.8), goal_z_(0.6),
-                        z_scale_(1.0), x_scale_(5.0)
+                        max_z_(0.8), goal_z_(3.0),
+                        z_scale_(8.0), x_scale_(5.0)
   {
 
   }
@@ -145,7 +145,7 @@ private:
   {
     //X,Y,Z of the centroid
     float x = 0.0;
-    float y = 0.0;
+    float y = 0.0;	
     float z = 1e6;
     //Number of points observed
     unsigned int n = 0;
@@ -157,7 +157,7 @@ private:
       if (!std::isnan(x) && !std::isnan(y) && !std::isnan(z))
       {
         //Test to ensure the point is within the aceptable box.
-        if (-pt.y > min_y_ && -pt.y < max_y_ && pt.x < max_x_ && pt.x > min_x_ && pt.z < max_z_)
+        if (-pt.y > min_y_ && -pt.y < max_y_ && pt.x < max_x_ && pt.x > min_x_ && pt.z < max_z_ )
         {
           //Add the point to the totals
           x += pt.x;
@@ -183,7 +183,7 @@ private:
         return;
       }
 
-      ROS_DEBUG("Centroid at %f %f %f with %d points", x, y, z, n);
+      ROS_INFO("Centroid at %f %f %f with %d points", x, y, z, n);
       publishMarker(x, y, z);
 
       if (enabled_)
