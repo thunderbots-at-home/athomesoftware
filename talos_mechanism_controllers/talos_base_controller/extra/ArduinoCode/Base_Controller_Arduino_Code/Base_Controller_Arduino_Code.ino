@@ -1,9 +1,17 @@
 #include <Encoder.h>
 #include <PID_v1_custom.h> // Include PID library for closed loop control
-#include <basemtrcontrol.h>
+#include <BaseMotorControl.h>
   
 #define INPUT_PULLUP 0x2
   
+
+// ------------------------- FORWARD DECLARATIONS ---------------------
+void onReceived(String s);
+void printDouble( double, unsigned int );
+void processTwist( double&, double&, double& );
+void logSetup();
+void logLoop();
+
 // ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- //
 //                                                             VARIABLE DECLARATIONS                                                              //  
 // ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- //
@@ -628,6 +636,8 @@ void logSetup()
 
 void logLoop()
 {  
+
+
   Serial.print(millis());            // Total elapsed time
   Serial.print(',');
   Serial.print(eStopActive);         // 1 if E-stop is active (robot stopped), 0 is off (robot is active)
@@ -655,5 +665,8 @@ void logLoop()
   }
   
   Serial.println();
+
+
+
 }
 

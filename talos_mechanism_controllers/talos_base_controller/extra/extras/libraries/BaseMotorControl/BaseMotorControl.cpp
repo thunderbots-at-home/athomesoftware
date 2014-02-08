@@ -1,4 +1,4 @@
-#include "basemtrcontrol.h"
+#include "BaseMotorControl.h"
 
 /*
 	postcondition: 0 < RPS < 4

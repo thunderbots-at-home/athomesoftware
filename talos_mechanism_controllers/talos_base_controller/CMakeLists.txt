@@ -53,7 +53,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include/${PROJECT_NAME}
 #  LIBRARIES base_controller
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -64,15 +64,16 @@ catkin_package(
 ###########
 
 set( Boost_USE_STATIC_LIBS on )
-find_package( Boost REQUIRED COMPONENTS system thread )
+find_package( Boost REQUIRED COMPONENTS system thread)
 
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs"
+  ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs" include 
 )
+
 
 add_subdirectory( libs )
 
@@ -82,6 +83,8 @@ message ("nothing to see here")
 # add_library(base_controller
 #   src/${PROJECT_NAME}/base_controller.cpp
 # )
+add_library(parser src/parser.cpp)
+
 
 ## Declare a cpp executable
  add_executable( base_controller_node src/base_controller_node.cpp )
@@ -90,12 +93,15 @@ message ("nothing to see here")
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(base_controller_node base_controller_generate_messages_cpp)
 
+
 ## Specify libraries to link a library or executable target against
  target_link_libraries(base_controller_node
    ${Boost_LIBRARIES} 
    ${catkin_LIBRARIES}
    BufferedAsyncSerial
  )
+
+
 
 #############
 ## Install ##
@@ -141,6 +147,8 @@ message ("nothing to see here")
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
+
+catkin_add_gtest(parser_test test/parser_test.cpp)
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)

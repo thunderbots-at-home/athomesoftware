@@ -79,7 +79,7 @@ int main( int argc, char **argv ) {
 
     /* create publisher and subscriber */
     ROS_INFO( "subscribing to cmd_vel" );
-    ros::Subscriber sub = n.subscribe("camera/cmd_vel", 1, cmdCallBack );
+    ros::Subscriber sub = n.subscribe("cmd_vel", 1, cmdCallBack );
 
     ROS_INFO( "publishing to odom" );
     ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
@@ -89,7 +89,7 @@ int main( int argc, char **argv ) {
 
         ROS_INFO( "initializing asynchronous serial communication" );
         std::string device_file;
-        n.param<std::string>("device_file", device_file, "/dev/arduino-mega256");
+        n.param<std::string>("device_file", device_file, "/dev/ttyACM0");
         ROS_INFO( "device_file: %s", device_file.c_str() );
 
         base_controller::async_serial = new BufferedAsyncSerial( device_file , 9600 );
