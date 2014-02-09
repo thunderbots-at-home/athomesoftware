@@ -167,6 +167,45 @@ TEST_F (OdometryManagerTest, TestRotateRightLeft) {
   EXPECT_EQ ( odom_manager.th_vel(), expected_th_vel2 );
 }
 
+
+TEST_F (OdometryManagerTest, TestFromNonZeroStart) {
+
+  ArduinoMessage message;
+  message.time_stamp = 133;
+  message.r_feedback = +70;
+  message.l_feedback = +121;
+  
+  odom_manager.x_global(5.4);
+  odom_manager.y_global(-3.2);
+  odom_manager.th_global(-2*M_PI+.01) ;
+
+  const double expected_left_delta = odom_manager.meters_per_tick() * message.l_feedback;
+  const double expected_right_delta = odom_manager.meters_per_tick() * message.r_feedback;
+  const double expected_distance = ( expected_left_delta + expected_right_delta ) / 2;
+  const double expected_theta_delta = ( expected_left_delta  - expected_right_delta ) / odom_manager.wheel_width();
+
+  const double expected_x_delta = expected_distance * cosf(expected_theta_delta + odom_manager.th_global());
+  const double expected_y_delta = expected_distance * sinf(expected_theta_delta + odom_manager.th_global());
+
+
+  const double expected_x = expected_x_delta + odom_manager.x_global();
+  const double expected_y = expected_y_delta + odom_manager.y_global();
+  const double expected_th = fmod((expected_theta_delta + odom_manager.th_global()),(2*M_PI));
+
+  // ToSeconds(delta_t)
+  const double expected_x_vel = expected_x_delta / odom_manager.ToSeconds(message.time_stamp - odom_manager.previous_timestamp()); 
+  const double expected_y_vel = expected_y_delta / odom_manager.ToSeconds(message.time_stamp - odom_manager.previous_timestamp());
+  const double expected_th_vel = expected_theta_delta / odom_manager.ToSeconds(message.time_stamp - odom_manager.previous_timestamp());
+
+  odom_manager.UpdateOdometry(message);
+
+  EXPECT_EQ ( odom_manager.x_global(), expected_x );
+  EXPECT_EQ ( odom_manager.y_global(), expected_y );
+  EXPECT_EQ ( odom_manager.th_global(), expected_th );
+  EXPECT_EQ ( odom_manager.x_vel(), expected_x_vel );
+  EXPECT_EQ ( odom_manager.y_vel(), expected_y_vel );
+  EXPECT_EQ ( odom_manager.th_vel(), expected_th_vel ); 
+}
 TEST_F (OdometryManagerTest, TestBackRight) {
   ArduinoMessage message;
   message.time_stamp = 133;

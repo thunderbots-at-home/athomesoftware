@@ -22,7 +22,8 @@ void OdometryManager::UpdateOdometry(ArduinoMessage message)
 
   this->x_global_  += x_delta;
   this->y_global_  += y_delta;
-  this->th_global_ += theta_delta;
+
+  this->th_global_ = fmod((theta_delta + th_global_),(2*M_PI));
 
   this->x_vel_ = x_delta / ToSeconds(message.time_stamp - this->previous_timestamp_);
   this->y_vel_ = y_delta / ToSeconds(message.time_stamp - this->previous_timestamp_);
