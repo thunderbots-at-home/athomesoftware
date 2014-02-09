@@ -55,7 +55,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include/${PROJECT_NAME}
 #  LIBRARIES base_controller
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -73,7 +73,7 @@ find_package( Boost REQUIRED COMPONENTS system thread )
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs"
+  ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs" include
 )
 
 add_subdirectory( libs )
