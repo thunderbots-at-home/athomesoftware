@@ -18,6 +18,7 @@ class follow_me_cmds:
     ask_for_name = False
     person_name = "no name"
     def __init__(self):
+        self.pub_kill_ = rospy.Publisher('kill', String)
         rospy.on_shutdown(self.cleanup)
         self.speed = 0.2
 
@@ -39,6 +40,12 @@ class follow_me_cmds:
 	## Check if robot remembers person
 	## Tell robot to remember person
 	## Issue following command
+        if (msg.data.find("stop") > -1:
+            self.pub_kill_.publish(String("kill"))
+        if (msg.data.find("kill") > -1:
+            self.pub_kill_.publish(String("kill"))
+        if (msg.data.find("follow me") > -1:
+            self.pub_kill_.publish(String("run"))
         rospy.sleep(1)
         if msg.data.find("are you ready") > -1:
             pass

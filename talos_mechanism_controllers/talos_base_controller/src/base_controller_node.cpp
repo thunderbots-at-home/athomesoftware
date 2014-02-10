@@ -17,6 +17,7 @@
 
 namespace base_controller {
     BufferedAsyncSerial * async_serial;
+    bool kill;
 
     /* signal-safe flag for whether shutdown is requested */
     sig_atomic_t volatile g_request_shutdown = 0;
@@ -46,8 +47,21 @@ void shutdown_callback (XmlRpc::XmlRpcValue& params, XmlRpc::XmlRpcValue& result
     result = ros::xmlrpc::responseInt(1, "", 0);
 }
 
+void killCallBack(const std_msgs::String::ConstPtr& msg) {
+  ROS_INFO ("KILL KILL KILL KILL KILL KILL KILL: %s", msg->data.c_str());
+  if (msg->data.compare("kill") == 0) {
+    base_controller::kill = true;
+    ROS_INFO( "activating  software kill" );
+  } else if (msg->data.compare("run") == 0) {
+    base_controller::kill = false;
+    ROS_INFO( "deactivating activating software kill" );
+  } else {
+    /* do nothing */
+  }
+}
+
 void cmdCallBack(const geometry_msgs::Twist::ConstPtr& msg) {
-    if ( ros::ok() ) {
+    if ( ros::ok() && !base_controller::kill ) {
         std::string linear_x = boost::lexical_cast<std::string>(msg->linear.x);
         std::string linear_y = boost::lexical_cast<std::string>(msg->linear.y);
         std::string angular_z = boost::lexical_cast<std::string>(msg->angular.z);
@@ -57,10 +71,18 @@ void cmdCallBack(const geometry_msgs::Twist::ConstPtr& msg) {
         ROS_INFO( "sending: %s", usb_msg.c_str() );
 
         try {
-            base_controller::async_serial->writeString( usb_msg );
+          base_controller::async_serial->writeString( usb_msg );
         } catch ( boost::system::system_error& e ) {
-            ROS_ERROR( "Error: %s", e.what() );
+          ROS_ERROR( "Error: %s", e.what() );
         }
+    } else if ( base_controller::kill ) {
+      std::string usb_kill_msg = "0,0,0\n";
+      ROS_INFO( "sending kill message to motor controller, state of var: %d", base_controller::kill );
+      try {
+        base_controller::async_serial->writeString( usb_kill_msg );
+      } catch ( boost::system::system_error& e ) {
+        ROS_ERROR( "Error: %s", e.what() );
+      }
     }
 }
 
@@ -77,13 +99,20 @@ int main( int argc, char **argv ) {
     ros::XMLRPCManager::instance()->unbind( "shutdown" );
     ros::XMLRPCManager::instance()->bind( "shutdown", shutdown_callback );
 
+    std::string cmd_vel_topic;
+    n.param<std::string>( "cmd_vel_topic", cmd_vel_topic, "cmd_vel" );
     /* create publisher and subscriber */
-    ROS_INFO( "subscribing to cmd_vel" );
-    ros::Subscriber sub = n.subscribe("cmd_vel", 1, cmdCallBack );
+    ROS_INFO( "subscribing to %s", cmd_vel_topic.c_str() );
+    ros::Subscriber sub = n.subscribe(cmd_vel_topic, 1, cmdCallBack );
+
+    ROS_INFO( "subscribing to kill topic" );
+    ros::Subscriber sub_kill = n.subscribe("kill", 1, killCallBack );
 
     ROS_INFO( "publishing to odom" );
     ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 1);
     ros::Rate loop_rate(10);
+
+    base_controller::kill = false;
 
     try {
 
