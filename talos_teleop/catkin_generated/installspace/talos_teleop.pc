@@ -1,8 +1,0 @@
-prefix=/home/marco/catkin_ws/install
-
-Name: talos_teleop
-Description: Description of talos_teleop
-Version: 0.0.1
-Cflags: 
-Libs: -L/home/marco/catkin_ws/install/lib 
-Requires: 

@@ -355,5 +355,49 @@
 	<origin rpy="0 0 0" xyz="0 0 0.03805"/>
   </joint>
 
+<!-- Rotational Base -->
+
+<link name="rotational_base_plate">
+	<visual>
+		<geometry>
+			<cylinder length="0.01" radius="0.15"/>
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="black">
+			<color rgba="0 0 0 1"/>
+		</material>
+	</visual>
+  </link>
+
+<joint name="top_plate_to_rotational_base" type="fixed">
+  	<parent link="top_plate"/>
+	<child link="rotational_base_plate"/>
+	<origin rpy="0 0 0" xyz="0 0 -0.015"/>
+</joint>
+
+<link name="top_rotating_plate">
+	<visual>
+		<geometry>
+			<cylinder length="0.01" radius="0.15"/>
+		</geometry>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="black">
+			<color rgba="1 0 0 -0.015"/>
+		</material>
+	</visual>
+  </link>
+
+
+<joint name="rotational_base_connection" type="fixed">
+  	<parent link="rotational_base_plate"/>
+	<child link="top_rotating_plate"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+ 	<!-- <limit effort="30" velocity="1.0" lower="1.5" upper="1.5"/> -->
+</joint>
+
+
+
+
+
 
 </robot>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(turtlebot_follower)
+project(talos_follower)
 
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS nodelet pcl_ros roscpp visualization_msgs turtlebot_msgs dynamic_reconfigure)

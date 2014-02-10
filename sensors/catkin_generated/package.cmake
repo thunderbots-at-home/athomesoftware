@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "sensors")
-set(sensors_MAINTAINER "marco <marco@todo.todo>")
-set(sensors_DEPRECATED "")
-set(sensors_VERSION "0.0.0")
-set(sensors_BUILD_DEPENDS )
-set(sensors_RUN_DEPENDS )
-set(sensors_BUILDTOOL_DEPENDS "catkin")
