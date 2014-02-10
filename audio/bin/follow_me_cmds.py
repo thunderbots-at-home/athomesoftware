@@ -42,7 +42,7 @@ class follow_me_cmds:
 	## Issue following command
         if (msg.data.find("stop") > -1:
             self.pub_kill_.publish(String("kill"))
-        if (msg.data.find("kill") > -1:
+        if (msg.data.find("back") > -1:
             self.pub_kill_.publish(String("kill"))
         if (msg.data.find("follow me") > -1:
             self.pub_kill_.publish(String("run"))
