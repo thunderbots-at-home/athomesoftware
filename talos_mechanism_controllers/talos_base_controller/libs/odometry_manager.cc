@@ -1,10 +1,11 @@
 #include "odometry_manager.h"
+#include <iostream>
 
 OdometryManager::OdometryManager() :
 x_global_(0.0), x_current_(0.0), x_vel_(0.0),
 y_global_(0.0), y_current_(0.0), y_vel_(0.0),
 th_global_(0.0), th_current_(0.0), th_vel_(0.0),
-wheel_width_(0.455), meters_per_tick_((6 * 2 * M_PI * 0.0525)/4680), previous_timestamp_(0.0),
+wheel_width_(0.455), meters_per_tick_((6 * 2 * M_PI * 0.0525)/4680), previous_motor_ts_(0.0),
 current_timestamp_(0.0)
 {}
 
@@ -25,11 +26,13 @@ void OdometryManager::UpdateOdometry(ArduinoMessage message)
 
   this->th_global_ = fmod((theta_delta + th_global_),(2*M_PI));
 
-  this->x_vel_ = x_delta / ToSeconds(message.time_stamp - this->previous_timestamp_);
-  this->y_vel_ = y_delta / ToSeconds(message.time_stamp - this->previous_timestamp_);
-  this->th_vel_ = theta_delta / ToSeconds(message.time_stamp - this->previous_timestamp_);
+  this->x_vel_ = x_delta / ToSeconds(message.time_stamp - this->previous_motor_ts_);
+  this->y_vel_ = y_delta / ToSeconds(message.time_stamp - this->previous_motor_ts_);
+  this->th_vel_ = theta_delta / ToSeconds(message.time_stamp - this->previous_motor_ts_);
 
-  this->previous_timestamp_ = message.time_stamp;
+  this->current_timestamp_ = CalcNewTime(message.time_stamp);
+
+  this->previous_motor_ts_ = message.time_stamp;
 
 }
 
@@ -41,19 +44,30 @@ double OdometryManager::ToSeconds(unsigned long duration) {
 geometry_msgs::TransformStamped OdometryManager::GetCurrentTransform()
 {
   geometry_msgs::TransformStamped odom_trans;
-  odom_trans.header.stamp = current_timestamp();
+  odom_trans.header.stamp = this->current_timestamp_;
   odom_trans.header.frame_id = "odom";
   odom_trans.child_frame_id = "base_footprint";
   odom_trans.transform.translation.x = this->x_global_;
   odom_trans.transform.translation.y = this->y_global_;
   odom_trans.transform.translation.z = 0.0;
   odom_trans.transform.rotation = tf::createQuaternionMsgFromYaw(this->th_global_);
+
+  return odom_trans;
+}
+
+ros::Time OdometryManager::CalcNewTime(const unsigned long& new_ts)
+{ 
+  uint32_t difference = (uint32_t)(new_ts - this->previous_motor_ts_);
+  /* convert difference into nano seconds */
+  difference = difference * 1000000;
+  ros::Duration elapsed(0, difference);
+  return (this->current_timestamp_ + elapsed);
 }
 
 nav_msgs::Odometry OdometryManager::GetCurrentOdom()
 {
   nav_msgs::Odometry odom;
-  odom.header.stamp = current_timestamp();
+  odom.header.stamp = this->current_timestamp();
   odom.header.frame_id = "odom";
   odom.child_frame_id = "base_footprint";
 
