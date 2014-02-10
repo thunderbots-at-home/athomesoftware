@@ -40,14 +40,14 @@ class follow_me_cmds:
 	## Check if robot remembers person
 	## Tell robot to remember person
 	## Issue following command
-        if (msg.data.find("stop") > -1:
+        if (msg.data.find("stop") > -1):
             self.pub_kill_.publish(String("kill"))
-        if (msg.data.find("back") > -1:
+        if (msg.data.find("back") > -1):
             self.pub_kill_.publish(String("kill"))
-        if (msg.data.find("follow me") > -1:
+        if (msg.data.find("follow me") > -1):
             self.pub_kill_.publish(String("run"))
-        rospy.sleep(1)
-        if msg.data.find("are you ready") > -1:
+            rospy.sleep(1)
+        if (msg.data.find("are you ready") > -1):
             pass
             #self.msg.data = "REDY BRO" ##TODO Add code that confirms readiness here
         if msg.data.find("remember me") > -1:
