@@ -79,7 +79,12 @@ nav_msgs::Odometry OdometryManager::GetCurrentOdom()
     tf::createQuaternionMsgFromRollPitchYaw(0, 0, this->th_global_);
 
   /* velocity */
-  /* TODO */
+  odom.twist.twist.linear.x = this->x_vel_;
+  odom.twist.twist.linear.y = this->y_vel_;
+  odom.twist.twist.linear.z = 0.0;
+  odom.twist.twist.angular.x = 0.0;
+  odom.twist.twist.angular.y = 0.0;
+  odom.twist.twist.angular.z = this->th_vel_;
   return odom;
 }
 
