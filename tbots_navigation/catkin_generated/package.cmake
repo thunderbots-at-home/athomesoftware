@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "tbots_navigation")
-set(tbots_navigation_MAINTAINER "marco <marco@todo.todo>")
-set(tbots_navigation_DEPRECATED "")
-set(tbots_navigation_VERSION "0.0.0")
-set(tbots_navigation_BUILD_DEPENDS )
-set(tbots_navigation_RUN_DEPENDS )
-set(tbots_navigation_BUILDTOOL_DEPENDS "catkin")

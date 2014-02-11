@@ -1,8 +1,0 @@
-prefix=/home/marco/catkin_ws/install
-
-Name: audio
-Description: Description of audio
-Version: 0.0.0
-Cflags: -I/home/marco/catkin_ws/install/include
-Libs: -L/home/marco/catkin_ws/install/lib 
-Requires: message_runtime message_generation

@@ -66,7 +66,7 @@ catkin_package(
 ###########
 
 set( Boost_USE_STATIC_LIBS on )
-find_package( Boost REQUIRED COMPONENTS system thread )
+find_package( Boost REQUIRED COMPONENTS system thread)
 
 
 ## Specify additional locations of header files
@@ -76,14 +76,16 @@ include_directories(
   ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs" include
 )
 
+
 add_subdirectory( libs )
 
 message ("nothing to see here")
 
 ## Declare a cpp library
- add_library( odometry_manager
+add_library( odometry_manager
    libs/odometry_manager.cc
  )
+add_library(parser src/parser.cpp)
 
 ## Declare a cpp executable
  add_executable( base_controller_node src/base_controller_node.cpp )
@@ -91,6 +93,7 @@ message ("nothing to see here")
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(base_controller_node base_controller_generate_messages_cpp)
+
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(base_controller_node
@@ -102,6 +105,8 @@ target_link_libraries(base_controller_node
 target_link_libraries( odometry_manager
   ${catkin_LIBRARIES}
 )
+
+
 
 #############
 ## Install ##
@@ -148,6 +153,8 @@ message ("building tests for ${PROJECT_NAME}")
  if(TARGET odometry-manager-test)
    target_link_libraries(odometry-manager-test odometry_manager)
  endif()
+
+catkin_add_gtest(parser_test test/parser_test.cpp)
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)

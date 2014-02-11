@@ -28,3 +28,14 @@ output/
 # log files
 *.log
 *.csv
+
+#ignore gtest
+gtest-1.7.0/
+
+#cmake generated files
+*.cmake
+*.make
+
+CMakeFiles/
+catkin_generated/
+CMakeCache.txt

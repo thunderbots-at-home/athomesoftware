@@ -7,7 +7,6 @@ struct ArduinoMessage
 	bool e_stop;
 
   float time_stamp;
-
 	float l_motor_rpm;
 	float l_pid;
 	float l_feedback;
