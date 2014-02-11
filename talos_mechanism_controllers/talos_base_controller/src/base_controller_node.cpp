@@ -1,7 +1,5 @@
-/* linux libraries */
 #include <signal.h>
 
-/* Boost thread library */
 #include <boost/thread.hpp>
 
 /* ROS libraries */
@@ -12,8 +10,9 @@
 #include "nav_msgs/Odometry.h"
 #include "std_msgs/String.h"
 
-/* Serial library */
 #include "BufferedAsyncSerial.h"
+#include "Parser.h"
+#include "odom_manager.h"
 
 namespace base_controller {
     BufferedAsyncSerial * async_serial;
@@ -77,13 +76,14 @@ int main( int argc, char **argv ) {
     ros::XMLRPCManager::instance()->unbind( "shutdown" );
     ros::XMLRPCManager::instance()->bind( "shutdown", shutdown_callback );
 
-    /* create publisher and subscriber */
+    /* create publisher and subscribers */
     ROS_INFO( "subscribing to cmd_vel" );
-    ros::Subscriber sub = n.subscribe("cmd_vel", 1000, cmdCallBack );
-
+    ros::Subscriber sub = n.subscribe("cmd_vel", 1, cmdCallBack );
     ROS_INFO( "publishing to odom" );
-    ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);
-    ros::Rate loop_rate(10);
+    ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 10);
+    ROS_INFO( "publishing tfs" );
+    tf::TransformBroadcaster broadcaster;
+    ros::Rate loop_rate(20);
 
     try {
 
