@@ -55,7 +55,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include/${PROJECT_NAME}
+  INCLUDE_DIRS include/${PROJECT_NAME} src
 #  LIBRARIES base_controller
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -74,6 +74,7 @@ find_package( Boost REQUIRED COMPONENTS system thread)
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs" include
+  "${CMAKE_CURRENT_SOURCE_DIR}/src"
 )
 
 
@@ -88,7 +89,7 @@ add_library( odometry_manager
 add_library(parser src/parser.cpp)
 
 ## Declare a cpp executable
- add_executable( base_controller_node src/base_controller_node.cpp )
+add_executable( base_controller_node src/base_controller_node.cpp )
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
