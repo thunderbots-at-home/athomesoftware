@@ -8,6 +8,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  nav_msgs
+  geometry_msgs
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -53,7 +56,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include/${PROJECT_NAME}
+  INCLUDE_DIRS include/${PROJECT_NAME} src
 #  LIBRARIES base_controller
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
@@ -71,7 +74,8 @@ find_package( Boost REQUIRED COMPONENTS system thread)
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
-  ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs" include 
+  ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/libs" include
+  "${CMAKE_CURRENT_SOURCE_DIR}/src"
 )
 
 
@@ -80,14 +84,13 @@ add_subdirectory( libs )
 message ("nothing to see here")
 
 ## Declare a cpp library
-# add_library(base_controller
-#   src/${PROJECT_NAME}/base_controller.cpp
-# )
+add_library( odometry_manager
+   src/odometry_manager.cc
+ )
 add_library(parser src/parser.cpp)
 
-
 ## Declare a cpp executable
- add_executable( base_controller_node src/base_controller_node.cpp )
+add_executable( base_controller_node src/base_controller_node.cpp )
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
@@ -95,11 +98,17 @@ add_library(parser src/parser.cpp)
 
 
 ## Specify libraries to link a library or executable target against
- target_link_libraries(base_controller_node
-   ${Boost_LIBRARIES} 
-   ${catkin_LIBRARIES}
-   BufferedAsyncSerial
- )
+target_link_libraries(base_controller_node
+  ${Boost_LIBRARIES} 
+  BufferedAsyncSerial
+  odometry_manager
+  parser
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries( odometry_manager
+  ${catkin_LIBRARIES}
+)
 
 
 
@@ -141,12 +150,13 @@ add_library(parser src/parser.cpp)
 #############
 ## Testing ##
 #############
+message ("building tests for ${PROJECT_NAME}")
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_base_controller.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+ catkin_add_gtest(odometry-manager-test test/odometry_manager_test.cc)
+ if(TARGET odometry-manager-test)
+   target_link_libraries(odometry-manager-test odometry_manager)
+ endif()
 
 catkin_add_gtest(parser_test test/parser_test.cpp)
 

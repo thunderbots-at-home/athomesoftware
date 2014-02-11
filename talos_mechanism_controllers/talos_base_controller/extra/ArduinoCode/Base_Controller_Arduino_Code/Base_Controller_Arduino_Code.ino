@@ -665,8 +665,5 @@ void logLoop()
   }
   
   Serial.println();
-
-
-
 }
 
