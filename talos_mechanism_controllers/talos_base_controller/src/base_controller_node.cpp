@@ -9,10 +9,12 @@
 #include "geometry_msgs/Twist.h"
 #include "nav_msgs/Odometry.h"
 #include "std_msgs/String.h"
+#include "tf/transform_broadcaster.h"
 
 #include "BufferedAsyncSerial.h"
+#include "talos_base_controller/ArduinoMessage.h"
 #include "talos_base_controller/parser.h"
-#include "odom_manager.h"
+#include "talos_base_controller/odometry_manager.h"
 
 namespace base_controller {
     BufferedAsyncSerial * async_serial;
@@ -111,6 +113,10 @@ int main( int argc, char **argv ) {
     tf::TransformBroadcaster broadcaster;
     ros::Rate loop_rate(20);
 
+    /* adds odometry manager and parser */
+    Parser parser;
+    OdometryManager odom_manager;
+
     base_controller::kill = false;
 
     try {
@@ -130,9 +136,9 @@ int main( int argc, char **argv ) {
             
             if (readValue != "") {
                 ROS_INFO( "received message: %s", readValue.c_str() );
-            //    std_msgs::String msg;        
-            //    msg.data = readValue;
-            //    odom_pub.publish(msg);
+                odom_manager.UpdateOdometry(parser.parse( readValue.c_str() ));
+                odom_pub.publish( odom_manager.GetCurrentOdom() );
+                broadcaster.sendTransform( odom_manager.GetCurrentTransform() );
             }
 
             ros::spinOnce();

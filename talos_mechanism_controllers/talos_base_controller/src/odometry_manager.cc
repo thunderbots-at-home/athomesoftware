@@ -1,5 +1,4 @@
-#include "odometry_manager.h"
-#include <iostream>
+#include "talos_base_controller/odometry_manager.h"
 
 OdometryManager::OdometryManager() :
 x_global_(0.0), x_current_(0.0), x_vel_(0.0),

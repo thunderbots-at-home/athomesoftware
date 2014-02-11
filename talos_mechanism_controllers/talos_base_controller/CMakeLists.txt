@@ -10,6 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   nav_msgs
   geometry_msgs
+  tf
 )
 
 ## System dependencies are found with CMake's conventions
@@ -84,7 +85,7 @@ message ("nothing to see here")
 
 ## Declare a cpp library
 add_library( odometry_manager
-   libs/odometry_manager.cc
+   src/odometry_manager.cc
  )
 add_library(parser src/parser.cpp)
 
@@ -99,8 +100,10 @@ add_executable( base_controller_node src/base_controller_node.cpp )
 ## Specify libraries to link a library or executable target against
 target_link_libraries(base_controller_node
   ${Boost_LIBRARIES} 
-  ${catkin_LIBRARIES}
   BufferedAsyncSerial
+  odometry_manager
+  parser
+  ${catkin_LIBRARIES}
 )
 
 target_link_libraries( odometry_manager
