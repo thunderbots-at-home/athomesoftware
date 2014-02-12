@@ -2,8 +2,10 @@
 ## Dependencies for Thunderbots@Home Software
 ## Used for updating and installing the distros. 
 ROS_DISTRO="hydro"
+INSTALLATION_DIR="~/catkin_ws/src/athomesoftware/"
+mkdir ${INSTALLATION_DIR}/dependencies
+DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
 
-sudo apt-get install openni-dev
 sudo apt-get install ros-${ROS_DISTRO}-joystick-drivers
 sudo apt-get install ros-${ROS_DISTRO}-joy
 sudo apt-get install ros-${ROS_DISTRO}-pcl-conversions
@@ -20,5 +22,17 @@ sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
 sudo apt-add-repository ppa:falk-t-j/qtsixa
 sudo apt-get update
 sudo apt-get install sixad
+
+# Installing pylearn2 dependencies
+sudo apt-get install python3
+sudo apt-get install python-scipy
+sudo apt-get install python-numpy
+sudo apt-get install python-pip
+pip install git+http://github.com/Theano/Theano.git
+svn checkout http://svn.pyyaml.org/pyyaml/trunk ${DEPENDENCIES_DIR}/pyyaml-trunk
+
+
+
+
 
 
