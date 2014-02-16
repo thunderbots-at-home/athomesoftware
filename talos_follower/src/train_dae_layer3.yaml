@@ -1,12 +1,20 @@
 !obj:pylearn2.train.Train {
-    dataset: &train !obj:pylearn2.datasets.transformer_dataset.TransformerDataset {
-        raw: !obj:pylearn2.datasets.cifar10.CIFAR10 {
-            which_set: 'train',
-            start: 0,
-            stop: 8000
+    dataset: &train 
+
+ 
+ !obj:pylearn2.datasets.transformer_dataset.TransformerDataset { 
+ raw: 
+       !obj:pylearn2.datasets.transformer_dataset.TransformerDataset {
+            raw: !obj:pylearn2.datasets.cifar10.CIFAR10 {
+                which_set: 'train',
+                start: 0,
+                stop: 8000
+            },
+            transformer: !pkl: "./dae_l1.pkl"
         },
         transformer: !pkl: "./dae_l2.pkl"
-    },
+},
+
     model: !obj:pylearn2.models.autoencoder.DenoisingAutoencoder {
         nvis : 1024,
         nhid : 512,
