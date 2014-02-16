@@ -17,15 +17,7 @@
                  !obj:pylearn2.models.mlp.PretrainedLayer {
                      layer_name: 'h2',
                      layer_content: !pkl: "./dae_l2.pkl"
-                 },
-!obj:pylearn2.models.mlp.PretrainedLayer {
-                     layer_name: 'h3',
-                     layer_content: !pkl: "./dae_l3.pkl"
-                 }, 
-!obj:pylearn2.models.mlp.PretrainedLayer {
-                     layer_name: 'h4',
-                     layer_content: !pkl: "./dae_l4.pkl"
-                 },
+},
                  !obj:pylearn2.models.mlp.Softmax {
                      max_col_norm: 1.9365,
                      layer_name: 'y',
