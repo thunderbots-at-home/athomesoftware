@@ -6,6 +6,15 @@ INSTALLATION_DIR="~/catkin_ws/src/athomesoftware/"
 mkdir ${INSTALLATION_DIR}/dependencies
 DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
 
+## Kinect related dependencies
+sudo apt-get install openni-dev
+sudo apt-get install libusb-1.0-0-dev
+sudo apt-get install freeglut3-dev
+sudo apt-get install doxygen
+sudo apt-get install graphviz
+sudo apt-get install libudev-dev
+
+## ROS Packages
 sudo apt-get install ros-${ROS_DISTRO}-joystick-drivers
 sudo apt-get install ros-${ROS_DISTRO}-joy
 sudo apt-get install ros-${ROS_DISTRO}-pcl-conversions
@@ -18,7 +27,7 @@ sudo apt-get install ros-${ROS_DISTRO}-catkin
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-follower
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
 
-## add sixad for using ps3 controller
+## SIXAD for ps3 controller
 sudo apt-add-repository ppa:falk-t-j/qtsixa
 sudo apt-get update
 sudo apt-get install sixad
