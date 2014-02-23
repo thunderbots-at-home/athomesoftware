@@ -18,7 +18,7 @@ def load_data(start, stop):
     # for use in a Denoising Autoencoder which is later used in a sDAE. 
     # Returns: dataset: DenseDesignMatrix(start, stop)
     #dataset_location = "~/catkin_ws/src/athomesoftware/datasets/tinyimages/"
-    dataset_location = "~/catkin_ws/src/athomesoftware/datasets/cifar10/"
+    #dataset_location = "~/catkin_ws/src/athomesoftware/datasets/cifar10/"
     X = []
     y = []
 
