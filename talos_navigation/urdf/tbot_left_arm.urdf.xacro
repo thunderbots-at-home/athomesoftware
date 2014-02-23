@@ -45,7 +45,7 @@
 </link>
 
 
-<joint name="body_to_left_shoulder" type="fixed">
+<joint name="body_to_left_shoulder" type="revolute">
 
 	<!-- Note: Crude approximation of physical robot -->
   	<parent link="body"/>
@@ -111,7 +111,7 @@
 
 </link>
 
-<joint name="shoulder_to_upper_arm" type="fixed">
+<joint name="shoulder_to_upper_arm" type="revolute">
 
         <!-- Note: Crude approximation of the joint, this is not the exact connecting joint location -->
   	<parent link="left_shoulder"/>
