@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro">
+
+
+<!-- Example includes  
+<xacro:include filename="$(find pr2_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro" />
+<xacro:include filename="$(find pr2_description)/urdf/base_v0/base.gazebo.xacro" />
+<xacro:include filename="$(find pr2_description)/urdf/base_v0/base.transmission.xacro" />
+-->
+
+<!-- CONSTANT DEFINITIONS -->
+<!-- Example 
+
+  <property name="M_PI" value="3.1415926535897931" />
+
+  <property name="caster_offset_x" value="0.2246" />
+  <property name="caster_offset_y" value="0.2246" />
+  <property name="caster_offset_z" value="0.0282" />
+
+-->
+
+<!--               General constants               -->
+<!--               General constants               -->
+<!--               General constants               -->
+
+<property name="M_PI" value="3.1415926535897931"/>
+
+<!--               Wheel constants                 -->
+<!--               Wheel constants                 -->
+<!--               Wheel constants                 -->
+
+<property name="wheel_thickness" value="0.01"/>
+<property name="wheel_radius" value="0.0761"/>
+<property name="wheel_damping" value="1.0" />
+<property name="wheel_friction" value="0.0" />
+<property name="safety_k_velocity" value="10" />
+<property name="max_wheel_effort" value="7" />
+<property name="max_wheel_velocity" value="15" />
+
+<!--                     Wheel definition (For all 4)             -->
+<!--                     Wheel definition (For all 4)             -->
+<!--                     Wheel definition (For all 4)             -->
+
+<xacro:macro name="talos_wheel" params="suffix parent reflect">
+<joint name="${parent}_${suffix}_wheel_joint" type="continuous">
+	<parent link="${parent}_rotation_link"/>
+	<child link="${parent}_${suffix}_wheel_link"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<axis xyz="0 1 0" />
+       <limit effort="${max_wheel_effort}" velocity="${max_wheel_velocity}"/> <!-- alpha tested effort and velocity limits -->
+       <safety_controller k_velocity="${safety_k_velocity}" />
+       <dynamics damping="${wheel_damping}" friction="${wheel_friction}" />
+</joint>
+<link name="${parent}_${suffix}_wheel_link">
+	<visual>
+		<geometry>
+			<cylinder length="${wheel_thickness}" radius="${wheel_radius}"/>
+		</geometry>
+	<!-- TODO: Add correct meshes for wheels -->
+	<!-- <geometry>
+          <mesh filename="package://pr2_description/meshes/base_v0/wheel.dae" />
+        </geometry> -->
+		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<material name="wheel_${suffix}">
+			<color rgba="0 0 0 1"/>
+		</material>
+	<!-- TODO: Add correct collision values or close approximations -->
+       <!-- 
+
+	<collision>
+		 <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /> 
+		 <geometry>
+		   <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+		 </geometry>
+       </collision> 
+	-->
+	</visual>
+	<!-- TODO: Jordan, please initialize these to correct approximations -->
+       <!-- 
+	<inertial>
+        <mass value="0.44036" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.012411765597" ixy="-0.000711733678" ixz="0.00050272983"
+                  iyy="0.015218160428" iyz="-0.000004273467" izz="0.011763977943" />
+      </inertial>
+       -->
+</link>
+ <!-- TODO: Add proper extensions and transmissions for talos -->
+ <!-- extensions -->
+ <!--  <xacro:pr2_wheel_gazebo_v0 parent="${parent}" suffix="${suffix}" />
+    <xacro:pr2_wheel_transmission_v0 parent="${parent}" suffix="${suffix}" reflect="${reflect}" />
+ -->
+</xacro:macro>
+
+
+
+
+</robot>
