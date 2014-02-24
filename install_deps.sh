@@ -27,6 +27,12 @@ sudo apt-get install ros-${ROS_DISTRO}-catkin
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-follower
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
 
+#Installing Gazebo Simulator (This installs the most recent version of gazebo)
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install gazebo-current
+
 ## SIXAD for ps3 controller
 sudo apt-add-repository ppa:falk-t-j/qtsixa
 sudo apt-get update
