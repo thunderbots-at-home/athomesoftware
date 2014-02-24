@@ -27,6 +27,7 @@ sudo apt-get install ros-${ROS_DISTRO}-catkin
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-follower
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
 sudo apt-get install ros-${ROS_DISTRO}-gazebo-ros
+sudo apt-get install ros-${ROS_DISTRO}-gazebo-ros-pkgs
 
 ## SIXAD for ps3 controller
 sudo apt-add-repository ppa:falk-t-j/qtsixa
