@@ -65,6 +65,7 @@
 <!--                                               -->
 
 <xacro:macro name="talos_wheel" params="suffix parent reflect">
+
 <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
 	<parent link="${parent}_rotation_link"/>
 	<child link="${parent}_${suffix}_wheel_link"/>
@@ -74,6 +75,7 @@
        <safety_controller k_velocity="${safety_k_velocity}" />
        <dynamics damping="${wheel_damping}" friction="${wheel_friction}" />
 </joint>
+
 <link name="${parent}_${suffix}_wheel_link">
 	<visual>
 		<geometry>
@@ -121,7 +123,7 @@
 
 <xacro:macro name="talos_base" params="name">
 
-<link name="${name}_base_plate">
+<link name="talos_base">
 
 	<!-- TODO: Jordan to put proper values for the xml below
 	<inertial>
@@ -187,15 +189,20 @@ surface of the collision box matches the top surface of the PR2 base -->
 
     <joint name="${name}_base_footprint_joint" type="fixed">
       <origin xyz="0 0 0.051" rpy="0 0 0" />
-      <child link="${name}_base_plate" />
+      <child link="talos_base" />
       <parent link="${name}_base_footprint"/>
     </joint>
 
   <!-- base laser -->
-    <xacro:hokuyo_lx30_laser_v0 name="${name}_base_laser" parent="${name}" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
+    <xacro:hokuyo_lx30_laser_v0 name="${name}_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
       <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${base_laser_z}" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 
+ <!-- Adding TALOS wheels to the base -->
+<xacro:talos_wheel suffix="fl" parent="talos_base" reflect="1" />
+<xacro:talos_wheel suffix="fr" parent="talos_base" reflect="-1" />
+<xacro:talos_wheel suffix="bl" parent="talos_base" reflect="1" />
+<xacro:talos_wheel suffix="br" parent="talos_base" reflect="-1" />
 
 </xacro:macro>
 
