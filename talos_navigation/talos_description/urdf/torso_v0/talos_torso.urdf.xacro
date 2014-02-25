@@ -1,6 +1,6 @@
+<?xml version="1.0"?>
 <!-- Author: Devon Ash -->
 <!-- Maintainer: noobaca2@gmail.com -->
-<?xml version="1.0"?>
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
