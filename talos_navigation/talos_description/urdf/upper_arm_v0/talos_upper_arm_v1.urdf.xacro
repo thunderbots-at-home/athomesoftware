@@ -6,7 +6,7 @@
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+       xmlns:xacro="http://ros.org/wiki/xacro" name="talos">
 
  <!-- Things that are needed only for Gazebo (not the physical robot). These include
 sensor and controller plugin specifications -->
@@ -149,5 +149,5 @@ sensor and controller plugin specifications -->
 
 
 
-
+</robot>
 

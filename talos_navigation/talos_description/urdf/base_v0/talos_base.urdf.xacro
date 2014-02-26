@@ -9,7 +9,7 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
 
-<!-- Example includes  
+<!-- Example includes  <	
 <xacro:include filename="$(find pr2_description)/urdf/sensors/hokuyo_lx30_laser.urdf.xacro" />
 <xacro:include filename="$(find pr2_description)/urdf/base_v0/base.gazebo.xacro" />
 <xacro:include filename="$(find pr2_description)/urdf/base_v0/base.transmission.xacro" />
@@ -56,9 +56,14 @@
 <property name="talos_base_cg_z" value="0" />
 <property name="talos_base_collision_size_z" value="0" />
 
-<property name="talos_base_lazer_x" value="0" />
-<property name="talos_base_lazer_y" value="0" />
-<property name="talos_base_lazer_z" value="0" />
+<!-- TODO: Input proper values here -->
+<property name="talos_base_width" value="0" />
+<property name="talos_base_height" value="0" />
+<property name="talos_base_length" value="0" />
+
+<property name="talos_base_laser_x" value="0" />
+<property name="talos_base_laser_y" value="0" />
+<property name="talos_base_laser_z" value="0" />
 
 <!--                                               -->
 <!--                WHEEL DEFINITION               -->
@@ -151,10 +156,10 @@
    <collision>
 
         <origin xyz="0 0 0" rpy="0 0 0" />
-	 <!-- TODO: Replace with .stl file 
+	 TODO: Replace with .stl file 
         <geometry>
           <mesh filename="package://pr2_description/meshes/base_v0/base_L.stl" />
-        </geometry>
+        </geometry> 
 
       </collision>
     -->
@@ -180,7 +185,7 @@ navigation stack dedpends on this frame -->
       <collision>
         <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
 surface of the collision box matches the top surface of the PR2 base -->
-        <origin xyz="0 0 ${0.051+base_collision_size_z/2}" rpy="0 0 0" />
+        <origin xyz="0 0 ${0.051+talos_base_collision_size_z/2}" rpy="0 0 0" />
         <geometry>
           <box size="0.001 0.001 0.001" />
         </geometry>
@@ -195,7 +200,7 @@ surface of the collision box matches the top surface of the PR2 base -->
 
   <!-- base laser -->
     <xacro:hokuyo_lx30_laser_v0 name="${name}_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
-      <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${base_laser_z}" rpy="0 0 0" />
+      <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 
  <!-- Adding TALOS wheels to the base -->
