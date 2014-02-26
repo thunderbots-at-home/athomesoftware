@@ -26,6 +26,7 @@ sudo apt-get install cmake python-catkin_pkg python-empy python-nose python-setu
 sudo apt-get install ros-${ROS_DISTRO}-catkin
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-follower
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
+sudo apt-get install ros-${ROS_DISTRO}-urdfdom
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
