@@ -132,7 +132,7 @@ sensor and controller plugin specifications -->
 
 	<visual>
 		<geometry>
-			<box size="${upper_arm_length}=.47 ${upper_arm_width}=0.2 ${upper_arm_height}0.22"/>
+			<box size="${upper_arm_length} ${upper_arm_width} ${upper_arm_height}"/>
 		</geometry>
 		<origin rpy="0 0 0" xyz="0 0 0"/>
 	

@@ -17,9 +17,9 @@
 <!--                 INCLUDED XACROS               -->
 <!--                                               -->
 
-<xacro:include filename="$(find talos_navigation)/talos_description/urdf/talos_torso.urdf.xacro" />
-<xacro:include filename="$(find talos_navigation)/talos_description/urdf/talos_upper_arm_v1.urdf.xacro" />
-<xacro:include filename="$(find_talos_navigation)/talos_description/urdf/talos_base.urdf.xacro" />
+<xacro:include filename="$(find talos_navigation)/talos_description/urdf/torso_v0/talos_torso.urdf.xacro" />
+<xacro:include filename="$(find talos_navigation)/talos_description/urdf/upper_arm_v0/talos_upper_arm_v1.urdf.xacro" />
+<xacro:include filename="$(find talos_navigation)/talos_description/urdf/base_v0/talos_base.urdf.xacro" />
 
 <!-- Use the macros defined in the xacro above to define actual urdf -->
 
