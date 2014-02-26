@@ -37,7 +37,7 @@ sensor and controller plugin specifications -->
 <property name="shoulder_joint_damping" value="0" />
 
 
-<xacro:macro name="talos_shoulder" params="side parent reflect">
+<xacro:macro name="talos_upper_arm" params="side parent reflect">
 
 <joint name="${side}_shoulder_joint" type="fixed">
 	<!-- TODO: Add proper values for xyz -->	
