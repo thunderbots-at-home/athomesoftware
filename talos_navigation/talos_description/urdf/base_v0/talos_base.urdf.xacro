@@ -72,7 +72,7 @@
 <xacro:macro name="talos_wheel" params="suffix parent reflect">
 
 <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
-	<parent link="${parent}_rotation_link"/>
+	<parent link="${parent}"/>
 	<child link="${parent}_${suffix}_wheel_link"/>
 	<origin rpy="0 0 0" xyz="0 0 0"/>
 	<axis xyz="0 1 0" />
@@ -183,7 +183,7 @@ navigation stack dedpends on this frame -->
         <material name="White" />
       </visual>
       <collision>
-        <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
+        <!--represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
 surface of the collision box matches the top surface of the PR2 base -->
         <origin xyz="0 0 ${0.051+talos_base_collision_size_z/2}" rpy="0 0 0" />
         <geometry>

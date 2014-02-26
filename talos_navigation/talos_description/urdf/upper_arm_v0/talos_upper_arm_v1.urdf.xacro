@@ -60,12 +60,12 @@ sensor and controller plugin specifications -->
         <!-- TODO: Jordan end -->
 
         <!-- TODO: Someone? Not sure how these are done yet. -->
-	<collision>
+	<!-- <collision>
 		<origin xyz="0 0 0" rpy="0 0 0" />
 		<geometry>
-		  <!-- <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" /> -->
+		  <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" /> 
 		</geometry>
-	</collision>
+	</collision> -->
 
 	<visual>
 
@@ -122,13 +122,13 @@ sensor and controller plugin specifications -->
         <!-- TODO: Jordan end -->
 
         <!-- TODO: Someone? Not sure how these are done yet. -->
-	<collision>
+	<!-- <collision>
 		<origin xyz="0 0 0" rpy="0 0 0" />
 		<geometry>
-		<!-- TODO: Add .stl file for proper collision matrix -->
-		  <!-- <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" /> -->
+		TODO: Add .stl file for proper collision matrix
+		   <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" />
 		</geometry>
-	</collision>
+	</collision> -->
 
 	<visual>
 		<geometry>
