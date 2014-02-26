@@ -23,8 +23,13 @@
 <property name="torso_damping" value="0" />
 <property name="max_torso_velocity" value="10" />
 <property name="torso_safety_k_velocity" value="10"/>
-
 <property name="torso_mass" value="10" />
+<!-- END TODO -->
+
+<property name="talos_torso_width" value="0.4" />
+<property name="talos_torso_length" value="0.4" />
+<property name="talos_torso_height" value="1.0" />
+
 <!--                                               -->
 <!--                TORSO DEFINITION               -->
 <!--                                               -->
@@ -65,7 +70,7 @@
 
 	<!-- Temporary, because we will be using the .dae -->
 	<geometry>
-		<box size="0.4 0.4 1.0"/>
+		<box size="${talos_torso_length}  ${talos_torso_width} ${talos_torso_height}"/>
 	</geometry>
 	<material name="white">
 		<color rgba="1 1 1 1"/>
