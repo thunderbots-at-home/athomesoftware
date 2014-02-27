@@ -23,6 +23,14 @@
       <xacro:insert_block name="origin" />
     </xacro:hokuyo_lx30_laser_v0>
 
+<joint name="talos_base_laser_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="talos_base" />
+    <child link="talos_base_laser_link"/>
+  </joint>
+
+
+
 </xacro:macro>
 
 </robot>
