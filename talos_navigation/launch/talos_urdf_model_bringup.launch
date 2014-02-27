@@ -1,0 +1,11 @@
+<!-- Author: Devon Ash -->
+<!-- maintainer: noobaca2@gmail.com -->
+
+<launch>
+
+<!-- Loads the robot URDF and consequently the TF tree as well as rviz -->
+<param name="robot_description" textfile="$(find talos_navigation)/talos_description/urdf/talos_common.urdf" />
+  <node pkg="rviz" type="rviz" name="rviz" output="screen"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" /> 
+
+</launch>
