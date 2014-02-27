@@ -57,7 +57,7 @@
 <xacro:talos_upper_arm side="left" parent="torso_link" reflect="1" />
 
 <!-- Instantiates talos head -->
-<xacro:talos_head parent="talos_torso_link">
+<xacro:talos_head parent="torso_link">
 	<origin xyz="${talos_head_offset_x} ${talos_head_offset_y} ${talos_head_offset_z}" rpy="0 0 0" />
 </xacro:talos_head>
 

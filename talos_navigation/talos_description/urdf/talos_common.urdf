@@ -20,6 +20,7 @@
   <!--                                               -->
   <!-- TODO: Measure proper offsets for talos torso -->
   <!-- VALUE: Torso height/2 + base height -->
+  <!-- TODO: Measure proper offsets for taloshead -->
   <!--                                               -->
   <!--                 TALOS  DEFINITION             -->
   <!--                                               -->
@@ -393,5 +394,87 @@ surface of the collision box matches the top surface of the PR2 base -->
         <color rgba="1 1 1 1"/>
       </material>
     </visual>
+  </link>
+  <!-- Instantiates talos head -->
+  <joint name="head_pan_joint" type="continuous">
+    <parent link="torso_link"/>
+    <child link="head_pan_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="10"/>
+    <!-- TODO: Not sure what this is -->
+    <!--  <safety_controller k_velocity="${head_pan_safety_k_velocity}" /> -->
+    <!-- TODO: set proper values first -->
+    <!-- <dynamics damping="${head_pan_damping}" friction="${head_pan_friction}" /> -->
+  </joint>
+  <link name="head_pan_link">
+    <!-- TODO: Fill in constants above related to inertia -->
+    <!-- <inertial>
+        <mass value="${head_pan_link_mass}" /> 
+        <origin xyz="0 0 0" rpy="0 0 0" />
+ 	TODO: These are the incorrect inertias 
+        <inertia ixx="0.032497592" ixy="0.00063604088" ixz="0.0025851534"
+                 iyy="0.046545627" iyz="-0.0024534295" izz="0.057652724" />
+      </inertial> -->
+    <visual>
+      <origin rpy="0 0 0 " xyz="0 0 0.0"/>
+      <!-- TODO: Insert proper .dae file for the visual mesh -->
+      <!-- <geometry>
+          <mesh filename="package://pr2_description/meshes/head_v0/head_pan.dae" />
+        </geometry> -->
+      <!-- TODO: Approximation -->
+      <geometry>
+        <box size="0 0 0"/>
+      </geometry>
+      <material name="Blue"/>
+    </visual>
+    <!-- TODO: Insert the proper .stl file for collisions -->
+    <!-- <collision>
+        <geometry>
+          <mesh filename="package://pr2_description/meshes/head_v0/head_pan_L.stl" />
+        </geometry>
+      </collision> -->
+  </link>
+  <joint name="head_tilt_joint" type="revolute">
+    <axis xyz="0 1 0"/>
+    <!-- TODO: Set proper values for the lower, upper, vel, and effort. They are fudge values atm -->
+    <limit effort="10" lower="-1" upper="1" velocity="10"/>
+    <safety_controller k_position="100" k_velocity="10" soft_lower_limit="-0.3712" soft_upper_limit="1.29626"/>
+    <!-- TODO: What is calibration for? -->
+    <!-- <calibration falling="${0.0+cal_head_tilt_flag}" /> -->
+    <dynamics damping="10"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="head_pan_link"/>
+    <child link="head_tilt_link"/>
+  </joint>
+  <link name="head_tilt_link">
+    <!-- TODO: insert proper inertial values 
+      <inertial>
+        <mass value="${head_tilt_link_mass}" /> 
+        <origin xyz="0.001716 -0.019556 0.055002" rpy="0 0 0" />
+        <inertia ixx="0.024223222" ixy="0.00062063507" ixz="-0.000096909696"
+                 iyy="0.054723086" iyz="0.00279702400"
+                 izz="0.067306377" />
+      </inertial> -->
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0 0 0"/>
+      <!-- TODO: get .dae for proper geometry generation 
+        <geometry>
+          <mesh filename="package://pr2_description/meshes/head_v0/head_tilt.dae" />
+        </geometry> -->
+      <geometry>
+        <!-- TODO: Proper values, these are fudged for sake of parsing -->
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <material name="Green"/>
+    </visual>
+    <!-- TODO: get .stl for proper collision generation 
+      <collision>
+        <origin xyz="0 0 0" rpy="0.0 0.0 0.0" />
+
+        <geometry>
+          <mesh filename="package://pr2_description/meshes/head_v0/head_tilt_L.stl" />
+        </geometry>
+      </collision> -->
   </link>
 </robot>
