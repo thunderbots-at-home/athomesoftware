@@ -13,24 +13,45 @@
 <!--                                               -->
 <!--               GENERAL CONSTANTS               -->
 <!--                                               -->
+<property name="talos_base_laser_x" value="0" />
+<property name="talos_base_laser_y" value="0.15" />
+<property name="talos_base_laser_z" value="0.3" />
 
 <property name="M_PI" value="3.1415926535897931"/>
 
-<xacro:macro name="talos_base_laser" params="*origin">
-
   <!-- base laser -->
-    <xacro:hokuyo_lx30_laser_v0 name="talos_base_laser_link" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
-      <xacro:insert_block name="origin" />
+    <xacro:hokuyo_lx30_laser_v0 name="talos_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
+      <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 
 <joint name="talos_base_laser_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
-    <parent link="talos_base" />
-    <child link="talos_base_laser_link"/>
+    <parent link="talos_base_laser_link" />
+    <child link="talos_base_laser_simulator_link"/>
   </joint>
 
+<!-- This allows us to see it in rviz/gazebo -->
+<link name="talos_base_laser_simulator_link">
+    <inertial>
+      <mass value="0.01" />
+      <origin xyz="0 0 0" />
+      <inertia ixx="0.001"  ixy="0.0"  ixz="0.0"
+               iyy="0.001"  iyz="0.0"
+               izz="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.1" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.1" />
+      </geometry>
+    </collision>
+  </link>
 
-
-</xacro:macro>
 
 </robot>

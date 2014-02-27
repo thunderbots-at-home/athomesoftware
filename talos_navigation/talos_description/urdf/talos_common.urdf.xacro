@@ -23,7 +23,6 @@
 <xacro:include filename="$(find talos_navigation)/talos_description/urdf/head_v0/talos_head.urdf.xacro" /> 
 <xacro:include filename="$(find talos_navigation)/talos_description/urdf/tilting_laser_v0/talos_tilting_laser.urdf.xacro" />
 
-
 <!-- Use the macros defined in the xacro above to define actual urdf -->
 
 <!--                                               -->
@@ -41,10 +40,6 @@
 <property name="talos_head_offset_x" value="0" />
 <property name="talos_head_offset_y" value="0" />
 <property name="talos_head_offset_z" value="0" />
-
-<property name="talos_base_laser_x" value="0" />
-<property name="talos_base_laser_y" value="0.15" />
-<property name="talos_base_laser_z" value="0.3" />
 
 <!--                                               -->
 <!--                 TALOS  DEFINITION             -->
@@ -68,8 +63,5 @@
 </xacro:talos_head>
 
 <!-- Instantiates the base laser -->
-<xacro:talos_tilting_laser>
-	<origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
-</xacro:talos_tilting_laser>
 
 </robot>
