@@ -6,7 +6,7 @@
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://ros.org/wiki/xacro">
+       xmlns:xacro="http://ros.org/wiki/xacro" name="talos_head">
 
 
 <!--                                               -->
@@ -41,26 +41,29 @@
 <!--                                               -->
 
 <xacro:macro name="talos_head_pan" params="name parent *origin">
-<joint name="${name}_joint" type="continuous" />
+
+<joint name="${name}_joint" type="continuous">
 	<parent link="${parent}"/>
 	<child link="${name}_link"/>
-	<xacro:insert block_name="origin"/>
+	<xacro:insert_block name="origin"/>
 	<axis xyz="0 0 1" />
-       <limit effort="${max_head_pan_effort}" velocity="${max_head_pan_velocity}"/> <!-- alpha tested effort and velocity limits -->
-       <safety_controller k_velocity="${head_pan_safety_k_velocity}" />
-       <dynamics damping="${head_pan_damping}" friction="${head_pan_friction}" />
+       <limit effort="${max_head_pan_effort}" velocity="${max_head_pan_velocity}" /> 
+	<!-- TODO: Not sure what this is -->
+      <!--  <safety_controller k_velocity="${head_pan_safety_k_velocity}" /> -->
+	<!-- TODO: set proper values first -->
+       <!-- <dynamics damping="${head_pan_damping}" friction="${head_pan_friction}" /> -->
 </joint>
 
 <link name="${name}_link">
 
 	<!-- TODO: Fill in constants above related to inertia -->
-      <inertial>
+      <!-- <inertial>
         <mass value="${head_pan_link_mass}" /> 
         <origin xyz="0 0 0" rpy="0 0 0" />
- 	<!-- These are the incorrect inertias -->
+ 	TODO: These are the incorrect inertias 
         <inertia ixx="0.032497592" ixy="0.00063604088" ixz="0.0025851534"
                  iyy="0.046545627" iyz="-0.0024534295" izz="0.057652724" />
-      </inertial>
+      </inertial> -->
 
       <visual>
         <origin xyz="0 0 0.0" rpy="0 0 0 " />
@@ -70,8 +73,9 @@
         </geometry> -->
 	<!-- TODO: Approximation -->
         <geometry>
-
+		<box size="0 0 0" />
 	</geometry>
+
         <material name="Blue" />
       </visual>
 
@@ -81,7 +85,8 @@
           <mesh filename="package://pr2_description/meshes/head_v0/head_pan_L.stl" />
         </geometry>
       </collision> -->
-    </link>
+
+</link>
 <!-- extensions -->
 <!-- TODO: Add transmissions here 
     <xacro:pr2_head_pan_transmission_v0 name="${name}" /> -->
@@ -168,14 +173,14 @@
 
 	<!-- Instantiate the head_pan of talos -->
 	<xacro:talos_head_pan name="head_pan" parent="${parent}">
-		<insert_block name="origin" />
-	</xacro:talos_head>
+		<xacro:insert_block name="origin" />
+	</xacro:talos_head_pan>
 
 	<!-- Instantiate the head tilt of talos -->
 	<xacro:talos_head_tilt name="head_tilt" parent="head_pan_link">
 		<!-- TODO: Proper positioning of tilt mechanism -->
 		<origin xyz="0 0 0" rpy="0 0 0" />
-	</xacro:talos_head>
+	</xacro:talos_head_tilt>
 
 </xacro:macro>
 
