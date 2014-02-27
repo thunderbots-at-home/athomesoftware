@@ -19,6 +19,7 @@
   <!--                 COMMON CONSTANTS              -->
   <!--                                               -->
   <!-- TODO: Measure proper offsets for talos torso -->
+  <!-- VALUE: Torso height/2 + base height -->
   <!--                                               -->
   <!--                 TALOS  DEFINITION             -->
   <!--                                               -->
@@ -35,7 +36,7 @@
     <visual>
       <!-- TODO: Replace with .dae file -->
       <geometry>
-        <box size="0 0 0"/>
+        <box size="0.6 0.6 0.3"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <!-- TODO: Replace with .stl file -->
@@ -69,7 +70,7 @@
       <material name="White"/>
     </visual>
     <collision>
-      <!-- represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
+      <!--represent base collision with a simple rectangular model, positioned by base_size_z s.t. top
 surface of the collision box matches the top surface of the PR2 base -->
       <origin rpy="0 0 0" xyz="0 0 0.051"/>
       <geometry>
@@ -86,9 +87,9 @@ surface of the collision box matches the top surface of the PR2 base -->
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </xacro:hokuyo_lx30_laser_v0>
   <joint name="talos_base_fl_wheel_joint" type="continuous">
-    <parent link="talos_base_rotation_link"/>
+    <parent link="talos_base"/>
     <child link="talos_base_fl_wheel_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 1.57 0" xyz="0.15 0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
     <!-- alpha tested effort and velocity limits -->
@@ -105,7 +106,7 @@ surface of the collision box matches the top surface of the PR2 base -->
           <mesh filename="package://pr2_description/meshes/base_v0/wheel.dae" />
         </geometry> -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="wheel_fl">
+      <material name="black">
         <color rgba="0 0 0 1"/>
       </material>
       <!-- TODO: Add correct collision values or close approximations -->
@@ -130,9 +131,9 @@ surface of the collision box matches the top surface of the PR2 base -->
        -->
   </link>
   <joint name="talos_base_fr_wheel_joint" type="continuous">
-    <parent link="talos_base_rotation_link"/>
+    <parent link="talos_base"/>
     <child link="talos_base_fr_wheel_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 1.57 0" xyz="-0.15 0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
     <!-- alpha tested effort and velocity limits -->
@@ -149,7 +150,7 @@ surface of the collision box matches the top surface of the PR2 base -->
           <mesh filename="package://pr2_description/meshes/base_v0/wheel.dae" />
         </geometry> -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="wheel_fr">
+      <material name="black">
         <color rgba="0 0 0 1"/>
       </material>
       <!-- TODO: Add correct collision values or close approximations -->
@@ -174,9 +175,9 @@ surface of the collision box matches the top surface of the PR2 base -->
        -->
   </link>
   <joint name="talos_base_bl_wheel_joint" type="continuous">
-    <parent link="talos_base_rotation_link"/>
+    <parent link="talos_base"/>
     <child link="talos_base_bl_wheel_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 1.57 0" xyz="0.15 -0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
     <!-- alpha tested effort and velocity limits -->
@@ -193,7 +194,7 @@ surface of the collision box matches the top surface of the PR2 base -->
           <mesh filename="package://pr2_description/meshes/base_v0/wheel.dae" />
         </geometry> -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="wheel_bl">
+      <material name="black">
         <color rgba="0 0 0 1"/>
       </material>
       <!-- TODO: Add correct collision values or close approximations -->
@@ -218,9 +219,9 @@ surface of the collision box matches the top surface of the PR2 base -->
        -->
   </link>
   <joint name="talos_base_br_wheel_joint" type="continuous">
-    <parent link="talos_base_rotation_link"/>
+    <parent link="talos_base"/>
     <child link="talos_base_br_wheel_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 1.57 0" xyz="-0.15 -0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
     <!-- alpha tested effort and velocity limits -->
@@ -237,7 +238,7 @@ surface of the collision box matches the top surface of the PR2 base -->
           <mesh filename="package://pr2_description/meshes/base_v0/wheel.dae" />
         </geometry> -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="wheel_br">
+      <material name="black">
         <color rgba="0 0 0 1"/>
       </material>
       <!-- TODO: Add correct collision values or close approximations -->
@@ -266,7 +267,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <axis xyz="0 0 1"/>
     <parent link="talos_base"/>
     <child link="torso_link"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.5"/>
     <!-- TODO: Set appropriate values for these -->
     <limit effort="10" velocity="15"/>
     <!-- alpha tested effort and velocity limits -->
@@ -293,7 +294,7 @@ surface of the collision box matches the top surface of the PR2 base -->
 	 -->
       <!-- Temporary, because we will be using the .dae -->
       <geometry>
-        <box size="0.4 0.4 1.0"/>
+        <box size="0.4  0.4 1.0"/>
       </geometry>
       <material name="white">
         <color rgba="1 1 1 1"/>
@@ -314,7 +315,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <!-- Note: Crude approximation of physical robot -->
     <parent link="torso_link"/>
     <child link="left_shoulder_link"/>
-    <origin rpy="0 0 1.57" xyz="-0.25 -0.1 -0.39"/>
+    <origin rpy="0 0 1.57" xyz="0.25 0.1 0.39"/>
   </joint>
   <link name="left_shoulder_link">
     <!-- TODO: Jordan start -->
@@ -326,14 +327,12 @@ surface of the collision box matches the top surface of the PR2 base -->
     </inertial>
     <!-- TODO: Jordan end -->
     <!-- TODO: Someone? Not sure how these are done yet. -->
-   <!-- <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-    <geometry>
-
-        TODO: <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" />
-      </geometry>
-
-    </collision> -->
+    <!-- <collision>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+		  <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" /> 
+		</geometry>
+	</collision> -->
     <visual>
       <geometry>
         <box size="0.2 0.1 0.22"/>
@@ -350,7 +349,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <!-- Note: Crude approximation of the joint, this is not the exact connecting joint location -->
     <parent link="left_shoulder_link"/>
     <child link="left_upper_arm_link"/>
-    <origin rpy="0 0 1.57" xyz="0 0.235 0"/>
+    <origin rpy="1.57 0 0" xyz="0 -0.235 0"/>
     <!-- Note: Code template taken from PR2_upper_arm.urdf for templating -->
     <!-- Doc: axis of revolution -->
     <!-- TODO Jordan Start -->
@@ -376,13 +375,13 @@ surface of the collision box matches the top surface of the PR2 base -->
     </inertial>
     <!-- TODO: Jordan end -->
     <!-- TODO: Someone? Not sure how these are done yet. -->
-   <!-- <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-         TODO: Add .stl file for proper collision matrix 
-         <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" /> 
-      </geometry>
-    </collision> -->
+    <!-- <collision>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<geometry>
+		TODO: Add .stl file for proper collision matrix
+		   <mesh filename="package://pr2_description/meshes/upper_arm_v0/elbow_flex.stl" />
+		</geometry>
+	</collision> -->
     <visual>
       <geometry>
         <box size="0.47 0.2 0.22"/>

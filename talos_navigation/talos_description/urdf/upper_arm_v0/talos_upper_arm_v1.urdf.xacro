@@ -44,7 +44,7 @@ sensor and controller plugin specifications -->
 	<!-- Note: Crude approximation of physical robot -->
   	<parent link="${parent}"/>
 	<child link="${side}_shoulder_link"/>
-	<origin rpy="0 0 1.57" xyz="-0.25 -0.1 -0.39"/>
+	<origin rpy="0 0 1.57" xyz="0.25 0.1 0.39"/>
 </joint>
 
 <link name="${side}_shoulder_link">
@@ -86,7 +86,7 @@ sensor and controller plugin specifications -->
         <!-- Note: Crude approximation of the joint, this is not the exact connecting joint location -->
   	<parent link="${side}_shoulder_link"/>
 	<child link="${side}_upper_arm_link"/>
-	<origin rpy="0 0 1.57" xyz="0 0.235 0"/>
+	<origin rpy="1.57 0 0" xyz="0 -0.235 0"/>
 
 	<!-- Note: Code template taken from PR2_upper_arm.urdf for templating -->
 	<!-- Doc: axis of revolution -->

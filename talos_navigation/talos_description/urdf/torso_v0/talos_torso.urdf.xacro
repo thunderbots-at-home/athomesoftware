@@ -39,8 +39,7 @@
 	<axis xyz="0 0 1" />
 	<parent link="${parent}"/>
 	<child link="${name}_link"/>
-	<origin rpy="0 0 0" xyz="0 0 0"/>
-
+        <xacro:insert_block name="origin" />
        <!-- TODO: Set appropriate values for these -->
 	<limit effort="${max_torso_effort}" velocity="${max_wheel_velocity}"/> <!-- alpha tested effort and velocity limits -->
 

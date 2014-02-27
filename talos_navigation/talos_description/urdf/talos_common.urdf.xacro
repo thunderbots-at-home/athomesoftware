@@ -30,7 +30,9 @@
 <!-- TODO: Measure proper offsets for talos torso -->
 <property name="torso_offset_x" value="0" />
 <property name="torso_offset_y" value="0" />
-<property name="torso_offset_z" value="0" />
+
+<!-- VALUE: Torso height/2 + base height -->
+<property name="torso_offset_z" value="0.5" />
 
 <!--                                               -->
 <!--                 TALOS  DEFINITION             -->

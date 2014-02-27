@@ -69,12 +69,12 @@
 <!--                WHEEL DEFINITION               -->
 <!--                                               -->
 
-<xacro:macro name="talos_wheel" params="suffix parent reflect">
+<xacro:macro name="talos_wheel" params="suffix parent reflect_side reflect_back">
 
 <joint name="${parent}_${suffix}_wheel_joint" type="continuous">
 	<parent link="${parent}"/>
 	<child link="${parent}_${suffix}_wheel_link"/>
-	<origin rpy="0 0 0" xyz="0 0 0"/>
+	<origin rpy="0 1.57 0" xyz="${reflect_side*0.15} ${reflect_back*0.15} -0.15"/>
 	<axis xyz="0 1 0" />
        <limit effort="${max_wheel_effort}" velocity="${max_wheel_velocity}"/> <!-- alpha tested effort and velocity limits -->
        <safety_controller k_velocity="${safety_k_velocity}" />
@@ -91,7 +91,7 @@
           <mesh filename="package://pr2_description/meshes/base_v0/wheel.dae" />
         </geometry> -->
 		<origin rpy="0 0 0" xyz="0 0 0"/>
-		<material name="wheel_${suffix}">
+		<material name="black">
 			<color rgba="0 0 0 1"/>
 		</material>
 	<!-- TODO: Add correct collision values or close approximations -->
@@ -204,10 +204,10 @@ surface of the collision box matches the top surface of the PR2 base -->
     </xacro:hokuyo_lx30_laser_v0>
 
  <!-- Adding TALOS wheels to the base -->
-<xacro:talos_wheel suffix="fl" parent="talos_base" reflect="1" />
-<xacro:talos_wheel suffix="fr" parent="talos_base" reflect="-1" />
-<xacro:talos_wheel suffix="bl" parent="talos_base" reflect="1" />
-<xacro:talos_wheel suffix="br" parent="talos_base" reflect="-1" />
+<xacro:talos_wheel suffix="fl" parent="talos_base" reflect_side="1" reflect_back="1"/>
+<xacro:talos_wheel suffix="fr" parent="talos_base" reflect_side="-1" reflect_back="1"/>
+<xacro:talos_wheel suffix="bl" parent="talos_base" reflect_side="1" reflect_back="-1"/>
+<xacro:talos_wheel suffix="br" parent="talos_base" reflect_side="-1" reflect_back="-1"/>
 
 </xacro:macro>
 
