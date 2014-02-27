@@ -20,6 +20,7 @@
 <xacro:include filename="$(find talos_navigation)/talos_description/urdf/torso_v0/talos_torso.urdf.xacro" />
 <xacro:include filename="$(find talos_navigation)/talos_description/urdf/upper_arm_v0/talos_upper_arm_v1.urdf.xacro" />
 <xacro:include filename="$(find talos_navigation)/talos_description/urdf/base_v0/talos_base.urdf.xacro" />
+<xacro:include fliename="$(find talos_navigation)/talos_description/urdf/head_v0/talos_head.urdf.xacro" />
 
 <!-- Use the macros defined in the xacro above to define actual urdf -->
 
@@ -30,9 +31,14 @@
 <!-- TODO: Measure proper offsets for talos torso -->
 <property name="torso_offset_x" value="0" />
 <property name="torso_offset_y" value="0" />
-
 <!-- VALUE: Torso height/2 + base height -->
 <property name="torso_offset_z" value="0.5" />
+
+
+<!-- TODO: Measure proper offsets for taloshead -->
+<property name="talos_head_offset_x" value="0" />
+<property name="talos_head_offset_y" value="0" />
+<property name="talos_head_offset_z" value="0" />
 
 <!--                                               -->
 <!--                 TALOS  DEFINITION             -->
@@ -49,5 +55,11 @@
 
 <!-- Instantiates the upper arm of talos -->
 <xacro:talos_upper_arm side="left" parent="torso_link" reflect="1" />
+
+<!-- Instantiates talos head -->
+<xacro:talos_head parent="talos_torso_link">
+	<origin xyz="${talos_head_offset_x} ${talos_head_offset_y} ${talos_head_offset_z}" rpy="0 0 0" />
+</xacro:talos_head>
+
 
 </robot>

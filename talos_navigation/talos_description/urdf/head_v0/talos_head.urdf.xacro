@@ -164,10 +164,10 @@
 
 
 <!-- Instantiate the head of talos -->
-<xacro:macro name="talos_head" params="name parent *origin">
+<xacro:macro name="talos_head" params="parent *origin">
 
 	<!-- Instantiate the head_pan of talos -->
-	<xacro:talos_head_pan name="${name}" parent="${parent}">
+	<xacro:talos_head_pan name="head_pan" parent="${parent}">
 		<insert_block name="origin" />
 	</xacro:talos_head>
 
