@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
+<!-- TODO: Smoke Test this file in gazebo and RVIZ! -->
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://ros.org/wiki/xacro" name="talos_tilting_laser">
+
+
+<!--                                               -->
+<!--               GENERAL CONSTANTS               -->
+<!--                                               -->
+
+<property name="M_PI" value="3.1415926535897931"/>
+
+
+
+<xacro:macro name="talos_base_laser" params="*origin">
+
+  <!-- base laser -->
+    <xacro:hokuyo_lx30_laser_v0 name="talos_base_laser_link" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
+      <xacro:insert_block name="origin" />
+    </xacro:hokuyo_lx30_laser_v0>
+
+</xacro:macro>
+
+</robot>

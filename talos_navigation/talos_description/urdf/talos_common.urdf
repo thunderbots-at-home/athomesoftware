@@ -84,9 +84,6 @@ surface of the collision box matches the top surface of the PR2 base -->
     <child link="talos_base"/>
     <parent link="talos_base_footprint"/>
   </joint>
-  <xacro:hokuyo_lx30_laser_v0 max_angle="2.2689" min_angle="-2.2689" name="talos_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-  </xacro:hokuyo_lx30_laser_v0>
   <joint name="talos_base_fl_wheel_joint" type="continuous">
     <parent link="talos_base"/>
     <child link="talos_base_fl_wheel_link"/>
@@ -477,4 +474,8 @@ surface of the collision box matches the top surface of the PR2 base -->
         </geometry>
       </collision> -->
   </link>
+  <!-- Instantiates the base laser -->
+  <xacro:talos_tilting_laser>
+    <origin rpy="0 0 0" xyz="0 0.15 0.3"/>
+  </xacro:talos_tilting_laser>
 </robot>
