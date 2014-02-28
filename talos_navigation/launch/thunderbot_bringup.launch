@@ -15,24 +15,24 @@
 
 
 <!-- URDF TF Tree -->
-<include file="$(find talos_navigation)/launch/talos_urdf_model_bringup.launch"/>
+<include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
 
 <!-- Publish kinect data -->
-<include file="$(find sensors)/launch/start_kinect.launch"/>
+<!-- <include file="$(find sensors)/launch/start_kinect.launch"/> -->
 
 <!-- Publish laser data -->
-<include file="$(find sensors)/launch/start_lidar.launch" />
+<!-- <include file="$(find sensors)/launch/start_lidar.launch" /> -->
 
 <!-- <include file="$(find talos_navigation)/amcl_diff.launch" /> -->
 
 <!-- Publish /odom and send /cmd_vel -->
-<include file="$(find talos_base_controller)/base.launch" />
+<!-- <include file="$(find talos_base_controller)/base.launch" /> -->
 
 <node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" />
 
-  <node pkg="tf" type="static_transform_publisher" name="odom_to_talos_base" args="0 0 0 0 0 0 talos_base odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_talos_base" args="0 0 0 0 0 0 odom talos_base 100" />
 
- <node pkg="tf" type="static_transform_publisher" name="map_to_talos_base" args="0 0 0 0 0 0 talos_base map 100" />
+ <node pkg="tf" type="static_transform_publisher" name="map_to_talos_base" args="0 0 0 0 0 0 map talos_base 100" />
 
 
 <!-- 
