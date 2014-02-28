@@ -1,3 +1,6 @@
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
 <launch>
 	<arg name="model" />
 	<arg name="gui" default="False" />
