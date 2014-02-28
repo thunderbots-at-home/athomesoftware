@@ -39,7 +39,7 @@
 <!-- End of hack -->
 
 <!-- base laser -->
-    <xacro:hokuyo_lx30_laser_v0 name="talos_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
+    <xacro:hokuyo_lx30_laser_v0 name="talos_base_laser" parent="talos_base" ros_topic="scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
       <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
     </xacro:hokuyo_lx30_laser_v0>
 
