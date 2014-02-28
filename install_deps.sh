@@ -7,7 +7,7 @@ mkdir ${INSTALLATION_DIR}/dependencies
 DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
 
 ## Kinect related dependencies
-sudo apt-get install openni-dev
+## sudo apt-get install openni-dev DO NOT UNCOMMENT THIS IT IS EVIL
 sudo apt-get install libusb-1.0-0-dev
 sudo apt-get install freeglut3-dev
 sudo apt-get install doxygen
@@ -28,6 +28,7 @@ sudo apt-get install ros-${ROS_DISTRO}-turtlebot-follower
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
 sudo apt-get install ros-${ROS_DISTRO}-urdfdom
 sudo apt-get install ros-${ROS_DISTRO}-hokuyo-node
+sudo apt-get install ros-${ROS_DISTRO}-hector-slam
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
