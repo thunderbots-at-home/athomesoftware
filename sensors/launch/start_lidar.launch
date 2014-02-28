@@ -1,6 +1,14 @@
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
 <launch>
 
-<node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen"/>
+<node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
+
+<!-- See wiki.ros.org/hokuyo_node for more details -->
+<param name="frame_id" value="talos_base_laser_link"/>
+
+</node>
 
 
 </launch>
