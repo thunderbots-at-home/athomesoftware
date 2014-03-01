@@ -20,6 +20,7 @@
 <property name="M_PI" value="3.1415926535897931"/>
 
 
+<!-- No longer need small hack, DEPRECATED
 Small hack to get around the fact that hokuyo xacro adds a _link to the parent name
 <link name="talos_base_link">
     <visual>
@@ -28,7 +29,7 @@ Small hack to get around the fact that hokuyo xacro adds a _link to the parent n
         <box size="0 0 0" />
       </geometry>
     </visual>
-</link> 
+</link>  -->
 
 <!-- 
 <joint name="talos_base_link_hack" type="fixed">

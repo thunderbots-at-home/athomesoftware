@@ -131,7 +131,7 @@
 
 <xacro:macro name="talos_base" params="name">
 
-<link name="talos_base">
+<link name="talos_base_link">
 
 	<!-- TODO: Jordan to put proper values for the xml below
 	<inertial>
@@ -197,7 +197,7 @@ surface of the collision box matches the top surface of the PR2 base -->
 
     <joint name="${name}_base_footprint_joint" type="fixed">
       <origin xyz="0 0 0.051" rpy="0 0 0" />
-      <child link="talos_base" />
+      <child link="talos_base_link" />
       <parent link="${name}_base_footprint"/>
     </joint>
 
@@ -210,10 +210,10 @@ surface of the collision box matches the top surface of the PR2 base -->
 
 
  <!-- Adding TALOS wheels to the base -->
-<xacro:talos_wheel suffix="fl" parent="talos_base" reflect_side="1" reflect_back="1"/>
-<xacro:talos_wheel suffix="fr" parent="talos_base" reflect_side="-1" reflect_back="1"/>
-<xacro:talos_wheel suffix="bl" parent="talos_base" reflect_side="1" reflect_back="-1"/>
-<xacro:talos_wheel suffix="br" parent="talos_base" reflect_side="-1" reflect_back="-1"/>
+<xacro:talos_wheel suffix="fl" parent="talos_base_link" reflect_side="1" reflect_back="1"/>
+<xacro:talos_wheel suffix="fr" parent="talos_base_link" reflect_side="-1" reflect_back="1"/>
+<xacro:talos_wheel suffix="bl" parent="talos_base_link" reflect_side="1" reflect_back="-1"/>
+<xacro:talos_wheel suffix="br" parent="talos_base_link" reflect_side="-1" reflect_back="-1"/>
 
 </xacro:macro>
 

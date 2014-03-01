@@ -22,11 +22,6 @@
       </geometry>
     </visual>
   </link>
-  <joint name="talos_base_link_hack" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="talos_base"/>
-    <child link="talos_base_link"/>
-  </joint>
   <joint name="talos_base_laser_joint" type="fixed">
     <axis xyz="0 1 0"/>
     <origin rpy="0 0 0" xyz="0 0.15 0.3"/>
@@ -65,7 +60,7 @@
         <gaussianNoise>0.005</gaussianNoise>
         <alwaysOn>true</alwaysOn>
         <updateRate>20</updateRate>
-        <topicName>base_scan</topicName>
+        <topicName>scan</topicName>
         <frameName>talos_base_laser_link</frameName>
         <hokuyoMinIntensity>101</hokuyoMinIntensity>
       </plugin>
@@ -120,7 +115,7 @@
       <geometry>
         <box size="0.6 0.6 0.3"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 0.18805"/>
       <!-- TODO: Replace with .stl file -->
       <material name="white">
         <color rgba="1 1 1 1"/>
