@@ -14,19 +14,6 @@
   <!--                                               -->
   <!--                 INCLUDED XACROS               -->
   <!--                                               -->
-  <link name="talos_base_link">
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <box size="0 0 0"/>
-      </geometry>
-    </visual>
-  </link>
-  <joint name="talos_base_link_hack" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="talos_base"/>
-    <child link="talos_base_link"/>
-  </joint>
   <joint name="talos_base_laser_joint" type="fixed">
     <axis xyz="0 1 0"/>
     <origin rpy="0 0 0" xyz="0 0.15 0.3"/>
@@ -65,7 +52,7 @@
         <gaussianNoise>0.005</gaussianNoise>
         <alwaysOn>true</alwaysOn>
         <updateRate>20</updateRate>
-        <topicName>base_scan</topicName>
+        <topicName>scan</topicName>
         <frameName>talos_base_laser_link</frameName>
         <hokuyoMinIntensity>101</hokuyoMinIntensity>
       </plugin>
@@ -106,7 +93,7 @@
   <!--                 TALOS  DEFINITION             -->
   <!--                                               -->
   <!-- Creates the talos base and the wheels attached to it -->
-  <link name="talos_base">
+  <link name="talos_base_link">
     <!-- TODO: Jordan to put proper values for the xml below
 	<inertial>
         <mass value="${talos_base_mass}" />
@@ -161,13 +148,13 @@ surface of the collision box matches the top surface of the PR2 base -->
     </collision>
   </link>
   <joint name="talos_base_footprint_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.051"/>
-    <child link="talos_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0.18805"/>
+    <child link="talos_base_link"/>
     <parent link="talos_base_footprint"/>
   </joint>
-  <joint name="talos_base_fl_wheel_joint" type="continuous">
-    <parent link="talos_base"/>
-    <child link="talos_base_fl_wheel_link"/>
+  <joint name="talos_base_link_fl_wheel_joint" type="continuous">
+    <parent link="talos_base_link"/>
+    <child link="talos_base_link_fl_wheel_link"/>
     <origin rpy="0 1.57 0" xyz="0.15 0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -175,7 +162,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <safety_controller k_velocity="10"/>
     <dynamics damping="1.0" friction="0.0"/>
   </joint>
-  <link name="talos_base_fl_wheel_link">
+  <link name="talos_base_link_fl_wheel_link">
     <visual>
       <geometry>
         <cylinder length="0.01" radius="0.0761"/>
@@ -209,9 +196,9 @@ surface of the collision box matches the top surface of the PR2 base -->
       </inertial>
        -->
   </link>
-  <joint name="talos_base_fr_wheel_joint" type="continuous">
-    <parent link="talos_base"/>
-    <child link="talos_base_fr_wheel_link"/>
+  <joint name="talos_base_link_fr_wheel_joint" type="continuous">
+    <parent link="talos_base_link"/>
+    <child link="talos_base_link_fr_wheel_link"/>
     <origin rpy="0 1.57 0" xyz="-0.15 0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -219,7 +206,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <safety_controller k_velocity="10"/>
     <dynamics damping="1.0" friction="0.0"/>
   </joint>
-  <link name="talos_base_fr_wheel_link">
+  <link name="talos_base_link_fr_wheel_link">
     <visual>
       <geometry>
         <cylinder length="0.01" radius="0.0761"/>
@@ -253,9 +240,9 @@ surface of the collision box matches the top surface of the PR2 base -->
       </inertial>
        -->
   </link>
-  <joint name="talos_base_bl_wheel_joint" type="continuous">
-    <parent link="talos_base"/>
-    <child link="talos_base_bl_wheel_link"/>
+  <joint name="talos_base_link_bl_wheel_joint" type="continuous">
+    <parent link="talos_base_link"/>
+    <child link="talos_base_link_bl_wheel_link"/>
     <origin rpy="0 1.57 0" xyz="0.15 -0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -263,7 +250,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <safety_controller k_velocity="10"/>
     <dynamics damping="1.0" friction="0.0"/>
   </joint>
-  <link name="talos_base_bl_wheel_link">
+  <link name="talos_base_link_bl_wheel_link">
     <visual>
       <geometry>
         <cylinder length="0.01" radius="0.0761"/>
@@ -297,9 +284,9 @@ surface of the collision box matches the top surface of the PR2 base -->
       </inertial>
        -->
   </link>
-  <joint name="talos_base_br_wheel_joint" type="continuous">
-    <parent link="talos_base"/>
-    <child link="talos_base_br_wheel_link"/>
+  <joint name="talos_base_link_br_wheel_joint" type="continuous">
+    <parent link="talos_base_link"/>
+    <child link="talos_base_link_br_wheel_link"/>
     <origin rpy="0 1.57 0" xyz="-0.15 -0.15 -0.15"/>
     <axis xyz="0 1 0"/>
     <limit effort="7" velocity="15"/>
@@ -307,7 +294,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     <safety_controller k_velocity="10"/>
     <dynamics damping="1.0" friction="0.0"/>
   </joint>
-  <link name="talos_base_br_wheel_link">
+  <link name="talos_base_link_br_wheel_link">
     <visual>
       <geometry>
         <cylinder length="0.01" radius="0.0761"/>
@@ -344,7 +331,7 @@ surface of the collision box matches the top surface of the PR2 base -->
   <!-- Creates the talos torso -->
   <joint name="torso_rotating_joint" type="continuous">
     <axis xyz="0 0 1"/>
-    <parent link="talos_base"/>
+    <parent link="talos_base_link"/>
     <child link="torso_link"/>
     <origin rpy="0 0 0" xyz="0 0 0.5"/>
     <!-- TODO: Set appropriate values for these -->

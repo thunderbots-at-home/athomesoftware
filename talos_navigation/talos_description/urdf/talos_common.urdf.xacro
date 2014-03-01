@@ -50,7 +50,7 @@
 <xacro:talos_base name="talos" />
 
 <!-- Creates the talos torso -->
-<xacro:talos_torso name="torso" parent="talos_base">
+<xacro:talos_torso name="torso" parent="talos_base_link">
 	<origin xyz="${torso_offset_x} ${torso_offset_y} ${torso_offset_z}" rpy="0 0 0"/>
 </xacro:talos_torso>
 

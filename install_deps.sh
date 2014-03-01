@@ -1,4 +1,7 @@
 #!/bin/sh
+
+## Author: Devon Ash
+## Maintainer: noobaca2@gmail.com
 ## Dependencies for Thunderbots@Home Software
 ## Used for updating and installing the distros. 
 ROS_DISTRO="hydro"
@@ -29,6 +32,7 @@ sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
 sudo apt-get install ros-${ROS_DISTRO}-urdfdom
 sudo apt-get install ros-${ROS_DISTRO}-hokuyo-node
 sudo apt-get install ros-${ROS_DISTRO}-hector-slam
+sudo apt-get install ros-${ROS_DISTRO}-pr2-description
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'

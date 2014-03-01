@@ -66,6 +66,9 @@
 <property name="talos_base_laser_y" value="0.15" />
 <property name="talos_base_laser_z" value="0.3" /> -->
 
+<!-- Half of wheel height + half of base height -->
+<property name="talos_base_z" value="${(wheel_radius/2)+(talos_base_height)/2}"/>
+
 <!--                                               -->
 <!--                WHEEL DEFINITION               -->
 <!--                                               -->
@@ -129,7 +132,7 @@
 
 <xacro:macro name="talos_base" params="name">
 
-<link name="talos_base">
+<link name="talos_base_link">
 
 	<!-- TODO: Jordan to put proper values for the xml below
 	<inertial>
@@ -194,21 +197,24 @@ surface of the collision box matches the top surface of the PR2 base -->
     </link>
 
     <joint name="${name}_base_footprint_joint" type="fixed">
-      <origin xyz="0 0 0.051" rpy="0 0 0" />
-      <child link="talos_base" />
+      <origin xyz="0 0 ${talos_base_z}" rpy="0 0 0" />
+      <child link="talos_base_link" />
       <parent link="${name}_base_footprint"/>
     </joint>
 
-  <!-- base laser DEPRECATED, moved 
+
+<!-- I'm not sure how this got added in.. but what the fuck? 
     <xacro:hokuyo_lx30_laser_v0 name="${name}_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
       <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
-    </xacro:hokuyo_lx30_laser_v0> -->
+    </xacro:hokuyo_lx30_laser_v0> 
+ It should've been in the tilting laser file.. -->
+
 
  <!-- Adding TALOS wheels to the base -->
-<xacro:talos_wheel suffix="fl" parent="talos_base" reflect_side="1" reflect_back="1"/>
-<xacro:talos_wheel suffix="fr" parent="talos_base" reflect_side="-1" reflect_back="1"/>
-<xacro:talos_wheel suffix="bl" parent="talos_base" reflect_side="1" reflect_back="-1"/>
-<xacro:talos_wheel suffix="br" parent="talos_base" reflect_side="-1" reflect_back="-1"/>
+<xacro:talos_wheel suffix="fl" parent="talos_base_link" reflect_side="1" reflect_back="1"/>
+<xacro:talos_wheel suffix="fr" parent="talos_base_link" reflect_side="-1" reflect_back="1"/>
+<xacro:talos_wheel suffix="bl" parent="talos_base_link" reflect_side="1" reflect_back="-1"/>
+<xacro:talos_wheel suffix="br" parent="talos_base_link" reflect_side="-1" reflect_back="-1"/>
 
 </xacro:macro>
 
