@@ -6,7 +6,8 @@
 <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
 
 <!-- See wiki.ros.org/hokuyo_node for more details -->
-<param name="frame_id" value="talos_base_laser_link"/>
+<!-- This is wrong, it should be the talos_base_laser but it gives an error with hector slam and icbf to fix it atm -->
+<param name="frame_id" value="talos_base"/>
 
 </node>
 
