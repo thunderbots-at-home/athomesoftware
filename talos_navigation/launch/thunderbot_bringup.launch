@@ -21,7 +21,7 @@
 <!-- <include file="$(find sensors)/launch/start_kinect.launch"/> -->
 
 <!-- Publish laser data -->
-<!-- <include file="$(find sensors)/launch/start_lidar.launch" /> -->
+<include file="$(find sensors)/launch/start_lidar.launch" />
 
 <!-- <include file="$(find talos_navigation)/amcl_diff.launch" /> -->
 
