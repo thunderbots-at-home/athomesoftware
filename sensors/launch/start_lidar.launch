@@ -7,7 +7,7 @@
 
 <!-- See wiki.ros.org/hokuyo_node for more details -->
 <!-- This is wrong, it should be the talos_base_laser but it gives an error with hector slam and icbf to fix it atm -->
-<param name="frame_id" value="talos_base"/>
+<param name="frame_id" value="talos_base_laser_link"/>
 
 </node>
 

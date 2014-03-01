@@ -16,7 +16,7 @@
   <!--                                               -->
   <joint name="talos_base_laser_joint" type="fixed">
     <axis xyz="0 1 0"/>
-    <origin rpy="0 0 0" xyz="0 0.15 0.3"/>
+    <origin rpy="0 0 0" xyz="0 0.15 0"/>
     <parent link="talos_base_link"/>
     <child link="talos_base_laser_link"/>
   </joint>
