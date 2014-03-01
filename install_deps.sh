@@ -1,4 +1,7 @@
 #!/bin/sh
+
+## Author: Devon Ash
+## Maintainer: noobaca2@gmail.com
 ## Dependencies for Thunderbots@Home Software
 ## Used for updating and installing the distros. 
 ROS_DISTRO="hydro"
@@ -7,7 +10,7 @@ mkdir ${INSTALLATION_DIR}/dependencies
 DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
 
 ## Kinect related dependencies
-sudo apt-get install openni-dev
+## sudo apt-get install openni-dev DO NOT UNCOMMENT THIS IT IS EVIL
 sudo apt-get install libusb-1.0-0-dev
 sudo apt-get install freeglut3-dev
 sudo apt-get install doxygen
@@ -26,6 +29,16 @@ sudo apt-get install cmake python-catkin_pkg python-empy python-nose python-setu
 sudo apt-get install ros-${ROS_DISTRO}-catkin
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-follower
 sudo apt-get install ros-${ROS_DISTRO}-turtlebot-msgs
+sudo apt-get install ros-${ROS_DISTRO}-urdfdom
+sudo apt-get install ros-${ROS_DISTRO}-hokuyo-node
+sudo apt-get install ros-${ROS_DISTRO}-hector-slam
+sudo apt-get install ros-${ROS_DISTRO}-pr2-description
+
+#Installing Gazebo Simulator (This installs the most recent version of gazebo)
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install gazebo-current
 
 ## SIXAD for ps3 controller
 sudo apt-add-repository ppa:falk-t-j/qtsixa

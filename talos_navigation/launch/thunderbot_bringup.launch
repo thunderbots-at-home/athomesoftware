@@ -1,23 +1,48 @@
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
 <launch>
 <master auto="start"/>
 
- <include file="$(find tbots_navigation)/launch/thunderbots_drive.launch"/>
- <include file="$(find sensors)/launch/start_kinect.launch"/>
-  <include file="$(find tbots_navigation)/amcl_diff.launch" />
-  <include file="$(find talos_base_controller)/base.launch" />
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- REQUIREMENTS TO BRINGUP NAV STACK: -->
+<!-- 1. Odometry stream from base -->
+<!-- 2. Map on the map server -->
+<!-- 3. URDF TF Tree (Check) -->
+<!-- 4. Laser data being published  (Check) -->
+<!-- 5. Base controller that listens to cmd_vel -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-  <node pkg="tf" type="static_transform_publisher" name="horizontal_base_plate" args="0 0 0.08 0 0 0 horizontal_base_plate camera_depth_frame 100" />
-  <node pkg="tf" type="static_transform_publisher" name="odom_to_base_plate_tf args="0 0 0 0 0 0 horizontal_base_plate odom 100"/>
+
+<!-- URDF TF Tree -->
+<include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
+
+<!-- Publish kinect data -->
+<include file="$(find sensors)/launch/start_kinect.launch"/>
+
+<!-- Publish laser data -->
+<include file="$(find sensors)/launch/start_lidar.launch" />
+
+<!-- <include file="$(find talos_navigation)/amcl_diff.launch" /> -->
+
+<!-- Publish /odom and send /cmd_vel -->
+<include file="$(find talos_base_controller)/base.launch" />
+
+<!-- Transform for kinect frame <node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" /> -->
+
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_talos_base" args="0 0 0 0 0 0 odom talos_base_footprint 100" />
+
+ <node pkg="tf" type="static_transform_publisher" name="map_to_talos_base" args="0 0 0 0 0 0 map odom 100" />
 
 
-
- <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
-    <rosparam file="$(find tbots_navigation)/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find tbots_navigation)/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find tbots_navigation)/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tbots_navigation)/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find tbots_navigation)/base_local_planner_params.yaml" command="load" />
-  </node>
+<!-- 
+<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find talos_navigation)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find talos_navigation)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find talos_navigation)/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find talos_navigation)/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find talos_navigation)/base_local_planner_params.yaml" command="load" />
+  </node> -->
 
 
 

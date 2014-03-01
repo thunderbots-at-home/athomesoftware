@@ -84,9 +84,22 @@ class StackedDAE:
         corruptor = BinomialCorruptor(corruption_level=corruption)
         activation_encoder = "tanh"
         activation_decoder = None
+
+        # By default, the DAE initializes the weights at random
+        # Since we're using our own already pre-trained weights
+        # We will instead change those values.
         large_dae = DenoisingAutoencoder(nvis=nvis, nhid=nhid, corruptor=corruptor, irange=irange, act_enc=activation_encoder, act_dec=activation_decoder)
 
-        large_dae_weights = []
+        # Do not need to change hidden or visible bias. 
+        # They are static vars in theory.
+        large_dae._params = [
+            large_dae.visbias,
+            large_dae.hidbias,
+            # Here is where we change the weights.
+            large_dae.weights
+        ]
+
+        numpy_array = np.zeros((3072, 2560))
         # Load sub-layer models and get their weights.
         for i in range (0,5):
             fo = open(self.save_path+str(i)+".pkl", 'rb')
@@ -95,12 +108,12 @@ class StackedDAE:
             small_dae = cPickle.load(fo)
             fo.close()
             
+            # TODO: Create numpy array of proper values to set the large_dae. 
             # Get the weights from the small_dae's
             # so that they can be appended together.                                      
-            weights = small_dae.get_weights()
+            weights = small_dae.weights.get_value()
             large_dae_weights.append(weights)
 
-        large_dae.weights = large_dae_weights
         print "Successfully combined sub-layers"
 
 

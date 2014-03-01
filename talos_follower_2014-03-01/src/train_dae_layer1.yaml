@@ -2,7 +2,7 @@
     dataset: &train !obj:pylearn2.datasets.cifar10.CIFAR10 {
         which_set: 'train',
         start: 0,
-        stop: 2000
+        stop: 20000
     },
     model: !obj:pylearn2.models.autoencoder.DenoisingAutoencoder {
         nvis : 3072,
