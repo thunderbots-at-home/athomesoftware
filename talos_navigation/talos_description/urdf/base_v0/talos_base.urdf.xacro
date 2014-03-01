@@ -61,9 +61,10 @@
 <property name="talos_base_height" value="0.30" />
 <property name="talos_base_length" value="0.60" />
 
+<!-- DEPRECATED, Moved to talos_tilting_laser.urdf.xacro
 <property name="talos_base_laser_x" value="0" />
-<property name="talos_base_laser_y" value="0" />
-<property name="talos_base_laser_z" value="0" />
+<property name="talos_base_laser_y" value="0.15" />
+<property name="talos_base_laser_z" value="0.3" /> -->
 
 <!--                                               -->
 <!--                WHEEL DEFINITION               -->
@@ -198,10 +199,10 @@ surface of the collision box matches the top surface of the PR2 base -->
       <parent link="${name}_base_footprint"/>
     </joint>
 
-  <!-- base laser -->
+  <!-- base laser DEPRECATED, moved 
     <xacro:hokuyo_lx30_laser_v0 name="${name}_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
       <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
-    </xacro:hokuyo_lx30_laser_v0>
+    </xacro:hokuyo_lx30_laser_v0> -->
 
  <!-- Adding TALOS wheels to the base -->
 <xacro:talos_wheel suffix="fl" parent="talos_base" reflect_side="1" reflect_back="1"/>
