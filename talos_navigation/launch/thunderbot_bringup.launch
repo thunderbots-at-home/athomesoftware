@@ -18,7 +18,7 @@
 <include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
 
 <!-- Publish kinect data -->
-<!-- <include file="$(find sensors)/launch/start_kinect.launch"/> -->
+<include file="$(find sensors)/launch/start_kinect.launch"/>
 
 <!-- Publish laser data -->
 <include file="$(find sensors)/launch/start_lidar.launch" />
@@ -26,7 +26,7 @@
 <!-- <include file="$(find talos_navigation)/amcl_diff.launch" /> -->
 
 <!-- Publish /odom and send /cmd_vel -->
-<!-- <include file="$(find talos_base_controller)/base.launch" /> -->
+<include file="$(find talos_base_controller)/base.launch" />
 
 <!-- Transform for kinect frame <node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" /> -->
 
