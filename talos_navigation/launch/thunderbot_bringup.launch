@@ -28,7 +28,7 @@
 <!-- Publish /odom and send /cmd_vel -->
 <!-- <include file="$(find talos_base_controller)/base.launch" /> -->
 
-<node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" />
+<!-- Transform for kinect frame <node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" /> -->
 
   <node pkg="tf" type="static_transform_publisher" name="odom_to_talos_base" args="0 0 0 0 0 0 odom talos_base_footprint 100" />
 
