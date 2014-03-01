@@ -10,7 +10,7 @@
 <param name="map_frame" value="map"/>
 
 <!-- Note: using this without the use of the odom frame -->
-<param name="odom_frame" value="talos_base" />
+<param name="odom_frame" value="talos_base_link" />
 
 </node>
 
