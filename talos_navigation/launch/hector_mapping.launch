@@ -1,0 +1,10 @@
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
+<launch>
+
+<node pkg="hector_mapping" type="hector_mapping" output="screen">
+<param name="base_frame" value="talos_base_link"/>
+</node>
+
+</launch>
