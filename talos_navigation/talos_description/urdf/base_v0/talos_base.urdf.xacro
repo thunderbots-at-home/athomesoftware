@@ -147,7 +147,7 @@
 			<box size="${talos_base_width} ${talos_base_length} ${talos_base_height}"/>
 		</geometry>
 
-		<origin rpy="0 0 0" xyz="0 0 ${talos_base_z}"/>
+		<origin rpy="0 0 0" xyz="0 0 0"/>
 
               <!-- TODO: Replace with .stl file -->
 		<material name="white">
@@ -196,7 +196,7 @@ surface of the collision box matches the top surface of the PR2 base -->
     </link>
 
     <joint name="${name}_base_footprint_joint" type="fixed">
-      <origin xyz="0 0 0.051" rpy="0 0 0" />
+      <origin xyz="0 0 ${talos_base_z}" rpy="0 0 0" />
       <child link="talos_base_link" />
       <parent link="${name}_base_footprint"/>
     </joint>
