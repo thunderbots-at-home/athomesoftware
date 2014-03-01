@@ -65,6 +65,9 @@
 <property name="talos_base_laser_y" value="0" />
 <property name="talos_base_laser_z" value="0" />
 
+<!-- Half of wheel height + half of base height -->
+<property name="talos_base_z" value="${(wheel_radius/2)+(talos_base_height)/2}"/>
+
 <!--                                               -->
 <!--                WHEEL DEFINITION               -->
 <!--                                               -->
@@ -144,7 +147,7 @@
 			<box size="${talos_base_width} ${talos_base_length} ${talos_base_height}"/>
 		</geometry>
 
-		<origin rpy="0 0 0" xyz="0 0 0"/>
+		<origin rpy="0 0 0" xyz="0 0 ${talos_base_z}"/>
 
               <!-- TODO: Replace with .stl file -->
 		<material name="white">
@@ -198,10 +201,13 @@ surface of the collision box matches the top surface of the PR2 base -->
       <parent link="${name}_base_footprint"/>
     </joint>
 
-  <!-- base laser -->
+
+<!-- I'm not sure how this got added in.. but what the fuck? 
     <xacro:hokuyo_lx30_laser_v0 name="${name}_base_laser" parent="talos_base" ros_topic="base_scan" update_rate="20" min_angle="-2.2689" max_angle="2.2689" >
       <origin xyz="${talos_base_laser_x} ${talos_base_laser_y} ${talos_base_laser_z}" rpy="0 0 0" />
-    </xacro:hokuyo_lx30_laser_v0>
+    </xacro:hokuyo_lx30_laser_v0> 
+ It should've been in the tilting laser file.. -->
+
 
  <!-- Adding TALOS wheels to the base -->
 <xacro:talos_wheel suffix="fl" parent="talos_base" reflect_side="1" reflect_back="1"/>
