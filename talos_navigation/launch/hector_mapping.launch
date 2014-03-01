@@ -3,7 +3,7 @@
 
 <launch>
 
-<node pkg="hector_mapping" type="hector_mapping" output="screen">
+<node pkg="hector_mapping" type="hector_mapping" name="hector_slam" output="screen">
 <param name="base_frame" value="talos_base_link"/>
 </node>
 
