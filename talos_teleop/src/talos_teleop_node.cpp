@@ -23,8 +23,8 @@ class TeleopTalos
 TeleopTalos::TeleopTalos():
   linear_(1),
   angular_(2),
-  LB(4),
-  RB(5)
+  LB(10),
+  RB(11)
 {
   nh_.param("axis_linear", linear_, linear_);
   nh_.param("axis_angular", angular_, angular_);
