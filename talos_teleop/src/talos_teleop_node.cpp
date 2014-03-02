@@ -48,6 +48,20 @@ bool TeleopTalos::killCommandDetected(const sensor_msgs::Joy::ConstPtr& joy)
 // Author: Devon Ash
 void TeleopTalos::killAllNodes()
 {
+
+   // Stop motors
+   geometry_msgs::Twist twist;
+   twist.linear.x = 0;
+   twist.angular.z = 0;
+
+   int THRESHOLD = 10;
+   
+   // Send lots of 0s for "safety"
+   for (int i = 0; i < THRESHOLD; i++)
+   {
+       vel_pub_.publish(twist);
+   }
+
    // code that brings down talos nodes. 
    std::vector<std::string> node_list;
 
