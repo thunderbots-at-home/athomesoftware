@@ -56,7 +56,6 @@
 <property name="talos_base_cg_z" value="0" />
 <property name="talos_base_collision_size_z" value="0" />
 
-<!-- TODO: Input proper values here -->
 <property name="talos_base_width" value="0.60" />
 <property name="talos_base_height" value="0.30" />
 <property name="talos_base_length" value="0.60" />
