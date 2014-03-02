@@ -36,6 +36,8 @@ sudo apt-get install ros-${ROS_DISTRO}-pr2-description
 sudo apt-get install ros-${ROS_DISTRO}-depthimage-to-laserscan
 sudo apt-get install ros-${ROS_DISTRO}-rqt-robot-monitor
 sudo apt-get install ros-${ROS_DISTRO}-gscam
+sudo apt-get install ros-${ROS_DISTRO}-rosbridge-suite
+sudo apt-get install ros-${ROS_DISTRO}-mjpeg-server
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
@@ -55,6 +57,19 @@ sudo apt-get install python-numpy
 sudo apt-get install python-pip
 pip install git+http://github.com/Theano/Theano.git
 svn checkout http://svn.pyyaml.org/pyyaml/trunk ${DEPENDENCIES_DIR}/pyyaml-trunk
+
+# Installing uvc_cam
+# Bring us to dir /athomesoftware
+roscd sensors
+cd ..
+git clone https://github.com/ericperko/uvc_cam.git
+rosdep install uvc_cam
+rosmake uvc_cam
+# Installing pi_vision package for face_recognition
+svn co http://pi-robot-ros-pkg.googlecode.com/svn/trunk/pi_vision
+rosmake pi_vision
+
+
 
 
 
