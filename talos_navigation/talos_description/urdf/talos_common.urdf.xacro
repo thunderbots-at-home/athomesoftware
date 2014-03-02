@@ -29,17 +29,16 @@
 <!--                 COMMON CONSTANTS              -->
 <!--                                               -->
 
-<!-- TODO: Measure proper offsets for talos torso -->
-<property name="torso_offset_x" value="0" />
-<property name="torso_offset_y" value="0" />
+<property name="torso_offset_x" value="0.01" />
+<property name="torso_offset_y" value="-0.04" />
 <!-- VALUE: Torso height/2 + base height -->
-<property name="torso_offset_z" value="0.5" />
+<property name="torso_offset_z" value="0.675" />
 
 
-<!-- TODO: Measure proper offsets for taloshead -->
-<property name="talos_head_offset_x" value="0" />
-<property name="talos_head_offset_y" value="0" />
-<property name="talos_head_offset_z" value="0" />
+<property name="talos_head_offset_x" value="137" />
+<property name="talos_head_offset_y" value="-0.01" />
+<!-- TODO: Measure proper Z offset for taloshead, and include translations due to pan/tilt -->
+<property name="talos_head_offset_z" value="500" />
 
 <!--                                               -->
 <!--                 TALOS  DEFINITION             -->

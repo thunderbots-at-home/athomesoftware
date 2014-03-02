@@ -1,0 +1,19 @@
+<!-- Author: Devon Ash -->
+<!-- Maintainer: noobaca2@gmail.com -->
+
+<!-- Generates a map with the robot TALOS system -->
+<launch>
+
+<!-- Brings up the robots vitals -->
+<include file="$(find talos_navigation)/launch/thunderbot_bringup.launch"/>
+
+<!-- Record the laser scan information in the bag file -->
+<node pkg="rosbag" type="rosbag" name="rosbag_record_laser"
+      args="record -o talos_laser_data.bag /scan" />
+
+<!-- Start the teleop to have the robot move around -->
+<!-- Run the start_wireless_ps3_controller.sh -->
+
+<!-- Note: make sure the batteries are plugged in -->
+
+</launch>
