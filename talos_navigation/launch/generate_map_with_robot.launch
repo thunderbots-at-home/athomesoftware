@@ -12,7 +12,7 @@
       args="record -o talos_laser_data.bag /scan" />
 
 <!-- Start the teleop to have the robot move around -->
-
+<!-- Run the start_wireless_ps3_controller.sh -->
 
 <!-- Note: make sure the batteries are plugged in -->
 
