@@ -40,7 +40,6 @@ bool TeleopTalos::killCommandDetected(const sensor_msgs::Joy::ConstPtr& joy)
 {
   int lb = joy->buttons[LB];
   int rb = joy->buttons[RB];
-  ROS_WARN("KILL Command Detected. Initializing shutdown of vital nodes");
 
   return (lb && rb);  
 }
@@ -91,6 +90,7 @@ void TeleopTalos::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   // Process kill code if received both LB and RB as true
   if (killCommandDetected(joy))
   {
+     ROS_WARN("KILL Command Detected. Initializing shutdown of vital nodes");
      killAllNodes();
   }
 
