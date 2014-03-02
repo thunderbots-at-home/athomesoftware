@@ -33,6 +33,7 @@ sudo apt-get install ros-${ROS_DISTRO}-urdfdom
 sudo apt-get install ros-${ROS_DISTRO}-hokuyo-node
 sudo apt-get install ros-${ROS_DISTRO}-hector-slam
 sudo apt-get install ros-${ROS_DISTRO}-pr2-description
+sudo apt-get install ros-${ROS_DISTRO}-depthimage-to-laserscan
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
