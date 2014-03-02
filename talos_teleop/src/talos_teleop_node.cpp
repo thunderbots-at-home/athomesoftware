@@ -8,11 +8,13 @@ class TeleopTalos
   TeleopTalos();
 
   private:
+  bool killCommandDetected(const sensor_msgs::Joy::ConstPtr& joy);
   void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
+  void killAllNodes(void);
 
   ros::NodeHandle nh_;
 
-  int linear_, angular_;
+  int linear_, angular_, LB, RB;
   double l_scale_, a_scale_;
   ros::Publisher vel_pub_;
   ros::Subscriber joy_sub_;
@@ -20,7 +22,9 @@ class TeleopTalos
 
 TeleopTalos::TeleopTalos():
   linear_(1),
-  angular_(2)
+  angular_(2),
+  LB(4),
+  RB(5)
 {
   nh_.param("axis_linear", linear_, linear_);
   nh_.param("axis_angular", angular_, angular_);
@@ -31,6 +35,36 @@ TeleopTalos::TeleopTalos():
   joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 10, &TeleopTalos::joyCallback, this);
 }
 
+// Author: Devon Ash
+bool TeleopTalos::killCommandDetected(const sensor_msgs::Joy::ConstPtr& joy)
+{
+  int lb = joy->buttons[LB];
+  int rb = joy->buttons[RB];
+  ROS_WARN("KILL Command Detected. Initializing shutdown of vital nodes");
+
+  return (lb && rb);  
+}
+
+// Author: Devon Ash
+void TeleopTalos::killAllNodes()
+{
+   // code that brings down talos nodes. 
+   std::vector<std::string> node_list;
+
+   // Kills all
+   system("rosnode kill -a");
+
+   // Check what is alive   
+   ros::master::getNodes(node_list);
+
+   for (int i = 0; i < node_list.size(); i++)
+   {
+	ROS_WARN("Node %s was not killed. Not sure why.", node_list[i].c_str());
+   }
+
+}
+
+
 void TeleopTalos::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
     // 0 = 2: left stick f/b
@@ -39,8 +73,19 @@ void TeleopTalos::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   geometry_msgs::Twist twist;
   twist.linear.x = l_scale_*joy->axes[linear_];
   twist.angular.z = a_scale_*joy->axes[angular_];
+
+  // Process kill code if received both LB and RB as true
+  if (killCommandDetected(joy))
+  {
+     killAllNodes();
+  }
+
   vel_pub_.publish(twist);
 }
+
+
+
+
 
 int main(int argc, char** argv)
 {
