@@ -36,7 +36,7 @@ sudo apt-get install ros-${ROS_DISTRO}-pr2-description
 sudo apt-get install ros-${ROS_DISTRO}-depthimage-to-laserscan
 sudo apt-get install ros-${ROS_DISTRO}-rqt-robot-monitor
 sudo apt-get install ros-${ROS_DISTRO}-gscam
-sudo apt-get install ros-${ROS_DISTRO}-rosbridge-suite
+#sudo apt-get install ros-${ROS_DISTRO}-rosbridge-suite
 sudo apt-get install ros-${ROS_DISTRO}-mjpeg-server
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
