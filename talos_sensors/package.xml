@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>sensors</name>
+  <name>talos_sensors</name>
   <version>0.0.0</version>
   <description>The sensors package</description>
 
