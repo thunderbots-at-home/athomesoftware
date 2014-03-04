@@ -96,6 +96,15 @@ wstool update
 cd ..
 rosdep install --from-paths src --ignore-src --rosdistro hydro -y
 
+# Patch to fix missing library in moveit
+roscd ${INSTALLATION_DIR}
+# Goto catkin_Ws
+cd ../../
+sudo apt-get install -f
+sudo apt-get autoremove
+rm -r devel
+rm -r build
+
 # After all the installations are done, make the project. 
 roscd ${INSTALLATION_DIR}
 cd ../../
