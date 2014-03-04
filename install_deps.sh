@@ -38,6 +38,8 @@ sudo apt-get install ros-${ROS_DISTRO}-rqt-robot-monitor
 sudo apt-get install ros-${ROS_DISTRO}-gscam
 #sudo apt-get install ros-${ROS_DISTRO}-rosbridge-suite
 sudo apt-get install ros-${ROS_DISTRO}-mjpeg-server
+sudo apt-get install ros-${ROS_DISTRO}-ros-control
+sudo apt-get install ros-${ROS_DISTRO}-ros-controllers
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
@@ -50,13 +52,14 @@ sudo apt-add-repository ppa:falk-t-j/qtsixa
 sudo apt-get update
 sudo apt-get install sixad
 
+# To add later, "If ml=true then this->"
 # Installing pylearn2 dependencies
-sudo apt-get install python3
-sudo apt-get install python-scipy
-sudo apt-get install python-numpy
-sudo apt-get install python-pip
-pip install git+http://github.com/Theano/Theano.git
-svn checkout http://svn.pyyaml.org/pyyaml/trunk ${DEPENDENCIES_DIR}/pyyaml-trunk
+#sudo apt-get install python3
+#sudo apt-get install python-scipy
+#sudo apt-get install python-numpy
+#sudo apt-get install python-pip
+#pip install git+http://github.com/Theano/Theano.git
+#svn checkout http://svn.pyyaml.org/pyyaml/trunk ${DEPENDENCIES_DIR}/pyyaml-trunk
 
 # Installing uvc_cam
 # Bring us to dir /athomesoftware
