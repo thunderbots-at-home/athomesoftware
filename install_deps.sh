@@ -79,33 +79,6 @@ sudo pip uninstall rospkg rosdep catkin_pkg rosinstall vcstools
 sudo apt-get update
 sudo apt-get install --reinstall python-rospkg python-rosdep python-catkin-pkg python-rosinstall python-vcstools
 
-# Installing MoveIt! and its cmake_modules patch
-roscd ${INSTALLATION_DIR}
-source /opt/ros/hydro/setup.bash
-mkdir moveit
-cd moveit
-mkdir src
-cd src
-wstool init .
-wstool merge https://raw.github.com/ros-planning/moveit_docs/hydro-devel/moveit.rosinstall
-wstool update
-# Returns back to INSTALLATION_DIR
-cd ..
-rosdep install --from-paths src --ignore-src --rosdistro hydro -y
-
-# Patch to fix missing library in moveit
-roscd ${INSTALLATION_DIR}
-# Goto catkin_Ws
-cd ../../
-sudo apt-get install -f
-sudo apt-get autoremove
-rm -r devel
-rm -r build
-
-# After all the installations are done, make the project. 
-roscd ${INSTALLATION_DIR}
-cd ../../
-catkin_make
 
 
 
