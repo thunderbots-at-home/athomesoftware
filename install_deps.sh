@@ -75,6 +75,36 @@ rosmake uvc_cam
 svn co http://pi-robot-ros-pkg.googlecode.com/svn/trunk/pi_vision
 rosmake pi_vision
 
+# Patch for properly installing packages
+# Call this command twice, not sure why, but patch required it.
+sudo pip uninstall rospkg rosdep catkin_pkg rosinstall vcstools
+sudo pip uninstall rospkg rosdep catkin_pkg rosinstall vcstools
+sudo apt-get update
+sudo apt-get install --reinstall python-rospkg python-rosdep python-catkin-pkg python-rosinstall python-vcstools
+
+# Installing MoveIt! and its cmake_modules patch
+roscd ${INSTALLATION_DIR}
+source /opt/ros/hydro/setup.bash
+mkdir moveit
+cd moveit
+mkdir src
+cd src
+wstool init .
+wstool merge https://raw.github.com/ros-planning/moveit_docs/hydro-devel/moveit.rosinstall
+wstool update
+# Returns back to INSTALLATION_DIR
+cd ..
+rosdep install --from-paths src --ignore-src --rosdistro hydro -y
+
+# After all the installations are done, make the project. 
+roscd ${INSTALLATION_DIR}
+cd ../../
+catkin_make
+
+
+
+
+
 
 
 
