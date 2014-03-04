@@ -1,13 +1,8 @@
-software
-========
-
 Thunderbots@Home software repository
-
+Maintainer: Devon Ash <noobaca2@gmail.com>
 
 ## Installation ##
-
 1. ./install_deps.sh
-2. ./catkin_setup.sh
-3. Profit, you're done.
-
+2. cd ~/catkin_ws/
+3. catkin_make
 
