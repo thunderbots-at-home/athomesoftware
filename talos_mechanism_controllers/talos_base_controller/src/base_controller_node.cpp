@@ -62,6 +62,8 @@ void killCallBack(const std_msgs::String::ConstPtr& msg) {
 }
 
 void cmdCallBack(const geometry_msgs::Twist::ConstPtr& msg) {
+
+    ROS_INFO("Received base message why the fuck is base controller killed ");
     if ( ros::ok() && !base_controller::kill ) {
         std::string linear_x = boost::lexical_cast<std::string>(msg->linear.x);
         std::string linear_y = boost::lexical_cast<std::string>(msg->linear.y);
@@ -132,7 +134,7 @@ int main( int argc, char **argv ) {
         //while ( ros::ok() ) {
         while ( !(base_controller::g_request_shutdown) ) {
             std::string readValue;
-            readValue = base_controller::async_serial->readStringUntil("\a");
+            readValue = base_controller::async_serial->readStringUntil("\n");
             
             if (readValue != "") {
                 ROS_INFO( "received message: %s", readValue.c_str() );
