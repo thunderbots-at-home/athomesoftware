@@ -40,6 +40,8 @@ sudo apt-get install ros-${ROS_DISTRO}-gscam
 sudo apt-get install ros-${ROS_DISTRO}-mjpeg-server
 sudo apt-get install ros-${ROS_DISTRO}-ros-control
 sudo apt-get install ros-${ROS_DISTRO}-ros-controllers
+sudo apt-get install ros-${ROS_DISTRO}-executive-smach
+sudo apt-get install ros-${ROS_DISTRO}-ros-smach
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
