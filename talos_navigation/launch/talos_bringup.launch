@@ -13,6 +13,10 @@
 <!-- 5. Base controller that listens to cmd_vel -->
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+<!-- Parameters for LIDAR and Arduino Ports -->
+<arg name="lidar_port"/>
+<arg name="arduino_port"/>
+
 <!-- URDF TF Tree -->
 <include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
 
@@ -20,10 +24,15 @@
 <include file="$(find talos_sensors)/launch/start_kinect.launch"/>
 
 <!-- Publish laser data -->
-<include file="$(find talos_sensors)/launch/start_lidar.launch" />
+<include file="$(find talos_sensors)/launch/start_lidar.launch">
+<arg name="lidar_device" value="$(arg lidar_port)"/>
+</include>
 
 <!-- Publish /odom and send /cmd_vel -->
-<include file="$(find talos_base_controller)/base.launch" />
+<include file="$(find talos_base_controller)/base.launch">
+<arg name="_device_file" value="$(arg arduino_port)"/>
+</include>
+
 
 <!-- Start hector mapping -->
 <include file="$(find talos_navigation)/launch/hector_mapping.launch"/>
@@ -45,7 +54,6 @@
     <rosparam file="$(find talos_navigation)/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find talos_navigation)/base_local_planner_params.yaml" command="load" />
   </node> 
-
 
 
 </launch>
