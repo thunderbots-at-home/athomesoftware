@@ -132,7 +132,7 @@ int main( int argc, char **argv ) {
         //while ( ros::ok() ) {
         while ( !(base_controller::g_request_shutdown) ) {
             std::string readValue;
-            readValue = base_controller::async_serial->readStringUntil("\n");
+            readValue = base_controller::async_serial->readStringUntil("\a");
             
             if (readValue != "") {
                 ROS_INFO( "received message: %s", readValue.c_str() );
