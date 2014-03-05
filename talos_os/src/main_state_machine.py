@@ -3,10 +3,23 @@
 ## Maintainer: noobaca2@gmail.com
 
 import roslib
-import rosp
+import rospy
 import smach
 import smach_ros
 
 # The states are included as imports, this is the main state machine container. 
 
+def main():
+    rospy.init_node('talos_main_state_machine')
+    
+    #Create a Smach
+    sm = smach.StateMachine(outcomes=['success', 'fail'])
 
+    # Open the container
+    with sm:
+        print 'nothing here'
+        # Adding the states to the container
+        #smach.StateMachine.add('Add a State
+
+if __name__ == '__main__':
+    main()
