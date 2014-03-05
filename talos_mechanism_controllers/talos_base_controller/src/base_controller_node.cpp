@@ -63,7 +63,11 @@ void killCallBack(const std_msgs::String::ConstPtr& msg) {
 
 void cmdCallBack(const geometry_msgs::Twist::ConstPtr& msg) {
 
-    ROS_INFO("Received base message why the fuck is base controller killed ");
+    // If the time of the message compared to the now time is too great
+    // Then dispose of the message, only process recent commands to give
+    // The user a realistic feedback and control
+ 
+
     if ( ros::ok() && !base_controller::kill ) {
         std::string linear_x = boost::lexical_cast<std::string>(msg->linear.x);
         std::string linear_y = boost::lexical_cast<std::string>(msg->linear.y);
@@ -106,7 +110,7 @@ int main( int argc, char **argv ) {
     n.param<std::string>( "cmd_vel_topic", cmd_vel_topic, "cmd_vel" );
     /* create publisher and subscribers */
     ROS_INFO( "subscribing to cmd_vel" );
-    ros::Subscriber sub = n.subscribe(cmd_vel_topic, 1000, cmdCallBack );
+    ros::Subscriber sub = n.subscribe(cmd_vel_topic, 1, cmdCallBack );
     ROS_INFO( "subscribing to kill topic" );
     ros::Subscriber sub_kill = n.subscribe("kill", 1, killCallBack );
     ROS_INFO( "publishing to odom" );
@@ -132,11 +136,11 @@ int main( int argc, char **argv ) {
         ROS_INFO( "reading serial comm buffer" );
 
 	
-//        ros::MultiThreadedSpinner spinner(4);
+
          	
         //while ( ros::ok() ) {
         while ( !(base_controller::g_request_shutdown) && n.ok() ) {
-        /*    std::string readValue;
+         std::string readValue;
             readValue = base_controller::async_serial->readStringUntil("\n");
             
             if (readValue != "") {
@@ -145,10 +149,10 @@ int main( int argc, char **argv ) {
                 odom_pub.publish( odom_manager.GetCurrentOdom() );
                 broadcaster.sendTransform( odom_manager.GetCurrentTransform() );
             }
-*/
+
              ros::spinOnce();
-	 usleep(10000);  
-//          spinner.spin(); 
+             loop_rate.sleep();  
+
         }
         
     } catch ( boost::system::system_error& e ) {
