@@ -106,7 +106,7 @@ int main( int argc, char **argv ) {
     n.param<std::string>( "cmd_vel_topic", cmd_vel_topic, "cmd_vel" );
     /* create publisher and subscribers */
     ROS_INFO( "subscribing to cmd_vel" );
-    ros::Subscriber sub = n.subscribe(cmd_vel_topic, 1, cmdCallBack );
+    ros::Subscriber sub = n.subscribe(cmd_vel_topic, 1000, cmdCallBack );
     ROS_INFO( "subscribing to kill topic" );
     ros::Subscriber sub_kill = n.subscribe("kill", 1, killCallBack );
     ROS_INFO( "publishing to odom" );
@@ -131,9 +131,12 @@ int main( int argc, char **argv ) {
         base_controller::async_serial = new BufferedAsyncSerial( device_file , 9600 );
         ROS_INFO( "reading serial comm buffer" );
 
+	
+//        ros::MultiThreadedSpinner spinner(4);
+         	
         //while ( ros::ok() ) {
-        while ( !(base_controller::g_request_shutdown) ) {
-            std::string readValue;
+        while ( !(base_controller::g_request_shutdown) && n.ok() ) {
+        /*    std::string readValue;
             readValue = base_controller::async_serial->readStringUntil("\n");
             
             if (readValue != "") {
@@ -142,11 +145,12 @@ int main( int argc, char **argv ) {
                 odom_pub.publish( odom_manager.GetCurrentOdom() );
                 broadcaster.sendTransform( odom_manager.GetCurrentTransform() );
             }
-
-            ros::spinOnce();
-            usleep( 100000 ); 
+*/
+             ros::spinOnce();
+	 usleep(10000);  
+//          spinner.spin(); 
         }
-
+        
     } catch ( boost::system::system_error& e ) {
         ROS_ERROR ( "Error: %s", e.what() );
         ROS_ERROR ( "closing serial connection" );
