@@ -29,9 +29,9 @@
 </include>
 
 <!-- Publish /odom and send /cmd_vel -->
-<include file="$(find talos_base_controller)/base.launch">
+<!-- <include file="$(find talos_base_controller)/base.launch">
 <arg name="_device_file" value="$(arg arduino_port)"/>
-</include>
+</include> -->
 
 
 <!-- Start hector mapping -->
