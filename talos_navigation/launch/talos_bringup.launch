@@ -14,8 +14,8 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <!-- Parameters for LIDAR and Arduino Ports -->
-<arg name="lidar_port"/>
-<arg name="arduino_port"/>
+<arg name="lidar_port" default="/dev/tty/ACM1"/>
+<arg name="arduino_port" default="/dev/ttyACM0"/>
 
 <!-- URDF TF Tree -->
 <include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
