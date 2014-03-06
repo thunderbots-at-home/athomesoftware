@@ -22,8 +22,6 @@ def main():
 
     # Open the container
     with sm:
-        print 'nothing here'
-
         # Transitions = {Outcome:NextState}
         #  STARTUP STATE
         smach.StateMachine.add('StartupState', StartupState(),
@@ -68,7 +66,7 @@ def main():
         smach.StateMachine.add("PositioningForUserState", PositioningForUserState(), transitions={"UserDetected":"FollowingState", "PositioningForUser":"PositioningForUserState", "PositioningForUserFailed":"FailedTrackingState"})
 
         # DONE NOOBS
-
+        outcome = sm.execute()
 ########################### Start Main #############################
 
 if __name__ == '__main__':
