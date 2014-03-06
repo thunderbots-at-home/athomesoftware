@@ -6,7 +6,7 @@ import rospy
 import smach
 import smach_ros
 
-class FollowerCommandStandby(smach.State):
+class FollowerCommandStandbyState(smach.State):
 
     def __init__(self):
         smach.State.__init__(self, outcomes=["FollowMeCommandDetected", "RestartCommandDetected", "ContinueStandby"])

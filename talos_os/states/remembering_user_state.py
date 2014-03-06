@@ -9,7 +9,7 @@ import smach_ros
 class RememberingUserState(smach.State):
 
     def __init__(self):
-        smach.State.__init__(self, outcomes=["FailedAttempts", "UserRemembered", "UnsuccsessfulAttempt"])
+        smach.State.__init__(self, outcomes=["FailedToRemember", "UserRemembered", "UnsuccsessfulAttempt"])
         self.counter = 0
 
     def execute(self, userdata):
@@ -22,7 +22,7 @@ class RememberingUserState(smach.State):
 
         #TODO Set up proper logic for statement below
         if (failed_attempt):
-            return "FailedAttempts"
+            return "FailedToRemember"
         else:
             return "UnsuccessfulAttempts"
 
