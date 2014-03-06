@@ -27,8 +27,15 @@ def main():
     # Open the container
     with sm:
         print 'nothing here'
-        # Adding the states to the container
-        #smach.StateMachine.add('Add a State
+
+        # Transitions = {Outcome:NextState}
+        smach.StateMachine.add('StartupState', StartupState(),
+                                transitions={"NoCommandDetected":'StartupState', "CommandDetected":'CommandStandbyState'})
+
+        smach.StateMachine.add('CommandStandbyState', CommandStandbyState(),
+                                transitions={"RememberMeCommandDetected":'RememberMeState', "NoCommandDetected":'CommandStandbyState'})
+
+
 
 
 
