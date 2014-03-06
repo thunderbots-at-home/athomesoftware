@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 ## Author: Devon Ash
 ## Maintainer: noobaca2@gmail.com
-
 ########################### Import Libraries #######################
 
 import roslib
@@ -23,13 +22,17 @@ def main():
     rospy.init_node('talos_main_state_machine')
     
     #Create a Smach
-    sm = smach.StateMachine(outcomes=['robot success', 'robot failure'])
+    sm = smach.StateMachine(outcomes=['success', 'failure'])
 
     # Open the container
     with sm:
         print 'nothing here'
         # Adding the states to the container
         #smach.StateMachine.add('Add a State
+
+
+
+########################### Start Main #############################
 
 if __name__ == '__main__':
     main()
