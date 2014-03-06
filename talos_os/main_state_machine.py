@@ -10,7 +10,7 @@ import smach_ros
 
 ############################ Import states #########################
 #Replaced by __all__ inside __init__
-
+from states import *
 
 ################################ MAIN ##############################
 
