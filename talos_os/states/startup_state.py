@@ -15,7 +15,8 @@ import smach_ros
 class StartupState(smach.State):
 
 ############################### ON STATE INIT #############################
-# Initializes the robot system via talos_bringup.launch
+# The state machine assumes that these nodes below are initializes by 
+# running 'roslaunch talos_navigation talos_bringup.launch'
 
 # Nodes:
 #    JointStatePublisher
