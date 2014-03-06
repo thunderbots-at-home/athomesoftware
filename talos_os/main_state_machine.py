@@ -29,13 +29,27 @@ def main():
         print 'nothing here'
 
         # Transitions = {Outcome:NextState}
+        #  STARTUP STATE
         smach.StateMachine.add('StartupState', StartupState(),
                                 transitions={"NoCommandDetected":'StartupState', "CommandDetected":'CommandStandbyState'})
 
+        # COMMAND STANDBY STATE
         smach.StateMachine.add('CommandStandbyState', CommandStandbyState(),
-                                transitions={"RememberMeCommandDetected":'RememberMeState', "NoCommandDetected":'CommandStandbyState'})
+                                transitions={"RememberMeCommandDetected":'RememberingUserState', "NoCommandDetected":'CommandStandbyState'})
 
+        # REMEMBER ME STATE
+        smach.StateMachine.add('RememberingUserState', RememberingUserState(),
+                                transitions=
+ {"FailedToRemember":'FailedStatePrompt',    "UserRemembered":'TrackingUnidentifiedUserState',
+ "UnsuccessfulAttempt":'RememberingUserState'})
 
+        # FAILED STATE PROMPT
+        smach.StateMachine.add('FailedStatePrompt', FailedStatePrompt(),
+                                transitions={"FailedStatePrompt":'FailedStatePrompt'})
+
+        # TRACKING UNIDENTIFIED USER STATE
+ 
+        #
 
 
 
