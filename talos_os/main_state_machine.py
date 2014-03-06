@@ -2,15 +2,22 @@
 ## Author: Devon Ash
 ## Maintainer: noobaca2@gmail.com
 
+########################### Import Libraries #######################
+
 import roslib
 import rospy
 import smach
 import smach_ros
 
-# Include the initialization state
-from states.startup_state import StartupState
+############################ Import states #########################
 
-# The states are included as imports, this is the main state machine container. 
+from states.startup_state import StartupState
+from states.command_standby_state import CommandStandbyState
+from states.follower_command_standby_state import FollowerCommandStandbyState
+from states.remembering_user_state import RememberingUserState
+from states.tracking_unidentified_state import TrackingUnidentifiedUserState
+
+################################ MAIN ##############################
 
 def main():
     rospy.init_node('talos_main_state_machine')
