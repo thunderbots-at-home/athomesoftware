@@ -20,6 +20,12 @@
 <!-- URDF TF Tree -->
 <include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
 
+<!-- Start microphone -->
+<include file="$(find talos_sensors)/launch/start_microphone.launch"/>
+
+<!-- Start speakers -->
+<include file="$(find talos_sensors)/launch/start_speakers.launch"/>
+
 <!-- Publish kinect data -->
 <include file="$(find talos_sensors)/launch/start_kinect.launch"/>
 
