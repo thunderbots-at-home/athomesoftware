@@ -48,10 +48,12 @@ def main():
                                 transitions={"FailedStatePrompt":'FailedStatePrompt'})
 
         # TRACKING UNIDENTIFIED USER STATE
- 
-        #
+        smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedStatePrompt', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'}
+        
+        # FOLLOWER COMMAND STANDBY STATE
+        smach.Statemachine.add('FollowerCommandStandbyState', FollowerCommandStandbyState(), transitions={"FollowMeCommandDetected":"FollowingState", "RestartCommandDetected":"FailedStatePrompt", "ContinueStandby":"FollowerCommandStandbyState"})
 
-
+        # FOLLOWER ALGORITHM STATES
 
 ########################### Start Main #############################
 
