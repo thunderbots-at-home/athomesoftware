@@ -18,9 +18,9 @@ class StartupState(smach.State):
         # TODO listen for speech to text commands that tell Talos "Ok, Talos" has been detected and set this variable true.        
         ok_talos_detected = 0
 
-        if (ok_talos_detected)
+        if (ok_talos_detected):
             return "CommandDetected"
-        else
+        else:
             return "NoCommandDetected"
 
 
