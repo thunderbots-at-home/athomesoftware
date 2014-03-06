@@ -53,7 +53,18 @@ def main():
         # FOLLOWER COMMAND STANDBY STATE
         smach.Statemachine.add('FollowerCommandStandbyState', FollowerCommandStandbyState(), transitions={"FollowMeCommandDetected":"FollowingState", "RestartCommandDetected":"FailedStatePrompt", "ContinueStandby":"FollowerCommandStandbyState"})
 
-        # FOLLOWER ALGORITHM STATES
+        # FOLLOWING STATE
+        smach.StateMachine.add("FollowingState", FollowingState(), transitions={
+
+        # FAILED TRACKING STATE
+
+        # NO USER DETECTED STATE
+
+        # TRACKING WRONG USER STATE
+
+        # OCCLUDED STATE
+
+        # DONE NOOBS
 
 ########################### Start Main #############################
 
