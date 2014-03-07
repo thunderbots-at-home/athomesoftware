@@ -1,7 +1,8 @@
+#!/usr/bin/env python
+
 ## Author: Devon Ash
 ## Maintainer: noobaca2@gmail.com
 ############################### IMPORTS ############################
-#!/usr/bin/env python
 
 
 import roslib
@@ -9,7 +10,7 @@ import rospy
 
 from std_msgs.msg import String
 from talos_speech.srv import ListenFor
-from std_srv.srv import Empty
+from std_srvs.srv import Empty
 
 ########################### DEVELOEPR README #######################
 
