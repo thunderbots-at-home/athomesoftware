@@ -47,6 +47,5 @@ def main():
     service = rospy.Service('listen_for', ListenFor, listen_for) 
     rospy.spin()
     
-
 if __name__ == "__main__":
     main()
