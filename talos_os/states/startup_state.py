@@ -47,9 +47,9 @@ class StartupState(smach.State):
     def speech_callback(data):
         rospy.loginfo(rospy.get_name() + " I heard %s", data.data)
         if (data.data == "Ok Talos"):
-            ok_talos_detected = True
+            self.ok_talos_detected = True
         else:
-            ok_talos_detected = False
+            self.ok_talos_detected = False
 
 ################################ ON STATE EXECUTION #######################
 # On state execution, the robot should listen for the "Ok, Talos" command
@@ -58,7 +58,7 @@ class StartupState(smach.State):
     def execute(self, userdata):
         rospy.loginfo("Standing by for Ok, Talos")
 
-        if (ok_talos_detected):
+        if (self.ok_talos_detected):
             return "CommandDetected"
         else:
             return "NoCommandDetected"
