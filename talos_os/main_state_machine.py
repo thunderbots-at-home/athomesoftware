@@ -10,8 +10,19 @@ import smach_ros
 
 ############################ Import states #########################
 #Replaced by __all__ inside __init__
-from states import *
-from states.follow_states import *
+from states.command_standby_state import CommandStandbyState
+from states.failed_state_prompt import FailedStatePrompt
+from states.follower_command_standby_state import FollowerCommandStandbyState
+from states.remembering_user_state import RememberingUserState
+from states.startup_state import StartupState
+from states.tracking_unidentified_state import TrackingUnidentifiedUserState
+
+from states.follow_states.failed_tracking_state import FailedTrackingState
+from states.follow_states.occluded_state import OccludedState
+from states.follow_states.tracking_wrong_user_state import TrackingWrongUserState
+from states.follow_states.user_off_screen_state import UserOffScreenState
+from states.follow_states.no_user_detected_state import NoUserDetectedState
+from states.follow_states.following_state import FollowingState
 
 ################################ MAIN ##############################
 
