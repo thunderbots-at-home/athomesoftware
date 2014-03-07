@@ -56,9 +56,13 @@ class StartupState(smach.State):
         rospy.loginfo("Standing by for Ok")
         rospy.wait_for_service('listen_for')
 
+        response = 0
+
+        # Note to self: services must be called with the nodespace node/servicename
         # Calls the speech listener, and tells it to start listening for the ok command
         try:
-            listen_for = rospy.ServiceProxy('listen_for', ListenFor)
+            rospy.loginfo("Calling service listen_for")
+            listen_for = rospy.ServiceProxy('speech_listener/listen_for', ListenFor)
             response = listen_for("ok")
 
         except rospy.ServiceException, e:
