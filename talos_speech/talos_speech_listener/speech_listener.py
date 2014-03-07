@@ -1,11 +1,14 @@
 ## Author: Devon Ash
 ## Maintainer: noobaca2@gmail.com
 ############################### IMPORTS ############################
+#!/usr/bin/env python
+
 
 import roslib
 import rospy
 
 from std_msgs.msg import String
+from talos_speech.srv import ListenFor
 
 ########################### DEVELOEPR README #######################
 
@@ -34,14 +37,16 @@ def text_callback(data):
 
 def listen_for(request):
     # TODO Code for listening and setting words listened for
-    
+    return 0
 
 def main():
 
     rospy.init_node("speech_listener")
-    rospy.loginfo(rospy.get_name() + "Started speech listener")
+    rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("output", String, text_callback)
-    service = rospy.Service('listen_for', listen_for, 
+    service = rospy.Service('listen_for', ListenFor, listen_for) 
+    rospy.spin()
+    
 
 if __name__ == "__main__":
     main()
