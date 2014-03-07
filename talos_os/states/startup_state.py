@@ -7,6 +7,7 @@ import smach
 import smach_ros
 
 from std_msgs.msg import String
+from talos_speech.srv import ListenFor
 
 ################################ DEVELOPER README #########################
 # On system startup, what should the robot be doing?
@@ -33,32 +34,23 @@ class StartupState(smach.State):
 #    Microphone
 #    Speakers
     
-    ok_talos_detected = False    
-    
-
     def __init__(self):
         smach.State.__init__(self, outcomes=["NoCommandDetected", "CommandDetected"])
         self.counter = 0
         rospy.loginfo("Robot is starting up")
-        ## Initialize a ROS node and subscribe to a topic
-        # Subscribes to the output topic produced by recognizer.py (Pocketsphinx)
-        rospy.Subscriber("output", String, self.speech_callback)
-
-    def speech_callback(data):
-        rospy.loginfo(rospy.get_name() + " I heard %s", data.data)
-        if (data.data == "Ok Talos"):
-            self.ok_talos_detected = True
-        else:
-            self.ok_talos_detected = False
 
 ################################ ON STATE EXECUTION #######################
 # On state execution, the robot should listen for the "Ok, Talos" command
 # given by the speech to text node. If this has occured, then the next state
 # will happen.
+
     def execute(self, userdata):
         rospy.loginfo("Standing by for Ok, Talos")
 
-        if (self.ok_talos_detected):
+        response = rospy.ServiceProxy('listen_for', ListenFor)
+       
+        if (response == 1):
             return "CommandDetected"
         else:
             return "NoCommandDetected"
+
