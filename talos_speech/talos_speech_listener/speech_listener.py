@@ -36,16 +36,31 @@ def text_callback(data):
 
     ## Only on state change should the heard_words go to false
     ## Or else the thread could skip/stop/lock/block/jump over the true and into a pool of ggnore
-
 def listen_for(request):
     # TODO Code for listening and setting words listened for
     if not listening:
         listening = True
-        heard_words = request.words
+        words_listened_for = request.words
+        rospy.loginfo("Listening for the phrase: %s", heard_words)
         # Start the recognizer
-         
-
-    return 0
+        try:
+            start = rospy.ServiceProxy('start', Empty)
+            response = start()
+            rospy.loginfo("Starting recognizer service")
+        except rospy.ServiceExecution, e:
+            print "Service call failed %s" %e
+    #Otherwise, we're already listening so check the heard_words flag
+    else:
+        if (heard_words):
+            # Heard the utterance
+            # Reset flags
+            words_listened_for = "no_words_listend_for"
+            heard_words = False
+            listening = False
+            return 1    
+        else:
+            # Have not heard anything
+            return 0
 
 def main():
 
@@ -58,6 +73,7 @@ def main():
     try:
         stop = rospy.ServiceProxy('stop', Empty)
         response = stop()
+        rospy.loginfo("Stopping recognizer service")
     except rospy.ServiceExecution, e:
         print "Service call failed %s" %e
         

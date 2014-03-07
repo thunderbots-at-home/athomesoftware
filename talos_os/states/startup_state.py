@@ -40,10 +40,18 @@ class StartupState(smach.State):
         rospy.loginfo("Robot is starting up")
 
 ################################ ON STATE EXECUTION #######################
+# Info:
+#
 # On state execution, the robot should listen for the "Ok, Talos" command
 # given by the speech to text node. If this has occured, then the next state
 # will happen.
-
+#
+# 1. The execute command will keep being called until leaving the state
+# 2. The listen_for service call is called every time
+# 3. the listen_for returns true when it has heard the utterance
+# 4. When the call returns true, response will be 1, and the state
+# 5. will stop.  
+#
     def execute(self, userdata):
         rospy.loginfo("Standing by for Ok")
         rospy.wait_for_service('listen_for')
@@ -57,7 +65,6 @@ class StartupState(smach.State):
             print "Service call failed: %s" %e
 
         if (response.result == 1):
-            
             return "CommandDetected"
         else:
             return "NoCommandDetected"
