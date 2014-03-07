@@ -48,7 +48,7 @@ def listen_for(request):
             start = rospy.ServiceProxy('start', Empty)
             response = start()
             rospy.loginfo("Starting recognizer service")
-        except rospy.ServiceExecution, e:
+        except rospy.ServiceException, e:
             print "Service call failed %s" %e
     #Otherwise, we're already listening so check the heard_words flag
     else:
@@ -75,7 +75,7 @@ def main():
         stop = rospy.ServiceProxy('stop', Empty)
         response = stop()
         rospy.loginfo("Stopping recognizer service")
-    except rospy.ServiceExecution, e:
+    except rospy.ServiceException, e:
         print "Service call failed %s" %e
         
 
