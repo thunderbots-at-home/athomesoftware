@@ -45,9 +45,10 @@ class StartupState(smach.State):
 # will happen.
 
     def execute(self, userdata):
-        rospy.loginfo("Standing by for Ok, Talos")
+        rospy.loginfo("Standing by for Ok")
         rospy.wait_for_service('listen_for')
 
+        # Calls the speech listener, and tells it to start listening for the ok command
         try:
             listen_for = rospy.ServiceProxy('listen_for', ListenFor)
             response = listen_for("ok")
@@ -56,6 +57,7 @@ class StartupState(smach.State):
             print "Service call failed: %s" %e
 
         if (response.result == 1):
+            
             return "CommandDetected"
         else:
             return "NoCommandDetected"

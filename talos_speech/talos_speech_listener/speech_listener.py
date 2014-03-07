@@ -9,6 +9,7 @@ import rospy
 
 from std_msgs.msg import String
 from talos_speech.srv import ListenFor
+from std_srv.srv import Empty
 
 ########################### DEVELOEPR README #######################
 
@@ -24,6 +25,7 @@ from talos_speech.srv import ListenFor
 
 heard_words = False
 words_listened_for = "listening_for_nothing"
+listening = False
 
 def text_callback(data):
 
@@ -37,6 +39,12 @@ def text_callback(data):
 
 def listen_for(request):
     # TODO Code for listening and setting words listened for
+    if not listening:
+        listening = True
+        heard_words = request.words
+        # Start the recognizer
+         
+
     return 0
 
 def main():
@@ -44,7 +52,16 @@ def main():
     rospy.init_node("speech_listener")
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("output", String, text_callback)
-    service = rospy.Service('listen_for', ListenFor, listen_for) 
+    service = rospy.Service('listen_for', ListenFor, listen_for)
+    # On startup, do not listen for anything
+    # Call recognizer stop
+    try:
+        stop = rospy.ServiceProxy('stop', Empty)
+        response = stop()
+    except rospy.ServiceExecution, e:
+        print "Service call failed %s" %e
+        
+
     rospy.spin()
     
 if __name__ == "__main__":
