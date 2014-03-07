@@ -23,6 +23,7 @@ from states.follow_states.tracking_wrong_user_state import TrackingWrongUserStat
 from states.follow_states.user_off_screen_state import UserOffScreenState
 from states.follow_states.no_user_detected_state import NoUserDetectedState
 from states.follow_states.following_state import FollowingState
+from states.follow_states.positioning_for_user_state import PositioningForUserState
 
 ################################ MAIN ##############################
 
@@ -76,6 +77,9 @@ def main():
 
         # POSITIONING FOR USER STATE
         smach.StateMachine.add("PositioningForUserState", PositioningForUserState(), transitions={"UserDetected":"FollowingState", "PositioningForUser":"PositioningForUserState", "PositioningForUserFailed":"FailedTrackingState"})
+
+        # USER OFF SCREEN STATE
+        smach.StateMachine.add("UserOffScreenState", UserOffScreenState(), transitions={"UserDetected":"FollowingState", "UserOffScreenStill":"UserOffScreenState", "FailedToFindUser":"FailedTrackingState"})
 
         # DONE NOOBS
         outcome = sm.execute()
