@@ -1,5 +1,8 @@
 <!-- Author: Devon Ash -->
 <!-- Maintainer: noobaca2@gmail.com -->
 
+<launch>
 
 <node pkg="talos_speech" name="speech_listener" type="speech_listener.py" output="screen"/>
+
+</launch>
