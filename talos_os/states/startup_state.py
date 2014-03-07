@@ -41,10 +41,8 @@ class StartupState(smach.State):
         self.counter = 0
         rospy.loginfo("Robot is starting up")
         ## Initialize a ROS node and subscribe to a topic
-        rospy.init_node('startup_state_node')
-        rospy.on_shutdown(leaving_state)
         # Subscribes to the output topic produced by recognizer.py (Pocketsphinx)
-        rospy.subscriber("output", String, speech_callback)
+        rospy.Subscriber("output", String, self.speech_callback)
 
     def speech_callback(data):
         rospy.loginfo(rospy.get_name() + " I heard %s", data.data)
@@ -52,10 +50,6 @@ class StartupState(smach.State):
             ok_talos_detected = True
         else:
             ok_talos_detected = False
-
-    def leaving_state():
-        rospy.loginfo(rospy.get_name() + " Leaving state")
-
 
 ################################ ON STATE EXECUTION #######################
 # On state execution, the robot should listen for the "Ok, Talos" command
