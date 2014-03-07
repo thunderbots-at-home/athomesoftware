@@ -11,6 +11,7 @@ import smach_ros
 ############################ Import states #########################
 #Replaced by __all__ inside __init__
 from states import *
+from states.follow_states import *
 
 ################################ MAIN ##############################
 
