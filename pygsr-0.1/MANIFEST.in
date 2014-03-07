@@ -1,4 +1,0 @@
-include pygsr/*.py
-include pygsr/examples/*.py
-include README.rst
-include LICENCE.txt
