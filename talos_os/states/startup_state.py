@@ -62,7 +62,7 @@ class StartupState(smach.State):
         # Calls the speech listener, and tells it to start listening for the ok command
         try:
             rospy.loginfo("Calling service listen_for")
-            listen_for = rospy.ServiceProxy('speech_listener/listen_for', ListenFor)
+            listen_for = rospy.ServiceProxy('listen_for', ListenFor)
             response = listen_for("ok")
 
         except rospy.ServiceException, e:
