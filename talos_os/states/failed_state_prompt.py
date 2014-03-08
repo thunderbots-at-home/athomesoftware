@@ -9,7 +9,7 @@ import smach_ros
 class FailedStatePrompt(smach.State):
 
     def __init__(self):
-        smach.State.__init__(self, outcomes=["FailedToRemember", "UserRemembered", "UnsuccsessfulAttempt"])
+        smach.State.__init__(self, outcomes=["FailedStatePrompt"])
         self.counter = 0
 
     def execute(self, userdata):
