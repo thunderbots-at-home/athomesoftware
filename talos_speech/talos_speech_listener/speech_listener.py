@@ -67,14 +67,14 @@ def main():
 
     rospy.init_node("speech_listener")
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
-    rospy.Subscriber("output", String, text_callback)
+    rospy.Subscriber("recognizer/output", String, text_callback)
     service = rospy.Service('listen_for', ListenFor, listen_for)
     # On startup, do not listen for anything
     # Call recognizer stop
     try:
-        stop = rospy.ServiceProxy('stop', Empty)
+        stop = rospy.ServiceProxy('recognizer/stop', Empty)
         response = stop()
-        rospy.loginfo("Stopping recognizer service")
+        rospy.loginfo("Stopping recognizer/output service. This node will activate it again when asked to listen for something.")
     except rospy.ServiceException, e:
         print "Service call failed %s" %e
         
