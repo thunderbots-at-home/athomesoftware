@@ -28,11 +28,6 @@ find_package(catkin REQUIRED COMPONENTS message_generation rospy message_runtime
 #   Message1.msg
 #   Message2.msg
 # )
-add_message_files(
- FILES
- FRClientGoal.msg
-
-)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
