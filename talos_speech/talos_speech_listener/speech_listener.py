@@ -5,7 +5,7 @@
 ############################### IMPORTS ############################
 
 
-import roslib
+import roslib; roslib.load_manifest('talos_speech')
 import rospy
 
 from std_msgs.msg import String
