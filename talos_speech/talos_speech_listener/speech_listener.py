@@ -32,7 +32,7 @@ class SpeechListener:
         self.words_listened_for = "listening_for_nothing"
 
 
-    def text_callback(data):
+    def text_callback(self, data):
     
         rospy.loginfo(rospy.get_name() + "I heard %s", data.data)
         # TODO Only does direct comparison, should be a "similarity" comparison
@@ -41,15 +41,15 @@ class SpeechListener:
 
     ## Only on state change should the heard_words go to false
     ## Or else the thread could skip/stop/lock/block/jump over the true and into a pool of ggnore
-    def listen_for(request):
+    def listen_for(self, request):
     # TODO Code for listening and setting words listened for
         if not self.listening:
             self.listening = True
             self.words_listened_for = request.words
-            rospy.loginfo("Listening for the phrase: %s", self.heard_words)
+            rospy.loginfo("Listening for the phrase: %s", self.words_listened_for)
         # Start the recognizer
             try:
-                start = rospy.ServiceProxy('start', Empty)
+                start = rospy.ServiceProxy('recognizer/start', Empty)
                 response = start()
                 rospy.loginfo("Starting recognizer service")
             except rospy.ServiceException, e:
