@@ -3,7 +3,6 @@
 ## Author: Devon Ash
 ## Maintainer: noobaca2@gmail.com
 ## Dependencies for Thunderbots@Home Software
-## Used for updating and installing the distros. 
 ROS_DISTRO="hydro"
 INSTALLATION_DIR="~/catkin_ws/src/athomesoftware/"
 mkdir ${INSTALLATION_DIR}/dependencies
