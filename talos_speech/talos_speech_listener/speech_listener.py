@@ -60,9 +60,11 @@ class SpeechListener:
                 self.words_listened_for = "no_words_listend_for"
                 self.heard_words = False
                 self.listening = False
+                request.result = 1
                 return 1    
             else:
             # Have not heard anything
+                request.result = 0
                 return 0
 
     # Tells recognizer/output to stop producing values it hears
