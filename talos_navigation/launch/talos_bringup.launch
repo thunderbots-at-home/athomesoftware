@@ -30,7 +30,7 @@
 <include file="$(find talos_speech)/launch/recognizer.launch"/>
 
 <!-- Speech listener -->
-<include file="$(find talos_Speech)/launch/listener.launch"/>
+<include file="$(find talos_speech)/launch/listener.launch"/>
 
 <!-- Start Object Tracking node -->
 <include file="$(find ros2opencv)/launch/uvc_cam.launch">
