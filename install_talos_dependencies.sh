@@ -44,6 +44,15 @@ sudo apt-get install ros-${ROS_DISTRO}-ros-smach
 sudo apt-get install ros-${ROS_DISTRO}-pocketsphinx
 sudo apt-get install ros-${ROS_DISTRO}-rosbridge
 
+# For kinect drivers
+sudo apt-get install libopenni-dev
+sudo apt-get install libopenni-nite-dev
+sudo apt-get install libopenni-sensor-primesense0
+sudo apt-get install libopenni0
+sudo apt-get install libopenni2-0
+sudo apt-get install openni-utils
+sudo apt-get install ros-hydro-freenect-launch
+
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'
 wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
