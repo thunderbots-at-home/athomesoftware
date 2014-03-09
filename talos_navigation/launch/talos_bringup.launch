@@ -29,6 +29,9 @@
 <!-- Speech recognizer -->
 <include file="$(find talos_speech)/launch/recognizer.launch"/>
 
+<!-- Speech listener -->
+<include file="$(find talos_Speech)/launch/listener.launch"/>
+
 <!-- Publish kinect data -->
 <include file="$(find talos_sensors)/launch/start_kinect.launch"/>
 
