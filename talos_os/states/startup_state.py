@@ -63,7 +63,7 @@ class StartupState(smach.State):
             listen_for = rospy.ServiceProxy('listen_for', ListenFor)
             response = listen_for("ok")
 
-            if (response.result == 1):
+            if (response == 1):
                 return "CommandDetected"
 
         except rospy.ServiceException, e:
