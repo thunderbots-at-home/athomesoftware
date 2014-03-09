@@ -38,23 +38,21 @@ class SpeechListener:
         # TODO Only does direct comparison, should be a "similarity" comparison
         if (data.data == self.words_listened_for):
             self.heard_words = True
+            rospy.loginfo(rospy.get_name() + "Heard words: " + self.heard_words)
+            self.stop_listening()
 
     ## Only on state change should the heard_words go to false
     ## Or else the thread could skip/stop/lock/block/jump over the true and into a pool of ggnore
     def listen_for(self, request):
-    # TODO Code for listening and setting words listened for
-        if not self.listening:
-            self.listening = True
+        # TODO Code for listening and setting words listened for
+        # The "and not self.heard_words" covers the case when the robot
+        # has just heard the word. 
+        if not self.listening and not self.heard_words:
+            # Start the recognizer
+            self.start_listening()
             self.words_listened_for = request.words
             rospy.loginfo("Listening for the phrase: %s", self.words_listened_for)
-        # Start the recognizer
-            try:
-                start = rospy.ServiceProxy('recognizer/start', Empty)
-                response = start()
-                rospy.loginfo("Starting recognizer service")
-            except rospy.ServiceException, e:
-                print "Service call failed %s" %e
-    #Otherwise, we're already listening so check the heard_words flag
+
         else:
             if (self.heard_words):
             # Heard the utterance
@@ -67,6 +65,31 @@ class SpeechListener:
             # Have not heard anything
                 return 0
 
+    # Tells recognizer/output to stop producing values it hears
+    def stop_listening(self):
+        try:
+                # Once the words have been heard, no need to continue listening, shut down the listening. 
+            stop = rospy.ServiceProxy('recognizer/stop', Empty)
+            response = stop()
+        except rospy.ServiceException, e:
+            print "Service call failed %s" %e
+            
+        self.listening = False
+
+    # Tells recognizer/output to start producing values it hears
+    def start_listening(self):
+        try:
+            # Start listening to the recognizer callbacks
+            start = rospy.ServiceProxy('recognizer/start', Empty)
+            response = start()
+        except rospy.ServiceException, e:
+            print "Service call failed %s" %e
+
+        # At the end of the function, because if the service call fails
+        # it is not good to have this set to true
+        self.heard_words = False
+        self.listening = True
+
 def main():
 
     listener = SpeechListener()
@@ -74,11 +97,10 @@ def main():
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("recognizer/output", String, listener.text_callback)
     service = rospy.Service('listen_for', ListenFor, listener.listen_for)
-    # On startup, do not listen for anything
-    # Call recognizer stop
+   
     try:
-        stop = rospy.ServiceProxy('recognizer/stop', Empty)
-        response = stop()
+        # On startup, do not listen for anything
+        listener.stop_listening()
         rospy.loginfo("Stopping recognizer/output service. This node will activate it again when asked to listen for something.")
     except rospy.ServiceException, e:
         print "Service call failed %s" %e

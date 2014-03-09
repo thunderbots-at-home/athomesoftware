@@ -53,6 +53,7 @@ class StartupState(smach.State):
 # 5. will stop.  
 #
     def execute(self, userdata):
+        #TODO Is it possible to change the rate of execution calls? Hmm
         rospy.loginfo("Standing by for Ok")
         rospy.wait_for_service('listen_for')
 
@@ -61,7 +62,7 @@ class StartupState(smach.State):
         # Note to self: services must be called with the nodespace node/servicename
         # Calls the speech listener, and tells it to start listening for the ok command
         try:
-            rospy.loginfo("Calling service listen_for")
+            rospy.loginfo("Checking if I've heard: OK")
             listen_for = rospy.ServiceProxy('listen_for', ListenFor)
             response = listen_for("ok")
 
