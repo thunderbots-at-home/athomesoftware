@@ -21,19 +21,19 @@ class CommandStandbyState(smach.State):
 
     def execute(self, userdata):
 
-        response = ListenForResponse()
         # TODO listen for speech to text commands that tell Talos "Ok, Talos" has been detected and set this variable true.
+        
         try:
             rospy.loginfo("Checking if I've heard: Rememeber")
             listen_for = rospy.ServiceProxy('listen_for', ListenFor)
             response = listen_for("remember")
+
+            if (response.result == 1):
+                return "RememberMeCommandDetected"
+            else:
+                return "NoCommandDetected"
+        
         except rospy.ServiceException, e:
             print "Service call failed: %s" %e
 
         # This can be done by implementing a subscriber under the main's node. eg. GlobalStateMachineNode.subscriber.subscribeTo(text)        
-        if (response.result == 1):
-            return "RememberMeCommandDetected"
-        else:
-            return "NoCommandDetected"
-
-
