@@ -21,7 +21,7 @@ class CommandStandbyState(smach.State):
 
     def execute(self, userdata):
 
-        response = 0
+        response = ListenForResponse()
         # TODO listen for speech to text commands that tell Talos "Ok, Talos" has been detected and set this variable true.
         try:
             rospy.loginfo("Checking if I've heard: Rememeber")
