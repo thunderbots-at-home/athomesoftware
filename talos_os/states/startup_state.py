@@ -65,8 +65,9 @@ class StartupState(smach.State):
 
             if (response.result == 1):
                 return "CommandDetected"
-            else:
-                return "NoCommandDetected"
+
         except rospy.ServiceException, e:
                 print "Service call failed: %s" %e
+
+        return "NoCommandDetected"
 
