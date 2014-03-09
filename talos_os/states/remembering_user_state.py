@@ -24,6 +24,6 @@ class RememberingUserState(smach.State):
         if (failed_attempt):
             return "FailedToRemember"
         else:
-            return "UnsuccessfulAttempts"
+            return "UnsuccessfulAttempt"
 
 
