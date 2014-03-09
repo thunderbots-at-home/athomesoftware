@@ -38,7 +38,7 @@ class SpeechListener:
         # TODO Only does direct comparison, should be a "similarity" comparison
         if (data.data == self.words_listened_for):
             self.heard_words = True
-            rospy.loginfo(rospy.get_name() + "Heard words: " + self.heard_words)
+            rospy.loginfo(rospy.get_name() + ": Words have been heard")
             self.stop_listening()
 
     ## Only on state change should the heard_words go to false
