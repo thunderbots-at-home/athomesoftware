@@ -9,7 +9,6 @@ mkdir ${INSTALLATION_DIR}/dependencies
 DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
 
 ## Kinect related dependencies
-## sudo apt-get install openni-dev DO NOT UNCOMMENT THIS IT IS EVIL
 sudo apt-get install libusb-1.0-0-dev
 sudo apt-get install freeglut3-dev
 sudo apt-get install doxygen
