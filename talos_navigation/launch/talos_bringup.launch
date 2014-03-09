@@ -32,6 +32,11 @@
 <!-- Speech listener -->
 <include file="$(find talos_Speech)/launch/listener.launch"/>
 
+<!-- Start Object Tracking node -->
+<include file="$(find ros2opencv)/launch/uvc_cam.launch">
+<param name="device" value="/dev/video1"/>
+</include>
+
 <!-- Publish kinect data -->
 <include file="$(find talos_sensors)/launch/start_kinect.launch"/>
 
