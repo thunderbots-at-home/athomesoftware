@@ -33,7 +33,6 @@ from states.general_states.voice_command_library_state import VoiceCommandLibrar
 ################################ MAIN ##############################
 
 
-
 class MainStateMachine:
     
     def __init__(self):
