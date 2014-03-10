@@ -1,5 +1,6 @@
 ## Author: Devon Ash
 ## Maitnainer: noobaca2@gmail.com
+# DEPRECATED FILE startup_state.py
 
 import roslib
 import rospy

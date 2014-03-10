@@ -9,13 +9,17 @@ import smach_ros
 class RememberingUserState(smach.State):
 
     def __init__(self):
+
+
         smach.State.__init__(self, outcomes=["FailedToRemember", "UserRemembered", "UnsuccessfulAttempt"])
         self.counter = 0
 
     def execute(self, userdata):
         rospy.loginfo("Attempting to remember user")
 
-        # TODO listen for speech to text commands that tell Talos "Ok, Talos" has been detected and set this variable true.        
+        # Here, there should be recognition or detection given by the pi_face tracker etc
+
+
         failed_attempt = 0
         unsuccessful_attempt = 0
         successful_attempt = 0
