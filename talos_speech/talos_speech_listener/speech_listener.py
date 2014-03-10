@@ -9,8 +9,9 @@ import roslib; roslib.load_manifest('talos_speech')
 import rospy
 
 from std_msgs.msg import String
-from talos_speech.srv import ListenFor
 from std_srvs.srv import Empty
+from talos_speech.srv import ListenFor
+from talos_speech.srv import ListenForAll
 
 ########################### DEVELOEPR README #######################
 
@@ -27,44 +28,77 @@ from std_srvs.srv import Empty
 class SpeechListener:
 
     def __init__(self):
-        self.heard_words = False
+
+        self.heard_word = False
         self.listening = False
-        self.words_listened_for = "listening_for_nothing"
+        self.word_listened_for = "listening_for_nothing"
+        self.words_listened_for = []
+        self.last_word_heard = "No words heard"
 
-
-    def text_callback(self, data):
-    
+    # Checks the list of words for a match
+    def listen_for_words_callback(self, data):
         rospy.loginfo(rospy.get_name() + "I heard %s", data.data)
-        # TODO Only does direct comparison, should be a "similarity" comparison
-        if (data.data == self.words_listened_for):
-            self.heard_words = True
-            rospy.loginfo(rospy.get_name() + ": Words have been heard")
+        
+        if data.data in self.words_listened_for:
+            self.heard_word = True
+            rospy.loginfo(rospy.get_name() + ": Word '%s' has been heard", data.data)
             self.stop_listening()
+
+    #DEPRECATED
+    # For more generality use listen for words
+    #def listen_for_word_callback(self, data):
+    #
+    #    rospy.loginfo(rospy.get_name() + "I heard %s", data.data)
+    #    # TODO Only does direct comparison, should be a "similarity" comparison
+    #    if (data.data == self.word_listened_for):
+    #        self.heard_word = True
+    #        rospy.loginfo(rospy.get_name() + ": Words have been heard")
+    #        self.stop_listening()
 
     ## Only on state change should the heard_words go to false
     ## Or else the thread could skip/stop/lock/block/jump over the true and into a pool of ggnore
-    def listen_for(self, request):
+
+    #DEPRECATED
+    # Use listen_for_all for more generality it accepts an array of words
+    #def listen_for(self, request):
         # TODO Code for listening and setting words listened for
         # The "and not self.heard_words" covers the case when the robot
         # has just heard the word. 
-        if not self.listening and not self.heard_words:
+    #    if not self.listening and not self.heard_word:
             # Start the recognizer
-            self.start_listening()
-            self.words_listened_for = request.words
-            rospy.loginfo("Listening for the phrase: %s", self.words_listened_for)
-        else:
-            if (self.heard_words):
+    #        self.start_listening()
+    #        self.word_listened_for = request.words
+    #        rospy.loginfo("Listening for the phrase: %s", self.word_listened_for)
+    #    else:
+    #        if (self.heard_word):
             # Heard the utterance
             # Reset flags
-                self.words_listened_for = "no_words_listend_for"
-                self.heard_words = False
-                self.listening = False
-                return 1    
-            else:
+    #            self.word_listened_for = "no_word_listend_for"
+    #            self.heard_words = False
+    #           self.listening = False
+    #           return 1    
+    #        else:
             # Have not heard anything
-                return 0
-        return 0
+    #            return 0
+    #    return 0
+
     # Tells recognizer/output to stop producing values it hears
+    # Listens for all the words at once in the request.words
+    def listen_for_all(self, request):
+        self.words_listened_for = request.words
+        if not self.listening and not self.heard_word:
+            self.start_listening()
+            self.words_listened_for = request.words
+            rospy.loginfo("Listening for an array of phrases")
+        else:
+            if (self.heard_word):
+                self.words_listened_for = []
+                self.heard_word = False
+                self.listening = False
+                return self.last_word_heard
+            
+        return None
+
     def stop_listening(self):
         try:
                 # Once the words have been heard, no need to continue listening, shut down the listening. 
@@ -89,13 +123,14 @@ class SpeechListener:
         self.heard_words = False
         self.listening = True
 
+
 def main():
 
     listener = SpeechListener()
     rospy.init_node("speech_listener")
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
-    rospy.Subscriber("recognizer/output", String, listener.text_callback)
-    service = rospy.Service('listen_for', ListenFor, listener.listen_for)
+    rospy.Subscriber("recognizer/output", String, listener.listen_for_words_callback)
+    service = rospy.Service('listen_for_all', ListenForAll, listener.listen_for_all)
    
     try:
         # On startup, do not listen for anything
