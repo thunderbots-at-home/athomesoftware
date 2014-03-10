@@ -28,6 +28,7 @@ from states.follow_states.positioning_for_user_state import PositioningForUserSt
 
 # General state includes
 from states.general_states.listening_state import ListeningState
+from states.general_states.voice_command_library_state import VoiceCommandLibraryState
 
 ################################ MAIN ##############################
 
