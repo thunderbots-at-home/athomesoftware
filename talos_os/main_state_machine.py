@@ -47,7 +47,7 @@ class MainStateMachine:
 
             # VOICE COMMAND LIBRARY STATE
             # Adding the voice command library state
-            voice_command_lib = VoiceCommandLibrary(utterances)
+            voice_command_lib = VoiceCommandLibraryState(utterances)
             smach.StateMachine.add('VoiceCommandLibraryState', voice_command_lib, voice_command_lib.default_transitions)
  
             # DEPRECATED
