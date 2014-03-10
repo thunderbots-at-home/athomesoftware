@@ -25,10 +25,6 @@ from talos_speech.srv import ListenForAll
 class VoiceCommandLibraryState(smach.State):
 
     def __init__(self, utterances):
-        self.utterances = utterances
-        smach.State.__init__(self, outcomes=["WaitingForCommand", "CommandComplete"])
-        self.counter = 0
-        self.state_machine = None
 
         #TODO Add the utterances and their states to the overall state 
         # machine with this one as the parent. 
@@ -38,11 +34,26 @@ class VoiceCommandLibraryState(smach.State):
         rospy.loginfo("#VoiceCommandLibraryState: Commands available#")
         rospy.loginfo("##############################################")
         
-        for key in self.utterances:
-            rospy.loginfo("# VoiceCommandLibraryState: %s", key)
+        outcomes = []
+        # The default outcomes
+        outcomes.append("WaitingForCommand")
+        outcomes.append("CommandTimeout")
+
+        for name, state_machine in self.utterances:
+            # Register the commands as transitions
+            self.add_command(name, state_machine)
+            # lets this state know it has the other state machine as an outcome
+            outcomes.append(name)
+            rospy.loginfo("# VoiceCommandLibraryState: %s", name)
 
         rospy.loginfo("##############################################")
 
+        self.utterances = utterances
+        smach.State.__init__(self, outcomes)
+        self.counter = 0
+
+
+    # TODO CHANGE THIS SO THAT IT TRANSITIONS  TO PROPER STATE
     # Calls the service listen_for_all on the utterance keys
     # depending on which one is a match, then call that state machine
     # and when that state machine is done executing then return
@@ -59,3 +70,18 @@ class VoiceCommandLibraryState(smach.State):
                 self.state_machine = self.utterances[response]
         except rospy.ServiceException, e:
             print "Service call failed %s" %e
+
+
+    # Adds a command to the voice library
+    def add_command(self, name, state_machine):
+
+        # Set all transitions back to the InitialStandbyState
+        # All paths lead to rome/home? :D
+        outcomes = state_machine.get_registered_outcomes()
+        transitions = {} 
+        for outcome in outcomes:
+            transitions[outcome] = "InitialStandbyState"
+
+        smach.StateMachine.add(name, state_machine, transitions)
+        
+
