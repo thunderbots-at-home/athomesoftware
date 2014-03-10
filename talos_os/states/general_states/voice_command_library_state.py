@@ -28,5 +28,16 @@ class VoiceCommandLibraryState(smach.State):
         self.utterances = utterances
         smach.State.__init__(self, outcomes=["WaitingForCommand", "CommandComplete"])
         self.counter = 0
-        rospy.loginfo("VoiceCommandLibraryState: Commands available")
-        for 
+
+        rospy.loginfo("##############################################")
+        rospy.loginfo("#VoiceCommandLibraryState: Commands available#")
+        rospy.loginfo("##############################################")
+        for key in self.utterances:
+            rospy.loginfo("# VoiceCommandLibraryState: %s", key)
+
+        rospy.loginfo("##############################################")
+
+    def execute(self, userdata):
+        print "NotImplemented"
+
+        
