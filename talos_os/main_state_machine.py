@@ -9,7 +9,6 @@ import smach
 import smach_ros
 
 ############################ Import states #########################
-#Replaced by __all__ inside __init__
 from states.command_standby_state import CommandStandbyState
 from states.failed_state_prompt import FailedStatePrompt
 from states.follower_command_standby_state import FollowerCommandStandbyState
@@ -46,11 +45,19 @@ class MainStateMachine:
             # STARTUP STATE
             smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'CommandStandbyState'})
 
+            # VOICE COMMAND LIBRARY STATE
+            # Adding the voice command library state
+            voice_command_lib = VoiceCommandLibrary(utterances)
+            smach.StateMachine.add('VoiceCommandLibraryState', voice_command_lib, voice_command_lib.default_transitions)
+ 
+            # DEPRECATED
+            # Replaced by VoiceCommandLibraryState
             # COMMAND STANDBY STATE
-            smach.StateMachine.add('CommandStandbyState', CommandStandbyState(),transitions={"RememberMeCommandDetected":'RememberingUserState', "NoCommandDetected":'CommandStandbyState'})
+            #smach.StateMachine.add('CommandStandbyState', CommandStandbyState(),transitions={"RememberMeCommandDetected":'RememberingUserState', "NoCommandDetected":'CommandStandbyState'})
 
+            # DEPRECATED
             # FAILED STATE PROMPT
-            smach.StateMachine.add('FailedStatePrompt', FailedStatePrompt(),transitions={"FailedStatePrompt":'FailedStatePrompt'})
+            # smach.StateMachine.add('FailedStatePrompt', FailedStatePrompt(),transitions={"FailedStatePrompt":'FailedStatePrompt'})
 
 
     # Adds the following states to the general robot bringup SM

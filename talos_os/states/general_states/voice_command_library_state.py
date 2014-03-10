@@ -39,6 +39,10 @@ class VoiceCommandLibraryState(smach.State):
         outcomes.append("WaitingForCommand")
         outcomes.append("CommandTimeout")
 
+        self.default_transitions = {}
+        self.default_transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
+        self.default_transitions["CommandTimeout"] = "InitialStandbyState"
+
         for name, state_machine in self.utterances:
             # Register the commands as transitions
             self.add_command(name, state_machine)
