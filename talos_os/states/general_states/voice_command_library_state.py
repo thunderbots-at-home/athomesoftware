@@ -48,21 +48,14 @@ class VoiceCommandLibraryState(smach.State):
     # and when that state machine is done executing then return
     # back to main
     def execute(self, userdata):
-
-        
         try:
-
             rospy.loginfo("Checking for utterances...")
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
 
             response = listen_for_all(self.utterances.keys())
-
             
             # get the corresponding state machine
             if response is not None:
                 self.state_machine = self.utterances[response]
-
-
-        print "NotImplemented"
-
-        
+        except rospy.ServiceException, e:
+            print "Service call failed %s" %e
