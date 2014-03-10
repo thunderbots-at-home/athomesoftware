@@ -8,27 +8,30 @@ import rospy
 import smach
 import smach_ros
 
-############################ Import states #########################
-from states.command_standby_state import CommandStandbyState
-from states.failed_state_prompt import FailedStatePrompt
-from states.follower_command_standby_state import FollowerCommandStandbyState
-from states.remembering_user_state import RememberingUserState
-from states.startup_state import StartupState
-from states.tracking_unidentified_state import TrackingUnidentifiedUserState
 
+############################ Import states #########################
+# DEPRECATED
+#from talos_smach.command_standby_state import CommandStandbyState
+#from talos_smach.failed_state_prompt import FailedStatePrompt
+#from talos_smach.follower_command_standby_state import FollowerCommandStandbyState
+#from talos_smach.remembering_user_state import RememberingUserState
+#from talos_smach.startup_state import StartupState
+#from talos_smach.tracking_unidentified_state import TrackingUnidentifiedUserState
+
+# DEPRECATED
 #Follower algorithm includes
-from states.follow_states.failed_tracking_state import FailedTrackingState
-from states.follow_states.occluded_state import OccludedState
-from states.follow_states.tracking_wrong_user_state import TrackingWrongUserState
-from states.follow_states.user_off_screen_state import UserOffScreenState
-from states.follow_states.no_user_detected_state import NoUserDetectedState
-from states.follow_states.following_state import FollowingState
-from states.follow_states.positioning_for_user_state import PositioningForUserState
+#from talos_smach.follow_states.failed_tracking_state import FailedTrackingState
+#from talos_smach.follow_states.occluded_state import OccludedState
+#from talos_smach.follow_states.tracking_wrong_user_state import TrackingWrongUserState
+#from talos_smach.follow_states.user_off_screen_state import UserOffScreenState
+#from talos_smach.follow_states.no_user_detected_state import NoUserDetectedState
+#from talos_smach.follow_states.following_state import FollowingState
+#from talos_smach.follow_states.positioning_for_user_state import PositioningForUserState
 
 # General state includes
-from states.general_states.listening_state import ListeningState
-from states.general_states.voice_command_library_state import VoiceCommandLibraryState
-
+from talos_smach.general_states.listening_state import ListeningState
+from talos_smach.general_states.voice_command_library_state import VoiceCommandLibraryState
+from talos_smach.state_machines.follow_me_state_machine.follow_me_state_machine import FollowingStateMachine
 ################################ MAIN ##############################
 
 
