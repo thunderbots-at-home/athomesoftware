@@ -19,3 +19,8 @@ import smach_ros
 class FollowMeStateMachine(smach.StateMachine):
 
     def __init__(self):
+        outcomes = "InitialStandbyState"
+        super().__init__(outcomes)
+        
+        # Add all of the sub states corresponding to following
+    
