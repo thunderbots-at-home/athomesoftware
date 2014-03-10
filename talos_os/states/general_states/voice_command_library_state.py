@@ -30,6 +30,10 @@ class VoiceCommandLibraryState(smach.State):
         self.counter = 0
         self.state_machine = None
 
+        #TODO Add the utterances and their states to the overall state 
+        # machine with this one as the parent. 
+        # Each one of the utterances values can 
+
         rospy.loginfo("##############################################")
         rospy.loginfo("#VoiceCommandLibraryState: Commands available#")
         rospy.loginfo("##############################################")
@@ -45,10 +49,12 @@ class VoiceCommandLibraryState(smach.State):
     # back to main
     def execute(self, userdata):
 
+        
         try:
 
             rospy.loginfo("Checking for utterances...")
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
+
             response = listen_for_all(self.utterances.keys())
 
             
