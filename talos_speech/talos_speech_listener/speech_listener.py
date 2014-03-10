@@ -31,7 +31,6 @@ class SpeechListener:
 
         self.heard_word = False
         self.listening = False
-        self.word_listened_for = "listening_for_nothing"
         self.words_listened_for = []
         self.last_word_heard = "No words heard"
 
