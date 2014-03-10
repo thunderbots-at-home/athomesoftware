@@ -38,6 +38,7 @@ find_package(catkin REQUIRED COMPONENTS message_generation rospy message_runtime
 add_service_files(
    FILES
    ListenFor.srv
+   ListenForAll.srv
 )
 
 generate_messages()
