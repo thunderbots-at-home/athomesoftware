@@ -22,5 +22,9 @@ class FollowMeStateMachine(smach.StateMachine):
         outcomes = "InitialStandbyState"
         super().__init__(outcomes)
         
-        # Add all of the sub states corresponding to following
+        # REMEMBER ME STATE
+        super.StateMachine.add('RememberingUserState', RememberingUserState(),transitions=
+ {"FailedToRemember":'FailedStatePrompt',    "UserRemembered":'TrackingUnidentifiedUserState',
+ "UnsuccessfulAttempt":'RememberingUserState'})
+
         
