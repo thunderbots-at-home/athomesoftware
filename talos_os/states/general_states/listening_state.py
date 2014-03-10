@@ -21,7 +21,7 @@ class ListeningState(smach.State):
 
     def __init__(self, utterance):
         self.utterance = utterance
-        self.State.__init__(self, outcomes=["CommandDetected", "NoCommandDetected"])
+        smach.State.__init__(self, outcomes=["CommandDetected", "NoCommandDetected"])
         self.counter = 0
         rospy.loginfo("ListeningState listening for: %s", self.utterance)
 
