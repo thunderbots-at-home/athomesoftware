@@ -26,6 +26,9 @@ from states.follow_states.no_user_detected_state import NoUserDetectedState
 from states.follow_states.following_state import FollowingState
 from states.follow_states.positioning_for_user_state import PositioningForUserState
 
+# General state includes
+from states.general_states.listening_state import ListeningState
+
 ################################ MAIN ##############################
 
 
@@ -41,7 +44,7 @@ class MainStateMachine:
         with self.sm:
 
             # STARTUP STATE
-            smach.StateMachine.add('StartupState', StartupState(),transitions={"NoCommandDetected":'StartupState', "CommandDetected":'CommandStandbyState'})
+            smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'CommandStandbyState'})
 
             # COMMAND STANDBY STATE
             smach.StateMachine.add('CommandStandbyState', CommandStandbyState(),transitions={"RememberMeCommandDetected":'RememberingUserState', "NoCommandDetected":'CommandStandbyState'})
