@@ -45,9 +45,16 @@ class MainStateMachine:
             # STARTUP STATE
             smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'CommandStandbyState'})
 
+            # This is where to add the state machines to the voice library.
+            utterances = {}
+            utterances["follow"] = FollowMestateMachine()
+
             # VOICE COMMAND LIBRARY STATE
             # Adding the voice command library state
             voice_command_lib = VoiceCommandLibraryState(utterances)
+            # Do not do this directly. Instead, add them to an utterances list.
+            #follow_me_sm = FollowMeStateMachine()
+            #voice_command_lib.add_command("FollowMeStateMachine", follow_me_sm)
             smach.StateMachine.add('VoiceCommandLibraryState', voice_command_lib, voice_command_lib.default_transitions)
  
             # DEPRECATED
@@ -60,42 +67,46 @@ class MainStateMachine:
             # smach.StateMachine.add('FailedStatePrompt', FailedStatePrompt(),transitions={"FailedStatePrompt":'FailedStatePrompt'})
 
 
+    # DEPRECATED
     # Adds the following states to the general robot bringup SM
-    def add_follow_me_states(self):
+    #def add_follow_me_states(self):
 
-        with self.sm:
+    #    with self.sm:
 
+
+            # DEPRECATED
+            # Add the follower state machine as a voice command for the voice command lib.
             # REMEMBER ME STATE
-            smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions=
- {"FailedToRemember":'FailedStatePrompt',    "UserRemembered":'TrackingUnidentifiedUserState',
- "UnsuccessfulAttempt":'RememberingUserState'})
+        #    smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions=
+ #{"FailedToRemember":'FailedStatePrompt',    "UserRemembered":'TrackingUnidentifiedUserState',
+ #"UnsuccessfulAttempt":'RememberingUserState'})
 
             # TRACKING UNIDENTIFIED USER STATE
-            smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedStatePrompt', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
+  #          smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedStatePrompt', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
 
             # FOLLOWER COMMAND STANDBY STATE
-            smach.StateMachine.add('FollowerCommandStandbyState', FollowerCommandStandbyState(), transitions={'FollowMeCommandDetected':'FollowingState','RestartCommandDetected':'FailedStatePrompt', 'ContinueStandby':'FollowerCommandStandbyState'})
+  #          smach.StateMachine.add('FollowerCommandStandbyState', FollowerCommandStandbyState(), transitions={'FollowMeCommandDetected':'FollowingState','RestartCommandDetected':'FailedStatePrompt', 'ContinueStandby':'FollowerCommandStandbyState'})
 
             # FOLLOWING STATE
-            smach.StateMachine.add("FollowingState", FollowingState(), transitions={"ContinueFollowing":"FollowingState", "FollowingFailed":"FailedStatePrompt", "NoUserDetected":"NoUserDetectedState"})
+   #         smach.StateMachine.add("FollowingState", FollowingState(), transitions={"ContinueFollowing":"FollowingState", "FollowingFailed":"FailedStatePrompt", "NoUserDetected":"NoUserDetectedState"})
 
             # NO USER DETECTED STATE
-            smach.StateMachine.add("NoUserDetectedState", NoUserDetectedState(), transitions={"UserDetected":"FollowingState", "UserOffScreen":"UserOffScreenState", "UserOccluded":"OccludedState", "TrackingWrongUser":"TrackingWrongUserState", "FailedToFindUser":"FailedStatePrompt"})
+    #        smach.StateMachine.add("NoUserDetectedState", NoUserDetectedState(), transitions={"UserDetected":"FollowingState", "UserOffScreen":"UserOffScreenState", "UserOccluded":"OccludedState", "TrackingWrongUser":"TrackingWrongUserState", "FailedToFindUser":"FailedStatePrompt"})
 
             # FAILED TRACKING STATE
-            smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"FailedStatePrompt"})
+     #       smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"FailedStatePrompt"})
 
             # TRACKING WRONG USER STATE
-            smach.StateMachine.add("TrackingWrongUserState", TrackingWrongUserState(), transitions={"TrackingCorrected":"FollowingState", "TrackingUncorrected":"TrackingWrongUserState", "TrackingFailed":"FailedTrackingState", "AttemptingToRetrack":"TrackingWrongUserState"})
+      #      smach.StateMachine.add("TrackingWrongUserState", TrackingWrongUserState(), transitions={"TrackingCorrected":"FollowingState", "TrackingUncorrected":"TrackingWrongUserState", "TrackingFailed":"FailedTrackingState", "AttemptingToRetrack":"TrackingWrongUserState"})
 
             # OCCLUDED STATE
-            smach.StateMachine.add("OccludedState", OccludedState(), transitions={"WaitingForUser":"OccludedState", "PositioningForUser":"PositioningForUserState", "FailedToFindUser":"FailedTrackingState"})
+       #     smach.StateMachine.add("OccludedState", OccludedState(), transitions={"WaitingForUser":"OccludedState", "PositioningForUser":"PositioningForUserState", "FailedToFindUser":"FailedTrackingState"})
 
             # POSITIONING FOR USER STATE
-            smach.StateMachine.add("PositioningForUserState", PositioningForUserState(), transitions={"UserDetected":"FollowingState", "PositioningForUser":"PositioningForUserState", "PositioningForUserFailed":"FailedTrackingState"})
+        #    smach.StateMachine.add("PositioningForUserState", PositioningForUserState(), transitions={"UserDetected":"FollowingState", "PositioningForUser":"PositioningForUserState", "PositioningForUserFailed":"FailedTrackingState"})
 
             # USER OFF SCREEN STATE
-            smach.StateMachine.add("UserOffScreenState", UserOffScreenState(), transitions={"UserDetected":"FollowingState", "UserOffScreenStill":"UserOffScreenState", "FailedToFindUser":"FailedTrackingState"})
+         #   smach.StateMachine.add("UserOffScreenState", UserOffScreenState(), transitions={"UserDetected":"FollowingState", "UserOffScreenStill":"UserOffScreenState", "FailedToFindUser":"FailedTrackingState"})
 
 
 def main():
@@ -104,7 +115,8 @@ def main():
     #Create a Smach
     sm = MainStateMachine()
     sm.add_startup_states()
-    sm.add_follow_me_states()
+    
+    #sm.add_follow_me_states()
     outcome = sm.sm.execute()
 
 ########################### Start Main #############################
