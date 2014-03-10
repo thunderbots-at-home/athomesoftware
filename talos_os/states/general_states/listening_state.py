@@ -14,7 +14,7 @@ import rospy
 import smach
 import smach_ros
 from std_msgs.msg import String
-from talos_speech.srv import ListenFor
+from talos_speech.srv import ListenForAll
 
 ############################# CLASS DEF ################################
 class ListeningState(smach.State):
@@ -26,14 +26,14 @@ class ListeningState(smach.State):
         rospy.loginfo("ListeningState listening for: %s", self.utterance)
 
     def execute(self, userdata):
-        rospy.wait_for_service('listen_for')
-        response = ListenFor()
+        rospy.wait_for_service('listen_for_all')
+        response = ListenForAll()
         
         try:
             rospy.loginfo("Waiting for utterance: %s", self.utterance)
-            listen_for = rospy.ServiceProxy('listen_for', ListenFor)
+            listen_for = rospy.ServiceProxy('listen_for_all', ListenForAll)
             response = listen_for(self.utterance)
-            if (response.result == 1):
+            if (response.result == self.utterance):
                 return "CommandDetected"
 
         except rospy.ServiceException, e:
