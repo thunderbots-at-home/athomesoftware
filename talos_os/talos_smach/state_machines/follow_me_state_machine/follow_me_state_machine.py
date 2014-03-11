@@ -16,7 +16,7 @@ import smach
 import smach_ros
 
 # Follower state imports
-from talos_smach.states.state_machines.follow_me_state_machine import follow_me_state_machine as fmsm
+import talos_smach.state_machines.follow_me_state_machine as fmsm
 from fmsm.occluded_state import OccludedState
 from fmsm.positioning_for_user_state import PositioningForUserState
 from fmsm.remembering_user_state import RememberingUserState
