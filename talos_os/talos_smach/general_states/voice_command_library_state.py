@@ -37,6 +37,7 @@ class VoiceCommandLibraryState(smach.State):
         outcomes = []
         # The default outcomes
         outcomes.append("WaitingForCommand")
+        outcomes.append("NoCommandDetected")
         outcomes.append("CommandTimeout")
 
         #self.default_transitions = {}
@@ -69,12 +70,10 @@ class VoiceCommandLibraryState(smach.State):
             rospy.loginfo("Checking for utterances...")
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
 
-            request.words = self.utterances.keys()
+            
+            words = self.utterances.keys()
             rospy.loginfo("Requesting to listen for: ")
-            for word in request.words:
-                rospy.loginfo("Word: %s", word)
-
-            response = listen_for_all(request)
+            response = listen_for_all(words)
             
             # get the corresponding state machine
             if response is not None:

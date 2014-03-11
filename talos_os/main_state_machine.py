@@ -64,6 +64,7 @@ class MainStateMachine:
             voice_command_lib = VoiceCommandLibraryState(utterances)
             transitions = {}
             transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
+            transitions["NoCommandDetected"] = "VoiceCommandLibraryState"
             transitions["CommandTimeout"] = "InitialStandbyState"
             transitions["follow"] = "FollowMeStateMachine"
 
