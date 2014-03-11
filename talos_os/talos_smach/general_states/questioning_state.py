@@ -33,7 +33,17 @@ class QuestioningState(smach.State):
     def execute(self, userdata):
 
         publisher = rospy.Publisher('robotsound', SoundRequest)
+
+        sound_req = SoundRequest()
         # Publish a sound_play/SoundRequest
         # 3 attempts for asking a question
         for attempt in range(self.attempts):
             #
+            sound_req.arg = self.question
+            sound_req.command = 1
+            publisher.publish(sound_req)
+            # Listen for the next thing said.     
+        
+
+
+
