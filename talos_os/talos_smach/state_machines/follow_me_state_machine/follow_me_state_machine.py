@@ -35,16 +35,27 @@ class FollowMeStateMachine(smach.StateMachine):
         outcomes.append("Succeeded")
         outcomes.append("Failed")
         super(FollowMeStateMachine, self).__init__(outcomes)
-        
 
         #TODO: abstract the states for the generic detection, recognition, and speech states. 
         with self:
 
-            # REMEMBER ME STATE	
-            smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"UserRemembered":'TrackingUnidentifiedUserState',"UnsuccessfulAttempt":'RememberingUserState'})
+            # LISTEN FOR REMEMBER ME STATE
+            transitions = {}
+            transitions["CommandDetected"] = "TrackingUnidentifiedUserState"
+            transitions["NoCommandDetected"] = "RememberMeStandby"
+            smach.StateMachine.add("RememberMeStandbyState", ListeningState("remember"), transitions)
 
             # TRACKING UNIDENTIFIED USER STATE
-            smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedTrackingState', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
+            smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedTrackingState', 'IdentifiedUser':'RememberingUserState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
+
+            # REMEMBER ME STATE	
+            smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"UserRemembered":'FollowingStandbyState',"UnsuccessfulAttempt":'RememberingUserState'})
+
+            # FOLLOWING STANDBY STATE
+            transitions = {}
+            transitions["CommandDetected"] = "FollowingState"
+            transitions["NoCommandDetected"] = "FollowingCommandStandbyState"
+            smach.StateMachine.add('FollowingCommandStandbyState', ListeningState('follow'), transitions)
 
             # FOLLOWING STATE
             smach.StateMachine.add("FollowingState", FollowingState(), transitions={"ContinueFollowing":"FollowingState", "NoUserDetected":"NoUserDetectedState"})
