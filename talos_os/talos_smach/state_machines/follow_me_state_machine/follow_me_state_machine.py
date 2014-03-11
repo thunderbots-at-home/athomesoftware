@@ -33,14 +33,11 @@ class FollowMeStateMachine(smach.StateMachine):
         outcomes = "InitialStandbyState"
         super(FollowMeStateMachine, self).__init__(outcomes)
         
-        # REMEMBER ME STATE
+        # REMEMBER ME STATE	
         smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"FailedToRemember":'FailedStatePrompt',    "UserRemembered":'TrackingUnidentifiedUserState',"UnsuccessfulAttempt":'RememberingUserState'})
 
         # TRACKING UNIDENTIFIED USER STATE
         smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedStatePrompt', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
-
-        # FOLLOWER COMMAND STANDBY STATE
-        smach.StateMachine.add('FollowerCommandStandbyState', FollowerCommandStandbyState(), transitions={'FollowMeCommandDetected':'FollowingState','RestartCommandDetected':'FailedStatePrompt', 'ContinueStandby':'FollowerCommandStandbyState'})
 
             # FOLLOWING STATE
         smach.StateMachine.add("FollowingState", FollowingState(), transitions={"ContinueFollowing":"FollowingState", "FollowingFailed":"FailedStatePrompt", "NoUserDetected":"NoUserDetectedState"})
