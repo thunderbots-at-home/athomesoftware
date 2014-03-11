@@ -16,7 +16,7 @@ import smach_ros
 
 from sound_play.msg import SoundRequest
 from std_msgs.msg import String
-
+from std_srvs.srv import Empty
 
 ############################################ CLASS DEF ##############################################
 class QuestioningState(smach.State):
@@ -42,7 +42,11 @@ class QuestioningState(smach.State):
             sound_req.arg = self.question
             sound_req.command = 1
             publisher.publish(sound_req)
-            # Listen for the next thing said by calling the listen_for service   
-            
+            # Listen for the next thing said by calling the listen_for_any service   
+            try:
+                
+ 
+            except rospy.ServiceException, e:
+                print "Service call failed %s" %e
 
 
