@@ -7,7 +7,7 @@ project(talos_speech)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS message_generation rospy message_runtime)
+find_package(catkin REQUIRED COMPONENTS message_generation rospy message_runtime std_srvs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -39,6 +39,7 @@ add_service_files(
    FILES
    ListenFor.srv
    ListenForAll.srv
+   ListenForAny.srv
 )
 
 generate_messages()
