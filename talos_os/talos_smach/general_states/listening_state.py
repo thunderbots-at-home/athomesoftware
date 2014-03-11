@@ -33,11 +33,13 @@ class ListeningState(smach.State):
             rospy.loginfo("Waiting for utterance: %s", self.utterance)
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
 
-            request = ListenForAll()
-            request.words = []
-            request.words.append(self.utterance)
-            response = listen_for_all(request.words)
-            if (response.word == self.utterance):
+            words = []
+            words.append(self.utterance)
+            rospy.loginfo("CRASHING?")
+            response = listen_for_all(words)
+            #rospy.loginfo("RESPONSE: %s", response)
+            #rospy.loginfo("SELF: %s", self.utterance)
+            if (response == self.utterance):
                 return "CommandDetected"
 
         except rospy.ServiceException, e:
