@@ -16,7 +16,15 @@ import smach
 import smach_ros
 
 # Follower state imports
-from 
+from talos_smach.states.state_machines.follow_me_state_machine import follow_me_state_machine as fmsm
+from fmsm.occluded_state import OccludedState
+from fmsm.positioning_for_user_state import PositioningForUserState
+from fmsm.remembering_user_state import RememberingUserState
+from fmsm.user_off_screen_state import UserOffScreenState
+from fmsm.no_user_detected_state import NoUserDetectedState
+from fmsm.following_state import FollowingState
+from fmsm.tracking_unidentified_state import TrackingUnidentifiedUserState
+from fmsm.tracking_wrong_user_state import TrackingWrongUserState
 
 ############################### CLASS DEF ##############################
 class FollowMeStateMachine(smach.StateMachine):
