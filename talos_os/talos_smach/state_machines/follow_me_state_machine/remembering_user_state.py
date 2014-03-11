@@ -11,7 +11,7 @@ class RememberingUserState(smach.State):
     def __init__(self):
 
 
-        smach.State.__init__(self, outcomes=["FailedToRemember", "UserRemembered", "UnsuccessfulAttempt"])
+        smach.State.__init__(self, outcomes=["UserRemembered", "UnsuccessfulAttempt"])
         self.counter = 0
 
     def execute(self, userdata):

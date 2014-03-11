@@ -9,7 +9,7 @@ import smach_ros
 class FollowingState(smach.State):
 
     def __init__(self):
-        smach.State.__init__(self, outcomes=["ContinueFollowing", "FollowingFailed", "NoUserDetected"])
+        smach.State.__init__(self, outcomes=["ContinueFollowing", "NoUserDetected"])
         self.counter = 0
 
     def execute(self, userdata):
