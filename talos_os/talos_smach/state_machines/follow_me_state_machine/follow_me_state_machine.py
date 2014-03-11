@@ -52,7 +52,7 @@ class FollowMeStateMachine(smach.StateMachine):
             smach.StateMachine.add("NoUserDetectedState", NoUserDetectedState(), transitions={"UserDetected":"FollowingState", "UserOffScreen":"UserOffScreenState", "UserOccluded":"OccludedState", "TrackingWrongUser":"TrackingWrongUserState"})
 
             # FAILED TRACKING STATE
-            smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"InitialStandbyState"})
+            smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"Failed"})
 
             # TRACKING WRONG USER STATE
             smach.StateMachine.add("TrackingWrongUserState", TrackingWrongUserState(), transitions={"TrackingCorrected":"FollowingState", "TrackingUncorrected":"TrackingWrongUserState", "TrackingFailed":"FailedTrackingState", "AttemptingToRetrack":"TrackingWrongUserState"})

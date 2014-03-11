@@ -46,7 +46,7 @@ class MainStateMachine:
         with self.sm:
 
             # STARTUP STATE
-            smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'CommandStandbyState'})
+            smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'VoiceCommandLibraryState'})
 
             # This is where to add the state machines to the voice library.
             utterances = {}
