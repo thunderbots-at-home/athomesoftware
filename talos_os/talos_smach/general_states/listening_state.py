@@ -37,7 +37,7 @@ class ListeningState(smach.State):
             request.words = []
             request.words.append(self.utterance)
             response = listen_for_all(request.words)
-            if (response == self.utterance):
+            if (response.word == self.utterance):
                 return "CommandDetected"
 
         except rospy.ServiceException, e:
