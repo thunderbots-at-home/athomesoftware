@@ -69,12 +69,14 @@ class VoiceCommandLibraryState(smach.State):
             rospy.loginfo("Checking for utterances...")
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
 
-            response = listen_for_all(self.utterances.keys())
+            request = ListenForAll()
+            request.words = self.utterances.keys()
+            response = listen_for_all(request)
             
             # get the corresponding state machine
             if response is not None:
-                print "NotImplemented"
-                #TODO there will be a bug hereself.state_machine = self.utterances[response]
+                # Transition to that state machine
+                return response
         except rospy.ServiceException, e:
             print "Service call failed %s" %e
 
