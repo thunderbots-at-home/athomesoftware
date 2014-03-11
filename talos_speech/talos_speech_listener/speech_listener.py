@@ -33,6 +33,7 @@ class SpeechListener:
         self.listening = False
         self.words_listened_for = []
         self.last_word_heard = "No words heard"
+        self.listen_for_any = False
 
     # Checks the list of words for a match
     def listen_for_words_callback(self, data):
@@ -43,10 +44,9 @@ class SpeechListener:
             rospy.loginfo(rospy.get_name() + ": Word '%s' has been heard", data.data)
             self.last_word_heard = data.data
             self.stop_listening()
-        else:
-            rospy.loginfo("Data: %s", data.data)
-            for words in self.words_listened_for:
-                rospy.loginfo("Word: %s", words)
+        else if self.listen_for_any:
+            self.last_word_heard = data.data
+            self.stop_listening()
 
     #DEPRECATED
     # For more generality use listen for words
@@ -103,6 +103,18 @@ class SpeechListener:
             
         return "NoCommandDetected"
 
+    def listen_for_any(self, request):
+        if not self.listening and not self.heard_word:
+            self.listen_for_any = True
+            self.start_listening()
+            rospy.loginfo("Listening for the next phrase/word")
+        else:
+            if (self.heard_word):
+                self.heard_word = False
+                self.listening = False
+                self.listen_for_any = False
+                return self.last_word_heard
+
     def stop_listening(self):
         try:
                 # Once the words have been heard, no need to continue listening, shut down the listening. 
@@ -134,8 +146,9 @@ def main():
     rospy.init_node("speech_listener")
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("recognizer/output", String, listener.listen_for_words_callback)
-    service = rospy.Service('listen_for_all', ListenForAll, listener.listen_for_all)
-   
+    listen_for_all_service = rospy.Service('listen_for_all', ListenForAll, listener.listen_for_all)
+    listen_for_any_service = rospy.Service('listen_for_any', ListenForAny, listener.listen_for_any)
+  
     try:
         # On startup, do not listen for anything
         listener.stop_listening()
