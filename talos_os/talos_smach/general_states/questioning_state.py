@@ -23,9 +23,9 @@ from talos_speech.srv import ListenForAll
 ############################################ CLASS DEF ##############################################
 class QuestioningState(smach.State):
 
-    def __init__(self, question):
+    def __init__(self, question, response=[]):
         self.question = question
-        self.response = "NoResponseGiven"
+        self.response = response
         smach.State.__init__(self, outcomes=["ResponseReceived", "NoResponseGiven"])
         self.counter = 0
         self.attempts = 3
@@ -43,13 +43,15 @@ class QuestioningState(smach.State):
             #
             sound_req.arg = self.question
             sound_req.command = 1
+ 
+            rospy.loginfo("Asking question: %s", self.question)
             publisher.publish(sound_req)
             # Listen for the next thing said by calling the listen_for_any service   
             try:
                 listen_for_any = rospy.ServiceProxy('listen_for_any', ListenForAny)
                 response = listen_for_any()
 
-            # Do a confirmation check
+                # Do a confirmation check
 
                 sound_req.arg = "Is " + response.result + " what you mean? Yes or No"
                 sound_req.command = 1
@@ -60,9 +62,12 @@ class QuestioningState(smach.State):
 
                 if (response_two.result == "yes"):
                     ## Return that result
-                                    
+                    self.response.append(response_two.result)
+                    return "ResponseReceived"
 
             except rospy.ServiceException, e:
                 print "Service call failed %s" %e
+
+        return "NoResponseGiven"
 
 
