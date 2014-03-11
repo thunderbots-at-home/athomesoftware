@@ -69,7 +69,6 @@ class VoiceCommandLibraryState(smach.State):
             rospy.loginfo("Checking for utterances...")
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
 
-            request = ListenForAll()
             request.words = self.utterances.keys()
             rospy.loginfo("Requesting to listen for: ")
             for word in request.words:
