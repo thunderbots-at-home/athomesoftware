@@ -45,16 +45,19 @@ class VoiceCommandLibraryState(smach.State):
 
         self.utterances = utterances
 
+        # The outcomes have to be added and this state machine has to be initialized before adding sub state machines
+        for name in self.utterances:
+            outcomes.append(name)
+        smach.State.__init__(self, outcomes)
+
         for name, state_machine in self.utterances.iteritems():
             # Register the commands as transitions
             self.add_command(name, state_machine)
             # lets this state know it has the other state machine as an outcome
-            outcomes.append(name)
             rospy.loginfo("# VoiceCommandLibraryState: %s", name)
 
         rospy.loginfo("##############################################")
 
-        smach.State.__init__(self, outcomes)
         self.counter = 0
 
 
@@ -72,7 +75,8 @@ class VoiceCommandLibraryState(smach.State):
             
             # get the corresponding state machine
             if response is not None:
-                self.state_machine = self.utterances[response]
+                print "NotImplemented"
+                #TODO there will be a bug hereself.state_machine = self.utterances[response]
         except rospy.ServiceException, e:
             print "Service call failed %s" %e
 
@@ -87,6 +91,7 @@ class VoiceCommandLibraryState(smach.State):
         for outcome in outcomes:
             transitions[outcome] = "InitialStandbyState"
 
+        # instead, should register it as an outcome of this node??
         smach.StateMachine.add(name, state_machine, transitions)
         
 
