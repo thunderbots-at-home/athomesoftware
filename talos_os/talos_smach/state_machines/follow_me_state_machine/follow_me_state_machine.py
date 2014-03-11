@@ -15,6 +15,11 @@ import rospy
 import smach
 import smach_ros
 
+
+# General state imports
+from talos_smach.general_states.listening_state import ListeningState
+
+
 # Follower state imports
 from talos_smach.state_machines.follow_me_state_machine.occluded_state import OccludedState
 from talos_smach.state_machines.follow_me_state_machine.positioning_for_user_state import PositioningForUserState
