@@ -18,7 +18,7 @@ import smach_ros
 
 # General state imports
 from talos_smach.general_states.listening_state import ListeningState
-
+from talos_smach.general_states.questioning_state import QuestioningState
 
 # Follower state imports
 from talos_smach.state_machines.follow_me_state_machine.occluded_state import OccludedState
@@ -46,11 +46,20 @@ class FollowMeStateMachine(smach.StateMachine):
 
             # LISTEN FOR REMEMBER ME STATE
             transitions = {}
-            transitions["CommandDetected"] = "TrackingUnidentifiedUserState"
+            transitions["CommandDetected"] = "AskTheirNameState"
             transitions["NoCommandDetected"] = "RememberMeStandbyState"
             smach.StateMachine.add("RememberMeStandbyState", ListeningState("remember"), transitions)
 
-            # Ask for their name via a "response state"
+            # Ask for their name via a "question state"
+            questioning_state = QuestioningState("What is your name?")
+
+            transitions = {}
+            transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
+            # TODO: Shouldn't loop forever, but for now lets see how it goes. 
+            transitions["NoResponseGiven"] = "AskTheirNameState"
+            smach.StateMachine.add("AskTheirNameState", questioning_state, transitions)
+            response = []
+            response = questioning_state.response
 
             # TRACKING UNIDENTIFIED USER STATE
             smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedTrackingState', 'IdentifiedUser':'RememberingUserState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
