@@ -37,8 +37,8 @@ class ListeningState(smach.State):
             words.append(self.utterance)
             rospy.loginfo("CRASHING?")
             response = listen_for_all(words)
-            #rospy.loginfo("RESPONSE: %s", response)
-            #rospy.loginfo("SELF: %s", self.utterance)
+            rospy.loginfo("RESPONSE: %s", response)
+            rospy.loginfo("SELF: %s", self.utterance)
             if (response == self.utterance):
                 return "CommandDetected"
 
