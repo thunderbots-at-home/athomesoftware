@@ -42,7 +42,7 @@ add_service_files(
    ListenForAny.srv
 )
 
-generate_messages()
+generate_messages(DEPENDENCIES std_msgs)
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
