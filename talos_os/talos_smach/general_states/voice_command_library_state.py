@@ -43,7 +43,9 @@ class VoiceCommandLibraryState(smach.State):
         self.default_transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
         self.default_transitions["CommandTimeout"] = "InitialStandbyState"
 
-        for name, state_machine in self.utterances:
+        self.utterances = utterances
+
+        for name, state_machine in self.utterances.iteritems():
             # Register the commands as transitions
             self.add_command(name, state_machine)
             # lets this state know it has the other state machine as an outcome
@@ -52,7 +54,6 @@ class VoiceCommandLibraryState(smach.State):
 
         rospy.loginfo("##############################################")
 
-        self.utterances = utterances
         smach.State.__init__(self, outcomes)
         self.counter = 0
 
