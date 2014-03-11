@@ -44,7 +44,7 @@ class SpeechListener:
             rospy.loginfo(rospy.get_name() + ": Word '%s' has been heard", data.data)
             self.last_word_heard = data.data
             self.stop_listening()
-        else if self.listen_for_any:
+        elif self.listen_for_any:
             self.last_word_heard = data.data
             self.stop_listening()
 
