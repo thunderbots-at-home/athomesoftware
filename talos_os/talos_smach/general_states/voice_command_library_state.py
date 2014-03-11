@@ -39,20 +39,20 @@ class VoiceCommandLibraryState(smach.State):
         outcomes.append("WaitingForCommand")
         outcomes.append("CommandTimeout")
 
-        self.default_transitions = {}
-        self.default_transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
-        self.default_transitions["CommandTimeout"] = "InitialStandbyState"
+        #self.default_transitions = {}
+        #self.default_transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
+        #self.default_transitions["CommandTimeout"] = "InitialStandbyState"
 
         self.utterances = utterances
 
         # The outcomes have to be added and this state machine has to be initialized before adding sub state machines
-        for name in self.utterances:
-            outcomes.append(name)
+        #for name in self.utterances:
+        #    outcomes.append(name)
         smach.State.__init__(self, outcomes)
 
         for name, state_machine in self.utterances.iteritems():
             # Register the commands as transitions
-            self.add_command(name, state_machine)
+            #self.add_command(name, state_machine)
             # lets this state know it has the other state machine as an outcome
             rospy.loginfo("# VoiceCommandLibraryState: %s", name)
 
@@ -81,17 +81,18 @@ class VoiceCommandLibraryState(smach.State):
             print "Service call failed %s" %e
 
 
+    # DEPRECATED Instead, the states will be added to the outer SM
     # Adds a command to the voice library
-    def add_command(self, name, state_machine):
+    #def add_command(self, name, state_machine):
 
         # Set all transitions back to the InitialStandbyState
         # All paths lead to rome/home? :D
-        outcomes = state_machine.get_registered_outcomes()
-        transitions = {} 
-        for outcome in outcomes:
-            transitions[outcome] = "InitialStandbyState"
+ #       outcomes = state_machine.get_registered_outcomes()
+ #       transitions = {} 
+ #       for outcome in outcomes:
+ #           transitions[outcome] = "InitialStandbyState"
 
         # instead, should register it as an outcome of this node??
-        smach.StateMachine.add(name, state_machine, transitions)
+ #       smach.StateMachine.add(name, state_machine, transitions)
         
 

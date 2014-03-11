@@ -54,12 +54,25 @@ class MainStateMachine:
 
             # VOICE COMMAND LIBRARY STATE
             # Adding the voice command library state
-            voice_command_lib = VoiceCommandLibraryState(utterances)
             # Do not do this directly. Instead, add them to an utterances list.
             #follow_me_sm = FollowMeStateMachine()
             #voice_command_lib.add_command("FollowMeStateMachine", follow_me_sm)
             smach.StateMachine.add('VoiceCommandLibraryState', voice_command_lib, voice_command_lib.default_transitions)
- 
+
+
+            # Create transitions for the voice library
+            voice_command_lib = VoiceCommandLibraryState(utterances)
+            transitions = {}
+            transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
+            transitions["CommandTimeout"] = "InitialStandbyState"
+            transitions["follow"] = "FollowMeStateMachine"
+
+            # Adding the voice commands to the library            
+            smach.StateMachine.add('VoiceCommandLibraryState', voice_command_lib, transitions)
+
+            # Add the state machines that it transitions to
+            smach.StateMachine.add('FollowMeStateMachine', FollowMeStateMachine(), 
+
             # DEPRECATED
             # Replaced by VoiceCommandLibraryState
             # COMMAND STANDBY STATE
