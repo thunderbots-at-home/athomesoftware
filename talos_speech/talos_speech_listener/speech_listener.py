@@ -41,10 +41,11 @@ class SpeechListener:
         if data.data in self.words_listened_for:
             self.heard_word = True
             rospy.loginfo(rospy.get_name() + ": Word '%s' has been heard", data.data)
+            self.last_heard_word = data.data
             self.stop_listening()
         else:
             rospy.loginfo("Data: %s", data.data)
-            for words in words_listened_for:
+            for words in self.words_listened_for:
                 rospy.loginfo("Word: %s", words)
 
     #DEPRECATED
@@ -92,7 +93,6 @@ class SpeechListener:
         if not self.listening and not self.heard_word:
             self.words_listened_for = request.words
             self.start_listening()
-            self.words_listened_for = request.words
             rospy.loginfo("Listening for an array of phrases")
         else:
             if (self.heard_word):
