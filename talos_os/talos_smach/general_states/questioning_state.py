@@ -17,6 +17,8 @@ import smach_ros
 from sound_play.msg import SoundRequest
 from std_msgs.msg import String
 from std_srvs.srv import Empty
+from talos_speech.srv import ListenForAny
+from talos_speech.srv import ListenForAll
 
 ############################################ CLASS DEF ##############################################
 class QuestioningState(smach.State):
@@ -44,8 +46,22 @@ class QuestioningState(smach.State):
             publisher.publish(sound_req)
             # Listen for the next thing said by calling the listen_for_any service   
             try:
+                listen_for_any = rospy.ServiceProxy('listen_for_any', ListenForAny)
+                response = listen_for_any()
+
+            # Do a confirmation check
+
+                sound_req.arg = "Is " + response.result + " what you mean? Yes or No"
+                sound_req.command = 1
+                publisher.publish(sound_req)
                 
- 
+                listen_for_any_two = rospy.ServiceProxy('listen_for_any', ListenForAny)
+                response_two = listen_for_any()
+
+                if (response_two.result == "yes"):
+                    ## Return that result
+                                    
+
             except rospy.ServiceException, e:
                 print "Service call failed %s" %e
 
