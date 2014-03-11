@@ -78,7 +78,7 @@ class VoiceCommandLibraryState(smach.State):
             # get the corresponding state machine
             if response is not None:
                 # Transition to that state machine
-                return response
+                return response.result
         except rospy.ServiceException, e:
             print "Service call failed %s" %e
 

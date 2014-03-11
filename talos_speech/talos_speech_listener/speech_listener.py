@@ -99,7 +99,6 @@ class SpeechListener:
                 self.words_listened_for = []
                 self.heard_word = False
                 self.listening = False
-                rospy.loginfo("LOLOLOOL WOOT WOOT LAST HEARD WOORRDDDDD %s", self.last_word_heard)
                 return self.last_word_heard
             
         return "NoCommandDetected"
