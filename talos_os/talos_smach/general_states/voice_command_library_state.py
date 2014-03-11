@@ -45,16 +45,18 @@ class VoiceCommandLibraryState(smach.State):
 
         self.utterances = utterances
 
+        for name in self.utterances:
+            # Register the commands as transitions
+            #self.add_command(name, state_machine)
+            # lets this state know it has the other state machine as an outcome
+            outcomes.append(name)
+            rospy.loginfo("# VoiceCommandLibraryState: %s", name)
+
         # The outcomes have to be added and this state machine has to be initialized before adding sub state machines
         #for name in self.utterances:
         #    outcomes.append(name)
         smach.State.__init__(self, outcomes)
 
-        for name, state_machine in self.utterances.iteritems():
-            # Register the commands as transitions
-            #self.add_command(name, state_machine)
-            # lets this state know it has the other state machine as an outcome
-            rospy.loginfo("# VoiceCommandLibraryState: %s", name)
 
         rospy.loginfo("##############################################")
 
