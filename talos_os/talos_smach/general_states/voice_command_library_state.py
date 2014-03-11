@@ -71,6 +71,10 @@ class VoiceCommandLibraryState(smach.State):
 
             request = ListenForAll()
             request.words = self.utterances.keys()
+            rospy.loginfo("Requesting to listen for: ")
+            for word in request.words:
+                rospy.loginfo("Word: %s", word)
+
             response = listen_for_all(request)
             
             # get the corresponding state machine
