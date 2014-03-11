@@ -47,14 +47,14 @@ class FollowMeStateMachine(smach.StateMachine):
             # LISTEN FOR REMEMBER ME STATE
             transitions = {}
             transitions["CommandDetected"] = "TrackingUnidentifiedUserState"
-            transitions["NoCommandDetected"] = "RememberMeStandby"
+            transitions["NoCommandDetected"] = "RememberMeStandbyState"
             smach.StateMachine.add("RememberMeStandbyState", ListeningState("remember"), transitions)
 
             # TRACKING UNIDENTIFIED USER STATE
             smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedTrackingState', 'IdentifiedUser':'RememberingUserState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
 
             # REMEMBER ME STATE	
-            smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"UserRemembered":'FollowingStandbyState',"UnsuccessfulAttempt":'RememberingUserState'})
+            smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"UserRemembered":'FollowingCommandStandbyState',"UnsuccessfulAttempt":'RememberingUserState'})
 
             # FOLLOWING STANDBY STATE
             transitions = {}
