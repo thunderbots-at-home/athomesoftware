@@ -18,7 +18,7 @@ class RememberingUserState(smach.State):
         rospy.loginfo("Attempting to remember user")
 
         # Here, there should be recognition or detection given by the pi_face tracker etc
-
+        
 
         failed_attempt = 0
         unsuccessful_attempt = 0
