@@ -31,7 +31,9 @@ class FollowMeStateMachine(smach.StateMachine):
 
     ## When done, it should return the state "InitialStandbyState"
     def __init__(self):
-        outcomes = "InitialStandbyState"
+        outcomes = []
+        outcomes.append("Succeeded")
+        outcomes.append("Failed")
         super(FollowMeStateMachine, self).__init__(outcomes)
         
         # REMEMBER ME STATE	
