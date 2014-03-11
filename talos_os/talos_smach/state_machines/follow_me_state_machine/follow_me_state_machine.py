@@ -43,16 +43,16 @@ class FollowMeStateMachine(smach.StateMachine):
             smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"UserRemembered":'TrackingUnidentifiedUserState',"UnsuccessfulAttempt":'RememberingUserState'})
 
             # TRACKING UNIDENTIFIED USER STATE
-            smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedStatePrompt', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
+            smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedTrackingState', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
 
             # FOLLOWING STATE
             smach.StateMachine.add("FollowingState", FollowingState(), transitions={"ContinueFollowing":"FollowingState", "NoUserDetected":"NoUserDetectedState"})
 
             # NO USER DETECTED STATE
-            smach.StateMachine.add("NoUserDetectedState", NoUserDetectedState(), transitions={"UserDetected":"FollowingState", "UserOffScreen":"UserOffScreenState", "UserOccluded":"OccludedState", "TrackingWrongUser":"TrackingWrongUserState", "FailedToFindUser":"FailedStatePrompt"})
+            smach.StateMachine.add("NoUserDetectedState", NoUserDetectedState(), transitions={"UserDetected":"FollowingState", "UserOffScreen":"UserOffScreenState", "UserOccluded":"OccludedState", "TrackingWrongUser":"TrackingWrongUserState"})
 
             # FAILED TRACKING STATE
-            smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"FailedStatePrompt"})
+            smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"InitialStandbyState"})
 
             # TRACKING WRONG USER STATE
             smach.StateMachine.add("TrackingWrongUserState", TrackingWrongUserState(), transitions={"TrackingCorrected":"FollowingState", "TrackingUncorrected":"TrackingWrongUserState", "TrackingFailed":"FailedTrackingState", "AttemptingToRetrack":"TrackingWrongUserState"})
