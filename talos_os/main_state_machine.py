@@ -31,7 +31,7 @@ import smach_ros
 # General state includes
 from talos_smach.general_states.listening_state import ListeningState
 from talos_smach.general_states.voice_command_library_state import VoiceCommandLibraryState
-from talos_smach.state_machines.follow_me_state_machine.follow_me_state_machine import FollowingStateMachine
+from talos_smach.state_machines.follow_me_state_machine.follow_me_state_machine import FollowMeStateMachine
 ################################ MAIN ##############################
 
 
@@ -50,7 +50,7 @@ class MainStateMachine:
 
             # This is where to add the state machines to the voice library.
             utterances = {}
-            utterances["follow"] = FollowMestateMachine()
+            utterances["follow"] = FollowMeStateMachine()
 
             # VOICE COMMAND LIBRARY STATE
             # Adding the voice command library state
