@@ -37,6 +37,7 @@ class FollowMeStateMachine(smach.StateMachine):
         super(FollowMeStateMachine, self).__init__(outcomes)
         
 
+        #TODO: abstract the states for the generic detection, recognition, and speech states. 
         with self:
 
             # REMEMBER ME STATE	
