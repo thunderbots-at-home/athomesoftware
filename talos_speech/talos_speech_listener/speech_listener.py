@@ -36,12 +36,16 @@ class SpeechListener:
 
     # Checks the list of words for a match
     def listen_for_words_callback(self, data):
-        rospy.loginfo(rospy.get_name() + "I heard %s", data.data)
+        rospy.loginfo(rospy.get_name() + ": I heard %s", data.data)
         
         if data.data in self.words_listened_for:
             self.heard_word = True
             rospy.loginfo(rospy.get_name() + ": Word '%s' has been heard", data.data)
             self.stop_listening()
+        else:
+            rospy.loginfo("Data: %s", data.data)
+            for words in words_listened_for:
+                rospy.loginfo("Word: %s", words)
 
     #DEPRECATED
     # For more generality use listen for words
@@ -83,9 +87,10 @@ class SpeechListener:
 
     # Tells recognizer/output to stop producing values it hears
     # Listens for all the words at once in the request.words
+
     def listen_for_all(self, request):
-        self.words_listened_for = request.words
         if not self.listening and not self.heard_word:
+            self.words_listened_for = request.words
             self.start_listening()
             self.words_listened_for = request.words
             rospy.loginfo("Listening for an array of phrases")
