@@ -52,7 +52,6 @@ class FollowMeStateMachine(smach.StateMachine):
 
             # Ask for their name via a "question state"
             questioning_state = QuestioningState("What is your name?")
-
             transitions = {}
             transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
             # TODO: Shouldn't loop forever, but for now lets see how it goes. 

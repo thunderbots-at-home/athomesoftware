@@ -19,6 +19,7 @@ from std_msgs.msg import String
 from std_srvs.srv import Empty
 from talos_speech.srv import ListenForAny
 from talos_speech.srv import ListenForAll
+from talos_speech.talos_speech_listener.speech_listener import SpeechListener
 
 ############################################ CLASS DEF ##############################################
 class QuestioningState(smach.State):
@@ -30,23 +31,19 @@ class QuestioningState(smach.State):
         self.counter = 0
         self.attempts = 3
 
-
     # Asks the user a question via the sound-play microphone node
     def execute(self, userdata):
-
-        publisher = rospy.Publisher('robotsound', SoundRequest)
-        sound_req = SoundRequest()
 
         # Publish a sound_play/SoundRequest
         # 3 attempts for asking a question
         for attempt in range(self.attempts):
             #
-            sound_req.arg = self.question
-            sound_req.command = 1
  
             rospy.loginfo("Asking question: %s", self.question)
-            publisher.publish(sound_req)
-            # Listen for the next thing said by calling the listen_for_any service   
+            SpeechListener.say("What is your name?")
+            rospy.loginfo("Sending sound request...")
+            # Listen for the next thing said by calling the listen_for_any service
+            rospy.sleep(3)   
             try:
                 listen_for_any = rospy.ServiceProxy('listen_for_any', ListenForAny)
                 response = listen_for_any()
