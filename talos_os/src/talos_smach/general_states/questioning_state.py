@@ -40,20 +40,18 @@ class QuestioningState(smach.State):
         self.subscriber = rospy.Subscriber('recognizer/output', String, self.response_callback)
 
     def response_callback(self, data):
-        if len(data.data) > 0 and self.waiting_for_response:
+        if self.waiting_for_response and len(data.data) > 0:
             # Call the stop listening service
+            rospy.loginfo("GOT A RESPONSE!!!!: %s", data.data)
             self.response = data.data
             self.waiting_for_response = False
-            SpeechListener.stop_recognizer()
         else:
-            rospy.loginfo("Sorry, I didn't hear that")
+            rospy.loginfo("Sorry, I wasn't listening")
 
     def get_response(self):
         self.waiting_for_response = True
         # Start
         #Code to do response here, subscribes to /output topic. 
-        SpeechListener.start_recognizer()
-
         return self.waiting_for_response
 
     # Asks the user a question via the sound-play microphone node
@@ -64,12 +62,13 @@ class QuestioningState(smach.State):
         rospy.loginfo("Sending sound request...")
         rospy.sleep(4)   
 
+        # lol fuk i brokez it ## HEAP OVERFLOW 
         while (self.get_response()):
             rospy.sleep(2)
             rospy.loginfo("Waiting for response...")
-
+#
         SpeechListener.say("Is " + self.response + " what you mean? Yes or No")
-        rospy.sleep(4)       
+ #       rospy.sleep(4)       
 
         # do confirmation after
            
