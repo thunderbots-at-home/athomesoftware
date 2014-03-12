@@ -37,7 +37,7 @@ class QuestioningState(smach.State):
         self.waiting_for_response = False  
 
         # Subscribe to recognizer/output
-        self.subscriber = rospy.Subscribe('recognizer/output', String, self.response_callback)
+        self.subscriber = rospy.Subscriber('recognizer/output', String, self.response_callback)
 
     def response_callback(self, data):
         if len(data.data) > 0 and self.waiting_for_response:
