@@ -64,19 +64,15 @@ class QuestioningState(smach.State):
         rospy.loginfo("Sending sound request...")
         rospy.sleep(4)   
 
-        SpeechListener.say("Is " + response[0] + " what you mean? Yes or No")
-        rospy.sleep(4)       
-
         while (self.get_response()):
             rospy.sleep(2)
             rospy.loginfo("Waiting for response...")
 
+        SpeechListener.say("Is " + self.response + " what you mean? Yes or No")
+        rospy.sleep(4)       
+
+        # do confirmation after
            
-
-        if (response_two.result == "yes"):
-            self.response.append(response_two.result)
-            return "ResponseReceived"
-
         return "NoResponseGiven"
 
 
