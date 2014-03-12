@@ -33,6 +33,7 @@ class QuestioningState(smach.State):
         self.question = question
         smach.State.__init__(self, outcomes=["QuestionAsked", "QuestionFailed"])
         self.counter = 0
+
         #self.response = "None"
        # self.waiting_for_response = False  
 
@@ -40,27 +41,29 @@ class QuestioningState(smach.State):
        # self.subscriber = rospy.Subscriber('recognizer/output', String, self.response_callback)
 
 # SHOULD BE IN A WAITING FOR RESPONSE STATE
-    def response_callback(self, data):
-        rospy.loginfo("Receiving things.. hmm")
-        if self.waiting_for_response and len(data.data) > 0:
-            # Call the stop listening service
-            rospy.loginfo("GOT A RESPONSE!!!!: %s", data.data)
-            self.response = data.data
-            self.waiting_for_response = False
-        else:
-            rospy.loginfo("Sorry, I wasn't listening")
+  #  def response_callback(self, data):
+  #      rospy.loginfo("Receiving things.. hmm")
+  #      if self.waiting_for_response and len(data.data) > 0:
+  #          # Call the stop listening service
+  #          rospy.loginfo("GOT A RESPONSE!!!!: %s", data.data)
+  #          self.response = data.data
+  #          self.waiting_for_response = False
+  #      else:
+  #          rospy.loginfo("Sorry, I wasn't listening")
 
-    def get_response(self):
-        self.waiting_for_response = True
-        # Start
-        #Code to do response here, subscribes to /output topic. 
-        if not self.waiting_for_response:
-            SpeechListener.start_recognizer()
-        return self.waiting_for_response
+ #   def get_response(self):
+ #       self.waiting_for_response = True
+ #       # Start
+ ##       #Code to do response here, subscribes to /output topic. 
+  #      if not self.waiting_for_response:
+  #          SpeechListener.start_recognizer()
+  #      return self.waiting_for_response#
 
     # Asks the user a question via the sound-play microphone node
     def execute(self, userdata):
-        SpeechListener.say(question)
+
+        
+        SpeechListener.say(self.question)
        # if not self.waiting_for_response:
 #
 #            
@@ -77,7 +80,6 @@ class QuestioningState(smach.State):
 #            while (self.get_response()):
 #
 #            SpeechListener.say("Is " + self.response + " what you mean? Yes or No")
- #       rospy.sleep(4)       
 
         # do confirmation after
            

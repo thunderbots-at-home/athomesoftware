@@ -21,36 +21,38 @@ import smach_ros
 from std_msgs.msg import String
 
 ############################### CLASS DEF ##########################
-class AwaitingResponseState(smach.State):
+class ResponseState(smach.State):
 
     def __init__(self):
         self.counter = 0
         self.response = "NoResponse"
-        smach.State.__init__(self, outcomes=["AwaitingResponse", "ResponseReceived"]
-        self.started_listening
-        self.subscriber = rospy.Subscriber('recognizer/output', self.response_callback, String)
-        self.waiting_for_response = False
+        smach.State.__init__(self, outcomes=["AwaitingResponse", "ResponseReceived"])
+        self.subscriber = rospy.Subscriber('recognizer/output',String, self.response_callback)
+        self.waiting_for_response = True
+        self.first_entry = True
+        self.got_a_word = False
+        
 
     def response_callback(self, data):
-        rospy.loginfo("Receiving things.. hmm")
         if self.waiting_for_response and len(data.data) > 0:
-            # Call the stop listening service
             rospy.loginfo("GOT A RESPONSE!!!!: %s", data.data)
             self.response = data.data
             self.waiting_for_response = False
             SpeechListener.stop_recognizer()
-        else:
-            rospy.loginfo("Sorry, I wasn't listening")   
+            self.got_a_word = True
+            rospy.loginfo("LOL GOT SOMETHING WOTO")
+            #rospy.sleep(10)
 
     # Should start the recognizer service and get the first callback.
     def execute(self, userdata):
 
-        if (self.response != "NoResponse"):
-            return "ResponseReceived"
-
-        if not self.waiting_for_response:
-            self.waiting_for_response = True 
+        if self.first_entry:
+            self.waiting_for_response = True
+            self.first_entry = False
             SpeechListener.start_recognizer()
+
+        if (self.got_a_word):
+            return "ResponseReceived"
         
         return "AwaitingResponse"
         

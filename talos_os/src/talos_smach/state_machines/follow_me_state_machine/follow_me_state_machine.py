@@ -61,8 +61,8 @@ class FollowMeStateMachine(smach.StateMachine):
             # Waiting for a response state
             response_state = ResponseState()
             transitions = {}
-            transitions["AwaitingResponse"] = "AwaitingResponseState"
-            transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
+            transitions["ResponseReceived"] = "AwaitingResponseState"
+            transitions["AwaitingResponse"] = "TrackingUnidentifiedUserState"
             smach.StateMachine.add("AwaitingResponseState", response_state, transitions)
 
             # TRACKING UNIDENTIFIED USER STATE
