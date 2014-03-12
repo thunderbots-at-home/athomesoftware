@@ -52,19 +52,22 @@ class FollowMeStateMachine(smach.StateMachine):
             # Ask for their name via a "question state"
             questioning_state = QuestioningState("What is your name?")
             transitions = {}
-            transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
+            transitions["QuestionAsked"] = "AwaitingResponseState"
             # TODO: Shouldn't loop forever, but for now lets see how it goes. 
-            transitions["NoResponseGiven"] = "AskTheirNameState"
+            transitions["QuestionFailed"] = "AskTheirNameState"
             smach.StateMachine.add("AskTheirNameState", questioning_state, transitions)
-            response = []
-            response = questioning_state.response
+
+            # Waiting for a response state
+            transitions = {}
+            transitions["AwaitingResponse"] = "AwaitingResponseState"
+            transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
+            smach.StateMachine.add("AwaitingResponseState", response_state, transitions)
 
             # TRACKING UNIDENTIFIED USER STATE
             smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedTrackingState', 'IdentifiedUser':'RememberingUserState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
 
             # REMEMBER ME STATE	
             smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions={"UserRemembered":'FollowingCommandStandbyState',"UnsuccessfulAttempt":'RememberingUserState'})
-
             # FOLLOWING STANDBY STATE
             transitions = {}
             transitions["CommandDetected"] = "FollowingState"
