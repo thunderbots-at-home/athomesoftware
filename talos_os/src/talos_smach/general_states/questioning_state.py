@@ -12,8 +12,7 @@
 import roslib; roslib.load_manifest('sound_play'); roslib.load_manifest('talos_speech')
 # It doesn't work any other way, please explain someone?
 import talos_speech_listener
-import speech_listener
-from speech_listener import SpeechListener
+from talos_speech_listener.speech_listener import SpeechListener
 
 import rospy
 import smach
