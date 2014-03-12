@@ -20,7 +20,7 @@ import smach_ros
 
 from sound_play.msg import SoundRequest
 from std_msgs.msg import String
-from std_srvs.srv import Empty
+from std_srvs.srv import Empty, EmptyRequest
 from talos_speech.srv import ListenForAny
 from talos_speech.srv import ListenForAll
 
@@ -46,18 +46,21 @@ class QuestioningState(smach.State):
             SpeechListener.say("What is your name?")
             rospy.loginfo("Sending sound request...")
             # Listen for the next thing said by calling the listen_for_any service
-            rospy.sleep(3)   
+            rospy.sleep(4)   
             try:
-                listen_for_any = rospy.ServiceProxy('listen_for_any', ListenForAny)
+
+                # Should pause and wait until this returns 
+                listen_for_any = rospy.ServiceProxy('listen_for_any', Empty)
                 response = listen_for_any()
 
+                print "Is this thing threded"
                 # Do a confirmation check
 
                 sound_req.arg = "Is " + response.result + " what you mean? Yes or No"
                 sound_req.command = 1
                 publisher.publish(sound_req)
                 
-                listen_for_any_two = rospy.ServiceProxy('listen_for_any', ListenForAny)
+                listen_for_any_two = rospy.ServiceProxy('listen_for_any', Empty)
                 response_two = listen_for_any()
 
                 if (response_two.result == "yes"):

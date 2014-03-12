@@ -15,7 +15,6 @@ import rospy
 import smach
 import smach_ros
 
-
 # General state imports
 from talos_smach.general_states.listening_state import ListeningState
 from talos_smach.general_states.questioning_state import QuestioningState
