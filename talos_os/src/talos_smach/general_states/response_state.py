@@ -27,31 +27,32 @@ class ResponseState(smach.State):
         self.counter = 0
         self.response = "NoResponse"
         smach.State.__init__(self, outcomes=["AwaitingResponse", "ResponseReceived"])
-        self.subscriber = rospy.Subscriber('recognizer/output',String, self.response_callback)
         self.waiting_for_response = True
         self.first_entry = True
         self.got_a_word = False
         
 
     def response_callback(self, data):
-        if self.waiting_for_response and len(data.data) > 0:
+        if not self.first_entry and len(data.data) > 0:
             rospy.loginfo("GOT A RESPONSE!!!!: %s", data.data)
             self.response = data.data
             self.waiting_for_response = False
             SpeechListener.stop_recognizer()
             self.got_a_word = True
             rospy.loginfo("LOL GOT SOMETHING WOTO")
-            #rospy.sleep(10)
+            rospy.sleep(10)
 
     # Should start the recognizer service and get the first callback.
     def execute(self, userdata):
 
         if self.first_entry:
+            self.subscriber = rospy.Subscriber('recognizer/output',String, self.response_callback)
             self.waiting_for_response = True
             self.first_entry = False
             SpeechListener.start_recognizer()
 
         if (self.got_a_word):
+            #self.first_entry = True
             return "ResponseReceived"
         
         return "AwaitingResponse"
