@@ -9,11 +9,12 @@ import roslib; roslib.load_manifest('talos_speech')
 import rospy
 
 from std_msgs.msg import String
-from std_srvs.srv import Empty
+from std_srvs.srv import Empty, EmptyRequest
 from talos_speech.srv import ListenFor
 from talos_speech.srv import ListenForAll
 from talos_speech.srv import ListenForAny
 from sound_play.libsoundplay import SoundClient
+
 
 ########################### DEVELOEPR README #######################
 
@@ -104,7 +105,10 @@ class SpeechListener:
             
         return "NoCommandDetected"
 
-    def listen_for_any(self, request):
+    def listen_for_any(self):
+        while(True):
+            print "loopy"
+
         if not self.listening and not self.heard_word:
             self.listen_for_any = True
             self.start_listening()
@@ -154,7 +158,7 @@ def main():
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("recognizer/output", String, listener.listen_for_words_callback)
     listen_for_all_service = rospy.Service('listen_for_all', ListenForAll, listener.listen_for_all)
-    listen_for_any_service = rospy.Service('listen_for_any', ListenForAny, listener.listen_for_any)
+    listen_for_any_service = rospy.Service('listen_for_any', Empty, listener.listen_for_any)
   
     try:
         # On startup, do not listen for anything
