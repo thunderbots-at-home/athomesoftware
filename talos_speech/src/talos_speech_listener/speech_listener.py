@@ -141,7 +141,7 @@ class SpeechListener:
         self.listening = True
 
     @staticmethod
-    def say(self, utterance):
+    def say(utterance):
         soundhandle = SoundClient()
         voice = "voice_kal_diphone"
         soundhandle.say(utterance, voice)
