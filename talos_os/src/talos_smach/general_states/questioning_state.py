@@ -10,6 +10,11 @@
 # Imports
 
 import roslib; roslib.load_manifest('sound_play'); roslib.load_manifest('talos_speech')
+# It doesn't work any other way, please explain someone?
+import talos_speech_listener
+import speech_listener
+from speech_listener import SpeechListener
+
 import rospy
 import smach
 import smach_ros
@@ -19,7 +24,6 @@ from std_msgs.msg import String
 from std_srvs.srv import Empty
 from talos_speech.srv import ListenForAny
 from talos_speech.srv import ListenForAll
-from talos_speech.talos_speech_listener.speech_listener import SpeechListener
 
 ############################################ CLASS DEF ##############################################
 class QuestioningState(smach.State):
