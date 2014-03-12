@@ -90,7 +90,7 @@ class SpeechListener:
         self.listening = True
 
     @staticmethod
-    def start_recognizer(self):
+    def start_recognizer():
         try:
             # Start listening to the recognizer callbacks
             start = rospy.ServiceProxy('recognizer/start', Empty)
@@ -99,7 +99,7 @@ class SpeechListener:
             print "Service call failed %s" %e
 
     @staticmethod
-    def stop_recognizer(self):
+    def stop_recognizer():
         try:
             # Start listening to the recognizer callbacks
             start = rospy.ServiceProxy('recognizer/stop', Empty)
