@@ -12,6 +12,7 @@ from std_msgs.msg import String
 from std_srvs.srv import Empty
 from talos_speech.srv import ListenFor
 from talos_speech.srv import ListenForAll
+from talos_speech.srv import ListenForAny
 
 ########################### DEVELOEPR README #######################
 
@@ -139,6 +140,8 @@ class SpeechListener:
         self.heard_words = False
         self.listening = True
 
+    def say(self, utterance):
+        
 
 def main():
 
