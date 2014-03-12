@@ -124,7 +124,7 @@ CATKIN_DEPENDS talos_speech
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
-install(PROGRAMS talos_speech_listener/speech_listener
+install(PROGRAMS main_state_machine.py
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 
