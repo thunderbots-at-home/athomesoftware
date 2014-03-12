@@ -107,11 +107,11 @@ class SpeechListener:
         except rospy.ServiceException, e:
             print "Service call failed %s" %e
  
-    @staticmethod
-    def say(utterance):
+    
+    def say(self, utterance):
         soundhandle = SoundClient()
         voice = "voice_kal_diphone"
-        soundhandle.say(utterance, voice)
+        soundhandle.say(utterance.words, voice)
         rospy.sleep(1)
 
 def main():
@@ -121,7 +121,9 @@ def main():
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("recognizer/output", String, listener.listen_for_words_callback)
     listen_for_all_service = rospy.Service('listen_for_all', ListenForAll, listener.listen_for_all)
-  
+   
+    say_service = rospy.Service('say', ListenFor, listener.say)
+
     try:
         # On startup, do not listen for anything
         listener.stop_listening()
