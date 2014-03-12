@@ -18,6 +18,7 @@ import smach_ros
 # General state imports
 from talos_smach.general_states.listening_state import ListeningState
 from talos_smach.general_states.questioning_state import QuestioningState
+from talos_smach.general_states.response_state import ResponseState
 
 # Follower state imports
 from talos_smach.state_machines.follow_me_state_machine.occluded_state import OccludedState
@@ -58,6 +59,7 @@ class FollowMeStateMachine(smach.StateMachine):
             smach.StateMachine.add("AskTheirNameState", questioning_state, transitions)
 
             # Waiting for a response state
+            response_state = ResponseState()
             transitions = {}
             transitions["AwaitingResponse"] = "AwaitingResponseState"
             transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
