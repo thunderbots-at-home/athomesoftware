@@ -13,6 +13,7 @@ from std_srvs.srv import Empty
 from talos_speech.srv import ListenFor
 from talos_speech.srv import ListenForAll
 from talos_speech.srv import ListenForAny
+from sound_play.libsoundplay import SoundClient
 
 ########################### DEVELOEPR README #######################
 
@@ -29,7 +30,6 @@ from talos_speech.srv import ListenForAny
 class SpeechListener:
 
     def __init__(self):
-
         self.heard_word = False
         self.listening = False
         self.words_listened_for = []
@@ -140,8 +140,12 @@ class SpeechListener:
         self.heard_words = False
         self.listening = True
 
+    @staticmethod
     def say(self, utterance):
-        
+        soundhandle = SoundClient()
+        voice = "voice_kal_diphone"
+        soundhandle.say(utterance, voice)
+        rospy.sleep(1)
 
 def main():
 
