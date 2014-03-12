@@ -9,7 +9,7 @@
 ########################################################################
 # Imports
 
-import roslib; roslib.load_manifest('sound_play')
+import roslib; roslib.load_manifest('sound_play'); roslib.load_manifest('talos_speech')
 import rospy
 import smach
 import smach_ros
