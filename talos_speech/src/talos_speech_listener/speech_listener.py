@@ -100,7 +100,7 @@ class SpeechListener:
 
     @staticmethod
     def stop_recognizer(self):
-    try:
+        try:
             # Start listening to the recognizer callbacks
             start = rospy.ServiceProxy('recognizer/stop', Empty)
             response = start()
@@ -121,7 +121,6 @@ def main():
     rospy.loginfo(rospy.get_name() + ": Started speech listener")
     rospy.Subscriber("recognizer/output", String, listener.listen_for_words_callback)
     listen_for_all_service = rospy.Service('listen_for_all', ListenForAll, listener.listen_for_all)
-    listen_for_any_service = rospy.Service('listen_for_any', String, listener.listen_for_any)
   
     try:
         # On startup, do not listen for anything
