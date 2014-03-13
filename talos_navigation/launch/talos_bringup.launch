@@ -30,15 +30,19 @@
 <include file="$(find talos_speech)/launch/recognizer.launch"/>
 
 <!-- Speech listener -->
-<include file="$(find talos_speech)/launch/listener.launch"/>
+<!-- <include file="$(find talos_speech)/launch/listener.launch"/> -->
 
+<!-- USE THIS IF TRACKING IS BEING DONE WITH AN INTEGRATED, OR UVC COMPATIBLE WEBCAM -->
 <!-- Start Object Tracking node -->
-<include file="$(find ros2opencv)/launch/uvc_cam.launch">
-<param name="device" value="/dev/video1"/>
-</include>
+<!-- <include file="$(find ros2opencv)/launch/uvc_cam.launch">
+</include> -->
+
+<!-- Start kinect face tracker/object tracker -->
+<include file="$(find ros2opencv)/launch/openni_node.launch"/>
+<include file="$(find pi_face_tracker)/launch/face_tracker_kinect.launch"/>
 
 <!-- Publish kinect data -->
-<include file="$(find talos_sensors)/launch/start_kinect.launch"/>
+<!-- <include file="$(find talos_sensors)/launch/start_kinect.launch"/> -->
 
 <!-- Publish laser data -->
 <include file="$(find talos_sensors)/launch/start_lidar.launch">
