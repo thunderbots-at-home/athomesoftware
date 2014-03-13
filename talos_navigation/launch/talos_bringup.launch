@@ -49,6 +49,8 @@
 <arg name="lidar_device" value="$(arg lidar_port)"/>
 </include>
 
+<!-- comments -->
+
 <!-- Publish /odom and send /cmd_vel -->
 <!-- <include file="$(find talos_base_controller)/base.launch">
 <arg name="_device_file" value="$(arg arduino_port)"/>
