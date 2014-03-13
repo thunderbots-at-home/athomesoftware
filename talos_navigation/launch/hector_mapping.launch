@@ -11,6 +11,7 @@
 
 <!-- Note: using this without the use of the odom frame -->
 <param name="odom_frame" value="talos_base_link" />
+<param name="pub_map_odom_transform" value="true" />
 
 </node>
 
