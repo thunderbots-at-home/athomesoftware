@@ -1,0 +1,6 @@
+<launch>
+	<node name="recognizer" pkg="pocketsphinx" type="recognizer.py" output="screen">
+		<param name="lm" value="$(find talos_speech)/speech_dictionaries/simple_dictionary/lm.lm" />
+		<param name="dict" value="$(find talos_speech)/speech_dictionaries/simple_dictionary/dic.dic" />
+	</node>
+</launch>

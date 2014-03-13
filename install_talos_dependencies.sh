@@ -3,14 +3,12 @@
 ## Author: Devon Ash
 ## Maintainer: noobaca2@gmail.com
 ## Dependencies for Thunderbots@Home Software
-## Used for updating and installing the distros. 
 ROS_DISTRO="hydro"
 INSTALLATION_DIR="~/catkin_ws/src/athomesoftware/"
 mkdir ${INSTALLATION_DIR}/dependencies
 DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
 
 ## Kinect related dependencies
-## sudo apt-get install openni-dev DO NOT UNCOMMENT THIS IT IS EVIL
 sudo apt-get install libusb-1.0-0-dev
 sudo apt-get install freeglut3-dev
 sudo apt-get install doxygen
@@ -40,6 +38,19 @@ sudo apt-get install ros-${ROS_DISTRO}-gscam
 sudo apt-get install ros-${ROS_DISTRO}-mjpeg-server
 sudo apt-get install ros-${ROS_DISTRO}-ros-control
 sudo apt-get install ros-${ROS_DISTRO}-ros-controllers
+sudo apt-get install ros-${ROS_DISTRO}-executive-smach
+sudo apt-get install ros-${ROS_DISTRO}-ros-smach
+sudo apt-get install ros-${ROS_DISTRO}-pocketsphinx
+sudo apt-get install ros-${ROS_DISTRO}-rosbridge
+
+# For kinect drivers
+sudo apt-get install libopenni-dev
+sudo apt-get install libopenni-nite-dev
+sudo apt-get install libopenni-sensor-primesense0
+sudo apt-get install libopenni0
+sudo apt-get install libopenni2-0
+sudo apt-get install openni-utils
+sudo apt-get install ros-hydro-freenect-launch
 
 #Installing Gazebo Simulator (This installs the most recent version of gazebo)
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu precise main" > /etc/apt/sources.list.d/gazebo-latest.list'

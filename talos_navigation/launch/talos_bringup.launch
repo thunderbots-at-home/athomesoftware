@@ -14,19 +14,42 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <!-- Parameters for LIDAR and Arduino Ports -->
-<arg name="lidar_port"/>
-<arg name="arduino_port"/>
+<arg name="lidar_port" default="/dev/tty/ACM1"/>
+<arg name="arduino_port" default="/dev/ttyACM0"/>
 
 <!-- URDF TF Tree -->
 <include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
 
+<!-- Start microphone -->
+<include file="$(find talos_sensors)/launch/start_microphone.launch"/>
+
+<!-- Start speakers -->
+<include file="$(find talos_sensors)/launch/start_speakers.launch"/>
+
+<!-- Speech recognizer -->
+<include file="$(find talos_speech)/launch/recognizer.launch"/>
+
+<!-- Speech listener -->
+<!-- <include file="$(find talos_speech)/launch/listener.launch"/> -->
+
+<!-- USE THIS IF TRACKING IS BEING DONE WITH AN INTEGRATED, OR UVC COMPATIBLE WEBCAM -->
+<!-- Start Object Tracking node -->
+<!-- <include file="$(find ros2opencv)/launch/uvc_cam.launch">
+</include> -->
+
+<!-- Start kinect face tracker/object tracker -->
+<include file="$(find ros2opencv)/launch/openni_node.launch"/>
+<include file="$(find pi_face_tracker)/launch/face_tracker_kinect.launch"/>
+
 <!-- Publish kinect data -->
-<include file="$(find talos_sensors)/launch/start_kinect.launch"/>
+<!-- <include file="$(find talos_sensors)/launch/start_kinect.launch"/> -->
 
 <!-- Publish laser data -->
 <include file="$(find talos_sensors)/launch/start_lidar.launch">
 <arg name="lidar_device" value="$(arg lidar_port)"/>
 </include>
+
+<!-- comments -->
 
 <!-- Publish /odom and send /cmd_vel -->
 <!-- <include file="$(find talos_base_controller)/base.launch">
