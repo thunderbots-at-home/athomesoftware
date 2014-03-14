@@ -113,6 +113,7 @@ class SpeechListener:
         voice = "voice_kal_diphone"
         soundhandle.say(utterance.words, voice)
         rospy.sleep(1)
+        return 127
 
 def main():
 
