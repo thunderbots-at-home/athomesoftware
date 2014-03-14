@@ -48,19 +48,9 @@ class MainStateMachine:
             # STARTUP STATE
             smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'VoiceCommandLibraryState'})
 
-            # This is where to add the state machines to the voice library.
             utterances = {}
             utterances["follow"] = FollowMeStateMachine()
 
-            # DEPRECATED
-            # VOICE COMMAND LIBRARY STATE
-            # Adding voice command library state
-            # Do not do this directly. Instead, add them to an utterances list.
-            #follow_me_sm = FollowMeStateMachine()
-            #voice_command_lib.add_command("FollowMeStateMachine", follow_me_sm)
-            #smach.StateMachine.add('VoiceCommandLibraryState', voice_command_lib, voice_command_lib.default_transitions)
-
-            # Create transitions for the voice library
             voice_command_lib = VoiceCommandLibraryState(utterances)
             transitions = {}
             transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
@@ -77,57 +67,6 @@ class MainStateMachine:
             transitions["Failed"] = "InitialStandbyState"
             smach.StateMachine.add('FollowMeStateMachine', FollowMeStateMachine(), transitions)
 
-            # DEPRECATED
-            # Replaced by VoiceCommandLibraryState
-            # COMMAND STANDBY STATE
-            #smach.StateMachine.add('CommandStandbyState', CommandStandbyState(),transitions={"RememberMeCommandDetected":'RememberingUserState', "NoCommandDetected":'CommandStandbyState'})
-
-            # DEPRECATED
-            # FAILED STATE PROMPT
-            # smach.StateMachine.add('FailedStatePrompt', FailedStatePrompt(),transitions={"FailedStatePrompt":'FailedStatePrompt'})
-
-
-    # DEPRECATED
-    # Adds the following states to the general robot bringup SM
-    #def add_follow_me_states(self):
-
-    #    with self.sm:
-
-
-            # DEPRECATED
-            # Add the follower state machine as a voice command for the voice command lib.
-            # REMEMBER ME STATE
-        #    smach.StateMachine.add('RememberingUserState', RememberingUserState(),transitions=
- #{"FailedToRemember":'FailedStatePrompt',    "UserRemembered":'TrackingUnidentifiedUserState',
- #"UnsuccessfulAttempt":'RememberingUserState'})
-
-            # TRACKING UNIDENTIFIED USER STATE
-  #          smach.StateMachine.add('TrackingUnidentifiedUserState', TrackingUnidentifiedUserState(), transitions={'TrackingFailed':'FailedStatePrompt', 'IdentifiedUser':'FollowerCommandStandbyState', 'ContinueTracking':'TrackingUnidentifiedUserState'})
-
-            # FOLLOWER COMMAND STANDBY STATE
-  #          smach.StateMachine.add('FollowerCommandStandbyState', FollowerCommandStandbyState(), transitions={'FollowMeCommandDetected':'FollowingState','RestartCommandDetected':'FailedStatePrompt', 'ContinueStandby':'FollowerCommandStandbyState'})
-
-            # FOLLOWING STATE
-   #         smach.StateMachine.add("FollowingState", FollowingState(), transitions={"ContinueFollowing":"FollowingState", "FollowingFailed":"FailedStatePrompt", "NoUserDetected":"NoUserDetectedState"})
-
-            # NO USER DETECTED STATE
-    #        smach.StateMachine.add("NoUserDetectedState", NoUserDetectedState(), transitions={"UserDetected":"FollowingState", "UserOffScreen":"UserOffScreenState", "UserOccluded":"OccludedState", "TrackingWrongUser":"TrackingWrongUserState", "FailedToFindUser":"FailedStatePrompt"})
-
-            # FAILED TRACKING STATE
-     #       smach.StateMachine.add("FailedTrackingState", FailedTrackingState(), transitions={"FailedTracking":"FailedStatePrompt"})
-
-            # TRACKING WRONG USER STATE
-      #      smach.StateMachine.add("TrackingWrongUserState", TrackingWrongUserState(), transitions={"TrackingCorrected":"FollowingState", "TrackingUncorrected":"TrackingWrongUserState", "TrackingFailed":"FailedTrackingState", "AttemptingToRetrack":"TrackingWrongUserState"})
-
-            # OCCLUDED STATE
-       #     smach.StateMachine.add("OccludedState", OccludedState(), transitions={"WaitingForUser":"OccludedState", "PositioningForUser":"PositioningForUserState", "FailedToFindUser":"FailedTrackingState"})
-
-            # POSITIONING FOR USER STATE
-        #    smach.StateMachine.add("PositioningForUserState", PositioningForUserState(), transitions={"UserDetected":"FollowingState", "PositioningForUser":"PositioningForUserState", "PositioningForUserFailed":"FailedTrackingState"})
-
-            # USER OFF SCREEN STATE
-         #   smach.StateMachine.add("UserOffScreenState", UserOffScreenState(), transitions={"UserDetected":"FollowingState", "UserOffScreenStill":"UserOffScreenState", "FailedToFindUser":"FailedTrackingState"})
-
 
 def main():
     rospy.init_node('talos_main_state_machine')
@@ -136,6 +75,8 @@ def main():
     sm = MainStateMachine()
     sm.add_startup_states()
     
+    sis = smach_ros.IntrospectionServer('server_name', sm.sm, '/SM_ROOT')
+    sis.start()
     #sm.add_follow_me_states()
     outcome = sm.sm.execute()
 
