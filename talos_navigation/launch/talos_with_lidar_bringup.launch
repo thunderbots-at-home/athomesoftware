@@ -14,7 +14,7 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <!-- Parameters for LIDAR and Arduino Ports -->
-<arg name="lidar_port" default="/dev/tty/ACM1"/>
+<arg name="lidar_port" default="/dev/tty/ACM0"/>
 <arg name="arduino_port" default="/dev/ttyACM0"/>
 
 <!-- URDF TF Tree -->
