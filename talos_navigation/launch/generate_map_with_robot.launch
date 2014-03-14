@@ -4,16 +4,23 @@
 <!-- Generates a map with the robot TALOS system -->
 <launch>
 
-<!-- Brings up the robots vitals -->
-<include file="$(find talos_navigation)/launch/thunderbot_bringup.launch"/>
+<!-- Launch the robots transforms -->
+<include file="$(find talos_navigation)/talos_description/urdf/spawn_robot_model.launch"/>
 
-<!-- Record the laser scan information in the bag file -->
-<node pkg="rosbag" type="rosbag" name="rosbag_record_laser"
-      args="record -o talos_laser_data.bag /scan" />
+<!-- Load the kinect -->
+<include file="$(find talos_sensors)/launch/start_kinect.launch"/>
 
-<!-- Start the teleop to have the robot move around -->
-<!-- Run the start_wireless_ps3_controller.sh -->
+<!-- Change depth image to laser scan -->
+<node pkg="depthimage_to_laserscan" name="depthimage_to_laserscan" type="depthimage_to_laserscan" output="screen"/>
 
-<!-- Note: make sure the batteries are plugged in -->
+<!-- Start slam gmapping -->
+
+<!-- Load the lidar -->
+
+
+<!-- Load the kinects transforming drivers so that it can be a LaserScan -->
+
+<!-- Load node that prompts to save map -->
+
 
 </launch>
