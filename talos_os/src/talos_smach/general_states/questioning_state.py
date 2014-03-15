@@ -65,6 +65,7 @@ class QuestioningState(smach.State):
             self.first_entry = True
             self.waiting_for_response = False
             SpeechListener.stop_recognizer()
+            rospy.logdebug("Response Received: %s", self.response)
             return "ResponseReceived"
         
         return "AwaitingResponse"
