@@ -40,6 +40,15 @@ class QuestioningState(smach.State):
         self.response_received = False
         self.confirming_response = False
         self.confirmation_sm = smach.StateMachine
+        with self.confirmation_sm:
+                self.confirmation_sm = smach.StateMachine(outcomes=["CommandDetected", "NoCommandDetected"])
+                transitions = {}
+                transitions["CommandDetected"] = "CommandDetected"
+                transitions["NoCommandDetected"] = "NoCommandDetected"
+                self.confirmation_sm.add(ListeningState(["yes", "no"], transitions)
+        self.confirmation_outcome = "NoneOutcome"
+        self.confirming_response_first_entry = True
+
 
     def say_service(self, words):
         try:
@@ -79,15 +88,17 @@ class QuestioningState(smach.State):
             SpeechListener.say_service("Please confirm: Did you say %s", self.response)
             self.confirming_response = True
             return "ConfirmingResponse"
-        elif (self.confirming_response):
+        elif (self.confirming_response and self.confirming_response_first_entry):
             # Do a listening for state that returns 
-            with self.confirmation_sm:
-                self.confirmation_sm = smach.StateMachine(outcomes=["yes", "no"])
-                self.confirmation_sm.add(ListeningState(
-             
-            
-        
-        return "AwaitingResponse"
+            self.confirming_response_first_entry = False
+            self.confirmation_outcome = self.confirmation_sm.execute()
+
+            if (self.confirmation_outcome = "CommandDetected"):
+                return "ConfirmedYes"
+            elif (self.confirmation_outcome ="NoCommandDetected"):
+                return "ConfirmedNo"
+
+
            
 
 
