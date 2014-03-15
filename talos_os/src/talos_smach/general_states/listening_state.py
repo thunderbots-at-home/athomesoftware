@@ -24,6 +24,7 @@ class ListeningState(smach.State):
         smach.State.__init__(self, outcomes=["CommandDetected", "NoCommandDetected"])
         self.counter = 0
         rospy.loginfo("ListeningState listening for: %s", self.utterance)
+        self.word_heard = "NoWordHeard"
 
     def execute(self, userdata):
         rospy.wait_for_service('listen_for_all')
@@ -40,7 +41,8 @@ class ListeningState(smach.State):
                 words.append(self.utterance)
     
             response = listen_for_all(words)
-            
+            self.word_heard = response.result            
+
             if (isinstance(self.utterance, str)):
                 if (response.result == self.utterance):
                     return "CommandDetected"
