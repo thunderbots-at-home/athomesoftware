@@ -40,18 +40,12 @@ class QuestioningState(smach.State):
 
         # Default behaviour
         self.CURRENT_MODE = self.QUESTION_ASK_MODE
-        smach.State.__init__(self, outcomes=["AwaitingResponse", "ResponseReceived", "ConfirmedYes", "ConfirmedNo"])
+        smach.State.__init__(self, outcomes=["AwaitingQuestionResponse", "ResponseReceived", "AwaitingConfirmationResponse", "ConfirmedYes", "ConfirmedNo", "WhoopsWTF"])
         self.question = question
+        self.subscriber = rospy.Subscriber('recognizer/output', String, self.response_callback)
         self.counter = 0
         self.got_a_word = False
 
-        #self.question = question
-        #self.counter = 0
-        #self.got_a_word = False
-        #self.response = "Response"
-        #self.response_received = False
-        #self.confirming_response = False
-        #self.confirming_response_first_entry = True
 
     def say_service(self, words):
         try:
@@ -61,9 +55,11 @@ class QuestioningState(smach.State):
             print "Service call failed %s" %e
 
     def response_callback(self, data):
-        if (self.CURRENT_MODE == self.AWAITING_RESPONSE_MODE && len(data.data) > 0:
+        if (self.CURRENT_MODE == self.AWAITING_RESPONSE_MODE and len(data.data) > 0):
             self.response = data.data
             self.got_a_word = True
+            rospy.logdebug("GOT ME A WORD!!!!!!!!!!!!!!!!!!! %s", data.data)
+            self.CURRENT_MODE = self.CONFIRM_ANSWER_MODE
 
     # Restores the values because things may have been modified, and the question may have to  be asked again thus start fresh. 
     def reset_questioning_variables():
@@ -74,33 +70,30 @@ class QuestioningState(smach.State):
 
     def execute(self, userdata):
         if (self.CURRENT_MODE == self.QUESTION_ASK_MODE):
-            rospy.logdebug("MODE: QUESTION ASK MODE)
+            self.CURRENT_MODE = self.AWAITING_RESPONSE_MODE
+            rospy.logdebug("MODE: QUESTION ASK MODE")
             rospy.loginfo("UNDEFINED BEHAVIOUR BUG")
             self.say_service(self.question)
-            rospy.sleep(3)
-            self.subscriber = rospy.Subscriber('recognizer/output', String, self.response_callback)
-            self.CURRENT_MODE = self.AWAITING_RESPONSE_MODE
             SpeechListener.start_recognizer()
-            return "AwaitingResponse"
+            rospy.sleep(3)
+            return "AwaitingQuestionResponse"
         
         if (self.CURRENT_MODE == self.AWAITING_RESPONSE_MODE):
             rospy.logdebug("MODE: AWAITING_RESPONSE_MODE")
             if (self.got_a_word):
-                self.CURRENT_MODE == self.CONFIRM_ANSWER_MODE
-                SpeechListener.stop_recognizer()
                 self.got_a_word = False
                 return "ResponseReceived"
 
         if (self.CURRENT_MODE == self.CONFIRM_ANSWER_MODE):
             rospy.logdebug("MODE: CONFIRM_ANSWER_MODE")
-            rospy.loginfo("Did you say %s, please say yes or no", self.response)
-            rospy.say_service("Did you say " + self.response + " please say yes or no")
+            rospy.loginfo("BEFORE HEISENBUG")
+            self.say_service("Did you say " + self.response)
             rospy.sleep(3)
-            self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE
+            self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE_MODE
             SpeechListener.start_recognizer()
-            return "AwaitingResponse"
+            return "AwaitingConfirmationResponse"
 
-        if (self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE):
+        if (self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE_MODE):
             rospy.logdebug("MODE: AWAITING CONFIRM RESPONSE MODE")
             if (self.got_a_word):
                 if (self.response == "yes"):
@@ -109,45 +102,7 @@ class QuestioningState(smach.State):
                     self.reset_questioning_variables()
                     return "ConfirmedNo"
 
-        #if self.first_entry:
-        #    rospy.loginfo("BEFORE")         
-        #    self.say_service(self.question) 
-        #    #rospy.loginfo("AFTER")
-        #    rospy.sleep(3)       
-        #    self.subscriber = rospy.Subscriber('recognizer/output',String, self.response_callback)
-        #    self.first_entry = False
-        #    # Elements for response
-        #    self.waiting_for_response = True
-        #    SpeechListener.start_recognizer()
-        #    return "QuestionAsked"
-        #elif (self.got_a_word and self.waiting_for_response):
-        #    SpeechListener.stop_recognizer()
-        #    rospy.logwarn("Response Received: %s", self.response)
-        #    rospy.logwarn("lolok")
-        #    self.response_received = True
-        #    return "ResponseReceived"
-        #elif (self.response_received):
-        #    rospy.loginfo("Confirming response")
-        #    SpeechListener.say_service("Please confirm: Did you say %s", self.response)
-        #    SpeechListener.start_recognizer()
-        #    self.confirming_response = True
-        #    return "ConfirmingResponse"
-        #elif (self.confirming_response and self.confirming_response_first_entry):
-        #    self.confirming_response_first_entry = True
-        #    listening_state = ListeningState(["yes", "no"])
-        #    while (listening_state.execute() == "NoCommandDetected"):
-        #        rospy.logdebug("Waiting for confirmation")
-
-        #    if (listening_state.word_heard == "yes"):
-        #        rospy.logdebug("Confirmed YES")
-        #        return "ConfirmedYes"
-        #    elif (self.confirmation_outcome =="no"):
-        #        rospy.logdebug("Confirmed NO")
-        #        return "ConfirmedNo"
-
-        #    SpeechListener.stop_recognizer()
-
-        return "AwaitingResponse"
+        return "WhoopsWTF"
 
 
            
