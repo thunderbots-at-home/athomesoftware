@@ -31,12 +31,15 @@ class QuestioningState(smach.State):
 
     def __init__(self, question, response=[]):
         self.question = question
-        smach.State.__init__(self, outcomes=["QuestionAsked", "AwaitingResponse", "ResponseReceived"])
+        smach.State.__init__(self, outcomes=["QuestionAsked", "AwaitingResponse", "ResponseReceived", "ConfirmingResponse", "ConfirmedYes", "ConfirmedNo"])
         self.counter = 0
         self.waiting_for_response = True
         self.first_entry = True
         self.got_a_word = False
         self.response = "Response"
+        self.response_received = False
+        self.confirming_response = False
+        self.confirmation_sm = smach.StateMachine
 
     def say_service(self, words):
         try:
@@ -57,16 +60,32 @@ class QuestioningState(smach.State):
             #rospy.loginfo("AFTER")
             rospy.sleep(3)       
             self.subscriber = rospy.Subscriber('recognizer/output',String, self.response_callback)
-            self.waiting_for_response = True
             self.first_entry = False
+            # Elements for response
+            self.waiting_for_response = True
             SpeechListener.start_recognizer()
             return "QuestionAsked"
-        if (self.got_a_word):
+        elif (self.got_a_word):
             self.first_entry = True
             self.waiting_for_response = False
             SpeechListener.stop_recognizer()
-            rospy.logdebug("Response Received: %s", self.response)
+            rospy.logwarn("Response Received: %s", self.response)
+            rospy.logwarn("lolok")
+            self.response_received = True
             return "ResponseReceived"
+        elif (self.response_received):
+            # Confirm response
+            rospy.loginfo("Confirming response")
+            SpeechListener.say_service("Please confirm: Did you say %s", self.response)
+            self.confirming_response = True
+            return "ConfirmingResponse"
+        elif (self.confirming_response):
+            # Do a listening for state that returns 
+            with self.confirmation_sm:
+                self.confirmation_sm = smach.StateMachine(outcomes=["yes", "no"])
+                self.confirmation_sm.add(ListeningState(
+             
+            
         
         return "AwaitingResponse"
            

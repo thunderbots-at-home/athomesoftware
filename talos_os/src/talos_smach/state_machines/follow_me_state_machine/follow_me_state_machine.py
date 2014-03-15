@@ -55,6 +55,9 @@ class FollowMeStateMachine(smach.StateMachine):
             transitions["QuestionAsked"] = "AskTheirNameState"
             transitions["AwaitingResponse"] = "AskTheirNameState"
             transitions["ResponseReceived"] = "TrackingUnidentifiedUserState"
+            transitions["ConfirmingResponse"] = "AskTheirNameState"
+            transitions["ConfirmedYes"] = "AskTheirNameState"
+            transitions["ConfirmedNo"] = "AskTheirNameState"
             smach.StateMachine.add("AskTheirNameState", questioning_state, transitions)
 
             # TRACKING UNIDENTIFIED USER STATE

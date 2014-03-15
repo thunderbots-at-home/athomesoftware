@@ -33,10 +33,20 @@ class ListeningState(smach.State):
             listen_for_all = rospy.ServiceProxy('listen_for_all', ListenForAll)
 
             words = []
-            words.append(self.utterance)
+            
+            if (isinstance(self.utterance, list)):
+                words = self.utterance
+            elif (isinstance(self.utterance, str)):
+                words.append(self.utterance)
+    
             response = listen_for_all(words)
-            if (response.result == self.utterance):
-                return "CommandDetected"
+            
+            if (isinstance(self.utterance, str)):
+                if (response.result == self.utterance):
+                    return "CommandDetected"
+            elif (isinstance(self.utterance, list)):
+                if (response.result in list):
+                    return "CommandDetected"
 
         except rospy.ServiceException, e:
             print "Service call failed: %s" %e
