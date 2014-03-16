@@ -47,13 +47,6 @@ class QuestioningState(smach.State):
         self.got_a_word = False
 
 
-    def say_service(self, words):
-        try:
-            say = rospy.ServiceProxy('say', ListenFor)
-            void = say(words)
-        except rospy.ServiceException, e:
-            print "Service call failed %s" %e
-
     def response_callback(self, data):
         if (self.CURRENT_MODE == self.AWAITING_RESPONSE_MODE and len(data.data) > 0):
             self.response = data.data
@@ -73,7 +66,8 @@ class QuestioningState(smach.State):
             self.CURRENT_MODE = self.AWAITING_RESPONSE_MODE
             rospy.logdebug("MODE: QUESTION ASK MODE")
             rospy.loginfo("UNDEFINED BEHAVIOUR BUG")
-            self.say_service(self.question)
+            SpeechListener.say(self.question)
+            rospy.loginfo("UNDEFINED BEHAVIOUR BUG")
             SpeechListener.start_recognizer()
             rospy.sleep(3)
             return "AwaitingQuestionResponse"
@@ -87,12 +81,12 @@ class QuestioningState(smach.State):
         if (self.CURRENT_MODE == self.CONFIRM_ANSWER_MODE):
             rospy.logdebug("MODE: CONFIRM_ANSWER_MODE")
             rospy.loginfo("BEFORE HEISENBUG")
-            self.say_service("Did you say " + self.response)
+            SpeechListener.say("Did you say " + self.response)
+            rospy.sleep(3)
             self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE_MODE
             SpeechListener.start_recognizer()
-            self.got_a_word = False
-            self.response = "NoResponse"
-            rospy.sleep(3)
+            #self.got_a_word = False
+            #self.response = "NoResponse"
             return "AwaitingConfirmationResponse"
 
         if (self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE_MODE):
