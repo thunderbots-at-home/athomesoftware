@@ -3,6 +3,6 @@
 
 <launch>
 
-<node pkg="talos_speech" name="speech_listener" type="speech_listener.py" output="screen"/>
+<node pkg="talos_audio" name="talos_audio_node" type="talos_audio.py" output="screen"/>
 
 </launch>
