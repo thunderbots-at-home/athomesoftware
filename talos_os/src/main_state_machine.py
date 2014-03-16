@@ -46,7 +46,7 @@ class MainStateMachine:
         with self.sm:
 
             # STARTUP STATE
-            smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'VoiceCommandLibraryState'})
+            #smach.StateMachine.add('InitialStandbyState', ListeningState("ok"),transitions={"NoCommandDetected":'InitialStandbyState', "CommandDetected":'VoiceCommandLibraryState'})
 
             utterances = {}
             utterances["follow"] = FollowMeStateMachine()
@@ -55,7 +55,7 @@ class MainStateMachine:
             transitions = {}
             transitions["WaitingForCommand"] = "VoiceCommandLibraryState"
             transitions["NoCommandDetected"] = "VoiceCommandLibraryState"
-            transitions["CommandTimeout"] = "InitialStandbyState"
+            transitions["CommandTimeout"] = "VoiceCommandLibraryState"
             transitions["follow"] = "FollowMeStateMachine"
 
             # Adding the voice commands to the library            
@@ -63,8 +63,8 @@ class MainStateMachine:
 
             # Add the state machines that it transitions to
             transitions = {}
-            transitions["Succeeded"] = "InitialStandbyState"
-            transitions["Failed"] = "InitialStandbyState"
+            transitions["Succeeded"] = "VoiceCommandLibraryState"
+            transitions["Failed"] = "VoiceCommandLibraryState"
             smach.StateMachine.add('FollowMeStateMachine', FollowMeStateMachine(), transitions)
 
 

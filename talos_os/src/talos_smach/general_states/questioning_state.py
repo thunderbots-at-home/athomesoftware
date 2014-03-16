@@ -88,9 +88,11 @@ class QuestioningState(smach.State):
             rospy.logdebug("MODE: CONFIRM_ANSWER_MODE")
             rospy.loginfo("BEFORE HEISENBUG")
             self.say_service("Did you say " + self.response)
-            rospy.sleep(3)
             self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE_MODE
             SpeechListener.start_recognizer()
+            self.got_a_word = False
+            self.response = "NoResponse"
+            rospy.sleep(3)
             return "AwaitingConfirmationResponse"
 
         if (self.CURRENT_MODE == self.AWAITING_CONFIRM_RESPONSE_MODE):
