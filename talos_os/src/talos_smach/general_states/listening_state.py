@@ -14,7 +14,7 @@ import rospy
 import smach
 import smach_ros
 from std_msgs.msg import String
-from talos_speech.srv import ListenForAll
+from talos_audio.srv import ListenForAll
 
 ############################# CLASS DEF ################################
 class ListeningState(smach.State):

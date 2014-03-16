@@ -23,8 +23,8 @@ import smach_ros
 from sound_play.msg import SoundRequest
 from std_msgs.msg import String
 from std_srvs.srv import Empty, EmptyRequest
-from talos_speech.srv import ListenFor
-from talos_speech.srv import ListenForAll
+from talos_audio.srv import ListenFor
+from talos_audio.srv import ListenForAll
 
 from listening_state import ListeningState
 
