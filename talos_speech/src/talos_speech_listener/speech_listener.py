@@ -107,7 +107,6 @@ class SpeechListener:
         except rospy.ServiceException, e:
             print "Service call failed %s" %e
  
-    
     def say(self, utterance):
         soundhandle = SoundClient()
         voice = "voice_kal_diphone"
