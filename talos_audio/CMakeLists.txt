@@ -2,7 +2,7 @@
 ## Maintainer: noobaca2@gmail.com
 
 cmake_minimum_required(VERSION 2.8.3)
-project(talos_speech)
+project(talos_audio)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -105,7 +105,7 @@ CATKIN_DEPENDS message_runtime message_generation
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
-install(PROGRAMS src/talos_speech_listener/speech_listener.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+install(PROGRAMS src/talos_audio/talos_audio.py DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS audio audio_node
