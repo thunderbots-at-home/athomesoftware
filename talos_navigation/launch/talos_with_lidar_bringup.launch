@@ -27,10 +27,10 @@
 <include file="$(find talos_sensors)/launch/start_speakers.launch"/>
 
 <!-- Speech recognizer -->
-<include file="$(find talos_speech)/launch/recognizer.launch"/>
+<include file="$(find talos_audio)/launch/recognizer.launch"/>
 
 <!-- Speech listener -->
-<!-- <include file="$(find talos_speech)/launch/listener.launch"/> -->
+<!-- <include file="$(find talos_audio)/launch/listener.launch"/> -->
 
 <!-- USE THIS IF TRACKING IS BEING DONE WITH AN INTEGRATED, OR UVC COMPATIBLE WEBCAM -->
 <!-- Start Object Tracking node -->

@@ -27,10 +27,10 @@
 <include file="$(find talos_sensors)/launch/start_speakers.launch"/>
 
 <!-- Speech recognizer -->
-<include file="$(find talos_speech)/launch/recognizer.launch"/>
+<include file="$(find talos_audio)/launch/recognizer.launch"/>
 
 <!-- Speech listener -->
-<!-- <include file="$(find talos_speech)/launch/listener.launch"/> -->
+<!-- <include file="$(find talos_audio)/launch/listener.launch"/> -->
 
 <!-- USE THIS IF TRACKING IS BEING DONE WITH AN INTEGRATED, OR UVC COMPATIBLE WEBCAM -->
 <!-- Start Object Tracking node -->
@@ -64,7 +64,7 @@
 <include file="$(find talos_navigation)/amcl_diff.launch" />
 
 
-<!-- Transform for kinect frame <node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" /> -->
+<node pkg="tf" type="static_transform_publisher" name="kinect_to_talos_base_footprint" args="0 0 0 0 0 0 talos_base_footprint camera_depth_frame 100" /> 
 
   <node pkg="tf" type="static_transform_publisher" name="odom_to_talos_base" args="0 0 0 0 0 0 odom talos_base_footprint 100" />
 
