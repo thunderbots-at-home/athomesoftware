@@ -7,12 +7,13 @@
 
 import roslib; roslib.load_manifest('talos_speech')
 import rospy
+import pyttsx
 
 from std_msgs.msg import String
 from std_srvs.srv import Empty, EmptyRequest
-from talos_speech.srv import ListenFor
-from talos_speech.srv import ListenForAll
-from talos_speech.srv import ListenForAny
+from talos_audio.srv import ListenFor
+from talos_audio.srv import ListenForAll
+from talos_audio.srv import ListenForAny
 from sound_play.libsoundplay import SoundClient
 
 
@@ -28,9 +29,10 @@ from sound_play.libsoundplay import SoundClient
 # 3.This is useful instead of putting a subscripter 
 # in every state/class/ for the smach state machine
 
-class SpeechListener:
+class TalosAudio:
 
     def __init__(self):
+        self.engine = pyttsx.init()
         self.old_word = "No words heard"
         self.heard_word = False
         self.listening = False
@@ -108,11 +110,8 @@ class SpeechListener:
             print "Service call failed %s" %e
  
     def say(self, utterance):
-        soundhandle = SoundClient()
-        voice = "voice_kal_diphone"
-        soundhandle.say(utterance.words, voice)
-        rospy.sleep(1)
-        return 127
+        self.engine.say(utterance)
+        self.engine.runAndWait()
 
 def main():
 
