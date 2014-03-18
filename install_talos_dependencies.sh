@@ -7,7 +7,7 @@ ROS_DISTRO="hydro"
 INSTALLATION_DIR="~/catkin_ws/src/athomesoftware/"
 mkdir ${INSTALLATION_DIR}/dependencies
 DEPENDENCIES_DIR="${INSTALLATION_DIR}/dependencies/"
-#commiztss
+#commiztsss
 ## Kinect related dependencies
 sudo apt-get install libusb-1.0-0-dev
 sudo apt-get install freeglut3-dev
